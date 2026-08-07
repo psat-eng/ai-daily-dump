@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Daily Dump — August 7, 2026</title>
+<style>
+  :root {
+    --bg: #0f1117;
+    --surface: #181c27;
+    --surface2: #1e2333;
+    --border: #2a2f42;
+    --text: #e2e4ed;
+    --muted: #7e849a;
+    --accent: #5b8ef0;
+    --accent2: #a78bfa;
+    --green: #34d399;
+    --orange: #fb923c;
+    --red: #f87171;
+    --yellow: #fbbf24;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+    font-size: 15px;
+    line-height: 1.65;
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 32px 20px 64px;
+  }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  /* Header */
+  .header {
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 20px;
+    margin-bottom: 32px;
+  }
+  .header-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 6px;
+  }
+  .header h1 {
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--text);
+  }
+  .header .subtitle {
+    color: var(--muted);
+    font-size: 13px;
+    margin-top: 4px;
+  }
+
+  /* Section */
+  .section { margin-bottom: 40px; }
+  .section-label {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 3px 8px;
+    border-radius: 4px;
+    margin-bottom: 16px;
+  }
+  .label-hot    { background: rgba(251,146,60,0.15); color: var(--orange); }
+  .label-new    { background: rgba(52,211,153,0.13); color: var(--green); }
+  .label-coming { background: rgba(167,139,250,0.15); color: var(--accent2); }
+  .label-reads  { background: rgba(91,142,240,0.13); color: var(--accent); }
+  .label-lesson { background: rgba(251,191,36,0.13); color: var(--yellow); }
+
+  /* Cards */
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 16px 18px;
+    margin-bottom: 12px;
+    transition: border-color 0.15s;
+  }
+  .card:hover { border-color: #3a4060; }
+  .card-title {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 5px;
+    line-height: 1.4;
+  }
+  .card-meta {
+    font-size: 12px;
+    color: var(--muted);
+    margin-bottom: 8px;
+  }
+  .card-meta .tag {
+    display: inline-block;
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    padding: 1px 6px;
+    font-size: 11px;
+    margin-right: 6px;
+  }
+  .card-body {
+    font-size: 14px;
+    color: #b5bad0;
+    line-height: 1.6;
+  }
+  .card-link {
+    display: inline-block;
+    margin-top: 8px;
+    font-size: 12px;
+    color: var(--accent);
+  }
+
+  /* Lesson card */
+  .lesson-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--yellow);
+    border-radius: 8px;
+    padding: 20px 20px;
+  }
+  .lesson-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 12px;
+  }
+  .lesson-body {
+    font-size: 14px;
+    color: #b5bad0;
+    line-height: 1.7;
+  }
+  .lesson-body p { margin-bottom: 10px; }
+  .lesson-body p:last-child { margin-bottom: 0; }
+
+  /* Pricing table */
+  .pricing-row {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-top: 8px;
+  }
+  .pricing-chip {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 3px 8px;
+    font-size: 12px;
+    color: var(--muted);
+  }
+  .pricing-chip strong { color: var(--text); }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-label">AI Daily Dump</div>
+  <h1>Friday, August 7, 2026</h1>
+  <div class="subtitle">What's worth knowing today in AI &amp; inference engineering</div>
+</div>
+
+<!-- WHAT'S HOT -->
+<div class="section">
+  <span class="section-label label-hot">🔥 What's Hot Right Now</span>
+
+  <div class="card">
+    <div class="card-title">China's open-weights pincer: Qwen 3.8-Max + DeepSeek V4-Flash are the talk of the week</div>
+    <div class="card-meta">
+      <span class="tag">Open Weights</span>
+      <span class="tag">August 3</span>
+    </div>
+    <div class="card-body">
+      Still reverberating through the community this week: Alibaba released Qwen 3.8-Max (2.4T total / 95B active MoE, 1M ctx) and is promising weights on Hugging Face next week — the first time its "Max"-tier model will be publicly downloadable. Alongside that, DeepSeek V4-Flash-0731 (284B, MIT license) benchmarks 40% cheaper per task than GPT-5.6 Luna. The Hugging Face CEO told CNBC China is "clearly dominating on open models right now." r/LocalLLaMA is buzzing on both. <strong>QwenCloud pricing: $2/$6 per MTok in/out. DeepSeek Flash: $0.14/$0.28.</strong>
+    </div>
+    <a class="card-link" href="https://www.theregister.com/ai-and-ml/2026/08/03/china-turns-up-the-heat-with-open-model-blitz-as-us-model-makers-panic/5282526" target="_blank">The Register deep-dive →</a>
+  </div>
+
+  <div class="card">
+    <div class="card-title">DeepSeek V4-Flash running locally on a DGX Spark — community validation underway</div>
+    <div class="card-meta">
+      <span class="tag">LocalLLaMA</span>
+      <span class="tag">Self-hosted</span>
+    </div>
+    <div class="card-body">
+      The Register tested DeepSeek V4-Flash on a $4,699 DGX Spark (128 GB unified memory) using Unsloth's IQ3-XXS quant in llama.cpp at 128K context. It works, with some expected quality tradeoff at 3-bit compression. The thread on r/LocalLLaMA tracking home-runs of the model (and the discussion around "DSpark" speculative decoding baked into the weights giving 57–85% more per-user throughput) is among the hottest this week. MIT license means no enterprise gating.
+    </div>
+    <a class="card-link" href="https://www.theregister.com/ai-and-ml/2026/08/03/china-turns-up-the-heat-with-open-model-blitz-as-us-model-makers-panic/5282526" target="_blank">Read more →</a>
+  </div>
+
+  <div class="card">
+    <div class="card-title">Claude Sonnet 5 pricing goes up 50% on September 1 — migration window is now</div>
+    <div class="card-meta">
+      <span class="tag">Anthropic</span>
+      <span class="tag">Pricing</span>
+    </div>
+    <div class="card-body">
+      Buried in the Qwen launch coverage: Anthropic's Claude Sonnet 5 output pricing is set to increase 50% starting September 1. Current: $2 input / $10 output per MTok. With Qwen 3.8-Max landing at Sonnet-5 quality for $6/MTok output (and open weights imminent), the competitive pressure is obvious. If you're building on Sonnet 5 and haven't already evaluated alternatives, this is your 24-day window.
+    </div>
+  </div>
+</div>
+
+<!-- NEW RELEASES -->
+<div class="section">
+  <span class="section-label label-new">✅ New Releases &amp; Updates</span>
+
+  <div class="card">
+    <div class="card-title">Meta Muse Spark 1.2 + Muse Code (beta) — August 5</div>
+    <div class="card-meta">
+      <span class="tag">Meta</span>
+      <span class="tag">Coding Agent</span>
+      <span class="tag">August 5</span>
+    </div>
+    <div class="card-body">
+      Meta Superintelligence Labs shipped Muse Spark 1.2 (54 on Artificial Analysis Intelligence Index, up from 51 for 1.1 and 43 for 1.0 in April) and, for the first time, a terminal coding agent: <strong>Muse Code</strong>. It's co-trained with the model, coordinates multi-agent subagents for complex repo-spanning tasks, and ships for macOS/Linux via <code>curl -fsSL https://dev.meta.ai/install.sh | bash</code>. Interesting pricing variant: a "contributor" tier at $0.10/$0.20 in/out (vs $1.25/$4.25 standard) in exchange for allowing Meta to train on your prompts.
+    </div>
+    <a class="card-link" href="https://research.meta.ai/blog/introducing-muse-code-and-muse-spark-1-2" target="_blank">Meta blog →</a>
+  </div>
+
+  <div class="card">
+    <div class="card-title">Simon Willison's <code>llm</code> tool — new release August 4</div>
+    <div class="card-meta">
+      <span class="tag">Tooling</span>
+      <span class="tag">Simon Willison</span>
+      <span class="tag">August 4</span>
+    </div>
+    <div class="card-body">
+      A new release of the <code>llm</code> Python CLI/library added support for reasoning traces, OpenAI Responses API, server-side tools, and smarter logging. If you use the <code>llm</code> package for scripting or local experimentation, worth upgrading.
+    </div>
+    <a class="card-link" href="https://simonwillison.net/2026/Aug/4/new-release-of-llm/" target="_blank">simonwillison.net →</a>
+  </div>
+</div>
+
+<!-- ON THE HORIZON -->
+<div class="section">
+  <span class="section-label label-coming">🔭 On the Horizon</span>
+
+  <div class="card">
+    <div class="card-title">Qwen 3.8-Max weights dropping on Hugging Face "next week"</div>
+    <div class="card-meta">
+      <span class="tag">Alibaba / Qwen</span>
+      <span class="tag">Announced</span>
+    </div>
+    <div class="card-body">
+      Alibaba confirmed the 2.4T MoE Qwen 3.8-Max weights, plus a 27B sibling model, will land on Hugging Face and ModelScope "starting next week." This would be the first open release of Alibaba's frontier-class model — expect the community to immediately start quantizing and fine-tuning.
+    </div>
+    <a class="card-link" href="https://www.developersdigest.tech/blog/qwen-3-8-max-release-2026" target="_blank">More details →</a>
+  </div>
+</div>
+
+<!-- ALSO WORTH READING -->
+<div class="section">
+  <span class="section-label label-reads">📚 Also Worth Reading</span>
+
+  <div class="card">
+    <div class="card-title">AMD acquires Taalas — model weights etched directly into silicon, 17K tokens/sec demos</div>
+    <div class="card-meta">
+      <span class="tag">Hardware</span>
+      <span class="tag">AMD</span>
+      <span class="tag">August 6</span>
+    </div>
+    <div class="card-body">
+      AMD announced the acquisition of Toronto-based Taalas, a startup that builds model-specific integrated circuits (MSICs): rather than using HBM for weights, the weights are literally etched into the chip's mask-ROM fabric. Their HC1 demo chip (6nm TSMC) served Llama 3.1 8B at 16,960 tok/sec — at the time, 48× faster than Nvidia GPUs. The tradeoff: changing a model beyond a LoRA requires a chip re-spin (though only 2 metal layers need to change). AMD plans to pair these with Instinct GPUs in a disaggregated setup: GPU handles prefill, Taalas handles decode.
+    </div>
+    <a class="card-link" href="https://www.theregister.com/systems/2026/08/06/amd-acquires-ai-chip-startup-taalas-to-boost-inference-performance-by-etching-models-into-silicon/5284344" target="_blank">The Register →</a>
+  </div>
+
+  <div class="card">
+    <div class="card-title">Microsoft warns engineers to stop "tokenmaxxing" — results over consumption</div>
+    <div class="card-meta">
+      <span class="tag">Microsoft</span>
+      <span class="tag">Industry</span>
+      <span class="tag">August 5</span>
+    </div>
+    <div class="card-body">
+      An internal email from Microsoft EVP Jay Parikh (seen by 404 Media) warned engineers against "tokenmaxxing" — burning through AI tokens to look productive rather than to achieve outcomes. Divisions will get consumption targets and could face restrictions. Worth noting: GitHub moved to usage-based AI billing in June. The practical takeaway for anyone building AI products: measuring tokens consumed ≠ measuring value delivered.
+    </div>
+    <a class="card-link" href="https://www.theregister.com/ai-and-ml/2026/08/05/microsoft-tells-engineers-to-curb-their-token-burning-enthusiasm/5283482" target="_blank">The Register →</a>
+  </div>
+
+  <div class="card">
+    <div class="card-title">Cloudflare exec: "Humans will be a rounding error on the internet" — machine traffic to surge 1000× in five years</div>
+    <div class="card-meta">
+      <span class="tag">Infrastructure</span>
+      <span class="tag">August 7</span>
+    </div>
+    <div class="card-body">
+      A Cloudflare exec speaking today predicted machine-generated internet traffic will increase 1,000× within five years as AI agents proliferate. The practical implication for inference engineers: the assumption that traffic patterns roughly follow human workday rhythms is going away. Agent-driven traffic is bursty, asynchronous, and latency-tolerant in ways human traffic isn't — which changes how you think about autoscaling and rate limiting.
+    </div>
+    <a class="card-link" href="https://www.theregister.com/networks/2026/08/07/humans-will-be-a-rounding-error-on-the-internet-says-cloudflare-exec/5284429" target="_blank">The Register →</a>
+  </div>
+</div>
+
+<!-- TODAY'S LESSON -->
+<div class="section">
+  <span class="section-label label-lesson">📖 Today's Lesson</span>
+  <div class="lesson-card">
+    <div class="lesson-title">Model-Specific Integrated Circuits (MSICs): what happens when you etch weights into silicon</div>
+    <div class="lesson-body">
+      <p>Conventional AI accelerators — GPUs, TPUs, even dataflow chips like Groq's LPUs — all share a fundamental bottleneck: model weights live in HBM (high-bandwidth memory) and must be read into compute units for every token generated. That memory bandwidth wall is why output throughput is so much harder to scale than peak FLOPS.</p>
+      <p>Taalas (acquired by AMD yesterday) takes a different approach: bake the weights directly into the chip's ROM fabric at manufacturing time. During inference, weights don't move at all — they're just there, in the silicon, as fixed transistor states. Compute happens in-place. The result is 10–50× better throughput per watt compared to GPU-based serving, and the HC1 demo chip hit ~17K tokens/sec for Llama 3.1 8B.</p>
+      <p>The obvious catch: you're committed to that exact model. A weight update larger than a LoRA adapter requires a chip re-spin — though Taalas claims only 2 metal layers need to change, making it cheaper than a full tapeout. The architecture also separates KV caches and LoRA adapters into SRAM regions so fine-tunes remain flexible.</p>
+      <p>The likely deployment pattern AMD is targeting is <em>disaggregated inference</em>: GPU handles the prefill (compute-heavy, varies by prompt), Taalas chips handle the decode (memory-bound, repetitive per-token work). This isn't that different from the CPU+GPU split in traditional inference — you're just optimizing each phase with purpose-built silicon. For a model you're confident will be stable (a well-validated production LLM, a fixed embedding model), MSICs make economic sense at scale. For anything still being iterated on, probably not yet.</p>
+    </div>
+  </div>
+</div>
+
+<div style="text-align:center; color: var(--muted); font-size: 12px; margin-top: 48px; border-top: 1px solid var(--border); padding-top: 20px;">
+  Generated August 7, 2026 · AI Daily Dump
+</div>
+
+</body>
+</html>

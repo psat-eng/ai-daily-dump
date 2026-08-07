@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Daily Dump — August 3, 2026</title>
+<style>
+  :root {
+    --bg: #0f1117;
+    --surface: #171b26;
+    --surface2: #1e2333;
+    --border: #2a2f42;
+    --text: #e2e5f0;
+    --muted: #7b829a;
+    --accent: #5b8af5;
+    --accent2: #a78bfa;
+    --green: #34d399;
+    --amber: #fbbf24;
+    --red: #f87171;
+    --tag-hot: #2d1a0a;
+    --tag-hot-text: #fb923c;
+    --tag-release: #0a1f2d;
+    --tag-release-text: #38bdf8;
+    --tag-horizon: #1a1030;
+    --tag-horizon-text: #c084fc;
+    --tag-lesson: #0f1f0a;
+    --tag-lesson-text: #86efac;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+    font-size: 15px;
+    line-height: 1.65;
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 32px 20px 80px;
+  }
+
+  .header {
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 20px;
+    margin-bottom: 36px;
+  }
+  .header-eyebrow {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 6px;
+  }
+  .header h1 {
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--text);
+    letter-spacing: -0.02em;
+  }
+  .header-meta {
+    margin-top: 6px;
+    font-size: 13px;
+    color: var(--muted);
+  }
+
+  .section-label {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 3px 9px;
+    border-radius: 4px;
+    margin-bottom: 12px;
+  }
+  .label-hot     { background: var(--tag-hot);     color: var(--tag-hot-text); }
+  .label-release { background: var(--tag-release); color: var(--tag-release-text); }
+  .label-horizon { background: var(--tag-horizon); color: var(--tag-horizon-text); }
+  .label-lesson  { background: var(--tag-lesson);  color: var(--tag-lesson-text); }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 18px 20px;
+    margin-bottom: 12px;
+  }
+  .card-title {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 6px;
+    line-height: 1.4;
+  }
+  .card-title a {
+    color: inherit;
+    text-decoration: none;
+  }
+  .card-title a:hover { color: var(--accent); }
+  .card-body {
+    font-size: 13.5px;
+    color: var(--muted);
+    line-height: 1.6;
+  }
+  .card-body strong { color: var(--text); }
+  .card-meta {
+    font-size: 11.5px;
+    color: var(--muted);
+    margin-top: 8px;
+    opacity: 0.7;
+  }
+
+  .stat-row {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 10px;
+  }
+  .stat {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 5px 11px;
+    font-size: 12px;
+  }
+  .stat-value { font-weight: 700; color: var(--text); }
+  .stat-label { color: var(--muted); margin-left: 4px; }
+
+  .lesson-body {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--green);
+    border-radius: 10px;
+    padding: 20px 22px;
+  }
+  .lesson-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 12px;
+    line-height: 1.35;
+  }
+  .lesson-body p {
+    font-size: 13.5px;
+    color: #b0b8cc;
+    line-height: 1.7;
+    margin-bottom: 10px;
+  }
+  .lesson-body p:last-child { margin-bottom: 0; }
+
+  section { margin-bottom: 40px; }
+  hr { border: none; border-top: 1px solid var(--border); margin: 32px 0; }
+
+  .footer {
+    font-size: 12px;
+    color: var(--muted);
+    border-top: 1px solid var(--border);
+    padding-top: 20px;
+    margin-top: 48px;
+    opacity: 0.6;
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-eyebrow">AI Daily Dump</div>
+  <h1>Monday, August 3, 2026</h1>
+  <div class="header-meta">Fresh every morning &middot; Last 48 hours only &middot; ~3 min read</div>
+</div>
+
+
+<!-- WHAT'S HOT -->
+<section>
+  <span class="section-label label-hot">&#x1F525; What's Hot Right Now</span>
+
+  <div class="card">
+    <div class="card-title">
+      <a href="https://www.marktechpost.com/2026/08/03/alibaba-qwen-releases-qwen3-8-max/" target="_blank">
+        Qwen3.8-Max drops &mdash; r/LocalLLaMA immediately asks "when are the open weights?"
+      </a>
+    </div>
+    <div class="card-body">
+      Alibaba/Qwen released <strong>Qwen3.8-Max</strong> today, a 2.4 trillion-parameter MoE model that activates only 95B params per request. It claims to beat Claude Fable 5 and GPT-5.6 Sol on 7 coding tasks and 36 multimodal benchmarks &mdash; community reception is cautiously optimistic but waiting for independent evals. The actual r/LocalLLaMA energy isn't the benchmark numbers; it's the open-weights promise: Alibaba says weights land on Hugging Face and ModelScope <strong>next week</strong>. Nobody's running 2.4T locally, but a distilled variant is already being demanded.
+      <div class="stat-row">
+        <div class="stat"><span class="stat-value">2.4T</span><span class="stat-label">total params</span></div>
+        <div class="stat"><span class="stat-value">95B</span><span class="stat-label">activated / token</span></div>
+        <div class="stat"><span class="stat-value">1M</span><span class="stat-label">context tokens</span></div>
+        <div class="stat"><span class="stat-value">$2 / $6</span><span class="stat-label">in / out per MTok</span></div>
+      </div>
+    </div>
+    <div class="card-meta">Neowin &middot; Bloomberg &middot; MarkTechPost &middot; Aug 2&ndash;3, 2026</div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">
+      <a href="https://www.marktechpost.com/2026/07/31/deepseek-upgrades-deepseek-v4-flash-0731-with-major-agentic-and-coding-gains/" target="_blank">
+        DeepSeek-V4-Flash-0731: production release with agentic overhaul, ships with speculative decoding baked in
+      </a>
+    </div>
+    <div class="card-body">
+      DeepSeek promoted V4-Flash to production on July 31 as <strong>DeepSeek-V4-Flash-0731</strong>. Not a new architecture &mdash; it's a re-post-training pass with substantially better agentic performance: Terminal Bench 2.1 hits 82.7, Cybergym 76.7, DeepSWE 54.4. The inference angle is interesting: the checkpoint ships with the <strong>DSpark speculative decoding module</strong> attached, reducing decode latency without changing base weights. Pricing remains absurd: <strong>$0.0028/MTok on a cache hit</strong>, $0.28/MTok output. Available on Fireworks AI and DeepInfra now.
+      <div class="stat-row">
+        <div class="stat"><span class="stat-value">284B / 13B</span><span class="stat-label">total / activated</span></div>
+        <div class="stat"><span class="stat-value">$0.28</span><span class="stat-label">per MTok output</span></div>
+        <div class="stat"><span class="stat-value">82.7</span><span class="stat-label">Terminal Bench 2.1</span></div>
+      </div>
+    </div>
+    <div class="card-meta">MarkTechPost &middot; Pandaily &middot; simonwillison.net &middot; Jul 31, 2026</div>
+  </div>
+
+</section>
+
+
+<!-- NEW RELEASES -->
+<section>
+  <span class="section-label label-release">&#x1F4E6; New Releases &amp; Updates</span>
+
+  <div class="card">
+    <div class="card-title">
+      <a href="https://agentdepot.dev/blog/cursor-windsurf-claude-code-whats-new-mid-2026" target="_blank">
+        Cursor v3.11: Side Chats for parallel agent runs, Cloud Agent Hooks
+      </a>
+    </div>
+    <div class="card-body">
+      Cursor's v3.11 release adds <strong>Side Chats</strong> &mdash; multiple independent agent sessions running simultaneously against the same codebase &mdash; plus Conversation Search and Cloud Agent Hooks. The hooks let you attach pre/post-step logic to agent runs via webhook or script, which matters for teams who need audit trails or want to gate agent actions before they land. Parallel agent sessions as the default UX is now table stakes across every major coding tool.
+    </div>
+    <div class="card-meta">AgentDepot &middot; Developers Digest &middot; Late Jul / Early Aug 2026</div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">
+      <a href="https://www.developersdigest.tech/blog/best-ai-coding-tools-june-2026-post-fable5" target="_blank">
+        Claude Sonnet 5 promo pricing ($2/$10 per MTok) confirmed through August 31
+      </a>
+    </div>
+    <div class="card-body">
+      Anthropic confirmed the promotional rate on <strong>Claude Sonnet 5</strong> runs through end of August. Claude Opus 5 (launched July 24 at $5/$25 per MTok) is now available in Claude Code Max. If you're running agentic loops at volume and have been on Fable 5 pricing, this is a meaningful window to benchmark Sonnet 5's capability-per-dollar before rates normalize.
+    </div>
+    <div class="card-meta">Developers Digest &middot; Aug 2026</div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">
+      <a href="https://www.morphllm.com/best-ai-coding-agents-2026" target="_blank">
+        GitHub Copilot begins rolling out Project Polaris, retiring GPT-4 Turbo as default backbone
+      </a>
+    </div>
+    <div class="card-body">
+      GitHub is swapping out GPT-4 Turbo inside Copilot for <strong>Project Polaris</strong> this month, starting with enterprise customers. No public detail on what Polaris is built on. Worth flagging if your team's workflows assume consistent Copilot behavior across seats &mdash; prompt response patterns may shift.
+    </div>
+    <div class="card-meta">Morph LLM &middot; Aug 2026</div>
+  </div>
+
+</section>
+
+
+<!-- ON THE HORIZON -->
+<section>
+  <span class="section-label label-horizon">&#x1F52D; On the Horizon</span>
+
+  <div class="card">
+    <div class="card-title">Qwen3.8-Max open weights &mdash; expected this week</div>
+    <div class="card-body">
+      Alibaba's Qwen team said weights will be posted to Hugging Face and ModelScope "next week" from the August 2 announcement. If that holds, expect the 2.4T checkpoint mid-week and community quants (GGUF, AWQ, EXL2) to follow within 24&ndash;48 hours. Watch the <strong>Qwen org on Hugging Face</strong> and r/LocalLLaMA. A smaller distilled variant that actually runs on prosumer hardware hasn't been confirmed but demand is already loud.
+    </div>
+    <div class="card-meta">Qwen / Alibaba announcement &middot; Aug 2, 2026</div>
+  </div>
+
+</section>
+
+
+<hr>
+
+
+<!-- TODAY'S LESSON -->
+<section>
+  <span class="section-label label-lesson">Today's Lesson</span>
+  <div class="lesson-body">
+    <div class="lesson-title">Prefill&ndash;Decode Disaggregation: why big inference clusters split the two phases across separate hardware</div>
+
+    <p>Every LLM request runs two computationally distinct phases. <strong>Prefill</strong> processes the full input prompt in parallel to build the KV cache &mdash; it's compute-bound, saturates GPU SMs beautifully, and completes quickly. <strong>Decode</strong> then generates one token at a time, loading weights and the growing KV cache from VRAM on every step &mdash; it's memory-bandwidth-bound and takes as long as the output is tokens.</p>
+
+    <p>Colocating both on the same hardware forces a bad tradeoff: when prefill fires for a new request, it stalls the decode pass for every other in-flight request, spiking time-to-first-token (TTFT) for arrivals. <strong>Prefill-decode (PD) disaggregation</strong> splits them onto separate node pools. Prefill runs on compute-dense hardware (H100 SXM, B100); decode runs on memory-bandwidth-heavy hardware (H200, or more GPUs with slower compute). Each pool scales independently: add decode nodes to fix throughput, add prefill nodes to fix TTFT.</p>
+
+    <p>This is production reality now, not research. DeepSeek's API, Google Gemini's serving stack, and AWS SageMaker HyperPod all use PD disaggregation. vLLM and SGLang both support it natively. The main operational wrinkle is the KV-cache transfer between the two pools &mdash; which is why network topology (NVLink vs. InfiniBand vs. ethernet) matters so much and is still an active research area. There's a paper on exactly this in today's arXiv feed: <em>Topology-Aware Data Movement for Disaggregated GPU Inference</em>. DeepSeek-V4-Flash-0731 shipping with DSpark speculative decoding is a complementary trick: a small draft model generates candidate tokens on the decode side, letting you use the memory-bandwidth budget more efficiently between KV transfers from the prefill pool.</p>
+
+    <p>Practical upshot: if you're self-hosting a large MoE (Qwen3.8, DeepSeek V4) and hitting latency ceilings under load, PD disaggregation is the architectural lever to reach for before you throw more uniform GPU memory at the problem.</p>
+  </div>
+</section>
+
+
+<div class="footer">
+  Generated August 3, 2026 &middot; Sources: Neowin, Bloomberg, MarkTechPost, Pandaily, simonwillison.net, Developers Digest, AgentDepot, Morph LLM, llm-stats.com, arxiv.org &middot; All items verified &le;72h
+</div>
+
+</body>
+</html>

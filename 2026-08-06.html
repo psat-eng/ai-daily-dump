@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Daily Dump — August 6, 2026</title>
+<style>
+  :root {
+    --bg: #0e0e10;
+    --surface: #18181b;
+    --border: #27272a;
+    --text: #e4e4e7;
+    --muted: #71717a;
+    --accent: #6366f1;
+    --accent-dim: #1e1e3f;
+    --green: #22c55e;
+    --green-dim: #052e16;
+    --amber: #f59e0b;
+    --amber-dim: #1c1500;
+    --red: #f87171;
+    --red-dim: #200a0a;
+
+    --tag-hot: #1a0a00;
+    --tag-hot-text: #fb923c;
+    --tag-release: #0a1a00;
+    --tag-release-text: #86efac;
+    --tag-horizon: #0a0a1a;
+    --tag-horizon-text: #818cf8;
+    --tag-lesson: #0f1f0a;
+    --tag-lesson-text: #86efac;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+    font-size: 15px;
+    line-height: 1.65;
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 2.5rem 1.5rem 4rem;
+  }
+
+  header {
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 1.25rem;
+    margin-bottom: 2rem;
+  }
+
+  .header-eyebrow {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 0.3rem;
+  }
+
+  header h1 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text);
+    letter-spacing: -0.02em;
+  }
+
+  header .subtitle {
+    font-size: 13px;
+    color: var(--muted);
+    margin-top: 0.25rem;
+  }
+
+  .section-label {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 2px 8px;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+  }
+
+  .label-hot      { background: var(--tag-hot);      color: var(--tag-hot-text); }
+  .label-release  { background: var(--tag-release);  color: var(--tag-release-text); }
+  .label-horizon  { background: var(--tag-horizon);  color: var(--tag-horizon-text); }
+  .label-lesson   { background: var(--tag-lesson);   color: var(--tag-lesson-text); }
+
+  section { margin-bottom: 2.5rem; }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1.1rem 1.25rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .card-title {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 0.35rem;
+    line-height: 1.4;
+  }
+
+  .card-title a {
+    color: inherit;
+    text-decoration: none;
+  }
+  .card-title a:hover { color: var(--accent); }
+
+  .card-meta {
+    font-size: 11px;
+    color: var(--muted);
+    margin-bottom: 0.55rem;
+  }
+
+  .card p {
+    font-size: 0.875rem;
+    color: #a1a1aa;
+    line-height: 1.6;
+  }
+
+  .card p + p { margin-top: 0.5rem; }
+
+  .pill {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 600;
+    padding: 1px 7px;
+    border-radius: 99px;
+    margin-right: 4px;
+    vertical-align: middle;
+  }
+  .pill-hn  { background: #2a1a00; color: #fb923c; }
+  .pill-hf  { background: #1a1a00; color: #fde68a; }
+  .pill-lab { background: #001a10; color: #6ee7b7; }
+  .pill-sec { background: #1a0000; color: #fca5a5; }
+  .pill-paper { background: #0a0a1a; color: #a5b4fc; }
+  .pill-hardware { background: #0a1a1a; color: #67e8f9; }
+  .pill-funding  { background: #0a0a1a; color: #d8b4fe; }
+  .pill-blog     { background: #1a1000; color: #fde68a; }
+
+  .tag-further { background: #141414; }
+  --tag-further: #141414;
+  --tag-further-text: #a1a1aa;
+
+  .lesson-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--accent);
+    border-radius: 8px;
+    padding: 1.25rem 1.4rem;
+  }
+
+  .lesson-title {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 0.75rem;
+    letter-spacing: -0.01em;
+  }
+
+  .lesson-card p {
+    font-size: 0.875rem;
+    color: #a1a1aa;
+    line-height: 1.7;
+  }
+
+  .lesson-card p + p { margin-top: 0.65rem; }
+
+  .lesson-card code {
+    font-family: "SF Mono", "Fira Code", monospace;
+    font-size: 0.8rem;
+    background: #27272a;
+    padding: 1px 5px;
+    border-radius: 3px;
+    color: #c4b5fd;
+  }
+
+  footer {
+    border-top: 1px solid var(--border);
+    padding-top: 1rem;
+    font-size: 12px;
+    color: var(--muted);
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-eyebrow">AI Daily Dump</div>
+  <h1>August 6, 2026</h1>
+  <p class="subtitle">For Pranesh &mdash; inference engineer edition &mdash; ~3 min read</p>
+</header>
+
+<!-- WHAT'S HOT -->
+<section>
+  <span class="section-label label-hot">🔥 What's Hot Right Now</span>
+
+  <div class="card">
+    <div class="card-title">
+      <a href="https://9to5google.com/2026/08/05/demis-hassabis-deepmind/" target="_blank">
+        Demis Hassabis steps back as DeepMind CEO &mdash; Jeff Dean departs after 27 years
+      </a>
+    </div>
+    <div class="card-meta">
+      <span class="pill pill-lab">Google DeepMind</span>
+      Aug 5, 2026 &mdash; 548 HN comments, Alphabet down ~4%
+    </div>
+    <p>Hassabis moves to Executive Chair of Google DeepMind and takes the title of Chief Scientist at Alphabet, handing off day-to-day operations to focus on "the big picture." Simultaneously, Jeff Dean — the man behind MapReduce, TensorFlow, and Google Brain — leaves after 27 years to co-found <strong>Discovery Loop</strong>, a public benefit corporation aimed at automating ML research and scientific discovery. He's joined by Sanjay Ghemawat, Oriol Vinyals, and Quoc Le. Google is investing in the new venture.</p>
+    <p>This is one of the biggest leadership exits the AI era has seen. Discovery Loop being structured as a PBC (like Anthropic was originally) is worth noting &mdash; suggests a safety-forward framing from the start.</p>
+  </div>
+
+  <div class="card">
+    <div class="card-title">
+      <a href="https://blog.cloudflare.com/cloudflare-os/" target="_blank">
+        Cloudflare OS goes open source &mdash; an agent workspace for the enterprise
+      </a>
+    </div>
+    <div class="card-meta">
+      <span class="pill pill-hn">HN #8 &mdash; 445pts</span>
+      Aug 5, 2026
+    </div>
+    <p>As part of "Agents Week," Cloudflare open-sourced the internal agentic platform it's been running company-wide since May. It bundles three things: an AI agent workspace, a security layer called <strong>Gatekeepers</strong> (agents start with zero access; every resource read is logged and follows the output), and a way to ship full-stack apps as Cloudflare Workers. The zero-trust-by-default approach to agent permissions is the real story here — it's a practical answer to the "how do you let agents touch real systems without blowing up your security posture" problem.</p>
+  </div>
+
+  <div class="card">
+    <div class="card-title">
+      <a href="https://earendil.com/posts/pi-autoresearch-and-databricks/" target="_blank">
+        Pi coding agent &mdash; Databricks validates the minimalism thesis
+      </a>
+    </div>
+    <div class="card-meta">
+      <span class="pill pill-hn">HN #1 &mdash; 510pts</span>
+      Aug 5, 2026 &mdash; 275 comments
+    </div>
+    <p>Pi (by Mario Zechner / Earendil) is a coding agent that fits its entire system prompt + tool definitions under 1,000 tokens and ships with exactly 4 tools. Databricks published benchmarks on their multi-million line codebase and Pi outperforms heavier harnesses. The community reaction is strong: practitioners are finding that vanilla Pi beats out-of-the-box Aider and Claude Code on real codebases, and adding extensions is optional. If you're building agentic coding pipelines and haven't looked at Pi yet, this is the moment.</p>
+  </div>
+</section>
+
+<!-- NEW RELEASES & UPDATES -->
+<section>
+  <span class="section-label label-release">📦 New Releases &amp; Updates</span>
+
+  <div class="card">
+    <div class="card-title">
+      <a href="https://arxiv.org/abs/2607.29377" target="_blank">
+        Zero-Mem: agent memory with zero LLM token cost
+      </a>
+    </div>
+    <div class="card-meta">
+      <span class="pill pill-paper">arXiv</span>
+      <span class="pill pill-hn">HN &mdash; 92pts</span>
+      Aug 5, 2026
+    </div>
+    <p>Fresh paper (arXiv:2607.29377) that eliminates LLM calls from memory operations entirely. Instead of using an LLM to write/retrieve memories, Zero-Mem uses encoder-only models organized into an <strong>entity-context graph</strong> (for cross-session connections) and a <strong>temporal hierarchy</strong> (for conversational locality). Result: 57.6% faster memory operations than the fastest existing baseline, competitive QA accuracy. Directly relevant if you're building long-running agents and burning tokens on memory management.</p>
+  </div>
+
+  <div class="card">
+    <div class="card-title">
+      <a href="https://www.promptarmor.com/resources/atlassian-rovo-exfiltrates-data" target="_blank">
+        Atlassian Rovo: zero-click data exfiltration via indirect prompt injection
+      </a>
+    </div>
+    <div class="card-meta">
+      <span class="pill pill-sec">Security</span>
+      <span class="pill pill-hn">HN &mdash; 155pts</span>
+      Disclosed Aug 5, 2026 (reported May 23)
+    </div>
+    <p>PromptArmor found that Rovo (Atlassian's AI agent across Jira + Confluence) can be weaponized via a document containing injected instructions — no human approval step, no click required. The attack uses Rovo's URL retrieval tool to ship data out even when web search is disabled organization-wide. Disclosure was May 23; Atlassian's detailed response didn't come until the report went public this week. If your org runs Rovo, treat anything it has read access to as potentially exposed until Atlassian patches the retrieval path.</p>
+  </div>
+
+  <div class="card">
+    <div class="card-title">
+      <a href="https://flowiseai.com/sunset" target="_blank">
+        Flowise is shutting down
+      </a>
+    </div>
+    <div class="card-meta">
+      <span class="pill pill-hn">HN &mdash; 58pts</span>
+      Aug 5, 2026
+    </div>
+    <p>Flowise — one of the most popular open-source drag-and-drop LLM flow builders — is sunsetting. If you have production flows built on it, start planning a migration. The closure fits a broader pattern: no-code LLM wrappers from 2023-24 are struggling to find sustainable ground as the underlying APIs have gotten better and developers are more comfortable building directly.</p>
+  </div>
+</section>
+
+<!-- ON THE HORIZON -->
+<section>
+  <span class="section-label label-horizon">🔭 On the Horizon</span>
+
+  <div class="card">
+    <div class="card-title">
+      Discovery Loop &mdash; Jeff Dean's new PBC for AI-driven science
+    </div>
+    <div class="card-meta">
+      <span class="pill pill-lab">Announced</span>
+      Aug 5, 2026
+    </div>
+    <p>Not yet a product — just an announcement — but worth watching closely. Dean + Ghemawat + Vinyals + Quoc Le in one shop, focused on automating machine learning research and scientific engineering. Google is investing. Given this team's track record (TPUs, AlphaFold lineage, Seq2Seq), whatever they ship in the inference / ML-for-science space will matter.</p>
+  </div>
+</section>
+
+<!-- ALSO WORTH READING -->
+<section>
+  <span class="section-label" style="background:#1a1218;color:#c084fc;">📰 Also Worth Reading</span>
+
+  <div class="card">
+    <div class="card-title">
+      <a href="https://www.cnbc.com/2026/08/06/amd-buys-taalas-startup-that-hardwires-ai-models-into-its-silicon.html" target="_blank">
+        AMD acquires Taalas — the startup that etches AI models directly into silicon
+      </a>
+    </div>
+    <div class="card-meta">
+      <span class="pill pill-hardware">Hardware</span>
+      CNBC &mdash; Aug 6, 2026
+    </div>
+    <p>Taalas (Toronto, founded 2023) came out of stealth in February with a demo chip doing <strong>16,000+ tokens/sec per user on Llama3.1-8B</strong> — multiples of what current-gen AMD/Nvidia hardware achieves. Their approach: don't build a general-purpose accelerator, bake a specific model's weight layout directly into the silicon. AMD's acquisition folds this specialized inference expertise into its accelerator roadmap. This is the same play as Nvidia's ~$20B Groq buy but from the other direction. Deal expected to close Q4, terms undisclosed.</p>
+    <p>Worth watching: model-specific silicon is a bet that a small set of dominant models (Llama-family, Qwen, etc.) will be stable enough to warrant custom chips. If the model landscape consolidates, this approach wins big on cost and throughput.</p>
+  </div>
+
+  <div class="card">
+    <div class="card-title">
+      <a href="https://thenextweb.com/news/lumilens-700m-stealth-5-51bn-ai-optical-interconnect" target="_blank">
+        Lumilens raises $700M to replace data center copper with light
+      </a>
+    </div>
+    <div class="card-meta">
+      <span class="pill pill-funding">Funding</span>
+      The Next Web &mdash; Aug 2026
+    </div>
+    <p>Two-year-old Lumilens just raised $700M+ (total: $900M+, valuation: $5.51B) for optical interconnects — replacing copper wires between GPUs and between racks with light. The CEO's framing: <em>"The constraint on AI has shifted from how many GPUs you can buy to how many you can connect."</em> They're already shipping into a hyperscaler's live data centers under a deal reportedly worth billions. Backers include Atreides, Bain Capital, Meritech, Qualcomm Ventures, and JPMorgan.</p>
+    <p>The photonics funding wave is real this year. This is the infrastructure layer that makes scaling to 100k+ GPU clusters tractable — electrical signals hit bandwidth and heat limits at rack scale, light doesn't.</p>
+  </div>
+
+  <div class="card">
+    <div class="card-title">
+      <a href="https://openai.com/index/continuous-voice-interaction-with-gpt-live/" target="_blank">
+        How OpenAI built GPT-Live: full-duplex voice AI in six months
+      </a>
+    </div>
+    <div class="card-meta">
+      <span class="pill pill-blog">Engineering Blog</span>
+      OpenAI &mdash; Aug 3, 2026
+    </div>
+    <p>This is a genuinely good infrastructure post. GPT-Live removes the turn detector from the audio path entirely — the voice model is full-duplex (listens and speaks simultaneously). Deeper reasoning delegates async to GPT-5.5 without blocking the audio stream. The engineering highlights: (1) <strong>WARP protocol</strong> — their new open WebRTC extension that cuts media+data startup from 6 network round-trips to 1, now being proposed through IETF; (2) <strong>seamless context compaction</strong> — when the KV cache grows too large, they warm a new model instance in parallel, prefill it, then hot-swap without any audio gap; (3) the media frontend is rewritten in Go (from Python asyncio), with p95 matching the old system's p50; (4) they shadow-tested on real production traffic before launch, which revealed that CPU stream handlers — not GPUs — were the actual bottleneck under voice load.</p>
+    <p>If you're building any kind of streaming AI system, the architecture section on separating the media fast-path from application/business logic is worth reading carefully.</p>
+  </div>
+</section>
+
+<!-- TODAY'S LESSON -->
+<section>
+  <span class="section-label label-lesson">📖 Today's Lesson</span>
+
+  <div class="lesson-card">
+    <div class="lesson-title">Prefix Caching: why your system prompt shouldn't cost tokens twice</div>
+    <p>Every time you send a request to an LLM, the model has to compute attention over every token in the prompt — including the system prompt that's identical across every single call. Prefix caching is the fix: the inference engine computes the KV (key-value) cache for a shared prefix <em>once</em>, stores it, and reuses it on subsequent requests that start with the same prefix. The KV cache is the materialized attention state — the intermediate tensor that captures what each token "knows" about every prior token. Reusing it skips all the compute for those tokens.</p>
+    <p>In practice, a 2,000-token system prompt that's cached hits the model as if it's a 0-token prefix for all subsequent calls. This collapses Time-to-First-Token (TTFT) dramatically, especially for short follow-up turns. vLLM calls this <code>prefix_caching</code>; SGLang calls it <code>RadixAttention</code> (it uses a radix tree to cache arbitrary shared prefixes, not just a fixed system prompt). Anthropic's prompt caching product is the API-layer version of the same idea.</p>
+    <p>The tricky part is cache invalidation: the prefix must match <em>exactly</em> — a single character difference creates a cache miss. This means you should keep your system prompt stable across a session and put variable content (user data, context) <em>after</em> the static prefix. In multi-tenant deployments, prefix caching also reduces GPU memory pressure because the same KV tensors are shared across users hitting the same model config. The result: lower cost and lower latency, for free, just by structuring your prompts correctly.</p>
+  </div>
+</section>
+
+<footer>
+  Sources: <a href="https://news.ycombinator.com/front" style="color: var(--muted)">Hacker News (Aug 5)</a> &middot;
+  <a href="https://9to5google.com/2026/08/05/demis-hassabis-deepmind/" style="color: var(--muted)">9to5Google</a> &middot;
+  <a href="https://siliconangle.com/2026/08/05/cloudflare-launches-cloudflare-os-open-source-ai-agentic-workspace-enterprise/" style="color: var(--muted)">SiliconAngle</a> &middot;
+  <a href="https://arxiv.org/abs/2607.29377" style="color: var(--muted)">arXiv:2607.29377</a> &middot;
+  <a href="https://www.promptarmor.com/resources/atlassian-rovo-exfiltrates-data" style="color: var(--muted)">PromptArmor</a>
+</footer>
+
+</body>
+</html>
