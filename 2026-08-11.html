@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Daily Dump — August 11, 2026</title>
+<style>
+  :root {
+    --bg: #0f1117;
+    --surface: #161b27;
+    --surface2: #1c2233;
+    --border: #252d40;
+    --text: #e2e8f0;
+    --muted: #8892a4;
+    --accent: #5b8ef0;
+    --accent2: #7c6af7;
+    --green: #4ade80;
+    --orange: #fb923c;
+    --red: #f87171;
+    --yellow: #fbbf24;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+    font-size: 15px;
+    line-height: 1.65;
+    padding: 0 0 80px;
+  }
+
+  .header {
+    border-bottom: 1px solid var(--border);
+    padding: 28px 0 22px;
+    margin-bottom: 36px;
+  }
+  .header-inner {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+  .header-eyebrow {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 6px;
+  }
+  .header-title {
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--text);
+    letter-spacing: -0.02em;
+  }
+  .header-date {
+    font-size: 13px;
+    color: var(--muted);
+    margin-top: 4px;
+  }
+
+  .main {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  section {
+    margin-bottom: 44px;
+  }
+
+  .section-label {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 3px 9px;
+    border-radius: 4px;
+    margin-bottom: 16px;
+  }
+  .label-hot { background: rgba(251,146,60,0.15); color: var(--orange); }
+  .label-releases { background: rgba(74,222,128,0.12); color: var(--green); }
+  .label-horizon { background: rgba(124,106,247,0.15); color: var(--accent2); }
+  .label-reading { background: rgba(91,142,240,0.12); color: var(--accent); }
+  .label-lesson { background: rgba(251,191,36,0.12); color: var(--yellow); }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 18px 20px;
+    margin-bottom: 12px;
+    transition: border-color 0.15s;
+  }
+  .card:hover { border-color: #3a4060; }
+
+  .card-title {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 6px;
+    line-height: 1.4;
+  }
+  .card-title a {
+    color: inherit;
+    text-decoration: none;
+  }
+  .card-title a:hover { color: var(--accent); }
+
+  .card-meta {
+    font-size: 11px;
+    color: var(--muted);
+    margin-bottom: 8px;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  .tag {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 600;
+    padding: 2px 7px;
+    border-radius: 3px;
+    letter-spacing: 0.04em;
+  }
+  .tag-new { background: rgba(74,222,128,0.12); color: var(--green); }
+  .tag-tool { background: rgba(91,142,240,0.12); color: var(--accent); }
+  .tag-hot { background: rgba(251,146,60,0.15); color: var(--orange); }
+  .tag-model { background: rgba(124,106,247,0.15); color: var(--accent2); }
+  .tag-safety { background: rgba(248,113,113,0.12); color: var(--red); }
+
+  .card-body {
+    font-size: 14px;
+    color: #b8c4d4;
+    line-height: 1.65;
+  }
+  .card-body p + p { margin-top: 8px; }
+
+  .hn-stat {
+    font-size: 11px;
+    color: var(--orange);
+    font-weight: 500;
+  }
+
+  .lesson-card {
+    background: linear-gradient(135deg, #161b27 0%, #1a1f32 100%);
+    border: 1px solid #2a3350;
+    border-radius: 10px;
+    padding: 22px 24px;
+  }
+  .lesson-title {
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 14px;
+    letter-spacing: -0.01em;
+    line-height: 1.3;
+  }
+  .lesson-body {
+    font-size: 14px;
+    color: #b8c4d4;
+    line-height: 1.7;
+  }
+  .lesson-body p + p { margin-top: 10px; }
+  .lesson-body code {
+    font-family: 'SF Mono', 'Fira Code', 'Cascadia Code', monospace;
+    font-size: 12.5px;
+    background: rgba(91,142,240,0.1);
+    color: #93b4f5;
+    padding: 1px 5px;
+    border-radius: 3px;
+  }
+
+  hr.divider {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 8px 0 14px;
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-inner">
+    <div class="header-eyebrow">AI Daily Dump</div>
+    <div class="header-title">Tuesday, August 11, 2026</div>
+    <div class="header-date">Your daily brief for AI/inference engineers · ~4 min read</div>
+  </div>
+</div>
+
+<div class="main">
+
+  <!-- WHAT'S HOT -->
+  <section>
+    <div class="section-label label-hot">🔥 What's Hot Right Now</div>
+
+    <div class="card">
+      <div class="card-meta">
+        <span class="tag tag-model">Meta / Open Weights</span>
+        <span class="tag tag-hot">1004 pts on HN</span>
+        <span class="hn-stat">563 comments</span>
+        <span style="color:var(--muted)">Aug 10</span>
+      </div>
+      <div class="card-title">
+        <a href="https://www.neowin.net/news/meta-releases-muse-glimmer-a-30b-open-agentic-ai-model-that-runs-locally-on-pcs/" target="_blank">Meta Muse Glimmer 30B — an open-weight agent model that runs on a single consumer GPU</a>
+      </div>
+      <div class="card-body">
+        <p>The #1 story on HN yesterday. Meta Superintelligence Labs dropped Muse Glimmer, a 30B-parameter open-weight model purpose-built for autonomous agentic tasks on consumer hardware. It runs inside 24GB VRAM (RTX 4090 / 5090, Mac M4/M5 Pro) and ships under Apache 2.0. Architecture: a 28B text decoder fed by a 2B ViT-style vision encoder, distilled from the larger Muse Spark.</p>
+        <p>The interesting engineering detail: Meta baked <em>DFlash speculative decoding</em> in from day one, delivering a 3.1× speedup on an RTX 5090, 1.8× on M5 Max. The 4-bit GGUF quant lands under 20GB. Unsloth and official <code>meta-models</code> GGUF repos are already live on Hugging Face. Supports Ollama, LM Studio, vLLM, SGLang, ExLlamaV2, and MLX out of the box. Early benchmarks put it ahead of Gemma4-31B and Qwen3.6-27B on several evals.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-meta">
+        <span class="tag tag-hot">342 pts on HN</span>
+        <span style="color:var(--muted)">360 comments · Aug 10</span>
+      </div>
+      <div class="card-title">
+        <a href="https://www.businessstory.org/2026/08/10/meta-to-open-source-its-most-powerful-ai-model-as-it-takes-swipe-at-openai-anthropic/" target="_blank">Zuckerberg publishes 6,500-word open AI manifesto, attacks "closed" rivals</a>
+      </div>
+      <div class="card-body">
+        <p>Timed to the Muse Glimmer launch, Zuckerberg posted a long essay positioning Meta's open-source bet as both a geopolitical move (American AI vs. Chinese open-source) and a product strategy. The FT piece covering it hit 342 points on HN with 360 comments — the argument that open weights benefit Meta commercially more than altruistically is getting a thorough airing in the thread. Worth skimming the thread if you care about where lab incentives are heading. Meta is forecast to spend up to $145B on capex this year through the Meta Superintelligence Labs umbrella.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-meta">
+        <span class="tag tag-hot">206 pts on HN</span>
+        <span style="color:var(--muted)">170 comments · Aug 10</span>
+      </div>
+      <div class="card-title">
+        <a href="https://patentsgazette.uspto.gov/week26/OG/html/1547-5/US12670045-20260630.html" target="_blank">Mistral granted US patent for "Code implemented tool calls" — HN is not happy</a>
+      </div>
+      <div class="card-body">
+        <p>Patent No. US 12670045 B1, filed March 2026, granted to Mistral AI for a method of implementing tool calls via code rather than structured JSON. The HN thread is heated: people are worried this could affect inference frameworks that implement function-calling, particularly open-source ones. Mistral has so far said nothing publicly about licensing intent. One to watch — if they enforce broadly it gets messy fast for the OSS inference stack.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- NEW RELEASES -->
+  <section>
+    <div class="section-label label-releases">✅ New Releases &amp; Updates</div>
+
+    <div class="card">
+      <div class="card-meta">
+        <span class="tag tag-tool">Claude Code</span>
+        <span style="color:var(--muted)">Announced Aug 9 · Rolling out Aug 14</span>
+      </div>
+      <div class="card-title">
+        <a href="https://techcrunch.com/2026/08/09/anthropic-is-turning-claude-codes-auto-mode-on-by-default/" target="_blank">Claude Code Auto Mode becomes the default for Pro, Max, and Team plans</a>
+      </div>
+      <div class="card-body">
+        <p>Anthropic is flipping auto mode on by default for new Claude Code sessions starting August 14. Instead of prompting for approval on every tool call, a classifier evaluates each action for whether it's irreversible, destructive, or out-of-scope. If blocked, Claude tries a safer alternative or asks; after repeated blocks it falls back to manual mode. Anthropic's internal study found humans caught 13.6% of dangerous commands while the classifier caught 89%. Enterprise and API customers stay opt-in for now, with a general rollout planned within a month.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-meta">
+        <span class="tag tag-tool">Docker</span>
+        <span style="color:var(--muted)">GA · Aug 3</span>
+      </div>
+      <div class="card-title">
+        <a href="https://www.docker.com/blog/building-ai-teams-docker-sandboxes-agent/" target="_blank">Docker Sandboxes — disposable microVM isolation for AI coding agents</a>
+      </div>
+      <div class="card-body">
+        <p>Docker Sandboxes give each AI coding agent (Claude Code, Codex, Copilot CLI, OpenCode, Kiro) its own isolated microVM — private filesystem, its own Docker daemon, isolated network — accessed via a new <code>sbx</code> CLI. Unlike containers that share the host kernel, a microVM emulates hardware and runs its own kernel, creating a hard boundary around untrusted agent-generated code. "Sandbox kits" let you bake in repeatable tooling, credentials, and config so each fresh VM starts ready to work.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-meta">
+        <span class="tag tag-safety">Mistral / Safety</span>
+        <span style="color:var(--muted)">Released Aug 4–7</span>
+      </div>
+      <div class="card-title">
+        <a href="https://mistral.ai/news/shieldstral/" target="_blank">Mistral Shieldstral 1.0 — 3B open-weights safety classifier with runtime policy injection</a>
+      </div>
+      <div class="card-body">
+        <p>Shieldstral reframes content moderation as question-answering: you hand it your moderation policy in plain language at inference time, no retraining or fine-tuning needed. Built on Ministral-3B with a Pixtral vision encoder, trained on 54.1M contrastive pairs across 12 languages. Single 16GB GPU. Scores 99.4% on HarmBench, 97.7% on VLGuard — matching or beating guardrail models up to 7× its size. Apache 2.0. Genuinely useful if you're shipping agents that need tunable content policies without the overhead of full model fine-tuning.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ALSO WORTH READING -->
+  <section>
+    <div class="section-label label-reading">📎 Also Worth Reading</div>
+
+    <div class="card">
+      <div class="card-meta">
+        <span style="color:var(--muted)">HN essay · 141 pts · Aug 10</span>
+      </div>
+      <div class="card-title">
+        <a href="https://kuber.studio/blog/Reflections/Humanising-LLM-Outputs-is-Actually-Dumb" target="_blank">"Humanising LLM Outputs Is Dumb"</a>
+      </div>
+      <div class="card-body">
+        <p>Short, punchy essay arguing that post-processing LLM outputs to make them sound "more human" (hedging, casual filler, fake warmth) actually reduces trust and utility. Good thread if you're thinking about output formatting defaults in your agent pipelines — 85 HN comments with solid pushback in both directions.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-meta">
+        <span style="color:var(--muted)">Funding · Aug 2026</span>
+      </div>
+      <div class="card-title">
+        <a href="https://ventureburn.com/firmus-raises-2b-ai-infrastructure-funding/" target="_blank">Firmus raises $2B for AI infrastructure across Asia-Pacific at $10.5B valuation</a>
+      </div>
+      <div class="card-body">
+        <p>Firmus is building out compute capacity across APAC as part of "Project Southgate." Significant because most large GPU cluster buildouts this cycle have been North America or Middle East — this signals the inference geography is spreading. The $10B+ AI infrastructure median round size story from Crunchbase this week is worth a look for broader context on where capital is flowing.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-meta">
+        <span style="color:var(--muted)">Hugging Face · Aug 3</span>
+      </div>
+      <div class="card-title">
+        <a href="https://comfyui-wiki.com/en/news/2026-08-03-minimax-h3-open-weights-comfyui" target="_blank">MiniMax H3 open-weights land with native ComfyUI support</a>
+      </div>
+      <div class="card-body">
+        <p>MiniMax officially open-sourced H3, their omni-modal video generation model, with weights on Hugging Face and same-day ComfyUI integration. Multiple quantization options available for local GPU use. Worth flagging for anyone building multimodal pipelines — open-weight video models at this quality tier are still relatively rare.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- TODAY'S LESSON -->
+  <section>
+    <div class="section-label label-lesson">📖 Today's Lesson</div>
+    <div class="lesson-card">
+      <div class="lesson-title">Grouped-Query Attention (GQA): why Muse Glimmer fits in 24GB when vanilla transformers wouldn't</div>
+      <div class="lesson-body">
+        <p>Standard multi-head attention (MHA) gives every attention head its own key and value matrices. A 30B model with 40 heads generates 40 separate KV caches per token — massive memory pressure, especially as context grows. For a 32K-context request with a batch of 8, KV cache alone can eat tens of gigabytes.</p>
+
+        <p>Grouped-Query Attention solves this by sharing key and value heads across groups of query heads. Instead of 40 KV heads, you might have 8 — so each group of 5 query heads shares a single K and V. This cuts KV cache memory proportionally (in this example, 5×) with almost no quality loss, because empirically the KV projections carry much less information diversity than the Q projections.</p>
+
+        <p>The extreme version — Multi-Query Attention (MQA) — uses just one shared K and one shared V for all query heads. GQA is the sweet spot: Llama 3, Mistral, Gemma, and now Muse Glimmer all use it. The reason Muse Glimmer runs inside 24GB (including weights + KV cache for a working context) is largely this: its 8 KV heads vs 28 Q heads give a 3.5× KV memory reduction vs a naive MHA design of the same parameter count.</p>
+
+        <p>Practical implication: when evaluating whether a model fits your GPU memory budget, the KV cache contribution scales with <em>context length × batch size × number of KV heads × head dimension × 2 (for K and V) × dtype bytes</em>. A model with fewer KV heads lets you run longer contexts or larger batches before spilling to CPU.</p>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<!-- ARCHIVE SIDEBAR -->
+<style>
+  .arc-btn {
+    position: fixed; top: 18px; right: 18px; z-index: 200;
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 6px; padding: 6px 11px; font-size: 12px;
+    color: var(--muted); cursor: pointer; display: flex;
+    align-items: center; gap: 6px; user-select: none;
+    transition: border-color 0.15s, color 0.15s;
+    font-family: inherit;
+  }
+  .arc-btn:hover { border-color: #3a4060; color: var(--text); }
+  .arc-overlay {
+    display: none; position: fixed; inset: 0; z-index: 198;
+    background: rgba(0,0,0,0.45);
+  }
+  .arc-overlay.open { display: block; }
+  .arc-panel {
+    position: fixed; top: 0; right: 0; height: 100vh; width: 200px;
+    background: var(--surface); border-left: 1px solid var(--border);
+    z-index: 199; padding: 56px 14px 24px; overflow-y: auto;
+    transform: translateX(100%); transition: transform 0.22s ease;
+  }
+  .arc-panel.open { transform: translateX(0); }
+  .arc-panel-title {
+    font-size: 10px; font-weight: 700; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--muted);
+    margin-bottom: 14px; padding-left: 4px;
+  }
+  .arc-item {
+    display: block; padding: 7px 8px; border-radius: 5px;
+    font-size: 13px; color: var(--muted); text-decoration: none;
+    margin-bottom: 2px; transition: background 0.1s, color 0.1s;
+  }
+  .arc-item:hover { background: #1e2333; color: var(--text); }
+  .arc-item.current { background: rgba(91,142,240,0.12); color: var(--accent); font-weight: 600; }
+  .arc-close {
+    position: absolute; top: 14px; right: 14px;
+    background: none; border: none; color: var(--muted);
+    cursor: pointer; font-size: 18px; line-height: 1; padding: 4px;
+  }
+  .arc-close:hover { color: var(--text); }
+</style>
+<div class="arc-overlay" id="arcOverlay" onclick="arcClose()"></div>
+<div class="arc-panel" id="arcPanel">
+  <button class="arc-close" onclick="arcClose()">&#x2715;</button>
+  <div class="arc-panel-title">Past Issues</div>
+  <div id="arcList"><span style="color:var(--muted);font-size:12px">Loading…</span></div>
+</div>
+<button class="arc-btn" onclick="arcToggle()">
+  <svg width="13" height="11" viewBox="0 0 18 14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="0" y1="1" x2="18" y2="1"/><line x1="0" y1="7" x2="18" y2="7"/><line x1="0" y1="13" x2="18" y2="13"/></svg>
+  Past issues
+</button>
+<script>
+(function(){
+  var PAD = function(n){return String(n).padStart(2,'0');};
+  var MONTHS = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  var DAYS   = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+  var current = window.location.pathname.split('/').pop().replace(/\.html$/,'');
+  var found = [], tasks = [];
+  for(var i=0;i<45;i++){
+    (function(offset){
+      var d = new Date(); d.setDate(d.getDate()-offset);
+      var s = d.getFullYear()+'-'+PAD(d.getMonth()+1)+'-'+PAD(d.getDate());
+      tasks.push(fetch('./'+s+'.html',{method:'HEAD'}).then(function(r){if(r.ok)found.push({s:s,d:new Date(d)});}).catch(function(){}));
+    })(i);
+  }
+  Promise.all(tasks).then(function(){
+    found.sort(function(a,b){return b.d-a.d;});
+    var html='';
+    found.forEach(function(f){
+      var label=DAYS[f.d.getDay()]+', '+MONTHS[f.d.getMonth()]+' '+f.d.getDate();
+      var cls='arc-item'+(f.s===current?' current':'');
+      html+='<a class="'+cls+'" href="./'+f.s+'.html">'+label+'</a>';
+    });
+    document.getElementById('arcList').innerHTML=html||'<span style="color:var(--muted);font-size:12px">None found</span>';
+  });
+})();
+function arcToggle(){
+  var p=document.getElementById('arcPanel'),o=document.getElementById('arcOverlay');
+  var open=p.classList.contains('open');
+  if(open){arcClose();}else{p.classList.add('open');o.classList.add('open');}
+}
+function arcClose(){
+  document.getElementById('arcPanel').classList.remove('open');
+  document.getElementById('arcOverlay').classList.remove('open');
+}
+</script>
+</body>
+</html>
