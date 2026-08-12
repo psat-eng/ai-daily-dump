@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Daily Dump — August 12, 2026</title>
+<style>
+  :root {
+    --bg: #0f1117;
+    --surface: #161b27;
+    --surface2: #1c2233;
+    --border: #252d40;
+    --text: #e2e8f0;
+    --muted: #8892a4;
+    --accent: #5b8ef0;
+    --accent2: #7c6af7;
+    --green: #4ade80;
+    --orange: #fb923c;
+    --red: #f87171;
+    --yellow: #fbbf24;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+    font-size: 15px;
+    line-height: 1.65;
+    padding: 0 0 80px;
+  }
+
+  .header {
+    border-bottom: 1px solid var(--border);
+    padding: 28px 0 22px;
+    margin-bottom: 36px;
+  }
+  .header-inner {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+  .header-eyebrow {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 6px;
+  }
+  .header-title {
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--text);
+    letter-spacing: -0.02em;
+  }
+  .header-date {
+    font-size: 13px;
+    color: var(--muted);
+    margin-top: 4px;
+  }
+
+  .main {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  section {
+    margin-bottom: 44px;
+  }
+
+  .section-label {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 3px 9px;
+    border-radius: 4px;
+    margin-bottom: 16px;
+  }
+  .label-hot    { background: rgba(251,146,60,0.15); color: var(--orange); }
+  .label-new    { background: rgba(91,142,240,0.15); color: var(--accent); }
+  .label-soon   { background: rgba(124,106,247,0.15); color: var(--accent2); }
+  .label-reads  { background: rgba(74,222,128,0.15); color: var(--green); }
+  .label-lesson { background: rgba(251,191,36,0.15); color: var(--yellow); }
+
+  .item {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 18px 20px;
+    margin-bottom: 12px;
+  }
+  .item:last-child { margin-bottom: 0; }
+
+  .item-title {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 7px;
+    line-height: 1.4;
+  }
+  .item-title a {
+    color: inherit;
+    text-decoration: none;
+  }
+  .item-title a:hover { color: var(--accent); }
+
+  .item-body {
+    font-size: 14px;
+    color: var(--muted);
+    line-height: 1.6;
+  }
+  .item-body strong { color: var(--text); }
+
+  .chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 10px;
+  }
+  .chip {
+    font-size: 11px;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 4px;
+    letter-spacing: 0.04em;
+  }
+  .chip-blue   { background: rgba(91,142,240,0.15); color: var(--accent); }
+  .chip-orange { background: rgba(251,146,60,0.15); color: var(--orange); }
+  .chip-purple { background: rgba(124,106,247,0.15); color: var(--accent2); }
+  .chip-green  { background: rgba(74,222,128,0.15); color: var(--green); }
+  .chip-red    { background: rgba(248,113,113,0.15); color: var(--red); }
+  .chip-yellow { background: rgba(251,191,36,0.15); color: var(--yellow); }
+
+  .lesson-box {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--yellow);
+    border-radius: 10px;
+    padding: 22px 24px;
+  }
+  .lesson-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 14px;
+    line-height: 1.4;
+  }
+  .lesson-box p {
+    font-size: 14px;
+    color: var(--muted);
+    line-height: 1.7;
+    margin-bottom: 12px;
+  }
+  .lesson-box p:last-child { margin-bottom: 0; }
+  .lesson-box strong { color: var(--text); }
+  .lesson-box code {
+    font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
+    font-size: 12.5px;
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    padding: 1px 5px;
+    color: var(--accent);
+  }
+
+  .divider {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 40px 0;
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-inner">
+    <div class="header-eyebrow">AI Daily Dump</div>
+    <div class="header-title">Wednesday, August 12</div>
+    <div class="header-date">2026 &mdash; what's hot in AI/inference right now</div>
+  </div>
+</div>
+
+<div class="main">
+
+  <!-- WHAT'S HOT -->
+  <section>
+    <div class="section-label label-hot">🔥 What's Hot Right Now</div>
+
+    <div class="item">
+      <div class="item-title">
+        <a href="https://www.forbes.com/sites/jonmarkman/2026/08/11/openai-ships-gpt-56-cyber-its-first-offense-grade-hacking-model/" target="_blank">
+          OpenAI ships GPT-5.6-Cyber — "offense-grade" hacking model finds 2 V8 zero-days before launching
+        </a>
+      </div>
+      <div class="item-body">
+        Launched Monday behind OpenAI's vetted Daybreak Red access tier. The cybersecurity-specialist variant of GPT-5.6 Sol completes <strong>95% of advanced cyber prompts</strong> vs 1.5% for the standard model. Before release, OpenAI used it to find two previously unknown vulnerabilities in Chrome's V8 engine — Google patched them as CVE-2026-15903. Access requires identity verification, legal attestation, and usage monitoring. Not available to the general public. The framing as a "defender tool" is getting scrutiny in the security community.
+      </div>
+      <div class="chips">
+        <span class="chip chip-red">Cybersecurity</span>
+        <span class="chip chip-orange">Restricted Access</span>
+        <span class="chip chip-blue">OpenAI</span>
+      </div>
+    </div>
+
+    <div class="item">
+      <div class="item-title">
+        Qwen3.8-Max open weights — confirmed this week, still waiting on the drop
+      </div>
+      <div class="item-body">
+        Alibaba officially confirmed that <strong>Qwen3.8-Max</strong> (2.4T params, 95B active, 1M context) and the smaller <strong>Qwen3.8-27B</strong> dense sibling will land on Hugging Face and ModelScope during the week of August 10–16. As of Monday the Qwen org page on Hugging Face showed no new repo. r/LocalLLaMA is refreshing the page. This would be the largest open-weight MoE ever released — 2.4 trillion parameters, even if only 95B activate per pass. License terms still undisclosed (community hopes for Apache 2.0). GGUF quants will follow within hours of the drop.
+      </div>
+      <div class="chips">
+        <span class="chip chip-purple">Open Weights (Pending)</span>
+        <span class="chip chip-blue">MoE</span>
+        <span class="chip chip-blue">Alibaba/Qwen</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- NEW RELEASES -->
+  <section>
+    <div class="section-label label-new">New Releases &amp; Updates</div>
+
+    <div class="item">
+      <div class="item-title">
+        <a href="https://venturebeat.com/technology/openai-launches-gpt-5-6-cyber-with-reduced-refusals-95-completion-on-advanced-cybersecurity-tasks" target="_blank">
+          GPT-5.6-Cyber — OpenAI's first domain-specialist model, Aug 10
+        </a>
+      </div>
+      <div class="item-body">
+        Built on top of Sol (the flagship GPT-5.6 variant). Two distinguishing properties: dramatically reduced refusals on high-risk dual-use cyber work, and significantly improved performance on specialized tasks like zero-day discovery and exploit chain development. <strong>On OpenAI's internal ACCR benchmark</strong>: 95.0% vs 1.5% for Sol. Interestingly, it scores <em>worse</em> than standard Sol on the Vulnerability Discovery and Report Writing eval — the specialization appears to narrow general research capabilities. Gated to Daybreak Red applicants only. The V8 zero-day story (CVE-2026-15903) is the most concrete proof-of-work OpenAI has ever shipped with a model release.
+      </div>
+      <div class="chips">
+        <span class="chip chip-blue">OpenAI</span>
+        <span class="chip chip-red">Security</span>
+        <span class="chip chip-orange">Limited Access</span>
+      </div>
+    </div>
+
+    <div class="item">
+      <div class="item-title">
+        <a href="https://claude.com/blog/auto-mode-default-in-claude-code" target="_blank">
+          Claude Code auto mode becomes default August 14 — no more permission prompts for most actions
+        </a>
+      </div>
+      <div class="item-body">
+        Starting Thursday, new Claude Code sessions on <strong>Pro, Max, and Team</strong> plans run in auto mode by default. In auto mode, Claude proceeds without asking unless an action is deemed irreversible, destructive, or outside the user's environment. A small classifier runs per tool call to make that determination — Anthropic is <strong>not charging for that classifier overhead</strong>. Internal testing: auto mode detected 89% of harmful actions; human review (the current default) only caught 13.6%. Existing users with a set default get a one-time in-app notification and can switch back with Shift+Tab. The Claude Code v2.1.224 update (Aug 7) also landed self-hosted environments, letting teams run sessions on their own machines.
+      </div>
+      <div class="chips">
+        <span class="chip chip-blue">Claude Code</span>
+        <span class="chip chip-green">Agentic</span>
+        <span class="chip chip-yellow">Effective Aug 14</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ON THE HORIZON -->
+  <section>
+    <div class="section-label label-soon">On the Horizon</div>
+
+    <div class="item">
+      <div class="item-title">
+        Qwen3.8-Max + Qwen3.8-27B weights — imminent drop, week of Aug 10–16
+      </div>
+      <div class="item-body">
+        Watch the <a href="https://huggingface.co/Qwen" target="_blank" style="color: var(--accent);">Qwen org on Hugging Face</a> and ModelScope. The 27B dense sibling is the model that will actually run on prosumer hardware — if licensed permissively, it'll be quanted, fine-tuned, and benchmarked relentlessly within 48 hours of drop. The 2.4T MoE requires serious cluster resources (roughly 500GB+ across GPUs/RAM to serve all weights) but will be the community benchmark for large-scale inference setups. License terms (Apache 2.0 vs commercial restrictions) are the single biggest unknown.
+      </div>
+      <div class="chips">
+        <span class="chip chip-purple">Upcoming</span>
+        <span class="chip chip-blue">Alibaba/Qwen</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ALSO WORTH READING -->
+  <section>
+    <div class="section-label label-reads">Also Worth Reading</div>
+
+    <div class="item">
+      <div class="item-title">
+        <a href="https://www.cnbc.com/2026/08/11/riot-platforms-signs-anthropic-deal-as-miners-shift-to-ai-infrastructure-.html" target="_blank">
+          Anthropic signs $9.1B, 20-year compute deal with bitcoin miner Riot Platforms — Aug 11
+        </a>
+      </div>
+      <div class="item-body">
+        Riot Platforms will provide 191 megawatts of computing capacity at its Rockdale, Texas campus to Anthropic under a deal worth $9.1B over 20 years (with extensions, up to ~$16.1B). Riot goes from pure-play Bitcoin miner to AI infrastructure landlord — shares jumped 25% after hours. This is Anthropic's <strong>third major compute procurement in three months</strong>: $45B from xAI (May), $10B from Volta Infra (July), and now $9.1B from Riot. Total 2026 compute commitments now exceed $60B. For context, Anthropic's revenue run-rate is reported at ~$30B annually. The compute spending math here is aggressive by any measure.
+      </div>
+      <div class="chips">
+        <span class="chip chip-green">Infrastructure</span>
+        <span class="chip chip-blue">Anthropic</span>
+        <span class="chip chip-orange">$9.1B</span>
+      </div>
+    </div>
+
+    <div class="item">
+      <div class="item-title">
+        <a href="https://www.anthropic.com/news/google-broadcom-partnership-compute" target="_blank">
+          Anthropic building in-house chip design team to run Claude on custom silicon
+        </a>
+      </div>
+      <div class="item-body">
+        Confirmed last week: Anthropic is assembling a "custom silicon team" of hardware-software engineers to design chips specifically for running Claude. The motivation is pure cost arithmetic — serving billions of tokens daily at current GPU costs gets expensive fast. They're exploring Samsung as a manufacturing partner. Anthropic frames this as cost optimization within the existing ecosystem (not an Nvidia escape), and they're still maintaining large TPU commitments with Google/Broadcom. Early days — no chip timeline, no word on when it might bear fruit — but the direction is clear: every major lab at sufficient scale eventually concludes it needs to own its inference hardware stack.
+      </div>
+      <div class="chips">
+        <span class="chip chip-blue">Anthropic</span>
+        <span class="chip chip-purple">Silicon</span>
+        <span class="chip chip-orange">Infrastructure</span>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- TODAY'S LESSON -->
+  <section>
+    <div class="section-label label-lesson">📖 Today's Lesson</div>
+    <div class="lesson-box">
+      <div class="lesson-title">AWQ vs GPTQ vs GGUF: picking the right quantization format when downloading community models</div>
+      <p>When you pull a community model from Hugging Face, you'll almost always see multiple quant variants. All three formats reduce model precision from 16-bit floats to lower bit-widths (2–8 bit), but they make different tradeoffs around where and how they compress.</p>
+      <p><strong>GGUF</strong> (successor to GGML, used by llama.cpp, Ollama, LM Studio) is the format for CPU-first or CPU+GPU hybrid inference. Weights are stored in a single portable file with built-in tokenizer metadata. The quantization can be applied per-block with mixed precision (e.g. Q4_K_M applies 4-bit to most layers but keeps sensitive layers at 6-bit). <code>Q4_K_M</code> is usually the community sweet spot: ~4.5-bit average, minimal quality loss, fits a 7B model in ~4GB. GGUF's design goal is portability — one file, any machine.</p>
+      <p><strong>GPTQ</strong> is GPU-native quantization that runs a calibration pass over a small dataset (typically WikiText-2) to find the optimal rounding per weight, minimizing the reconstruction error layer by layer. It's deterministic given the same calibration set but takes hours to compute. The result is a weight-only quantized model that loads natively into <code>transformers</code> or <code>auto-gptq</code>. GPTQ shines on CUDA GPUs where you want quantized weights but full-speed matmuls — it uses <code>triton</code> kernels to dequantize on the fly. Downside: no CPU support, and calibration set choice can affect quality unpredictably.</p>
+      <p><strong>AWQ</strong> (Activation-aware Weight Quantization) is GPTQ's smarter sibling. Instead of minimizing weight reconstruction error in isolation, AWQ identifies which weight channels matter most by looking at actual activation magnitudes, then scales those channels to protect quality before quantizing. It doesn't need a calibration dataset and is generally faster to compute than GPTQ. The resulting quality at 4-bit is often slightly better than GPTQ, especially for instruction-following tasks. AWQ is the preferred format for GPU-only serving in vLLM and SGLang.</p>
+      <p><strong>Rule of thumb</strong>: CPU or hybrid inference → GGUF. GPU-only production serving → AWQ (first choice) or GPTQ. When downloading community quants, prefer AWQ or <code>Q4_K_M</code> GGUF and avoid <code>Q2</code> variants unless you're memory-constrained enough that the quality hit is acceptable.</p>
+    </div>
+  </section>
+
+</div>
+
+<!-- ARCHIVE SIDEBAR -->
+<style>
+  .arc-btn {
+    position: fixed; top: 18px; right: 18px; z-index: 200;
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 6px; padding: 6px 11px; font-size: 12px;
+    color: var(--muted); cursor: pointer; display: flex;
+    align-items: center; gap: 6px; user-select: none;
+    transition: border-color 0.15s, color 0.15s;
+    font-family: inherit;
+  }
+  .arc-btn:hover { border-color: #3a4060; color: var(--text); }
+  .arc-overlay {
+    display: none; position: fixed; inset: 0; z-index: 198;
+    background: rgba(0,0,0,0.45);
+  }
+  .arc-overlay.open { display: block; }
+  .arc-panel {
+    position: fixed; top: 0; right: 0; height: 100vh; width: 200px;
+    background: var(--surface); border-left: 1px solid var(--border);
+    z-index: 199; padding: 56px 14px 24px; overflow-y: auto;
+    transform: translateX(100%); transition: transform 0.22s ease;
+  }
+  .arc-panel.open { transform: translateX(0); }
+  .arc-panel-title {
+    font-size: 10px; font-weight: 700; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--muted);
+    margin-bottom: 14px; padding-left: 4px;
+  }
+  .arc-item {
+    display: block; padding: 7px 8px; border-radius: 5px;
+    font-size: 13px; color: var(--muted); text-decoration: none;
+    margin-bottom: 2px; transition: background 0.1s, color 0.1s;
+  }
+  .arc-item:hover { background: #1e2333; color: var(--text); }
+  .arc-item.current { background: rgba(91,142,240,0.12); color: var(--accent); font-weight: 600; }
+  .arc-close {
+    position: absolute; top: 14px; right: 14px;
+    background: none; border: none; color: var(--muted);
+    cursor: pointer; font-size: 18px; line-height: 1; padding: 4px;
+  }
+  .arc-close:hover { color: var(--text); }
+</style>
+<div class="arc-overlay" id="arcOverlay" onclick="arcClose()"></div>
+<div class="arc-panel" id="arcPanel">
+  <button class="arc-close" onclick="arcClose()">&#x2715;</button>
+  <div class="arc-panel-title">Past Issues</div>
+  <div id="arcList"><span style="color:var(--muted);font-size:12px">Loading…</span></div>
+</div>
+<button class="arc-btn" onclick="arcToggle()">
+  <svg width="13" height="11" viewBox="0 0 18 14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="0" y1="1" x2="18" y2="1"/><line x1="0" y1="7" x2="18" y2="7"/><line x1="0" y1="13" x2="18" y2="13"/></svg>
+  Past issues
+</button>
+<script>
+(function(){
+  var PAD = function(n){return String(n).padStart(2,'0');};
+  var MONTHS = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  var DAYS   = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+  var current = window.location.pathname.split('/').pop().replace(/\.html$/,'');
+  var found = [], tasks = [];
+  for(var i=0;i<45;i++){
+    (function(offset){
+      var d = new Date(); d.setDate(d.getDate()-offset);
+      var s = d.getFullYear()+'-'+PAD(d.getMonth()+1)+'-'+PAD(d.getDate());
+      tasks.push(fetch('./'+s+'.html',{method:'HEAD'}).then(function(r){if(r.ok)found.push({s:s,d:new Date(d)});}).catch(function(){}));
+    })(i);
+  }
+  Promise.all(tasks).then(function(){
+    found.sort(function(a,b){return b.d-a.d;});
+    var html='';
+    found.forEach(function(f){
+      var label=DAYS[f.d.getDay()]+', '+MONTHS[f.d.getMonth()]+' '+f.d.getDate();
+      var cls='arc-item'+(f.s===current?' current':'');
+      html+='<a class="'+cls+'" href="./'+f.s+'.html">'+label+'</a>';
+    });
+    document.getElementById('arcList').innerHTML=html||'<span style="color:var(--muted);font-size:12px">None found</span>';
+  });
+})();
+function arcToggle(){
+  var p=document.getElementById('arcPanel'),o=document.getElementById('arcOverlay');
+  var open=p.classList.contains('open');
+  if(open){arcClose();}else{p.classList.add('open');o.classList.add('open');}
+}
+function arcClose(){
+  document.getElementById('arcPanel').classList.remove('open');
+  document.getElementById('arcOverlay').classList.remove('open');
+}
+</script>
+
+</body>
+</html>
