@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Daily Dump — August 13, 2026</title>
+<style>
+  :root {
+    --bg: #0d1117;
+    --surface: #161b22;
+    --surface2: #1c2330;
+    --border: #2a3040;
+    --text: #e6edf3;
+    --muted: #8b949e;
+    --accent: #5b8ef0;
+    --accent2: #58a6ff;
+    --hot: #f78166;
+    --release: #3fb950;
+    --horizon: #d2a679;
+    --reading: #a371f7;
+    --lesson: #79c0ff;
+    --tag-bg: rgba(91,142,240,0.1);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+    font-size: 15px;
+    line-height: 1.65;
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 40px 24px 80px;
+  }
+  a { color: var(--accent2); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  .header { margin-bottom: 40px; border-bottom: 1px solid var(--border); padding-bottom: 24px; }
+  .header-eyebrow {
+    font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--muted); margin-bottom: 8px;
+  }
+  .header-title { font-size: 26px; font-weight: 700; color: var(--text); }
+  .header-date { font-size: 14px; color: var(--muted); margin-top: 4px; }
+
+  .section { margin-bottom: 44px; }
+  .section-label {
+    display: inline-block;
+    font-size: 10px; font-weight: 700; letter-spacing: 0.12em;
+    text-transform: uppercase; padding: 3px 9px; border-radius: 4px;
+    margin-bottom: 18px;
+  }
+  .label-hot    { background: rgba(247,129,102,0.12); color: var(--hot); }
+  .label-release{ background: rgba(63,185,80,0.12);  color: var(--release); }
+  .label-horizon{ background: rgba(210,166,121,0.12); color: var(--horizon); }
+  .label-reading{ background: rgba(163,113,247,0.12); color: var(--reading); }
+  .label-lesson { background: rgba(121,192,255,0.12); color: var(--lesson); }
+
+  .item { margin-bottom: 24px; padding-bottom: 24px; border-bottom: 1px solid var(--border); }
+  .item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+
+  .item-title {
+    font-size: 15px; font-weight: 600; color: var(--text);
+    margin-bottom: 6px; line-height: 1.4;
+  }
+  .item-title a { color: var(--text); }
+  .item-title a:hover { color: var(--accent2); text-decoration: none; }
+  .item-meta {
+    font-size: 11px; color: var(--muted); margin-bottom: 8px;
+    display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+  }
+  .item-meta .dot { opacity: 0.4; }
+  .item-body { font-size: 14px; color: #c9d1d9; }
+  .item-body p + p { margin-top: 8px; }
+
+  .lesson-card {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 8px; padding: 24px;
+  }
+  .lesson-title { font-size: 16px; font-weight: 700; color: var(--lesson); margin-bottom: 14px; }
+  .lesson-body { font-size: 14px; color: #c9d1d9; }
+  .lesson-body p + p { margin-top: 10px; }
+  .lesson-body code {
+    background: var(--surface2); padding: 1px 6px; border-radius: 3px;
+    font-family: ui-monospace, "SF Mono", Menlo, monospace; font-size: 12px;
+    color: var(--accent2);
+  }
+
+  .source-link {
+    display: inline-block; margin-top: 8px;
+    font-size: 12px; color: var(--muted); text-decoration: none;
+  }
+  .source-link:hover { color: var(--accent2); }
+
+  @media (max-width: 480px) {
+    body { padding: 24px 16px 60px; }
+    .header-title { font-size: 20px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="header">
+  <div class="header-eyebrow">AI Daily Dump</div>
+  <div class="header-title">Thursday, August 13, 2026</div>
+  <div class="header-date">What's moving in AI right now — for practitioners</div>
+</header>
+
+<!-- WHAT'S HOT RIGHT NOW -->
+<section class="section">
+  <div class="section-label label-hot">🔥 What's Hot Right Now</div>
+
+  <div class="item">
+    <div class="item-title">
+      <a href="https://simonwillison.net/2026/Aug/12/deepseek-v4-pro-0813/">DeepSeek V4 Pro 0813 goes GA — via WeChat, a deleted Reddit post, and an HN ASCII table</a>
+    </div>
+    <div class="item-meta">
+      <span>Aug 12</span><span class="dot">·</span><span>simonwillison.net / OpenRouter</span>
+    </div>
+    <div class="item-body">
+      <p>DeepSeek quietly dropped V4 Pro 0813 yesterday with zero official announcement — benchmarks surfaced first in their WeChat channel, got copy-pasted to Reddit (promptly deleted as "low-effort"), then reproduced as ASCII art on Hacker News. It's available via <a href="https://openrouter.ai/deepseek/deepseek-v4-pro-0813">OpenRouter</a> now.</p>
+      <p>Specs: 1.6T parameter MoE, 49B active per token, 1M context window, up to 384K output tokens. Priced at $0.44 / $0.87 per million input/output tokens. DeepSeek has released open weights for both the April V4 Pro and the July V4 Flash, so weights are probably coming — just no confirmation yet. Simon Willison notes noticeably different visual outputs across low/medium/high reasoning effort levels, unlike other models.</p>
+      <p><strong>Heads up:</strong> DeepSeek has announced a future API price increase with no timeline, no affected-model list, and no notice period.</p>
+    </div>
+    <a class="source-link" href="https://simonwillison.net/2026/Aug/12/deepseek-v4-pro-0813/">→ simonwillison.net</a>
+  </div>
+
+  <div class="item">
+    <div class="item-title">
+      <a href="https://stolen-thoughts.com/">Stealing Reasoning Traces from Frontier APIs — and it worked until they patched it</a>
+    </div>
+    <div class="item-meta">
+      <span>Aug 11</span><span class="dot">·</span><span>stolen-thoughts.com / simonwillison.net</span>
+    </div>
+    <div class="item-body">
+      <p>A paper dropped this week (<a href="https://www.alphaxiv.org/abs/2608.09867">arXiv:2608.09867</a>) showing that Anthropic, OpenAI, and Google all used the same encryption key family-wide for encrypted reasoning traces. Researchers could take a trace from a stronger model, replay it into a weaker sibling, and trick it into outputting the raw chain-of-thought in plaintext. Claude Haiku 4.5 was the easiest to crack: prefill <code>&lt;thinking-copy&gt;</code> + ask it to transcribe verbatim.</p>
+      <p>Particularly nasty variant: you could seed a model's encrypted thinking trace with instructions for data exfiltration, then replay that trace into another model — which would follow through because models treat their own reasoning as authoritative. All three providers have since patched it, and the paper notes the attack no longer works. The extracted traces are a fascinating peek at what raw frontier reasoning actually looks like (spoiler: stream-of-consciousness fragments, not tidy prose).</p>
+    </div>
+    <a class="source-link" href="https://simonwillison.net/2026/Aug/11/stealing-reasoning-traces/">→ simonwillison.net</a>
+  </div>
+</section>
+
+<!-- NEW RELEASES & UPDATES -->
+<section class="section">
+  <div class="section-label label-release">🚀 New Releases & Updates</div>
+
+  <div class="item">
+    <div class="item-title">
+      <a href="https://research.meta.ai/blog/introducing-muse-glimmer-open-agentic-model">Meta Muse Glimmer: 30B Apache-2.0 agentic model, now in Ollama with MLX + DFlash</a>
+    </div>
+    <div class="item-meta">
+      <span>Aug 10</span><span class="dot">·</span><span>Meta AI / Ollama 0.32.7</span>
+    </div>
+    <div class="item-body">
+      <p>Meta released Muse Glimmer on Aug 10 — a clean Apache 2.0 vision model optimized for end-to-end agentic tasks: SWE-Bench, MCP-Atlas, τ-Bench, DeepSearch QA. It's a 30B parameter model with strong tool use across extended workflows. Simon Willison tested it with his <code>llm-coding-agent</code> plugin and found it capable for codebase exploration.</p>
+      <p>Ollama 0.32.7 shipped support the same day, with the MLX engine for Apple Silicon, native DFlash support, and image input. If you have ≥32GB RAM this runs comfortably alongside other apps. LM Studio has an 18.16 GB version. Pricing on Meta's API: $1.25/$4.25 per million input/output tokens — or $0.10/$0.20 if you opt into letting Meta use your data.</p>
+    </div>
+    <a class="source-link" href="https://github.com/ollama/ollama/releases/tag/v0.32.7">→ Ollama v0.32.7 release</a>
+  </div>
+
+  <div class="item">
+    <div class="item-title">
+      <a href="https://datanorth.ai/news/bytedance-releases-seed-2-1-pro-and-seed-2-1-turbo">ByteDance Seed 2.1 Turbo: lower-latency enterprise variant now live</a>
+    </div>
+    <div class="item-meta">
+      <span>Aug 10</span><span class="dot">·</span><span>ByteDance / LLM Gateway</span>
+    </div>
+    <div class="item-body">
+      <p>ByteDance released Seed 2.1 Turbo alongside Pro on Aug 10. Turbo is the high-volume, lower-latency variant aimed at enterprise workloads where you need scale over peak capability. Pro is priced at roughly $0.85/$4.15 per million tokens; Turbo is roughly half that, with cache-hit pricing as low as $0.17/M. Now available on LLM Gateway as of Aug 12.</p>
+    </div>
+    <a class="source-link" href="https://seed.bytedance.com/en/seed2_1">→ ByteDance Seed page</a>
+  </div>
+</section>
+
+<!-- ON THE HORIZON -->
+<section class="section">
+  <div class="section-label label-horizon">🔭 On the Horizon</div>
+
+  <div class="item">
+    <div class="item-title">
+      <a href="https://claude.com/blog/auto-mode-default-in-claude-code">Claude Code auto mode goes default tomorrow (Aug 14) for Pro/Max/Team</a>
+    </div>
+    <div class="item-meta">
+      <span>Announced Aug 8, effective Aug 14</span><span class="dot">·</span><span>Anthropic</span>
+    </div>
+    <div class="item-body">
+      <p>Starting tomorrow, Claude Code auto mode becomes the default permission model for new sessions on Pro, Max, and Team — Enterprise and API users stay opt-in for now. Auto mode bypasses per-action approval prompts unless an action is "irreversible, destructive, or aimed outside your environment."</p>
+      <p>The data behind this is compelling: in a 1,053-person study, humans only caught 13.6% of deliberately-injected dangerous commands vs. 89% for auto mode — confirmation fatigue is real. Anthropic also commissioned Trajectory Labs to test 720 indirect prompt injection attempts against Claude 5 models running auto mode: zero succeeded. Simon Willison remains skeptical on edge cases (e.g. malicious packages instructing the model to fetch and execute something), which seems fair.</p>
+    </div>
+    <a class="source-link" href="https://claude.com/blog/auto-mode-default-in-claude-code">→ Anthropic blog</a>
+  </div>
+</section>
+
+<!-- ALSO WORTH READING -->
+<section class="section">
+  <div class="section-label label-reading">📚 Also Worth Reading</div>
+
+  <div class="item">
+    <div class="item-title">
+      <a href="https://huggingface.co/papers/2608.12307">AI4AI at Test-Time: Strong-to-Weak Capability Transfer via Harnesses (#1 paper on HF today)</a>
+    </div>
+    <div class="item-meta">
+      <span>Aug 13</span><span class="dot">·</span><span>UIUC / Hugging Face Papers</span>
+    </div>
+    <div class="item-body">
+      <p>Today's top Hugging Face paper asks: can a strong model transfer its capabilities to a weaker one <em>at inference time</em>, without any training? Answer: yes — and it nearly doubles performance. The trick is having the strong model build inference-time "harnesses" for the weak model: structured code that enforces output format, deterministic routing for sub-tasks, and benchmark-specific scaffolding. The gains come from offloading unstable model reasoning into code, not from getting the weak model to think harder. Weaker target models benefit the most. Relevant for anyone designing multi-agent pipelines with mixed model tiers.</p>
+    </div>
+    <a class="source-link" href="https://arxiv.org/abs/2608.12307">→ arXiv:2608.12307</a>
+  </div>
+
+  <div class="item">
+    <div class="item-title">
+      <a href="https://blog.florianherrengt.com/ai-removing-middle-class-software-engineering.html">AI is removing the middle class of software engineering</a>
+    </div>
+    <div class="item-meta">
+      <span>Aug 12</span><span class="dot">·</span><span>florianherrengt.com</span>
+    </div>
+    <div class="item-body">
+      <p>Linked by Simon Willison yesterday — an essay on vibe-coded systems becoming incomprehensible even to the engineers who built them. The scenario: a bug surfaces for the 4th time, nobody on the team knows where the data comes from, so someone asks Claude, and both engineers watch "an endless wall of text" unsure whether any of it is true. The worry isn't that AI writes bad code — it's that it removes the human understanding that would otherwise catch the next bug. Worth a read if you're thinking about when coding agents are net-positive vs. net-negative.</p>
+    </div>
+    <a class="source-link" href="https://blog.florianherrengt.com/ai-removing-middle-class-software-engineering.html">→ florianherrengt.com</a>
+  </div>
+
+  <div class="item">
+    <div class="item-title">
+      <a href="https://www.404media.co/the-tokenpocalypse-is-here-companies-are-scrambling-to-stop-spending-so-much-on-ai/">The Tokenpocalypse: companies are scrambling to reduce AI spend</a>
+    </div>
+    <div class="item-meta">
+      <span>Aug 7 (via simonwillison.net)</span><span class="dot">·</span><span>404 Media</span>
+    </div>
+    <div class="item-body">
+      <p>404 Media piece based on leaked Accenture meeting audio: it's non-engineers driving the bulk of internal token consumption, and the biggest single culprit is converting PDFs to markdown. ("I'm learning that's one of the big token chewers.") Relevant for anyone building internal AI tooling — it's worth auditing where your tokens actually go before assuming it's your engineering team's agent loops.</p>
+    </div>
+    <a class="source-link" href="https://www.404media.co/the-tokenpocalypse-is-here-companies-are-scrambling-to-stop-spending-so-much-on-ai/">→ 404 Media</a>
+  </div>
+</section>
+
+<!-- TODAY'S LESSON -->
+<section class="section">
+  <div class="section-label label-lesson">📖 Today's Lesson</div>
+  <div class="lesson-card">
+    <div class="lesson-title">Speculative Decoding: how inference servers get 2–4× throughput for free</div>
+    <div class="lesson-body">
+      <p>LLM inference is memory-bandwidth bound, not compute bound. During each decoding step, the model reads all its weights from VRAM to generate a single token — which means GPUs are mostly waiting on memory transfers, not doing math. Speculative decoding exploits this idle compute.</p>
+      <p>The idea: pair a small "draft" model (e.g. 1–7B) with your large "target" model (e.g. 70B+). The draft model autoregressively generates 4–8 candidate tokens speculatively. The large model then evaluates all of those candidates in a single forward pass — because the target can process multiple tokens in parallel via its attention mechanism, even though it can only <em>generate</em> one at a time. If the draft tokens match what the target would have generated, you accept them all. If one diverges, you reject from that point and re-draft.</p>
+      <p>In practice, acceptance rate depends on how well the draft matches the target's distribution. For repetitive or predictable text (code, structured output, long repeated patterns), acceptance rates of 70–85% are common, giving 2–4× effective throughput at the same output quality. For highly creative or unpredictable text, it degrades toward 1×.</p>
+      <p>Modern serving stacks handle this automatically: vLLM has built-in speculative decoding, llama.cpp's <code>--draft-model</code> flag does the same, and Ollama's MLX engine now uses MTP heads for speculative decoding automatically when the model supports it (as of 0.32.7). The "draft model" can even be a self-speculative variant — using early layers of the same model, trading quality for zero extra VRAM.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ARCHIVE SIDEBAR -->
+<style>
+  .arc-btn {
+    position: fixed; top: 18px; right: 18px; z-index: 200;
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 6px; padding: 6px 11px; font-size: 12px;
+    color: var(--muted); cursor: pointer; display: flex;
+    align-items: center; gap: 6px; user-select: none;
+    transition: border-color 0.15s, color 0.15s;
+    font-family: inherit;
+  }
+  .arc-btn:hover { border-color: #3a4060; color: var(--text); }
+  .arc-overlay {
+    display: none; position: fixed; inset: 0; z-index: 198;
+    background: rgba(0,0,0,0.45);
+  }
+  .arc-overlay.open { display: block; }
+  .arc-panel {
+    position: fixed; top: 0; right: 0; height: 100vh; width: 200px;
+    background: var(--surface); border-left: 1px solid var(--border);
+    z-index: 199; padding: 56px 14px 24px; overflow-y: auto;
+    transform: translateX(100%); transition: transform 0.22s ease;
+  }
+  .arc-panel.open { transform: translateX(0); }
+  .arc-panel-title {
+    font-size: 10px; font-weight: 700; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--muted);
+    margin-bottom: 14px; padding-left: 4px;
+  }
+  .arc-item {
+    display: block; padding: 7px 8px; border-radius: 5px;
+    font-size: 13px; color: var(--muted); text-decoration: none;
+    margin-bottom: 2px; transition: background 0.1s, color 0.1s;
+  }
+  .arc-item:hover { background: #1e2333; color: var(--text); }
+  .arc-item.current { background: rgba(91,142,240,0.12); color: var(--accent); font-weight: 600; }
+  .arc-close {
+    position: absolute; top: 14px; right: 14px;
+    background: none; border: none; color: var(--muted);
+    cursor: pointer; font-size: 18px; line-height: 1; padding: 4px;
+  }
+  .arc-close:hover { color: var(--text); }
+</style>
+<div class="arc-overlay" id="arcOverlay" onclick="arcClose()"></div>
+<div class="arc-panel" id="arcPanel">
+  <button class="arc-close" onclick="arcClose()">&#x2715;</button>
+  <div class="arc-panel-title">Past Issues</div>
+  <div id="arcList"><span style="color:var(--muted);font-size:12px">Loading…</span></div>
+</div>
+<button class="arc-btn" onclick="arcToggle()">
+  <svg width="13" height="11" viewBox="0 0 18 14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="0" y1="1" x2="18" y2="1"/><line x1="0" y1="7" x2="18" y2="7"/><line x1="0" y1="13" x2="18" y2="13"/></svg>
+  Past issues
+</button>
+<script>
+(function(){
+  var PAD = function(n){return String(n).padStart(2,'0');};
+  var MONTHS = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  var DAYS   = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+  var current = window.location.pathname.split('/').pop().replace(/\.html$/,'');
+  var found = [], tasks = [];
+  for(var i=0;i<45;i++){
+    (function(offset){
+      var d = new Date(); d.setDate(d.getDate()-offset);
+      var s = d.getFullYear()+'-'+PAD(d.getMonth()+1)+'-'+PAD(d.getDate());
+      tasks.push(fetch('./'+s+'.html',{method:'HEAD'}).then(function(r){if(r.ok)found.push({s:s,d:new Date(d)});}).catch(function(){}));
+    })(i);
+  }
+  Promise.all(tasks).then(function(){
+    found.sort(function(a,b){return b.d-a.d;});
+    var html='';
+    found.forEach(function(f){
+      var label=DAYS[f.d.getDay()]+', '+MONTHS[f.d.getMonth()]+' '+f.d.getDate();
+      var cls='arc-item'+(f.s===current?' current':'');
+      html+='<a class="'+cls+'" href="./'+f.s+'.html">'+label+'</a>';
+    });
+    document.getElementById('arcList').innerHTML=html||'<span style="color:var(--muted);font-size:12px">None found</span>';
+  });
+})();
+function arcToggle(){
+  var p=document.getElementById('arcPanel'),o=document.getElementById('arcOverlay');
+  var open=p.classList.contains('open');
+  if(open){arcClose();}else{p.classList.add('open');o.classList.add('open');}
+}
+function arcClose(){
+  document.getElementById('arcPanel').classList.remove('open');
+  document.getElementById('arcOverlay').classList.remove('open');
+}
+</script>
+
+</body>
+</html>
