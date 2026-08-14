@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Daily Dump — August 14, 2026</title>
+<style>
+  :root {
+    --bg: #0d1117;
+    --surface: #161b22;
+    --surface2: #1c2330;
+    --border: #2a3040;
+    --text: #e6edf3;
+    --muted: #8b949e;
+    --accent: #5b8ef0;
+    --accent2: #58a6ff;
+    --hot: #f78166;
+    --release: #3fb950;
+    --horizon: #d2a679;
+    --reading: #a371f7;
+    --lesson: #79c0ff;
+    --tag-bg: rgba(91,142,240,0.1);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+    font-size: 15px;
+    line-height: 1.65;
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 40px 24px 80px;
+  }
+  a { color: var(--accent2); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  .header { margin-bottom: 40px; border-bottom: 1px solid var(--border); padding-bottom: 24px; }
+  .header-eyebrow {
+    font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--muted); margin-bottom: 8px;
+  }
+  .header-title { font-size: 26px; font-weight: 700; color: var(--text); }
+  .header-date { font-size: 14px; color: var(--muted); margin-top: 4px; }
+
+  .section { margin-bottom: 44px; }
+  .section-label {
+    display: inline-block;
+    font-size: 10px; font-weight: 700; letter-spacing: 0.12em;
+    text-transform: uppercase; padding: 3px 9px; border-radius: 4px;
+    margin-bottom: 18px;
+  }
+  .label-hot    { background: rgba(247,129,102,0.12); color: var(--hot); }
+  .label-release{ background: rgba(63,185,80,0.12);  color: var(--release); }
+  .label-horizon{ background: rgba(210,166,121,0.12); color: var(--horizon); }
+  .label-reading{ background: rgba(163,113,247,0.12); color: var(--reading); }
+  .label-lesson { background: rgba(121,192,255,0.12); color: var(--lesson); }
+
+  .item { margin-bottom: 24px; padding-bottom: 24px; border-bottom: 1px solid var(--border); }
+  .item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+
+  .item-title {
+    font-size: 15px; font-weight: 600; color: var(--text);
+    margin-bottom: 6px; line-height: 1.4;
+  }
+  .item-title a { color: var(--text); }
+  .item-title a:hover { color: var(--accent2); text-decoration: none; }
+  .item-meta {
+    font-size: 11px; color: var(--muted); margin-bottom: 8px;
+    display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+  }
+  .item-meta .dot { opacity: 0.4; }
+  .item-body { font-size: 14px; color: #c9d1d9; }
+  .item-body p + p { margin-top: 8px; }
+
+  .lesson-card {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 8px; padding: 24px;
+  }
+  .lesson-title { font-size: 16px; font-weight: 700; color: var(--lesson); margin-bottom: 14px; }
+  .lesson-body { font-size: 14px; color: #c9d1d9; line-height: 1.7; }
+  .lesson-body p + p { margin-top: 10px; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-eyebrow">AI Daily Dump</div>
+  <div class="header-title">Friday, August 14, 2026</div>
+  <div class="header-date">Your daily briefing for AI/inference engineers</div>
+</div>
+
+<!-- WHAT'S HOT -->
+<div class="section">
+  <div class="section-label label-hot">🔥 What's Hot Right Now</div>
+
+  <div class="item">
+    <div class="item-title">
+      <a href="https://thehackernews.com/2026/08/openai-anthropic-google-api-flaw-let.html" target="_blank">Encrypted reasoning traces were never actually private — and 182 credentials leaked from public logs</a>
+    </div>
+    <div class="item-meta">
+      <span>The Hacker News</span><span class="dot">·</span><span>Aug 12</span><span class="dot">·</span><span>Security</span>
+    </div>
+    <div class="item-body">
+      <p>ELLIS Institute researchers scraped 6,708 public agent trajectory logs from GitHub and Hugging Face, decoded 315,320 reasoning blocks, and recovered 182 credentials — API keys, passwords, access tokens — from real user sessions. The root cause: OpenAI, Anthropic, and Google all used a single global encryption key for their encrypted CoT tokens, meaning a reasoning block from one session could be replayed into any other, and even handed to a weaker model in the same family to make it dump the hidden content.</p>
+      <p>All three providers have patched the extraction attack. The catch: the patch is server-side. Every reasoning block already sitting in a public repo or shared log is still decodable by anyone who ran the attack during the July testing window. <strong>Action item:</strong> audit any agent logs you've shared or published and strip encrypted reasoning fields before they go anywhere.</p>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="item-title">
+      <a href="https://x.ai/news/grok-4-6" target="_blank">Grok 4.6 lands at 1753 ELO, half the price of frontier rivals</a>
+    </div>
+    <div class="item-meta">
+      <span>xAI</span><span class="dot">·</span><span>Aug 12</span><span class="dot">·</span><span>Model release</span>
+    </div>
+    <div class="item-body">
+      <p>Grok 4.6 scored 61 on the Artificial Analysis Intelligence Index — up from 56 for Grok 4.5 — and is priced at $2/$6 per million input/output tokens via API. xAI reused the 1.5T-parameter base from Grok 4.5 and focused post-training on long-running agents and richer visual/interactive work. 500K token context window. Available through the xAI API and gateway partners now.</p>
+      <p>xAI has already signaled Grok 4.7 (2.1T params) is coming within weeks, with Grok 5 targeted before end of 2026.</p>
+    </div>
+  </div>
+</div>
+
+<!-- NEW RELEASES & UPDATES -->
+<div class="section">
+  <div class="section-label label-release">🚀 New Releases &amp; Updates</div>
+
+  <div class="item">
+    <div class="item-title">
+      <a href="https://siliconangle.com/2026/08/13/google-launches-gemini-3-7-flash-coding-ai-agent-projects/" target="_blank">Gemini 3.7 Flash — coding/agent model at $0.75/1M input</a>
+    </div>
+    <div class="item-meta">
+      <span>Google</span><span class="dot">·</span><span>Aug 13</span><span class="dot">·</span><span>API + GitHub Copilot</span>
+    </div>
+    <div class="item-body">
+      <p>Google's latest Flash model is built explicitly for software coding and agentic multi-step workflows. DeepSWE v1.1 benchmark jumped from 49.0% to 65.3% vs its predecessor; FrontierCode 1.1 went from 34.4% to 43.6%. Notably better at UI generation — layouts now align more closely with reference images. Introductory pricing through end of 2026: <strong>$0.75/$3.75 per 1M tokens</strong> (input/output) — half the launch price of the previous model. Already live in GitHub Copilot.</p>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="item-title">
+      <a href="https://www.unite.ai/deepseek-ships-v4-pro-as-its-flagship-model-leaves-preview/" target="_blank">DeepSeek V4 Pro 0813 goes GA — 1M context, agent-first, OpenAI Responses API compatible</a>
+    </div>
+    <div class="item-meta">
+      <span>DeepSeek</span><span class="dot">·</span><span>Aug 13</span><span class="dot">·</span><span>GA release</span>
+    </div>
+    <div class="item-body">
+      <p>After months in preview, DeepSeek's flagship MoE is now generally available. Specs: 1.6T total parameters, ~49B active per token, 1M token context, up to 384K output tokens. The GA version is explicitly positioned around agentic use — Terminal Bench 2.1: 87.9, DeepSWE: 62.7, NL2Repo: 61.5. Pricing: $0.435/1M input (cache miss), $0.00363/1M (cache hit), $0.87/1M output. Worth noting: the API now natively supports the <strong>OpenAI Responses API format</strong>, so you can drop it in as a replacement without any adapter code.</p>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="item-title">
+      <a href="https://www.bloomberg.com/news/articles/2026-08-14/z-ai-aims-to-catch-anthropic-openai-in-coding-with-new-ai-model" target="_blank">Z.ai releases GLM-5.3, targeting coding parity with Fable 5</a>
+    </div>
+    <div class="item-meta">
+      <span>Z.ai (Zhipu)</span><span class="dot">·</span><span>Aug 14</span><span class="dot">·</span><span>Model release</span>
+    </div>
+    <div class="item-body">
+      <p>China's Z.AI announced GLM-5.3, an upgrade to its flagship model focused on closing the coding gap with Anthropic's Fable 5 on leaderboards. Built on the same ~700B-parameter base as its June predecessor. Details on weights/API pricing not yet published, but worth watching if you're tracking the frontier coding race outside the US/EU lab cluster.</p>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="item-title">
+      <a href="https://explainx.ai/blog/anthropic-sonnet-5-permanent-pricing-august-2026" target="_blank">Anthropic freezes Claude Sonnet 5 pricing — planned September hike canceled</a>
+    </div>
+    <div class="item-meta">
+      <span>Anthropic</span><span class="dot">·</span><span>Aug 10</span><span class="dot">·</span><span>Pricing</span>
+    </div>
+    <div class="item-body">
+      <p>Anthropic announced that $2/$10 per million tokens (input/output) is now the permanent price for Claude Sonnet 5 — canceling the September 1 increase to $3/$15 that had been signaled at launch. Good news if you're running agents on Sonnet 5 at scale. Note: a new tokenizer can inflate billable token counts by up to 35%, so effective per-query cost can still shift even with stable list pricing.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ON THE HORIZON -->
+<div class="section">
+  <div class="section-label label-horizon">🔭 On the Horizon</div>
+
+  <div class="item">
+    <div class="item-title">Grok 4.7 (2.1T params) and Grok 5 both signaled for 2026</div>
+    <div class="item-meta">
+      <span>xAI</span><span class="dot">·</span><span>Announced</span>
+    </div>
+    <div class="item-body">
+      <p>With Grok 4.6 just out, xAI has publicly flagged a larger Grok 4.7 (jumping from 1.5T to 2.1T parameters) as coming within weeks, and Grok 5 before end of year. The pace here is roughly one major release per two weeks — fast enough that 4.7 could land before September.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ALSO WORTH READING -->
+<div class="section">
+  <div class="section-label label-reading">📚 Also Worth Reading</div>
+
+  <div class="item">
+    <div class="item-title">
+      <a href="https://techcrunch.com/2026/08/13/databricks-wanted-to-raise-1b-investors-wanted-15b-it-settled-on-5b-at-a-190b-valuation/" target="_blank">Databricks raises $5B at $190B valuation — wanted $1B, investors pushed $15B, settled in the middle</a>
+    </div>
+    <div class="item-meta">
+      <span>TechCrunch</span><span class="dot">·</span><span>Aug 13</span><span class="dot">·</span><span>Funding</span>
+    </div>
+    <div class="item-body">
+      <p>The TechCrunch headline says it all: the raise was investor-driven. Databricks is at $7B ARR growing 80% YoY, with Coatue, Blackstone, MGX, and T. Rowe Price leading. The $190B valuation (up from $134B in February) makes it one of the most valuable private tech companies on earth. The strategic bet is the enterprise AI agent platform layer — helping businesses build and manage agents on top of their own data.</p>
+    </div>
+  </div>
+</div>
+
+<!-- TODAY'S LESSON -->
+<div class="section">
+  <div class="section-label label-lesson">📖 Today's Lesson</div>
+  <div class="lesson-card">
+    <div class="lesson-title">Chunked Prefill: how to stop one long prompt from freezing everyone else out</div>
+    <div class="lesson-body">
+      <p>When a new request arrives at an inference server, the engine has to process the entire prompt before it can emit a single output token. For a 1M-token context window like DeepSeek V4 Pro or Gemini Flash, that prefill phase can take several seconds — and while it's running, it monopolizes GPU compute, blocking decode (token generation) for every other request in the batch. This is the prefill-vs-decode resource contention problem.</p>
+      <p><strong>Chunked prefill</strong> solves this by breaking the long prompt into fixed-size chunks (typically 512–4096 tokens) and interleaving them with decode work across scheduler ticks. Each tick, the scheduler runs one chunk of prefill <em>and</em> a batch of decodes together. The long prompt still finishes eventually, but in the meantime other users' generation continues at near-normal speed.</p>
+      <p>The tradeoff: chunked prefill adds latency to the TTFT (time-to-first-token) of the long request — you don't start generating until all chunks are prefilled — but dramatically improves fairness and tail latency for concurrent users. SGLang and vLLM both support chunked prefill; it's usually controlled by a <code>max_num_batched_tokens</code> or <code>chunk_prefill_size</code> parameter. Worth tuning if you're serving a mix of short interactive queries and long-context agent calls at the same time.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ARCHIVE SIDEBAR -->
+<style>
+  .arc-btn {
+    position: fixed; top: 18px; right: 18px; z-index: 200;
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 6px; padding: 6px 11px; font-size: 12px;
+    color: var(--muted); cursor: pointer; display: flex;
+    align-items: center; gap: 6px; user-select: none;
+    transition: border-color 0.15s, color 0.15s;
+    font-family: inherit;
+  }
+  .arc-btn:hover { border-color: #3a4060; color: var(--text); }
+  .arc-overlay {
+    display: none; position: fixed; inset: 0; z-index: 198;
+    background: rgba(0,0,0,0.45);
+  }
+  .arc-overlay.open { display: block; }
+  .arc-panel {
+    position: fixed; top: 0; right: 0; height: 100vh; width: 200px;
+    background: var(--surface); border-left: 1px solid var(--border);
+    z-index: 199; padding: 56px 14px 24px; overflow-y: auto;
+    transform: translateX(100%); transition: transform 0.22s ease;
+  }
+  .arc-panel.open { transform: translateX(0); }
+  .arc-panel-title {
+    font-size: 10px; font-weight: 700; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--muted);
+    margin-bottom: 14px; padding-left: 4px;
+  }
+  .arc-item {
+    display: block; padding: 7px 8px; border-radius: 5px;
+    font-size: 13px; color: var(--muted); text-decoration: none;
+    margin-bottom: 2px; transition: background 0.1s, color 0.1s;
+  }
+  .arc-item:hover { background: #1e2333; color: var(--text); }
+  .arc-item.current { background: rgba(91,142,240,0.12); color: var(--accent); font-weight: 600; }
+  .arc-close {
+    position: absolute; top: 14px; right: 14px;
+    background: none; border: none; color: var(--muted);
+    cursor: pointer; font-size: 18px; line-height: 1; padding: 4px;
+  }
+  .arc-close:hover { color: var(--text); }
+</style>
+<div class="arc-overlay" id="arcOverlay" onclick="arcClose()"></div>
+<div class="arc-panel" id="arcPanel">
+  <button class="arc-close" onclick="arcClose()">&#x2715;</button>
+  <div class="arc-panel-title">Past Issues</div>
+  <div id="arcList"><span style="color:var(--muted);font-size:12px">Loading…</span></div>
+</div>
+<button class="arc-btn" onclick="arcToggle()">
+  <svg width="13" height="11" viewBox="0 0 18 14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="0" y1="1" x2="18" y2="1"/><line x1="0" y1="7" x2="18" y2="7"/><line x1="0" y1="13" x2="18" y2="13"/></svg>
+  Past issues
+</button>
+<script>
+(function(){
+  var PAD = function(n){return String(n).padStart(2,'0');};
+  var MONTHS = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  var DAYS   = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+  var current = window.location.pathname.split('/').pop().replace(/\.html$/,'');
+  var found = [], tasks = [];
+  for(var i=0;i<45;i++){
+    (function(offset){
+      var d = new Date(); d.setDate(d.getDate()-offset);
+      var s = d.getFullYear()+'-'+PAD(d.getMonth()+1)+'-'+PAD(d.getDate());
+      tasks.push(fetch('./'+s+'.html',{method:'HEAD'}).then(function(r){if(r.ok)found.push({s:s,d:new Date(d)});}).catch(function(){}));
+    })(i);
+  }
+  Promise.all(tasks).then(function(){
+    found.sort(function(a,b){return b.d-a.d;});
+    var html='';
+    found.forEach(function(f){
+      var label=DAYS[f.d.getDay()]+', '+MONTHS[f.d.getMonth()]+' '+f.d.getDate();
+      var cls='arc-item'+(f.s===current?' current':'');
+      html+='<a class="'+cls+'" href="./'+f.s+'.html">'+label+'</a>';
+    });
+    document.getElementById('arcList').innerHTML=html||'<span style="color:var(--muted);font-size:12px">None found</span>';
+  });
+})();
+function arcToggle(){
+  var p=document.getElementById('arcPanel'),o=document.getElementById('arcOverlay');
+  var open=p.classList.contains('open');
+  if(open){arcClose();}else{p.classList.add('open');o.classList.add('open');}
+}
+function arcClose(){
+  document.getElementById('arcPanel').classList.remove('open');
+  document.getElementById('arcOverlay').classList.remove('open');
+}
+</script>
+
+</body>
+</html>
