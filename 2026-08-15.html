@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Daily Dump — August 15, 2026</title>
+<style>
+  :root {
+    --bg: #0f1117;
+    --surface: #161b27;
+    --border: #252d3d;
+    --text: #e2e8f0;
+    --muted: #7a869a;
+    --accent: #5b8ef0;
+    --hot: #f97316;
+    --release: #34d399;
+    --horizon: #a78bfa;
+    --reads: #60a5fa;
+    --lesson: #fbbf24;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+    font-size: 15px;
+    line-height: 1.65;
+    padding: 0 0 64px;
+  }
+  .header {
+    border-bottom: 1px solid var(--border);
+    padding: 36px 0 28px;
+    text-align: center;
+  }
+  .header-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 8px;
+  }
+  .header-date {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--text);
+    letter-spacing: -0.02em;
+  }
+  .header-sub {
+    font-size: 13px;
+    color: var(--muted);
+    margin-top: 6px;
+  }
+  .container {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+  .section {
+    margin-top: 44px;
+  }
+  .section-label {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    padding: 3px 9px;
+    border-radius: 4px;
+    margin-bottom: 18px;
+  }
+  .label-hot { background: rgba(249,115,22,0.15); color: var(--hot); }
+  .label-release { background: rgba(52,211,153,0.12); color: var(--release); }
+  .label-horizon { background: rgba(167,139,250,0.12); color: var(--horizon); }
+  .label-reads { background: rgba(96,165,250,0.12); color: var(--reads); }
+  .label-lesson { background: rgba(251,191,36,0.12); color: var(--lesson); }
+
+  .item {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 18px 20px;
+    margin-bottom: 12px;
+  }
+  .item-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 6px;
+  }
+  .item-title a {
+    color: inherit;
+    text-decoration: none;
+  }
+  .item-title a:hover { color: var(--accent); }
+  .item-meta {
+    font-size: 11px;
+    color: var(--muted);
+    margin-bottom: 8px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+  .item-body {
+    font-size: 14px;
+    color: #b0bdd0;
+    line-height: 1.6;
+  }
+  .item-body a { color: var(--accent); text-decoration: none; }
+  .item-body a:hover { text-decoration: underline; }
+  .tag {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 2px 7px;
+    border-radius: 3px;
+    margin-right: 5px;
+    margin-bottom: 8px;
+  }
+  .tag-new { background: rgba(52,211,153,0.12); color: var(--release); }
+  .tag-hn { background: rgba(249,115,22,0.15); color: var(--hot); }
+  .tag-local { background: rgba(91,142,240,0.12); color: var(--accent); }
+  .tag-tool { background: rgba(167,139,250,0.12); color: var(--horizon); }
+  .tag-biz { background: rgba(96,165,250,0.12); color: var(--reads); }
+
+  .lesson-card {
+    background: rgba(251,191,36,0.05);
+    border: 1px solid rgba(251,191,36,0.2);
+    border-radius: 10px;
+    padding: 22px 24px;
+  }
+  .lesson-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--lesson);
+    margin-bottom: 14px;
+  }
+  .lesson-body {
+    font-size: 14px;
+    color: #b0bdd0;
+    line-height: 1.7;
+  }
+  .lesson-body p { margin-bottom: 10px; }
+  .lesson-body p:last-child { margin-bottom: 0; }
+  .lesson-body code {
+    font-family: 'SF Mono', 'Fira Code', Consolas, monospace;
+    font-size: 12px;
+    background: rgba(255,255,255,0.06);
+    padding: 1px 5px;
+    border-radius: 3px;
+    color: #e2e8f0;
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-label">AI Daily Dump</div>
+  <div class="header-date">Friday, August 15, 2026</div>
+  <div class="header-sub">What's happening in AI — for practitioners</div>
+</div>
+
+<div class="container">
+
+  <!-- WHAT'S HOT -->
+  <div class="section">
+    <div class="section-label label-hot">🔥 What's Hot Right Now</div>
+
+    <div class="item">
+      <div class="tag tag-local">LocalLLaMA</div><div class="tag tag-new">Aug 14</div>
+      <div class="item-title"><a href="https://medium.com/@rosgluk/qwen-3-8-27b-is-coming-and-it-could-be-the-most-important-local-ai-release-of-2026-c1cf381d5292">Qwen3.8-27B drops — and the community is already benchmarking it hard</a></div>
+      <div class="item-meta">Alibaba / Tongyi Lab · Aug 14, 2026</div>
+      <div class="item-body">
+        Alibaba released Qwen3.8-27B on Aug 14, a dense 27.8B-parameter multimodal (text + images + video) with a native 262,144-token context window, under Apache 2.0. The headline numbers are striking: it reportedly beats Meta's Muse Glimmer 30B across all 8 direct comparison benchmarks and surpasses Claude Opus 4.6 on 15 of 19 tests — at a fraction of the size. OSWorld-Verified jumped from 63.9 → 84.3 and DeepSWE 1.1 from 13.3 → 42.2 over Qwen3.6-27B. Minimum VRAM: 24 GB. Simon Willison tested it on Aug 16 and found it <a href="https://simonwillison.net/2026/Aug/16/qwen-38-27b/">excellent but prone to wildly overthinking</a> — watch your token budgets.
+      </div>
+    </div>
+
+    <div class="item">
+      <div class="tag tag-hn">HN Trending</div><div class="tag tag-hn">241 pts</div>
+      <div class="item-title"><a href="https://news.ycombinator.com/item?id=48567759">Are frontier labs intentionally squeezing factual knowledge out of their models?</a></div>
+      <div class="item-meta">Hacker News · Aug 16–17, 2026</div>
+      <div class="item-body">
+        A post by Walter van der Giessen is trending hard (241 points, 139 comments): GLM-5.2 hits 99.2% on AIME 2026 with 40B active parameters; Qwen 3.5 hits 91.3% with 17B active — yet the SimpleQA factuality leader (Gemini) tops out at 53%. The argument: labs are deliberately trading embedded factual knowledge for reasoning efficiency, making models great at hard problems but weirdly unreliable on easy facts. The implication for practitioners: small local model + retrieval is increasingly the right architecture, not a bigger frontier model.
+      </div>
+    </div>
+  </div>
+
+  <!-- NEW RELEASES -->
+  <div class="section">
+    <div class="section-label label-release">🚀 New Releases &amp; Updates</div>
+
+    <div class="item">
+      <div class="tag tag-new">Aug 13</div>
+      <div class="item-title"><a href="https://siliconangle.com/2026/08/13/google-launches-gemini-3-7-flash-coding-ai-agent-projects/">Gemini 3.7 Flash — half the price, big benchmark jumps</a></div>
+      <div class="item-meta">Google · Aug 13, 2026</div>
+      <div class="item-body">
+        Google released Gemini 3.7 Flash just three weeks after 3.6, cutting intro pricing in half: <strong>$0.75/$3.75 per M input/output tokens</strong> (standard pricing $1.50/$7.50 starts Jan 2027). 1M-token context window, 64K output limit. Key benchmark gains over 3.6: DeepSWE v1.1 49.0% → 65.3%, AutomationBench 17.0% → 30.4%, WebDev Arena Elo 1538 → 1588. Notably Google did not train this from scratch — it's a complete replacement of 3.6 via algorithmic improvements and user feedback, not a new training run. Still waiting on Gemini 3.5 Pro, which Bloomberg notes remains delayed.
+      </div>
+    </div>
+
+    <div class="item">
+      <div class="tag tag-new">Aug 14</div>
+      <div class="item-title"><a href="https://www.unite.ai/z-ai-launches-glm-5-3-with-frontier-coding-and-a-cyber-capability-that-outgrew-its-training/">GLM-5.3 — Z.ai's 744B coding beast, weights coming ~Aug 28</a></div>
+      <div class="item-meta">Z.ai (Zhipu) · Aug 14, 2026</div>
+      <div class="item-body">
+        Z.ai launched GLM-5.3 on Aug 14 with the tagline "Built to Code. Ready for Cyber Defense." Same 744B parameter base as GLM-5.2 — every gain comes from extended post-training. Claims top coding performance among open-weight models. The catch: <strong>weights are not yet public</strong>. Z.ai plans to release them ~Aug 28 after completing safety evaluation (the model's cyber capabilities apparently outgrew expectations during training). Available now via GLM Coding Plan and ZCode API.
+      </div>
+    </div>
+
+    <div class="item">
+      <div class="tag tag-tool">Tool</div><div class="tag tag-new">Aug 2026</div>
+      <div class="item-title"><a href="https://windowsforum.com/windows-news.4/project-polaris-set-as-default-github-copilot-engine-in-august-2026.421826/">GitHub Copilot switches to Project Polaris — Microsoft cuts the OpenAI cord</a></div>
+      <div class="item-meta">Microsoft · August 2026</div>
+      <div class="item-body">
+        As of this month, GitHub Copilot's default model is now <strong>Project Polaris</strong> — Microsoft's own in-house mixture-of-experts model trained on Maia silicon, unveiled at Build 2026. It replaces GPT-4 Turbo for all subscribers. Pro subscribers get 100K-line context and autonomous test generation; tuned specifically for Rust and Haskell. Existing subscribers are auto-migrated with a 3-month fallback option. This is Microsoft ending its dependency on OpenAI for its biggest dev product.
+      </div>
+    </div>
+  </div>
+
+  <!-- ON THE HORIZON -->
+  <div class="section">
+    <div class="section-label label-horizon">🔭 On the Horizon</div>
+
+    <div class="item">
+      <div class="item-title">GLM-5.3 open weights — ~August 28</div>
+      <div class="item-meta">Z.ai · Announced Aug 14</div>
+      <div class="item-body">
+        Z.ai committed to dropping GLM-5.3's open weights roughly two weeks after the Aug 14 launch — pointing at around Aug 28 — pending completion of its safety eval pass. Given its claimed SOTA coding performance and 744B scale, this one will be worth watching. Expect immediate community quants to follow within hours of release.
+      </div>
+    </div>
+  </div>
+
+  <!-- ALSO WORTH READING -->
+  <div class="section">
+    <div class="section-label label-reads">📖 Also Worth Reading</div>
+
+    <div class="item">
+      <div class="tag tag-biz">Business</div>
+      <div class="item-title"><a href="https://aitoolsrecap.com/Blog/ai-news-august-13-2026">Anthropic turns profitable — first frontier AI lab to do so</a></div>
+      <div class="item-meta">Aug 13, 2026</div>
+      <div class="item-body">
+        Anthropic projects Q2 2026 operating profit of $559M on $10.9B revenue — a 130% jump from Q1's $4.8B. That makes it the first frontier AI lab to post a quarterly operating profit. By Q3, operating profit is on track to exceed $1B. Contrast: OpenAI is reportedly losing ~$14B/year despite $40B+ annualized revenue and a confidential S-1 filed with the SEC in June (targeting $852B valuation). The B2B API model and Claude Code growth are cited as the main drivers at Anthropic.
+      </div>
+    </div>
+
+    <div class="item">
+      <div class="tag tag-biz">Fun Read</div>
+      <div class="item-title"><a href="https://softwaredoug.com/blog/2026/08/10/hypothetical-classifications">Don't classify. Hallucinate! — a neat LLM tagging trick</a></div>
+      <div class="item-meta">Doug Turnbull / simonwillison.net · Aug 10–14, 2026</div>
+      <div class="item-body">
+        A clever pattern for tagging content with an LLM when your vocabulary is too large to fit in a prompt: tell the model to <em>invent</em> tags as if from scratch (no vocabulary provided), then use vector embeddings to match the hallucinated tags against your real taxonomy. You get the model's creative reasoning about what fits, grounded by your actual corpus. Simon Willison highlighted it on Aug 14 and is applying it to his 1,856-tag blog. Works well wherever classification with large label sets is needed.
+      </div>
+    </div>
+
+    <div class="item">
+      <div class="tag tag-biz">Infrastructure</div>
+      <div class="item-title"><a href="https://www.globenewswire.com/news-release/2026/08/17/3345987/28124/en/the-global-market-for-computing-and-ai-for-data-centers-report-2026-2040-evaluating-gpus-custom-asics-arm-vs-x86-and-strategies-of-nvidia-amd-google-and-aws.html">AI data center capex: $600B from top-5 hyperscalers this year</a></div>
+      <div class="item-meta">GlobeNewswire · Aug 17, 2026</div>
+      <div class="item-body">
+        A new market report published today pegs total 2026 capex from Amazon, Microsoft, Google, Meta, and Oracle at over $600B — ~75% of it AI-targeted. Around 70% of all memory chips globally are now going to AI data centers, forcing Samsung, SK Hynix, and Micron to prioritize HBM over consumer DRAM. Market forecast: AI compute market grows from $75.9B (2026) to $223.5B by 2030. The supply chain bifurcation between US-aligned and China-domestic stacks is increasingly structural.
+      </div>
+    </div>
+  </div>
+
+  <!-- TODAY'S LESSON -->
+  <div class="section">
+    <div class="section-label label-lesson">📖 Today's Lesson</div>
+    <div class="lesson-card">
+      <div class="lesson-title">LoRA &amp; QLoRA: how fine-tuning a 27B model fits on a single GPU</div>
+      <div class="lesson-body">
+        <p>With Qwen3.8-27B just landing, community fine-tunes will follow quickly. The tool that makes this feasible is <strong>LoRA</strong> (Low-Rank Adaptation), and it works on a surprisingly simple insight: when you fine-tune a model, the weight updates don't need to be full-rank matrices. Instead, you represent the change to any weight matrix <code>W</code> as the product of two small matrices: <code>ΔW = A × B</code>, where A is <em>d × r</em> and B is <em>r × k</em>, and <code>r</code> (the "rank") is tiny — typically 8–64. You freeze the original weights entirely and only train A and B.</p>
+        <p>This cuts trainable parameters by 10,000× or more. A 27B model might have 27 billion weights but a LoRA adapter might add only 20–40 million trainable parameters — small enough that gradients and optimizer states fit in GPU memory where the full model wouldn't.</p>
+        <p><strong>QLoRA</strong> pushes further: the base model is loaded in 4-bit NF4 quantization (keeping it in ~14GB instead of ~54GB for BF16), and a frozen double-quantization layer reduces the quantization constants' footprint too. The LoRA adapters themselves are trained in BF16. Net result: you can fine-tune a 27B model on a single 24GB consumer GPU.</p>
+        <p>The practical tradeoff is that low-rank adapters can miss subtle capability changes — if the target behavior requires pervasive weight edits across many attention heads, a single small-rank adapter may underfit. Increasing <code>r</code> or adding adapters to more layers (controlled by <code>target_modules</code>) improves coverage at the cost of more VRAM. For most instruction-tuning and domain-adaptation tasks, r=16 or r=32 targeting <code>q_proj</code>, <code>v_proj</code>, and <code>k_proj</code> is a sensible starting point.</p>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ARCHIVE SIDEBAR -->
+<style>
+  .arc-btn {
+    position: fixed; top: 18px; right: 18px; z-index: 200;
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 6px; padding: 6px 11px; font-size: 12px;
+    color: var(--muted); cursor: pointer; display: flex;
+    align-items: center; gap: 6px; user-select: none;
+    transition: border-color 0.15s, color 0.15s;
+    font-family: inherit;
+  }
+  .arc-btn:hover { border-color: #3a4060; color: var(--text); }
+  .arc-overlay {
+    display: none; position: fixed; inset: 0; z-index: 198;
+    background: rgba(0,0,0,0.45);
+  }
+  .arc-overlay.open { display: block; }
+  .arc-panel {
+    position: fixed; top: 0; right: 0; height: 100vh; width: 200px;
+    background: var(--surface); border-left: 1px solid var(--border);
+    z-index: 199; padding: 56px 14px 24px; overflow-y: auto;
+    transform: translateX(100%); transition: transform 0.22s ease;
+  }
+  .arc-panel.open { transform: translateX(0); }
+  .arc-panel-title {
+    font-size: 10px; font-weight: 700; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--muted);
+    margin-bottom: 14px; padding-left: 4px;
+  }
+  .arc-item {
+    display: block; padding: 7px 8px; border-radius: 5px;
+    font-size: 13px; color: var(--muted); text-decoration: none;
+    margin-bottom: 2px; transition: background 0.1s, color 0.1s;
+  }
+  .arc-item:hover { background: #1e2333; color: var(--text); }
+  .arc-item.current { background: rgba(91,142,240,0.12); color: var(--accent); font-weight: 600; }
+  .arc-close {
+    position: absolute; top: 14px; right: 14px;
+    background: none; border: none; color: var(--muted);
+    cursor: pointer; font-size: 18px; line-height: 1; padding: 4px;
+  }
+  .arc-close:hover { color: var(--text); }
+</style>
+<div class="arc-overlay" id="arcOverlay" onclick="arcClose()"></div>
+<div class="arc-panel" id="arcPanel">
+  <button class="arc-close" onclick="arcClose()">&#x2715;</button>
+  <div class="arc-panel-title">Past Issues</div>
+  <div id="arcList"><span style="color:var(--muted);font-size:12px">Loading…</span></div>
+</div>
+<button class="arc-btn" onclick="arcToggle()">
+  <svg width="13" height="11" viewBox="0 0 18 14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="0" y1="1" x2="18" y2="1"/><line x1="0" y1="7" x2="18" y2="7"/><line x1="0" y1="13" x2="18" y2="13"/></svg>
+  Past issues
+</button>
+<script>
+(function(){
+  var PAD = function(n){return String(n).padStart(2,'0');};
+  var MONTHS = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  var DAYS   = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+  var current = window.location.pathname.split('/').pop().replace(/\.html$/,'');
+  var found = [], tasks = [];
+  for(var i=0;i<45;i++){
+    (function(offset){
+      var d = new Date(); d.setDate(d.getDate()-offset);
+      var s = d.getFullYear()+'-'+PAD(d.getMonth()+1)+'-'+PAD(d.getDate());
+      tasks.push(fetch('./'+s+'.html',{method:'HEAD'}).then(function(r){if(r.ok)found.push({s:s,d:new Date(d)});}).catch(function(){}));
+    })(i);
+  }
+  Promise.all(tasks).then(function(){
+    found.sort(function(a,b){return b.d-a.d;});
+    var html='';
+    found.forEach(function(f){
+      var label=DAYS[f.d.getDay()]+', '+MONTHS[f.d.getMonth()]+' '+f.d.getDate();
+      var cls='arc-item'+(f.s===current?' current':'');
+      html+='<a class="'+cls+'" href="./'+f.s+'.html">'+label+'</a>';
+    });
+    document.getElementById('arcList').innerHTML=html||'<span style="color:var(--muted);font-size:12px">None found</span>';
+  });
+})();
+function arcToggle(){
+  var p=document.getElementById('arcPanel'),o=document.getElementById('arcOverlay');
+  var open=p.classList.contains('open');
+  if(open){arcClose();}else{p.classList.add('open');o.classList.add('open');}
+}
+function arcClose(){
+  document.getElementById('arcPanel').classList.remove('open');
+  document.getElementById('arcOverlay').classList.remove('open');
+}
+</script>
+
+</body>
+</html>
