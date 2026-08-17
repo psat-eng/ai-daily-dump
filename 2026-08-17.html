@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Daily Dump — August 17, 2026</title>
+<style>
+  :root {
+    --bg: #0d1117;
+    --surface: #161b22;
+    --border: #21262d;
+    --text: #e6edf3;
+    --muted: #7d8590;
+    --accent: #5b8ef0;
+    --accent2: #f78166;
+    --green: #3fb950;
+    --tag-hot: #2d1b00;
+    --tag-hot-text: #ffa657;
+    --tag-release: #0d2233;
+    --tag-release-text: #79c0ff;
+    --tag-horizon: #1c1226;
+    --tag-horizon-text: #d2a8ff;
+    --tag-read: #0f2014;
+    --tag-read-text: #56d364;
+    --tag-lesson: #0f1f0a;
+    --tag-lesson-text: #86efac;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+    font-size: 15px;
+    line-height: 1.65;
+    padding: 48px 20px 80px;
+  }
+  .container { max-width: 680px; margin: 0 auto; }
+  .header {
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 20px;
+    margin-bottom: 36px;
+  }
+  .header-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 6px;
+  }
+  .header h1 {
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--text);
+    letter-spacing: -0.3px;
+  }
+  .header .sub {
+    font-size: 13px;
+    color: var(--muted);
+    margin-top: 5px;
+  }
+  .section { margin-bottom: 40px; }
+  .section-label {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 3px 9px;
+    border-radius: 4px;
+    margin-bottom: 16px;
+  }
+  .label-hot      { background: var(--tag-hot);     color: var(--tag-hot-text); }
+  .label-release  { background: var(--tag-release);  color: var(--tag-release-text); }
+  .label-horizon  { background: var(--tag-horizon);  color: var(--tag-horizon-text); }
+  .label-read     { background: var(--tag-read);     color: var(--tag-read-text); }
+  .label-lesson   { background: var(--tag-lesson);   color: var(--tag-lesson-text); }
+
+  .item {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 16px 18px;
+    margin-bottom: 12px;
+  }
+  .item-title {
+    font-weight: 600;
+    font-size: 15px;
+    color: var(--text);
+    margin-bottom: 6px;
+  }
+  .item-title a {
+    color: inherit;
+    text-decoration: none;
+  }
+  .item-title a:hover { color: var(--accent); }
+  .item-body {
+    font-size: 14px;
+    color: var(--muted);
+    line-height: 1.6;
+  }
+  .item-body strong { color: var(--text); }
+  .item-meta {
+    font-size: 11px;
+    color: var(--muted);
+    margin-top: 8px;
+    opacity: 0.7;
+  }
+  .lesson-body {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 20px 20px;
+  }
+  .lesson-title {
+    font-weight: 700;
+    font-size: 16px;
+    color: var(--text);
+    margin-bottom: 12px;
+    line-height: 1.4;
+  }
+  .lesson-body p {
+    font-size: 14px;
+    color: var(--muted);
+    line-height: 1.7;
+    margin-bottom: 10px;
+  }
+  .lesson-body p:last-child { margin-bottom: 0; }
+  .lesson-body strong { color: var(--text); }
+  .lesson-body code {
+    background: #1e2733;
+    padding: 1px 5px;
+    border-radius: 3px;
+    font-size: 13px;
+    font-family: "SF Mono", Consolas, monospace;
+    color: #a5d6ff;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <div class="header">
+    <div class="header-label">AI Daily Dump</div>
+    <h1>Monday, August 17, 2026</h1>
+    <div class="sub">Fresh in the last 48 hours — for the practising AI/inference engineer</div>
+  </div>
+
+  <!-- WHAT'S HOT -->
+  <div class="section">
+    <span class="section-label label-hot">🔥 What's Hot Right Now</span>
+
+    <div class="item">
+      <div class="item-title">
+        <a href="https://www.bloomberg.com/news/articles/2026-08-16/stripe-nears-deal-to-buy-ai-firm-openrouter-for-over-7-billion" target="_blank">Stripe acquires OpenRouter for $7B+ — a 5× markup in three months</a>
+      </div>
+      <div class="item-body">
+        Bloomberg confirmed the deal Sunday. OpenRouter routes developer traffic across <strong>400+ models</strong> from OpenAI, Anthropic, Google, Meta, and DeepSeek — reportedly handling ~1.5 quadrillion tokens in the past year. Stripe paid north of $7B, up from a $1.3B Series B valuation in May 2026. The strategic read: Stripe is betting that <strong>model routing becomes as critical infrastructure as payment routing</strong>, and wants to sit in the middle of both. Every AI product paying per-token is now potentially a Stripe customer twice over.
+      </div>
+      <div class="item-meta">Bloomberg / Fortune · Aug 16, 2026</div>
+    </div>
+
+    <div class="item">
+      <div class="item-title">
+        <a href="https://www.marktechpost.com/2026/08/03/alibaba-qwen-releases-qwen3-8-max/" target="_blank">Qwen3.8-27B open weights drop, hit #1 on Hacker News with 893 points</a>
+      </div>
+      <div class="item-body">
+        After Qwen3.8-Max (2.4T MoE, API-only) launched Aug 3, Alibaba followed with open weights on Aug 15 — first the giant <code>Qwen3.8-2.4T-A95B</code> on Hugging Face, then the locally runnable <strong>27B variant</strong> which exploded on HN. Simon Willison's quick take: "excellent, but it defaults to wildly overthinking things" — the extended thinking mode kicks in by default and can burn 10× tokens on simple queries. Worth setting <code>thinking_budget: 0</code> for latency-sensitive use cases. This is the most capable locally-runnable model released since Kimi K3.
+      </div>
+      <div class="item-meta">Hacker News · Aug 15, 2026 &nbsp;|&nbsp; simonwillison.net · Aug 16, 2026</div>
+    </div>
+
+  </div>
+
+  <!-- NEW RELEASES & UPDATES -->
+  <div class="section">
+    <span class="section-label label-release">🚀 New Releases &amp; Updates</span>
+
+    <div class="item">
+      <div class="item-title">
+        <a href="https://www.cerebras.ai/blog/accelerating-gpt-5-6-sol-ultrafast-with-openai" target="_blank">OpenAI + Cerebras: GPT-5.6 Sol Ultrafast hits 750 tokens/sec</a>
+      </div>
+      <div class="item-body">
+        Announced Aug 13, OpenAI's new <strong>Ultrafast API tier</strong> runs GPT-5.6 Sol on Cerebras wafer-scale silicon at up to 750 output tok/s — that's <strong>14× faster than Standard</strong>, 5× faster than Claude Opus 4.8 Fast mode, and 11× faster than Claude Fable 5. Same intelligence, radically different latency profile. It's a limited API preview for select customers now, expanding as capacity grows. Cerebras committed to 750 megawatts of compute through 2028 under a deal reportedly worth $10B+. If you're building anything where TTFT or streaming UX matters, this changes the math.
+      </div>
+      <div class="item-meta">Cerebras / OpenAI · Aug 13, 2026</div>
+    </div>
+
+    <div class="item">
+      <div class="item-title">
+        <a href="https://siliconangle.com/2026/08/14/z-ai-debuts-glm-5-3-long-horizon-coding-cybersecurity-upgrades/" target="_blank">Z.ai ships GLM-5.3 — new top open-coding model, weights in two weeks</a>
+      </div>
+      <div class="item-body">
+        Released Aug 14, GLM-5.3 is built on the same 743B-parameter MoE base as GLM-5.2 — <strong>every gain comes from post-training alone</strong>. Notable jump on Terminal-Bench 3.0: from 4.6 → 28.3. Cybersecurity capability also grew faster than Z.ai expected (CyberGym: 84.5%), which is why they're delaying weight release by ~2 weeks for safety hardening. API is live now on the GLM Coding Plan. This is the fastest iteration cycle from any Chinese lab this year: 5.1 → 5.2 → 5.3 in under 90 days, all without retraining the base.
+      </div>
+      <div class="item-meta">SiliconANGLE / Bloomberg · Aug 14, 2026</div>
+    </div>
+
+  </div>
+
+  <!-- ALSO WORTH READING -->
+  <div class="section">
+    <span class="section-label label-read">📖 Also Worth Reading</span>
+
+    <div class="item">
+      <div class="item-title">
+        <a href="https://www.cnbc.com/2026/08/12/google-deepmind-koray-kavukcuoglu.html" target="_blank">Google DeepMind has a new CEO: Koray Kavukcuoglu</a>
+      </div>
+      <div class="item-body">
+        Demis Hassabis stepped aside from CEO to become DeepMind Chair and Alphabet's Chief Scientist. Kavukcuoglu — "KK" — was DeepMind's CTO and Google's chief AI architect, has been at the lab for 13 years, and started its deep learning team. He now oversees Gemini model development, frontier research, and the Gemini app and developer products. The internal read per CNBC: Google is treating <strong>coding as the decisive battleground</strong> against OpenAI, and Kavukcuoglu runs AI product as well as research — a deliberate unification.
+      </div>
+      <div class="item-meta">CNBC · Aug 12, 2026</div>
+    </div>
+
+    <div class="item">
+      <div class="item-title">
+        <a href="https://www.interconnects.ai/p/kimi-k3-the-open-weights-escalation" target="_blank">Nathan Lambert: "Kimi K3 and the open-weights escalation"</a>
+      </div>
+      <div class="item-body">
+        Good piece from Interconnects.ai on what Kimi K3's July release actually signals. The 2.8T MoE open-weight drop rattled both OpenAI and Anthropic not because of marketing, but because of what it delivers: a smaller lab matching frontier performance. Alibaba reportedly saw it and immediately committed to open-weighting Qwen3.8 (historically API-only). Lambert's framing: this is <strong>a vibe shift in what "open" means at the frontier</strong> — not catch-up scraps, but day-0 competitive releases. Essential context if you're thinking about how open-weight inference infrastructure evolves into 2027.
+      </div>
+      <div class="item-meta">interconnects.ai · July/Aug 2026</div>
+    </div>
+
+  </div>
+
+  <!-- TODAY'S LESSON -->
+  <div class="section">
+    <span class="section-label label-lesson">Today's Lesson</span>
+    <div class="lesson-body">
+      <div class="lesson-title">Tensor Parallelism vs Pipeline Parallelism: how inference servers split a model too big to fit on one GPU</div>
+      <p>When a model doesn't fit on a single GPU — think GLM-5.3's 743B parameters or Kimi K3's 2.8T — you have to split it across devices. There are two fundamentally different ways to do this, and the choice shapes your latency, throughput, and hardware utilisation.</p>
+      <p><strong>Tensor parallelism (TP)</strong> slices individual weight matrices horizontally across GPUs. Each GPU holds a shard of every layer and processes every token simultaneously. The GPUs have to communicate at every layer via an all-reduce to stitch results back together. The upside: every forward pass uses all GPUs in parallel, so TTFT stays low. The downside: you need extremely fast interconnects (NVLink, or InfiniBand at 400Gb/s+) because the all-reduce happens hundreds of times per token. TP is why H100 clusters are wired with NVLink — without it, the communication becomes the bottleneck.</p>
+      <p><strong>Pipeline parallelism (PP)</strong> splits the model by layers: GPU 0 runs layers 1–20, GPU 1 runs 21–40, etc. Each GPU processes a batch stage ("micro-batch") and passes activations forward. Communication only happens at layer boundaries — far less frequent than TP's all-reduce. The tradeoff: GPUs spend time idle waiting for the previous stage (pipeline "bubbles"), and TTFT scales with pipeline depth. PP works better when inter-GPU bandwidth is limited (commodity InfiniBand, cross-node) and when you're optimising for throughput over latency.</p>
+      <p>In practice, large inference deployments use <strong>both</strong>: TP within a node (fast NVLink), PP across nodes (slower inter-connect). vLLM and SGLang both support this hybrid. When you see a serving config like <code>--tensor-parallel-size 8 --pipeline-parallel-size 4</code>, that's 32 GPUs total — 8-way TP per stage, 4 pipeline stages.</p>
+    </div>
+  </div>
+
+</div>
+
+<!-- ARCHIVE SIDEBAR -->
+<style>
+  .arc-btn {
+    position: fixed; top: 18px; right: 18px; z-index: 200;
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 6px; padding: 6px 11px; font-size: 12px;
+    color: var(--muted); cursor: pointer; display: flex;
+    align-items: center; gap: 6px; user-select: none;
+    transition: border-color 0.15s, color 0.15s;
+    font-family: inherit;
+  }
+  .arc-btn:hover { border-color: #3a4060; color: var(--text); }
+  .arc-overlay {
+    display: none; position: fixed; inset: 0; z-index: 198;
+    background: rgba(0,0,0,0.45);
+  }
+  .arc-overlay.open { display: block; }
+  .arc-panel {
+    position: fixed; top: 0; right: 0; height: 100vh; width: 200px;
+    background: var(--surface); border-left: 1px solid var(--border);
+    z-index: 199; padding: 56px 14px 24px; overflow-y: auto;
+    transform: translateX(100%); transition: transform 0.22s ease;
+  }
+  .arc-panel.open { transform: translateX(0); }
+  .arc-panel-title {
+    font-size: 10px; font-weight: 700; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--muted);
+    margin-bottom: 14px; padding-left: 4px;
+  }
+  .arc-item {
+    display: block; padding: 7px 8px; border-radius: 5px;
+    font-size: 13px; color: var(--muted); text-decoration: none;
+    margin-bottom: 2px; transition: background 0.1s, color 0.1s;
+  }
+  .arc-item:hover { background: #1e2333; color: var(--text); }
+  .arc-item.current { background: rgba(91,142,240,0.12); color: var(--accent); font-weight: 600; }
+  .arc-close {
+    position: absolute; top: 14px; right: 14px;
+    background: none; border: none; color: var(--muted);
+    cursor: pointer; font-size: 18px; line-height: 1; padding: 4px;
+  }
+  .arc-close:hover { color: var(--text); }
+</style>
+<div class="arc-overlay" id="arcOverlay" onclick="arcClose()"></div>
+<div class="arc-panel" id="arcPanel">
+  <button class="arc-close" onclick="arcClose()">&#x2715;</button>
+  <div class="arc-panel-title">Past Issues</div>
+  <div id="arcList"><span style="color:var(--muted);font-size:12px">Loading…</span></div>
+</div>
+<button class="arc-btn" onclick="arcToggle()">
+  <svg width="13" height="11" viewBox="0 0 18 14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="0" y1="1" x2="18" y2="1"/><line x1="0" y1="7" x2="18" y2="7"/><line x1="0" y1="13" x2="18" y2="13"/></svg>
+  Past issues
+</button>
+<script>
+(function(){
+  var PAD = function(n){return String(n).padStart(2,'0');};
+  var MONTHS = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  var DAYS   = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+  var current = window.location.pathname.split('/').pop().replace(/\.html$/,'');
+  var found = [], tasks = [];
+  for(var i=0;i<45;i++){
+    (function(offset){
+      var d = new Date(); d.setDate(d.getDate()-offset);
+      var s = d.getFullYear()+'-'+PAD(d.getMonth()+1)+'-'+PAD(d.getDate());
+      tasks.push(fetch('./'+s+'.html',{method:'HEAD'}).then(function(r){if(r.ok)found.push({s:s,d:new Date(d)});}).catch(function(){}));
+    })(i);
+  }
+  Promise.all(tasks).then(function(){
+    found.sort(function(a,b){return b.d-a.d;});
+    var html='';
+    found.forEach(function(f){
+      var label=DAYS[f.d.getDay()]+', '+MONTHS[f.d.getMonth()]+' '+f.d.getDate();
+      var cls='arc-item'+(f.s===current?' current':'');
+      html+='<a class="'+cls+'" href="./'+f.s+'.html">'+label+'</a>';
+    });
+    document.getElementById('arcList').innerHTML=html||'<span style="color:var(--muted);font-size:12px">None found</span>';
+  });
+})();
+function arcToggle(){
+  var p=document.getElementById('arcPanel'),o=document.getElementById('arcOverlay');
+  var open=p.classList.contains('open');
+  if(open){arcClose();}else{p.classList.add('open');o.classList.add('open');}
+}
+function arcClose(){
+  document.getElementById('arcPanel').classList.remove('open');
+  document.getElementById('arcOverlay').classList.remove('open');
+}
+</script>
+</body>
+</html>
