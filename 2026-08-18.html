@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Daily Dump — August 18, 2026</title>
+<style>
+  :root {
+    --bg: #0f1117;
+    --surface: #161b27;
+    --border: #252c3f;
+    --text: #e2e8f0;
+    --muted: #7a8ba8;
+    --accent: #5b8ef0;
+    --hot: #f97316;
+    --new: #22c55e;
+    --horizon: #a78bfa;
+    --lesson: #f59e0b;
+    --also: #38bdf8;
+    --link: #93c5fd;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+    font-size: 15px;
+    line-height: 1.65;
+    padding: 48px 24px 80px;
+    max-width: 720px;
+    margin: 0 auto;
+  }
+  header { margin-bottom: 40px; border-bottom: 1px solid var(--border); padding-bottom: 24px; }
+  .dateline {
+    font-size: 11px; font-weight: 700; letter-spacing: 0.12em;
+    text-transform: uppercase; color: var(--muted); margin-bottom: 6px;
+  }
+  h1 { font-size: 26px; font-weight: 800; color: var(--text); letter-spacing: -0.02em; }
+  .subtitle { color: var(--muted); font-size: 13px; margin-top: 6px; }
+
+  section { margin-bottom: 44px; }
+  .section-label {
+    font-size: 10px; font-weight: 700; letter-spacing: 0.12em;
+    text-transform: uppercase; margin-bottom: 18px;
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 3px 8px; border-radius: 4px;
+  }
+  .label-hot    { color: var(--hot);    background: rgba(249,115,22,0.1);  border: 1px solid rgba(249,115,22,0.25); }
+  .label-new    { color: var(--new);    background: rgba(34,197,94,0.1);   border: 1px solid rgba(34,197,94,0.25); }
+  .label-horizon{ color: var(--horizon);background: rgba(167,139,250,0.1); border: 1px solid rgba(167,139,250,0.25); }
+  .label-also   { color: var(--also);   background: rgba(56,189,248,0.1);  border: 1px solid rgba(56,189,248,0.25); }
+  .label-lesson { color: var(--lesson); background: rgba(245,158,11,0.1);  border: 1px solid rgba(245,158,11,0.25); }
+
+  .item { margin-bottom: 26px; padding-bottom: 26px; border-bottom: 1px solid var(--border); }
+  .item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+  .item-title {
+    font-size: 15px; font-weight: 700; color: var(--text);
+    margin-bottom: 6px; line-height: 1.4;
+  }
+  .item-title a { color: inherit; text-decoration: none; }
+  .item-title a:hover { color: var(--link); text-decoration: underline; }
+  .item-meta { font-size: 11px; color: var(--muted); margin-bottom: 8px; }
+  .item-body { color: var(--text); opacity: 0.85; font-size: 14px; }
+
+  .lesson-title {
+    font-size: 16px; font-weight: 700; color: var(--lesson);
+    margin-bottom: 14px;
+  }
+  .lesson-body { font-size: 14px; line-height: 1.75; color: var(--text); opacity: 0.9; }
+  .lesson-body p { margin-bottom: 12px; }
+  .lesson-body strong { color: var(--text); }
+
+  a { color: var(--link); }
+  a:hover { color: var(--accent); }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="dateline">Tuesday, August 18, 2026</div>
+  <h1>AI Daily Dump</h1>
+  <p class="subtitle">What's happening in AI and inference engineering right now</p>
+</header>
+
+<!-- WHAT'S HOT -->
+<section>
+  <div class="section-label label-hot">🔥 What's Hot Right Now</div>
+
+  <div class="item">
+    <div class="item-title"><a href="https://cursor.com/changelog/origin-code-hosting">Cursor launches Origin — a GitHub rival built for AI agents</a></div>
+    <div class="item-meta">Aug 17–18 · cursor.com</div>
+    <div class="item-body">Cursor rolled out <strong>Origin</strong> in early beta on all paid plans: repos, pull requests, code browsing, and bidirectional GitHub sync so PRs and CI stay in lock-step. The real pitch is that code lives inside the same surface where agents open, review, and iterate on PRs — no context switching out to GitHub. First-party integrations with Vercel, Depot, and Buildkite are included. Notably, Cursor launched this the same day GitHub went down (unplanned timing). The acquisition by SpaceX in June means your code is now hosted by a rocket company.</div>
+  </div>
+
+  <div class="item">
+    <div class="item-title"><a href="https://wsj.com/tech/ai/a-21-billion-kids-in-chips-startup-is-scooping-up-nvidia-talent-4d099f12">Etched raises $700M at $21B — doubles valuation in weeks</a></div>
+    <div class="item-meta">Aug 18 · WSJ via Techmeme</div>
+    <div class="item-body">Inference chip startup Etched just closed $700M led by Jane Street at a $21B valuation — up from $10.3B just a few weeks ago. Etched's Sohu chip is a transformer-specialized ASIC (TSMC N4P) with fixed-function attention circuits that reportedly delivers ~20× the throughput of an H100 at lower power. They're actively recruiting Nvidia engineers. With the inference market exploding, purpose-built silicon for transformer workloads is suddenly a very serious business.</div>
+  </div>
+
+  <div class="item">
+    <div class="item-title"><a href="https://techcrunch.com/2026/08/16/stripe-will-reportedly-acquire-ai-gateway-startup-openrouter-for-7b/">Stripe acquires OpenRouter for $7B+ — owns the AI billing rail</a></div>
+    <div class="item-meta">Aug 16 · TechCrunch / Bloomberg</div>
+    <div class="item-body">Stripe finalized a deal to acquire OpenRouter for more than $7 billion — a 5x markup from its $1.3B Series B just three months ago. OpenRouter routes across 400+ models from OpenAI, Anthropic, Google, Meta, and DeepSeek for ~8 million developers, processing ~1.5 quadrillion tokens in the past year. Combined with Stripe's January acquisition of Metronome, they now own model selection, metering, and billing in one stack. If you run agents at scale, your runtime and your invoice are about to be the same product.</div>
+  </div>
+</section>
+
+<!-- NEW RELEASES -->
+<section>
+  <div class="section-label label-new">✦ New Releases &amp; Updates</div>
+
+  <div class="item">
+    <div class="item-title"><a href="https://bnnbloomberg.ca/business/company-news/2026/08/18/openai-launches-chatgpt-for-teens-promising-a-more-age-appropriate-chatbot/">OpenAI ships ChatGPT for Teens with age-prediction routing</a></div>
+    <div class="item-meta">Aug 18 · Bloomberg</div>
+    <div class="item-body">OpenAI launched a dedicated experience for 13–17 year olds: suicide/self-harm and romantic content are blocked, a study mode nudges rather than answers, and parents can set quiet hours and receive high-risk safety notifications. The interesting technical piece is <strong>age-prediction</strong> — OpenAI is using signals to auto-route underage users into the teen mode even if they haven't self-identified. Comes as OpenAI faces lawsuits linking ChatGPT conversations to teen self-harm incidents.</div>
+  </div>
+
+  <div class="item">
+    <div class="item-title"><a href="https://technode.global/2026/08/18/alipay-launches-agentic-commerce-platform-in-china-to-bring-ai-tools-to-merchants/">Alipay launches full-stack agentic commerce with MCP tools</a></div>
+    <div class="item-meta">Aug 18 · TechNode Global</div>
+    <div class="item-body">At a Hangzhou partner conference, Alipay unveiled a platform letting merchants convert pages, products, and workflows into agent-ready MCP tools, plugged into its consumer agent Ah Bao via the <strong>AHA interoperability protocol</strong>. KFC, Luckin Coffee, 16 automakers and phone brands covering 70%+ of China's smartphone market are already integrated. Alipay is subsidizing 100M free tokens per user to seed adoption. Alibaba shares jumped 5% in Hong Kong. This is the most serious production agentic commerce deployment to date.</div>
+  </div>
+</section>
+
+<!-- ON THE HORIZON -->
+<section>
+  <div class="section-label label-horizon">◎ On the Horizon</div>
+
+  <div class="item">
+    <div class="item-title"><a href="https://helpnetsecurity.com/2026/08/14/openais-gpt-5-6-sol-runs-up-to-14x-faster-with-ultrafast-mode/">OpenAI Ultrafast: GPT-5.6 Sol at 750 tokens/sec on Cerebras</a></div>
+    <div class="item-meta">Limited API preview · Aug 14</div>
+    <div class="item-body">OpenAI opened a limited API preview of <strong>Ultrafast mode</strong> for GPT-5.6 Sol, running on Cerebras wafer-scale silicon. The numbers: ~750 output tokens/second, up to 14× standard throughput, at Sol's full benchmark quality. OpenAI is using it internally for incident-response log analysis. The framing is that this speed changes how you architect around model latency — think sub-100ms first-token times for multi-turn agents. No general availability date yet, but selected preview customers are already in production.</div>
+  </div>
+</section>
+
+<!-- ALSO WORTH READING -->
+<section>
+  <div class="section-label label-also">📖 Also Worth Reading</div>
+
+  <div class="item">
+    <div class="item-title"><a href="https://cnbc.com/2026/08/17/anthropic-says-annualized-revenue-climbed-to-65-billion-in-july.html">Anthropic hits $65B annualized run rate — up 7× in a year</a></div>
+    <div class="item-meta">Aug 17 · CNBC</div>
+    <div class="item-body">Anthropic told investors its annualized revenue hit $65B at the end of July, up from $47B in May and ~$9B at the end of 2025. Q2 revenue topped $11.5B — 14× year-over-year — with positive adjusted operating income for the first time. Confidential IPO filing is in progress. The inference business is genuinely enormous now.</div>
+  </div>
+
+  <div class="item">
+    <div class="item-title"><a href="https://cnbc.com/2026/08/17/nvidia-financing-open-ai-data-center-ohio.html">Nvidia backs $105B in financing for OpenAI's Ohio data center</a></div>
+    <div class="item-meta">Aug 17 · CNBC</div>
+    <div class="item-body">Nvidia will guarantee up to $105B in financing for a new SB Energy-built AI data center in Ohio with OpenAI as anchor tenant on a 20-year lease. Starting capacity: 4.25 GW, scalable to 8 GW. Nvidia is also putting $1.5B in equity into SB Energy. First capacity arrives in phases starting 2028. The scale of the infrastructure bets being made right now is hard to overstate.</div>
+  </div>
+
+  <div class="item">
+    <div class="item-title"><a href="https://www.wiz.io/blog/red-agent-snowflake-copilot-cicd-bug">Copilot Autofix introduced a shell-injection bug — and it was exploited</a></div>
+    <div class="item-meta">Aug 17 · Wiz</div>
+    <div class="item-body">Wiz's Red Agent found that a GitHub Copilot Autofix patch to Snowflake's repo replaced a safe input pattern with raw string interpolation of a GitHub issue title — opening a shell-injection hole exploited within five days. A logic bug in the CI conditional gate let unauthenticated attackers through, and a crafted issue title exfiltrated a Jira token. Concrete reminder that AI-generated code patches need the same review as human ones — especially in security-sensitive paths.</div>
+  </div>
+
+  <div class="item">
+    <div class="item-title"><a href="https://404media.co/we-tracked-a-shipment-of-rare-books-it-ended-at-an-amazon-ai-training-facility/">404 Media AirTags a shipment of rare books to Amazon's AI training facility</a></div>
+    <div class="item-meta">Aug 17 · 404 Media</div>
+    <div class="item-body">404 Media hid a tracker in a box of ~1,000 rare books, traced it to Amazon warehouse VGT3 in Las Vegas, where employees say books are bought in bulk, bindings cut off for faster scanning, and the physical books destroyed. Amazon confirmed it "purchases books to help develop and improve products" but declined to discuss scale. Probably the most interesting AI training data story of the year so far.</div>
+  </div>
+</section>
+
+<!-- TODAY'S LESSON -->
+<section>
+  <!-- TODAY'S LESSON -->
+  <div class="section-label label-lesson">📖 Today's Lesson</div>
+  <div class="lesson-title">Flash Attention: why fitting attention in SRAM rather than HBM made long contexts practical</div>
+  <div class="lesson-body">
+    <p>Every transformer layer does the same expensive operation: it computes attention scores between every pair of tokens, producing a matrix that's quadratic in sequence length. The naive implementation writes those intermediate matrices to GPU high-bandwidth memory (HBM) repeatedly — once when computed, again when read back. HBM is fast but it's off-chip, and bandwidth to it is the actual bottleneck in most attention workloads.</p>
+    <p><strong>Flash Attention</strong> (Dao et al., 2022, extended to v2 and v3 since) solves this by <em>tiling</em> the attention computation so the entire working set for each tile fits in SRAM — the on-chip memory that's ~10–100× faster than HBM but tiny (a few MB vs 80 GB). Rather than materializing the full N×N attention matrix, it processes it in blocks, accumulating the softmax numerically in a running fashion using the log-sum-exp trick. The result is identical to standard attention, but with dramatically fewer HBM reads and writes.</p>
+    <p>The practical payoff: Flash Attention is roughly <strong>2–4× faster</strong> than naive attention on long sequences, uses O(N) instead of O(N²) memory, and made 100K–1M token context windows economically viable. Almost every production inference engine (vLLM, SGLang, llama.cpp, TensorRT-LLM) uses it by default. When you see "context window extended to 1M tokens," Flash Attention is a major reason that's possible at all — without it, the intermediate attention matrices for long sequences would simply not fit in GPU memory.</p>
+  </div>
+</section>
+
+<!-- ARCHIVE SIDEBAR -->
+<style>
+  .arc-btn {
+    position: fixed; top: 18px; right: 18px; z-index: 200;
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 6px; padding: 6px 11px; font-size: 12px;
+    color: var(--muted); cursor: pointer; display: flex;
+    align-items: center; gap: 6px; user-select: none;
+    transition: border-color 0.15s, color 0.15s;
+    font-family: inherit;
+  }
+  .arc-btn:hover { border-color: #3a4060; color: var(--text); }
+  .arc-overlay {
+    display: none; position: fixed; inset: 0; z-index: 198;
+    background: rgba(0,0,0,0.45);
+  }
+  .arc-overlay.open { display: block; }
+  .arc-panel {
+    position: fixed; top: 0; right: 0; height: 100vh; width: 200px;
+    background: var(--surface); border-left: 1px solid var(--border);
+    z-index: 199; padding: 56px 14px 24px; overflow-y: auto;
+    transform: translateX(100%); transition: transform 0.22s ease;
+  }
+  .arc-panel.open { transform: translateX(0); }
+  .arc-panel-title {
+    font-size: 10px; font-weight: 700; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--muted);
+    margin-bottom: 14px; padding-left: 4px;
+  }
+  .arc-item {
+    display: block; padding: 7px 8px; border-radius: 5px;
+    font-size: 13px; color: var(--muted); text-decoration: none;
+    margin-bottom: 2px; transition: background 0.1s, color 0.1s;
+  }
+  .arc-item:hover { background: #1e2333; color: var(--text); }
+  .arc-item.current { background: rgba(91,142,240,0.12); color: var(--accent); font-weight: 600; }
+  .arc-close {
+    position: absolute; top: 14px; right: 14px;
+    background: none; border: none; color: var(--muted);
+    cursor: pointer; font-size: 18px; line-height: 1; padding: 4px;
+  }
+  .arc-close:hover { color: var(--text); }
+</style>
+<div class="arc-overlay" id="arcOverlay" onclick="arcClose()"></div>
+<div class="arc-panel" id="arcPanel">
+  <button class="arc-close" onclick="arcClose()">&#x2715;</button>
+  <div class="arc-panel-title">Past Issues</div>
+  <div id="arcList"><span style="color:var(--muted);font-size:12px">Loading…</span></div>
+</div>
+<button class="arc-btn" onclick="arcToggle()">
+  <svg width="13" height="11" viewBox="0 0 18 14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="0" y1="1" x2="18" y2="1"/><line x1="0" y1="7" x2="18" y2="7"/><line x1="0" y1="13" x2="18" y2="13"/></svg>
+  Past issues
+</button>
+<script>
+(function(){
+  var PAD = function(n){return String(n).padStart(2,'0');};
+  var MONTHS = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  var DAYS   = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+  var current = window.location.pathname.split('/').pop().replace(/\.html$/,'');
+  var found = [], tasks = [];
+  for(var i=0;i<45;i++){
+    (function(offset){
+      var d = new Date(); d.setDate(d.getDate()-offset);
+      var s = d.getFullYear()+'-'+PAD(d.getMonth()+1)+'-'+PAD(d.getDate());
+      tasks.push(fetch('./'+s+'.html',{method:'HEAD'}).then(function(r){if(r.ok)found.push({s:s,d:new Date(d)});}).catch(function(){}));
+    })(i);
+  }
+  Promise.all(tasks).then(function(){
+    found.sort(function(a,b){return b.d-a.d;});
+    var html='';
+    found.forEach(function(f){
+      var label=DAYS[f.d.getDay()]+', '+MONTHS[f.d.getMonth()]+' '+f.d.getDate();
+      var cls='arc-item'+(f.s===current?' current':'');
+      html+='<a class="'+cls+'" href="./'+f.s+'.html">'+label+'</a>';
+    });
+    document.getElementById('arcList').innerHTML=html||'<span style="color:var(--muted);font-size:12px">None found</span>';
+  });
+})();
+function arcToggle(){
+  var p=document.getElementById('arcPanel'),o=document.getElementById('arcOverlay');
+  var open=p.classList.contains('open');
+  if(open){arcClose();}else{p.classList.add('open');o.classList.add('open');}
+}
+function arcClose(){
+  document.getElementById('arcPanel').classList.remove('open');
+  document.getElementById('arcOverlay').classList.remove('open');
+}
+</script>
+
+</body>
+</html>
