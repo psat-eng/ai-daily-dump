@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Daily Dump — August 20, 2026</title>
+<style>
+  :root {
+    --bg: #0f1117;
+    --surface: #161b27;
+    --border: #252c3d;
+    --text: #e2e6f0;
+    --muted: #7a8299;
+    --accent: #5b8ef0;
+    --hot: #f06a5b;
+    --release: #5bc98e;
+    --horizon: #c17af0;
+    --lesson: #f0b85b;
+    --reading: #5bc9e0;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    font-size: 15px;
+    line-height: 1.65;
+    padding: 40px 20px 80px;
+  }
+  .container { max-width: 720px; margin: 0 auto; }
+  .header { margin-bottom: 40px; }
+  .header-label {
+    font-size: 11px; font-weight: 700; letter-spacing: 0.12em;
+    text-transform: uppercase; color: var(--muted); margin-bottom: 8px;
+  }
+  .header h1 { font-size: 26px; font-weight: 700; color: var(--text); }
+  .header .subtitle { color: var(--muted); font-size: 13px; margin-top: 4px; }
+
+  .section { margin-bottom: 40px; }
+  .section-header {
+    display: flex; align-items: center; gap: 10px;
+    margin-bottom: 20px; padding-bottom: 10px;
+    border-bottom: 1px solid var(--border);
+  }
+  .section-dot {
+    width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0;
+  }
+  .dot-hot { background: var(--hot); }
+  .dot-release { background: var(--release); }
+  .dot-horizon { background: var(--horizon); }
+  .dot-reading { background: var(--reading); }
+  .dot-lesson { background: var(--lesson); }
+
+  .section-header h2 {
+    font-size: 12px; font-weight: 700; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--muted);
+  }
+
+  .item { margin-bottom: 24px; }
+  .item-title {
+    font-size: 15px; font-weight: 600; color: var(--text);
+    margin-bottom: 4px;
+  }
+  .item-title a { color: var(--accent); text-decoration: none; }
+  .item-title a:hover { text-decoration: underline; }
+  .item-meta {
+    font-size: 12px; color: var(--muted); margin-bottom: 6px;
+  }
+  .item-body { color: #b8bdd0; font-size: 14px; line-height: 1.6; }
+
+  .tag {
+    display: inline-block; font-size: 10px; font-weight: 700;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    padding: 2px 7px; border-radius: 4px; margin-right: 6px;
+  }
+  .tag-hot { background: rgba(240,106,91,0.15); color: var(--hot); }
+  .tag-open { background: rgba(91,201,142,0.15); color: var(--release); }
+  .tag-tool { background: rgba(91,201,224,0.15); color: var(--reading); }
+  .tag-paper { background: rgba(193,122,240,0.15); color: var(--horizon); }
+
+  .lesson-box {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--lesson);
+    border-radius: 8px;
+    padding: 24px;
+  }
+  .lesson-title {
+    font-size: 16px; font-weight: 700; color: var(--lesson);
+    margin-bottom: 14px;
+  }
+  .lesson-body { color: #b8bdd0; font-size: 14px; line-height: 1.7; }
+  .lesson-body p + p { margin-top: 12px; }
+  .lesson-body code {
+    background: rgba(255,255,255,0.07); padding: 1px 5px;
+    border-radius: 3px; font-size: 13px;
+  }
+
+  hr.item-divider {
+    border: none; border-top: 1px solid var(--border);
+    margin: 20px 0;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <div class="header">
+    <div class="header-label">AI Daily Dump</div>
+    <h1>Thursday, August 20, 2026</h1>
+    <div class="subtitle">For Pranesh — what's worth knowing right now in AI/inference engineering</div>
+  </div>
+
+  <!-- WHAT'S HOT -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-dot dot-hot"></div>
+      <h2>What's Hot Right Now</h2>
+    </div>
+
+    <div class="item">
+      <div class="item-title">
+        <a href="https://arxiv.org/abs/2608.00146">DiffusionGemma Technical Report — Google drops diffusion LM that matches autoregressive quality</a>
+      </div>
+      <div class="item-meta"><span class="tag tag-paper">Paper</span> Trending on HN today · arxiv 2608.00146</div>
+      <div class="item-body">
+        Google's DiffusionGemma fine-tunes Gemini into a masked-diffusion decoder while preserving thinking mode, multimodal inputs, and long contexts — and still supports autoregressive generation with only minor degradation. Rather than predicting left-to-right, diffusion LMs iteratively denoise a masked token sequence, which allows parallel generation of entire spans at once. The result: significantly faster text generation on sequences where autoregressive sampling was the bottleneck. This is the first serious production-quality diffusion LM from a major lab, and it's landing right as the research community is figuring out how diffusion and AR can coexist in the same weights.
+      </div>
+    </div>
+
+    <hr class="item-divider">
+
+    <div class="item">
+      <div class="item-title">
+        <a href="https://dontpastetheai.com">Don't Paste the AI, Please</a>
+      </div>
+      <div class="item-meta"><span class="tag tag-hot">HN #1</span> 900 pts · 465 comments · 6 hours ago</div>
+      <div class="item-body">
+        Top of Hacker News today with nearly 500 comments — a pointed critique of the habit of blindly pasting AI-generated code into codebases without understanding it. The thread has turned into a broad conversation about cognitive debt, ownership of code, and what it means for junior engineers to grow when the AI fills in every gap. Relevant alongside today's separate HN piece "AI didn't erase the junior engineer's value, it increased it" (50 pts) arguing the opposite — the two threads together are worth reading as a pair.
+      </div>
+    </div>
+
+    <hr class="item-divider">
+
+    <div class="item">
+      <div class="item-title">
+        <a href="https://simonwillison.net/2026/Aug/17/qwen-38-27b-scores/">Qwen 3.8 27B scores 52 on the Artificial Analysis Intelligence Index — same as GPT-5.6 Luna</a>
+      </div>
+      <div class="item-meta"><span class="tag tag-open">Open Weight</span> Simon Willison · Aug 17 · community still buzzing</div>
+      <div class="item-body">
+        Just one point behind GLM-5.2 (753B) and DeepSeek V4 Pro 0813 (1.7T parameters). A 27B model matching unknown-size closed frontier models and massively larger open weights is genuinely wild — Simon's review notes it defaults to "wildly overthinking things" but the raw capability is astonishing. Runs comfortably in 32GB RAM. This is the conversation on r/LocalLLaMA right now: community members are calling it one of the best efficiency-per-parameter models ever released.
+      </div>
+    </div>
+
+    <hr class="item-divider">
+
+    <div class="item">
+      <div class="item-title">
+        <a href="https://simedw.com">Show HN: I trained a 125M model to autocomplete piano on-device</a>
+      </div>
+      <div class="item-meta"><span class="tag tag-hot">HN</span> 192 pts · 2 hours ago</div>
+      <div class="item-body">
+        A neat reminder of what small models can do when trained domain-specifically. Runs fully in-browser, no server. 125M parameters for piano token prediction — a good read for anyone thinking about edge deployment and where the local-model floor actually is for creative applications.
+      </div>
+    </div>
+  </div>
+
+  <!-- NEW RELEASES -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-dot dot-release"></div>
+      <h2>New Releases &amp; Updates</h2>
+    </div>
+
+    <div class="item">
+      <div class="item-title">
+        <a href="https://www.modular.com/mojo">Mojo 🔥 1.0 is now open source — Apache 2.0</a>
+      </div>
+      <div class="item-meta"><span class="tag tag-open">Open Source</span> Aug 18 · via Simon Willison</div>
+      <div class="item-body">
+        Modular followed through on their May 2023 promise: the Mojo compiler and toolchain are now Apache 2.0. Mojo has pivoted away from being a pure Python superset toward a GPU-first systems language with Python-inspired syntax. The team is betting that AI-assisted migration tools will smooth the gap from Python. Relevant for anyone building custom kernels or wanting an alternative to CUDA C++ for inference work.
+      </div>
+    </div>
+
+    <hr class="item-divider">
+
+    <div class="item">
+      <div class="item-title">
+        <a href="https://huggingface.co/deepseek-ai/DeepSeek-V4-Pro">DeepSeek V4 Pro 0813 — weights now on Hugging Face</a>
+      </div>
+      <div class="item-meta"><span class="tag tag-open">Open Weight</span> Aug 12 · 1.7T params / 893 GB</div>
+      <div class="item-body">
+        The latest DeepSeek Pro model hit the API (via OpenRouter) on August 12 and weights followed to HF shortly after. 1.7 trillion parameters, 893 GB — you'll need a serious cluster to run it, but the benchmarks Simon ran put it at 51 on the Artificial Analysis Intelligence Index (one point behind Qwen 3.8 27B, which is a story in itself). A frontier-competitive open-weight MoE that nobody outside China would have predicted two years ago.
+      </div>
+    </div>
+
+    <hr class="item-divider">
+
+    <div class="item">
+      <div class="item-title">
+        <a href="https://simonwillison.net/2026/Aug/13/llm-gemini-033/">Gemini 3.7 Flash released (Aug 13) + llm-gemini 0.33 plugin</a>
+      </div>
+      <div class="item-meta"><span class="tag tag-tool">Tool Update</span> Aug 13 · Google</div>
+      <div class="item-body">
+        Google's latest Flash-tier model adds thinking support with three effort levels (minimal mode from 3.6 Flash is gone — high/medium/low only now). Simon Willison shipped llm-gemini 0.33 same day with support for the new model, server-side tools like CodeExecution, and the new reasoning trace display from LLM 0.32. Also adds two new embedding models: <code>gemini-embedding-2</code> and <code>gemini-embedding-001</code>.
+      </div>
+    </div>
+
+    <hr class="item-divider">
+
+    <div class="item">
+      <div class="item-title">
+        <a href="https://llmgateway.io/timeline">GLM-5.3 by Z.AI — dropped Aug 14</a>
+      </div>
+      <div class="item-meta"><span class="tag tag-open">Release</span> Aug 14</div>
+      <div class="item-body">
+        Z.AI's latest GLM model. Its predecessor GLM-5.2 was described by Simon Willison as "probably the most powerful text-only open weights LLM" back in June. Watch the GLM-5.3 benchmarks as they land this week — Z.AI has been consistently shipping competitive models at a pace that matches the Qwen team.
+      </div>
+    </div>
+  </div>
+
+  <!-- ALSO WORTH READING -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-dot dot-reading"></div>
+      <h2>Also Worth Reading</h2>
+    </div>
+
+    <div class="item">
+      <div class="item-title">
+        <a href="https://stolen-thoughts.com">Stealing Reasoning Traces from Proprietary LLM APIs</a>
+      </div>
+      <div class="item-meta"><span class="tag tag-paper">Security</span> via Simon Willison, Aug 11</div>
+      <div class="item-body">
+        Researchers found that Anthropic, OpenAI, and Google all returned encrypted chain-of-thought blocks that used the same encryption key across an entire model family. Feed the encrypted block from a powerful model back into a weak sibling, jailbreak the sibling, and you get the raw reasoning trace in plaintext. The bonus finding: models treat their own thinking blocks as sacrosanct — instructions smuggled into a fake reasoning trace are followed far more reliably than regular prompt injections. All three labs patched it after disclosure. The appendix with extracted raw thinking tokens is worth a read — frontier models in unguarded thought are terse and grammatically chaotic.
+      </div>
+    </div>
+
+    <hr class="item-divider">
+
+    <div class="item">
+      <div class="item-title">
+        <a href="https://safedep.io">Malicious Rust Crate 'Arrayref' Runs a Build-Time Payload</a>
+      </div>
+      <div class="item-meta"><span class="tag tag-tool">Supply Chain</span> HN · 145 pts · 1 hour ago</div>
+      <div class="item-body">
+        A popular Rust crate was found executing a payload at build time — a build.rs script that phones home. Relevant for AI engineers who've started pulling Rust inference crates (llama.rs, candle, etc.) more aggressively: the AI toolchain ecosystem is growing fast and hasn't yet earned the same security scrutiny as npm or PyPI. Worth auditing your Cargo.lock dependencies.
+      </div>
+    </div>
+
+    <hr class="item-divider">
+
+    <div class="item">
+      <div class="item-title">
+        <a href="https://klementoninvesting.substack.com">If This Is True, the Hyperscalers Are Toast</a>
+      </div>
+      <div class="item-meta"><span class="tag tag-hot">HN</span> 37 pts · Klementonline substack</div>
+      <div class="item-body">
+        The argument: Google (TPU v7 Ironwood), AWS (Trainium 3), Microsoft (Maia 200), and Meta (MTIA) are all deploying inference-optimized custom ASICs at scale. Custom ASICs are growing at 44.6% in 2026 vs 16.1% for GPU shipments. For internal inference workloads at hyperscaler scale, a 30% efficiency gain pays back chip development cost in months. The HN thread is skeptical — NVIDIA still owns external GPU cloud — but the structural shift toward in-house silicon for inference at scale is real and accelerating.
+      </div>
+    </div>
+
+    <hr class="item-divider">
+
+    <div class="item">
+      <div class="item-title">
+        <a href="https://simonwillison.net/2026/Aug/19/conceptual-integrity/">Simon Willison: Conceptual Integrity and Counting Lines of Code (podcast)</a>
+      </div>
+      <div class="item-meta"><span class="tag tag-tool">Reading</span> Aug 19 · Talking Postgres podcast</div>
+      <div class="item-body">
+        Simon's appearance on Talking Postgres discussing how AI is changing software development — specifically the tradeoffs between shipping fast with agents vs. maintaining the kind of conceptual integrity that lets a team actually understand their own codebase. Lightly edited transcript posted on his blog. Pairs well with the "don't paste the AI" thread above.
+      </div>
+    </div>
+  </div>
+
+  <!-- TODAY'S LESSON -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-dot dot-lesson"></div>
+      <h2>Today's Lesson</h2>
+    </div>
+
+    <div class="lesson-box">
+      <div class="lesson-title">📖 Diffusion Language Models: How Tokens Get Unmasked Instead of Predicted</div>
+      <div class="lesson-body">
+        <p>Autoregressive language models work left-to-right: predict token N given tokens 1 through N-1, repeat. It's simple but fundamentally sequential — you can't generate token 50 until you've generated token 49. This is why LLM latency scales with output length even with big batches and fast hardware.</p>
+
+        <p><strong>Diffusion LMs flip the process.</strong> Inspired by image diffusion models (Stable Diffusion, DALL-E), they start with a fully masked sequence — a fixed-length array of <code>[MASK]</code> tokens — and iteratively unmask it. At each denoising step, the model looks at all positions simultaneously and decides which tokens to commit and which to keep masked. After T steps (often 10–50), every position has been filled. Because attention over all positions runs in parallel at each step, you can generate an entire block of text in far fewer sequential operations than autoregressive decoding needs.</p>
+
+        <p><strong>The catch:</strong> diffusion LMs need a fixed output length upfront, and they're harder to train — you need a good noise schedule and the model has to learn to reason about partial contexts rather than complete prefixes. They also don't do streaming token-by-token output naturally, since tokens are committed in bursts across denoising steps.</p>
+
+        <p><strong>Why DiffusionGemma matters today:</strong> Google fine-tuned a Gemini checkpoint into a diffusion decoder while keeping the original AR weights intact — so the same model can do both. This sidesteps the training-from-scratch cost and lets you run diffusion decoding on sequences where throughput matters (long outputs, batch generation) while falling back to AR for short or latency-sensitive requests. Watch this space: if diffusion decoding keeps improving quality parity, it could become a standard serving option alongside speculative decoding and chunked prefill for high-throughput inference.</p>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ARCHIVE SIDEBAR -->
+<style>
+  .arc-btn {
+    position: fixed; top: 18px; right: 18px; z-index: 200;
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 6px; padding: 6px 11px; font-size: 12px;
+    color: var(--muted); cursor: pointer; display: flex;
+    align-items: center; gap: 6px; user-select: none;
+    transition: border-color 0.15s, color 0.15s;
+    font-family: inherit;
+  }
+  .arc-btn:hover { border-color: #3a4060; color: var(--text); }
+  .arc-overlay {
+    display: none; position: fixed; inset: 0; z-index: 198;
+    background: rgba(0,0,0,0.45);
+  }
+  .arc-overlay.open { display: block; }
+  .arc-panel {
+    position: fixed; top: 0; right: 0; height: 100vh; width: 200px;
+    background: var(--surface); border-left: 1px solid var(--border);
+    z-index: 199; padding: 56px 14px 24px; overflow-y: auto;
+    transform: translateX(100%); transition: transform 0.22s ease;
+  }
+  .arc-panel.open { transform: translateX(0); }
+  .arc-panel-title {
+    font-size: 10px; font-weight: 700; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--muted);
+    margin-bottom: 14px; padding-left: 4px;
+  }
+  .arc-item {
+    display: block; padding: 7px 8px; border-radius: 5px;
+    font-size: 13px; color: var(--muted); text-decoration: none;
+    margin-bottom: 2px; transition: background 0.1s, color 0.1s;
+  }
+  .arc-item:hover { background: #1e2333; color: var(--text); }
+  .arc-item.current { background: rgba(91,142,240,0.12); color: var(--accent); font-weight: 600; }
+  .arc-close {
+    position: absolute; top: 14px; right: 14px;
+    background: none; border: none; color: var(--muted);
+    cursor: pointer; font-size: 18px; line-height: 1; padding: 4px;
+  }
+  .arc-close:hover { color: var(--text); }
+</style>
+<div class="arc-overlay" id="arcOverlay" onclick="arcClose()"></div>
+<div class="arc-panel" id="arcPanel">
+  <button class="arc-close" onclick="arcClose()">&#x2715;</button>
+  <div class="arc-panel-title">Past Issues</div>
+  <div id="arcList"><span style="color:var(--muted);font-size:12px">Loading…</span></div>
+</div>
+<button class="arc-btn" onclick="arcToggle()">
+  <svg width="13" height="11" viewBox="0 0 18 14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="0" y1="1" x2="18" y2="1"/><line x1="0" y1="7" x2="18" y2="7"/><line x1="0" y1="13" x2="18" y2="13"/></svg>
+  Past issues
+</button>
+<script>
+(function(){
+  var PAD = function(n){return String(n).padStart(2,'0');};
+  var MONTHS = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  var DAYS   = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+  var current = window.location.pathname.split('/').pop().replace(/\.html$/,'');
+  var found = [], tasks = [];
+  for(var i=0;i<45;i++){
+    (function(offset){
+      var d = new Date(); d.setDate(d.getDate()-offset);
+      var s = d.getFullYear()+'-'+PAD(d.getMonth()+1)+'-'+PAD(d.getDate());
+      tasks.push(fetch('./'+s+'.html',{method:'HEAD'}).then(function(r){if(r.ok)found.push({s:s,d:new Date(d)});}).catch(function(){}));
+    })(i);
+  }
+  Promise.all(tasks).then(function(){
+    found.sort(function(a,b){return b.d-a.d;});
+    var html='';
+    found.forEach(function(f){
+      var label=DAYS[f.d.getDay()]+', '+MONTHS[f.d.getMonth()]+' '+f.d.getDate();
+      var cls='arc-item'+(f.s===current?' current':'');
+      html+='<a class="'+cls+'" href="./'+f.s+'.html">'+label+'</a>';
+    });
+    document.getElementById('arcList').innerHTML=html||'<span style="color:var(--muted);font-size:12px">None found</span>';
+  });
+})();
+function arcToggle(){
+  var p=document.getElementById('arcPanel'),o=document.getElementById('arcOverlay');
+  var open=p.classList.contains('open');
+  if(open){arcClose();}else{p.classList.add('open');o.classList.add('open');}
+}
+function arcClose(){
+  document.getElementById('arcPanel').classList.remove('open');
+  document.getElementById('arcOverlay').classList.remove('open');
+}
+</script>
+
+</body>
+</html>
