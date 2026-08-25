@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Daily Dump — August 25, 2026</title>
+<style>
+  :root {
+    --bg: #0d1117;
+    --surface: #161b22;
+    --border: #21262d;
+    --text: #e6edf3;
+    --muted: #8b949e;
+    --accent: #5b8ef0;
+    --accent2: #58a6ff;
+    --hot: #f78166;
+    --green: #3fb950;
+    --yellow: #d29922;
+    --purple: #bc8cff;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+    font-size: 15px;
+    line-height: 1.65;
+    padding: 0 0 60px;
+  }
+  .header {
+    border-bottom: 1px solid var(--border);
+    padding: 28px 32px 22px;
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+  }
+  .header-title {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--text);
+    letter-spacing: -0.02em;
+  }
+  .header-date {
+    font-size: 13px;
+    color: var(--muted);
+  }
+  .container {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 0 32px;
+  }
+  .section {
+    margin-top: 36px;
+  }
+  .section-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 16px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--border);
+  }
+  .item {
+    padding: 16px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .item:last-child { border-bottom: none; }
+  .item-title {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 6px;
+    line-height: 1.4;
+  }
+  .item-title a {
+    color: inherit;
+    text-decoration: none;
+  }
+  .item-title a:hover { color: var(--accent2); }
+  .item-body {
+    font-size: 14px;
+    color: var(--muted);
+    line-height: 1.6;
+  }
+  .item-body a {
+    color: var(--accent2);
+    text-decoration: none;
+  }
+  .item-body a:hover { text-decoration: underline; }
+  .tag {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 4px;
+    margin-right: 6px;
+    margin-bottom: 8px;
+    vertical-align: middle;
+  }
+  .tag-hot { background: rgba(247,129,102,0.15); color: var(--hot); }
+  .tag-new { background: rgba(63,185,80,0.15); color: var(--green); }
+  .tag-soon { background: rgba(210,153,34,0.15); color: var(--yellow); }
+  .tag-read { background: rgba(91,142,240,0.15); color: var(--accent); }
+  .tag-hardware { background: rgba(188,140,255,0.15); color: var(--purple); }
+
+  .lesson-box {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--accent);
+    border-radius: 8px;
+    padding: 20px 22px;
+  }
+  .lesson-header {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 10px;
+  }
+  .lesson-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 14px;
+  }
+  .lesson-body {
+    font-size: 14px;
+    color: var(--muted);
+    line-height: 1.7;
+  }
+  .lesson-body strong { color: var(--text); }
+  .lesson-body p + p { margin-top: 10px; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-title">⚡ AI Daily Dump</div>
+  <div class="header-date">Monday, August 25, 2026</div>
+</div>
+
+<div class="container">
+
+  <!-- WHAT'S HOT -->
+  <div class="section">
+    <div class="section-label">🔥 What's Hot Right Now</div>
+
+    <div class="item">
+      <div class="item-title">
+        <span class="tag tag-hot">Mystery</span>
+        <a href="https://techcrunch.com/2026/08/23/whos-behind-the-new-stealth-model-ox-alpha/">Ox-Alpha: the anonymous frontier model everyone's fingerprinting</a>
+      </div>
+      <div class="item-body">A mystery model called Ox-Alpha appeared free on OpenRouter on August 20 — 1M token context, multimodal (text/image/video), pitched squarely at coding agents. No dev credited. Community benchmark landed at ~63% across 113 tasks, and tokenizer probes matched Z.ai's GLM-5 vocabulary on all 95 tests, pointing strongly at an unreleased GLM-5.3 variant. Stripe CEO Patrick Collison called it "very impressive." The HN thread <a href="https://news.ycombinator.com/item?id=49432317" target="_blank">Ox-Alpha Is GLM?</a> (82 pts) is still running hot. Worth trying while it's free. (<em>Released Aug 20, still dominant conversation.</em>)
+      </div>
+    </div>
+
+    <div class="item">
+      <div class="item-title">
+        <span class="tag tag-hot">Dropping Tomorrow</span>
+        <a href="https://x.com/danielhanchen/status/2092222459550585019">Qwen3.8-Flash-Next: first glimpse of Qwen4 architecture (125B / 6B active)</a>
+      </div>
+      <div class="item-body">Alibaba announced Qwen3.8-Flash-Next dropping August 26 — an open-weight multimodal MoE built on the new Qwen4 architecture. 125B total parameters, 6B activated per token, plus 51B N-gram embeddings. Unsloth already <a href="https://x.com/danielhanchen/status/2092222459550585019" target="_blank">announced day-zero support</a>. This is essentially Alibaba giving devs an early taste of the architectural bones that will power the full Qwen4 family. The <a href="https://news.ycombinator.com/item?id=49432317" target="_blank">HN thread</a> (153 pts, 3h ago) is full of speculation about what Qwen4-Max will look like. Top of r/LocalLLaMA right now.
+      </div>
+    </div>
+
+    <div class="item">
+      <div class="item-title">
+        <span class="tag tag-hot">Agent Infra</span>
+        <a href="https://www.laude.org/updates/headlong-a-microharness-for-persistent-agents">Headlong: a persistent agent that never sleeps, in &lt;10K lines of bash</a>
+      </div>
+      <div class="item-body">From the Laude Institute — an agent harness where the model keeps generating thoughts in a self-guided loop even when no human is talking to it. Trajectories stored as a DAG of jsonl files. Incoming human messages land as observations in the thought stream, not interrupts. Reported an unattended self-debugging repair in 48 minutes in testing. Cost: $1–$2/hr of background thinking. The HN thread (105 pts, 11h ago) is split between "this is the right model" and "enjoy your $40/day bill." <a href="https://github.com/laude-institute/headlong" target="_blank">GitHub</a>.
+      </div>
+    </div>
+
+  </div>
+
+  <!-- NEW RELEASES -->
+  <div class="section">
+    <div class="section-label">🚀 New Releases &amp; Updates</div>
+
+    <div class="item">
+      <div class="item-title">
+        <span class="tag tag-hardware">Hardware</span>
+        <a href="https://www.apple.com/newsroom/2026/08/apple-introduces-m6-and-m5-ultra-for-a-big-leap-in-performance-and-ai-compute/">Apple M6 + M5 Ultra: surprise-launched today, big bump for local inference</a>
+      </div>
+      <div class="item-body">No event, no warning — Apple quietly dropped new Mac mini and Mac Studio configs this morning. The M6 is Apple's first 2nm chip: 12-core CPU, 12-core GPU, Neural Accelerators in every GPU core for the first time. Apple claims 4× AI performance vs M4. Mac mini M6 starts at $899 (up $100 from before); Mac Studio with M5 Ultra starts at $5,499. M5 Max Mac Studio reportedly runs large language models ~4× faster than the previous generation. Ships September 22. (<a href="https://www.macrumors.com/2026/08/25/apple-announces-2026-mac-mini/" target="_blank">MacRumors</a>, <a href="https://9to5mac.com/2026/08/25/apple-announces-new-mac-mini-heres-everything-new/" target="_blank">9to5Mac</a>)
+      </div>
+    </div>
+
+    <div class="item">
+      <div class="item-title">
+        <span class="tag tag-new">Domain LLM</span>
+        <a href="https://www.thomsonreuters.com/en/press-releases/2026/august/thomson-reuters-leverages-its-world-class-data-assets-to-launch-its-own-frontier-model">Thomson Reuters launches "Thomson" — a frontier model trained on Westlaw and legal corpora</a>
+      </div>
+      <div class="item-body">Aug 24. Thomson Reuters trained their own frontier LLM on decades of Westlaw, Practical Law, Checkpoint, and Reuters content. Total investment ~$40M; the final training run cost $450K. On legal benchmarks, Thomson reportedly outperforms GPT-5.5 and Claude Sonnet 5 and is competitive with Claude Opus 4.8. The model has so far consumed less than 10% of Thomson Reuters' available corpus. Debuts in Tabular Analysis inside CoCounsel Legal. Interesting datapoint: they'll offer sovereign AI deployment options.
+      </div>
+    </div>
+
+    <div class="item">
+      <div class="item-title">
+        <span class="tag tag-new">OpenAI</span>
+        <a href="https://9to5mac.com/2026/08/25/apple-announces-new-mac-mini-heres-everything-new/">OpenAI restores 5-hour Codex + Work limits for ChatGPT Plus users</a>
+      </div>
+      <div class="item-body">Rolling back to the original 5-hour task limits for Codex and Work features for Plus subscribers, per 9to5Mac (2h ago, 93 pts on HN). No detail on what changed, but context in the thread suggests this was quietly cut for a while and community pressure got it reversed.
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ON THE HORIZON -->
+  <div class="section">
+    <div class="section-label">🔭 On the Horizon</div>
+
+    <div class="item">
+      <div class="item-title">
+        <span class="tag tag-soon">Tomorrow (Aug 26)</span>
+        Qwen3.8-Flash-Next weights drop + OpenAI o3 officially retires
+      </div>
+      <div class="item-body">Two things happening tomorrow: Alibaba releases Qwen3.8-Flash-Next open weights (Unsloth quants likely same day). Also, OpenAI o3 reaches end of its 90-day sunset period in ChatGPT on August 26 — if you're running any evals against o3, today's the last day.
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ALSO WORTH READING -->
+  <div class="section">
+    <div class="section-label">📖 Also Worth Reading</div>
+
+    <div class="item">
+      <div class="item-title">
+        <span class="tag tag-read">RL / Agents</span>
+        <a href="https://github.com/microsoft/agent-lightning">Microsoft Agent Lightning v1.0 — harnessed agentic RL without breaking production</a>
+      </div>
+      <div class="item-body">Released ~Aug 17, but the HN thread landed this morning (22h, 53 pts). Core idea: your agent points at an Agent Lightning proxy instead of the model endpoint; the proxy records what it needs for RL training while the agent keeps its own tools, context, and control flow untouched. ~3,500 lines of Python, MIT license, native Kubernetes support for rollouts as K8s Jobs. They call this "harnessed agentic RL." (<a href="https://github.com/microsoft/agent-lightning" target="_blank">GitHub</a>)
+      </div>
+    </div>
+
+    <div class="item">
+      <div class="item-title">
+        <span class="tag tag-read">Tooling</span>
+        <a href="https://simonwillison.net/2026/Aug/22/llm/">Simon Willison's llm 0.33 — template composition and httpx2 migration</a>
+      </div>
+      <div class="item-body">Aug 22. The <code>-t/--template</code> flag can now be repeated to combine templates: mix model config from one template with a prompt from another. Also adds a <code>--key</code> parameter to <code>llm embed</code>/<code>llm embed-multi</code>, and switches the HTTP client from httpx to httpx2, which fixes dependency conflicts on fresh installs. If you use llm in scripts, worth updating.
+      </div>
+    </div>
+
+    <div class="item">
+      <div class="item-title">
+        <span class="tag tag-read">SiFive</span>
+        <a href="https://chipsandcheese.com/2026/08/25/sifives-first-server-platform/">SiFive's first server platform (Chips and Cheese)</a>
+      </div>
+      <div class="item-body">100 pts, 12h ago on HN. RISC-V making its first credible server-class push. Relevant context: as inference workloads commoditize, the x86/ARM duopoly in data centres starts to look less inevitable.
+      </div>
+    </div>
+
+  </div>
+
+  <!-- TODAY'S LESSON -->
+  <div class="section">
+    <div class="lesson-box">
+      <div class="lesson-header">📖 Today's Lesson</div>
+      <div class="lesson-title">Multi-head Latent Attention (MLA): how Qwen4 and DeepSeek shrink KV cache by 4–8×</div>
+      <div class="lesson-body">
+        <p>Standard multi-head attention keeps a KV cache entry for every token, every layer, every head. At 128 heads and a 4096-dim hidden state, that's a lot of memory — enough that KV cache is often the binding constraint on batch size and context length.</p>
+        <p><strong>MLA (introduced in DeepSeek-V2, now reportedly part of the Qwen4 architecture)</strong> fixes this by compressing keys and values into a low-rank latent vector before storing them. Concretely: instead of caching <em>K</em> and <em>V</em> tensors of shape <code>[heads × head_dim]</code> per token, the model caches a single compressed vector <code>c</code> of much smaller dimension (say 512 vs 4096), then projects it back up to full K and V at attention time.</p>
+        <p>The math: <code>K = W_K · c</code>, <code>V = W_V · c</code> — two cheap matrix multiplies per layer at decode time, but you only stored one small vector. This cuts KV cache memory by 4–8× depending on compression ratio, which means you can fit much longer contexts, or run much larger batches, on the same hardware.</p>
+        <p>There's a subtle tradeoff: re-projecting at every decode step adds a few FLOPs, but since decode is memory-bandwidth-bound not compute-bound, this is usually a net win. The real engineering challenge is getting the compression matrix right during training — it needs to preserve enough information for the re-projection to recover accurate K and V. DeepSeek found that training end-to-end with the compressed latent worked well without special regularization.</p>
+        <p>Why it matters today: if Qwen3.8-Flash-Next is genuinely built on Qwen4 architecture, expect MLA (or something like it) to be part of why a 125B/6B-active MoE can fit comfortably on consumer hardware even with long contexts.</p>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ARCHIVE SIDEBAR -->
+<style>
+  .arc-btn {
+    position: fixed; top: 18px; right: 18px; z-index: 200;
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 6px; padding: 6px 11px; font-size: 12px;
+    color: var(--muted); cursor: pointer; display: flex;
+    align-items: center; gap: 6px; user-select: none;
+    transition: border-color 0.15s, color 0.15s;
+    font-family: inherit;
+  }
+  .arc-btn:hover { border-color: #3a4060; color: var(--text); }
+  .arc-overlay {
+    display: none; position: fixed; inset: 0; z-index: 198;
+    background: rgba(0,0,0,0.45);
+  }
+  .arc-overlay.open { display: block; }
+  .arc-panel {
+    position: fixed; top: 0; right: 0; height: 100vh; width: 200px;
+    background: var(--surface); border-left: 1px solid var(--border);
+    z-index: 199; padding: 56px 14px 24px; overflow-y: auto;
+    transform: translateX(100%); transition: transform 0.22s ease;
+  }
+  .arc-panel.open { transform: translateX(0); }
+  .arc-panel-title {
+    font-size: 10px; font-weight: 700; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--muted);
+    margin-bottom: 14px; padding-left: 4px;
+  }
+  .arc-item {
+    display: block; padding: 7px 8px; border-radius: 5px;
+    font-size: 13px; color: var(--muted); text-decoration: none;
+    margin-bottom: 2px; transition: background 0.1s, color 0.1s;
+  }
+  .arc-item:hover { background: #1e2333; color: var(--text); }
+  .arc-item.current { background: rgba(91,142,240,0.12); color: var(--accent); font-weight: 600; }
+  .arc-close {
+    position: absolute; top: 14px; right: 14px;
+    background: none; border: none; color: var(--muted);
+    cursor: pointer; font-size: 18px; line-height: 1; padding: 4px;
+  }
+  .arc-close:hover { color: var(--text); }
+</style>
+<div class="arc-overlay" id="arcOverlay" onclick="arcClose()"></div>
+<div class="arc-panel" id="arcPanel">
+  <button class="arc-close" onclick="arcClose()">&#x2715;</button>
+  <div class="arc-panel-title">Past Issues</div>
+  <div id="arcList"><span style="color:var(--muted);font-size:12px">Loading…</span></div>
+</div>
+<button class="arc-btn" onclick="arcToggle()">
+  <svg width="13" height="11" viewBox="0 0 18 14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="0" y1="1" x2="18" y2="1"/><line x1="0" y1="7" x2="18" y2="7"/><line x1="0" y1="13" x2="18" y2="13"/></svg>
+  Past issues
+</button>
+<script>
+(function(){
+  var PAD = function(n){return String(n).padStart(2,'0');};
+  var MONTHS = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  var DAYS   = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+  var current = window.location.pathname.split('/').pop().replace(/\.html$/,'');
+  var found = [], tasks = [];
+  for(var i=0;i<45;i++){
+    (function(offset){
+      var d = new Date(); d.setDate(d.getDate()-offset);
+      var s = d.getFullYear()+'-'+PAD(d.getMonth()+1)+'-'+PAD(d.getDate());
+      tasks.push(fetch('./'+s+'.html',{method:'HEAD'}).then(function(r){if(r.ok)found.push({s:s,d:new Date(d)});}).catch(function(){}));
+    })(i);
+  }
+  Promise.all(tasks).then(function(){
+    found.sort(function(a,b){return b.d-a.d;});
+    var html='';
+    found.forEach(function(f){
+      var label=DAYS[f.d.getDay()]+', '+MONTHS[f.d.getMonth()]+' '+f.d.getDate();
+      var cls='arc-item'+(f.s===current?' current':'');
+      html+='<a class="'+cls+'" href="./'+f.s+'.html">'+label+'</a>';
+    });
+    document.getElementById('arcList').innerHTML=html||'<span style="color:var(--muted);font-size:12px">None found</span>';
+  });
+})();
+function arcToggle(){
+  var p=document.getElementById('arcPanel'),o=document.getElementById('arcOverlay');
+  var open=p.classList.contains('open');
+  if(open){arcClose();}else{p.classList.add('open');o.classList.add('open');}
+}
+function arcClose(){
+  document.getElementById('arcPanel').classList.remove('open');
+  document.getElementById('arcOverlay').classList.remove('open');
+}
+</script>
+
+</body>
+</html>
