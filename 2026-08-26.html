@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Daily Dump — August 26, 2026</title>
+<style>
+  :root {
+    --bg: #0d1117;
+    --surface: #161b22;
+    --border: #21262d;
+    --text: #e6edf3;
+    --muted: #7d8590;
+    --accent: #5b8ef0;
+    --hot: #f78166;
+    --release: #3fb950;
+    --horizon: #d2a8ff;
+    --reading: #79c0ff;
+    --lesson: #ffa657;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg); color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    font-size: 15px; line-height: 1.65;
+    max-width: 740px; margin: 0 auto; padding: 48px 24px 80px;
+  }
+  header { margin-bottom: 48px; }
+  .dateline {
+    font-size: 11px; font-weight: 700; letter-spacing: 0.12em;
+    text-transform: uppercase; color: var(--muted); margin-bottom: 10px;
+  }
+  h1 { font-size: 26px; font-weight: 700; line-height: 1.2; color: var(--text); }
+  .tagline { color: var(--muted); font-size: 14px; margin-top: 6px; }
+
+  section { margin-bottom: 44px; }
+  .section-label {
+    display: inline-block; font-size: 10px; font-weight: 700;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    padding: 3px 8px; border-radius: 4px; margin-bottom: 18px;
+  }
+  .label-hot      { background: rgba(247,129,102,0.15); color: var(--hot); }
+  .label-release  { background: rgba(63,185,80,0.12);  color: var(--release); }
+  .label-horizon  { background: rgba(210,168,255,0.12); color: var(--horizon); }
+  .label-reading  { background: rgba(121,192,255,0.12); color: var(--reading); }
+  .label-lesson   { background: rgba(255,166,87,0.12); color: var(--lesson); }
+
+  .card {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 8px; padding: 18px 20px; margin-bottom: 12px;
+  }
+  .card-title {
+    font-size: 15px; font-weight: 600; color: var(--text);
+    margin-bottom: 6px; line-height: 1.4;
+  }
+  .card-title a { color: var(--accent); text-decoration: none; }
+  .card-title a:hover { text-decoration: underline; }
+  .card-meta {
+    font-size: 12px; color: var(--muted); margin-bottom: 10px;
+  }
+  .card-body { font-size: 14px; color: #adbac7; line-height: 1.6; }
+  .card-body strong { color: var(--text); }
+  .card-body code {
+    background: #1c2128; border: 1px solid var(--border);
+    padding: 1px 5px; border-radius: 4px; font-size: 12px;
+    font-family: "SF Mono", ui-monospace, monospace;
+  }
+
+  .lesson-box {
+    background: rgba(255,166,87,0.06); border: 1px solid rgba(255,166,87,0.2);
+    border-left: 3px solid var(--lesson);
+    border-radius: 8px; padding: 20px 22px;
+  }
+  .lesson-title { font-size: 16px; font-weight: 700; color: var(--lesson); margin-bottom: 14px; }
+  .lesson-body { font-size: 14px; color: #adbac7; line-height: 1.7; }
+  .lesson-body strong { color: var(--text); }
+  .lesson-body code {
+    background: #1c2128; border: 1px solid var(--border);
+    padding: 1px 5px; border-radius: 4px; font-size: 12px;
+    font-family: "SF Mono", ui-monospace, monospace;
+  }
+  .lesson-body p + p { margin-top: 10px; }
+
+  .pill {
+    display: inline-block; font-size: 11px; padding: 2px 7px;
+    border-radius: 12px; font-weight: 600; margin-right: 6px;
+    vertical-align: middle;
+  }
+  .pill-score { background: rgba(91,142,240,0.15); color: var(--accent); }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="dateline">Wednesday, August 26, 2026</div>
+  <h1>AI Daily Dump</h1>
+  <p class="tagline">What's actually happening in AI & inference — fresh as of this morning.</p>
+</header>
+
+<!-- WHAT'S HOT RIGHT NOW -->
+<section>
+  <div class="section-label label-hot">🔥 What's Hot Right Now</div>
+
+  <div class="card">
+    <div class="card-title"><a href="https://z.ai/glm-5-3-flash" target="_blank">GLM-5.3-Flash drops — and r/LocalLLaMA has a full megathread</a></div>
+    <div class="card-meta">z.ai · r/LocalLLaMA megathread · HN #12, 354 pts · Released today</div>
+    <div class="card-body">
+      Z.ai's first open-weight release of the <strong>glm5_next architecture</strong>, and the most technically dense drop in a while. Key points engineers are digging into:
+      <br><br>
+      <strong>Architecture:</strong> 45 layers in repeating blocks — 3× KDA linear attention followed by 1× DeepSeek-style sparse attention (34 linear / 11 sparse total). The sparse layers use a "lightning indexer" with a top-k budget of 2048 tokens, sharply reducing long-context serving cost vs. full attention.
+      <br><br>
+      <strong>Natively multimodal:</strong> A 24-layer ViT (448px, patch 14, 2×2 spatial merge) with temporal patching handles both image and video tokens in the same vocabulary — trained on a 30T-token multimodal corpus.
+      <br><br>
+      <strong>MTP head ships in the weights:</strong> One next-N prediction layer is baked into the checkpoint. The official vLLM recipe uses it with <code>k=5</code> speculative tokens out of the box. (See today's lesson for how this works.)
+      <br><br>
+      <strong>FP8 by default:</strong> main repo is e4m3 FP8 with dynamic activation scaling; a separate BF16 repo exists for hardware that can't do FP8. Z.ai's pitch: outperforms GLM-5.2 at one-tenth the price, approaching Claude Opus 4.8 on coding and agentic benchmarks.
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><a href="https://qwen.ai" target="_blank">Qwen3.8-Flash-Next: a live preview of the Qwen4 architecture</a></div>
+    <div class="card-meta">qwen.ai · HuggingFace (weights live) · HN #13, 360 pts · Released today</div>
+    <div class="card-body">
+      Alibaba's Qwen team shipped Qwen3.8-Flash-Next today — not a production model but an explicit architectural preview of what Qwen4 will look like. Key numbers: <strong>125B total parameters, 6B active per token</strong> (MoE), 262K native context extendable to 1M.
+      <br><br>
+      Two headline architectural changes: <strong>GDN hybrid architecture</strong> (upgraded attention, residual, embedding and optimization paths) and <strong>Qwen Sparse Attention (QSA)</strong>, their own take on sliding-window + top-k sparse attention to cut long-context costs. They're releasing this early so tool builders, quantizers, and inference engine maintainers can adapt their code before Qwen4 lands.
+      <br><br>
+      Unsloth already has <a href="https://huggingface.co/unsloth/Qwen3.8-Flash-Next-GGUF" target="_blank">GGUF quants up on HuggingFace</a>. Worth benchmarking against GLM-5.3-Flash on your workloads — two big architectural previews landing the same day is unusual.
+    </div>
+  </div>
+</section>
+
+<!-- NEW RELEASES & UPDATES -->
+<section>
+  <div class="section-label label-release">🚀 New Releases & Updates</div>
+
+  <div class="card">
+    <div class="card-title">Both GLM-5.3-Flash and Qwen3.8-Flash-Next weights are live now</div>
+    <div class="card-meta">z.ai · huggingface.co/Qwen · Today</div>
+    <div class="card-body">
+      Covered above in detail. Short version for your model pull list: <strong>GLM-5.3-Flash</strong> (FP8 main, BF16 alt, vLLM-ready with speculative decode config) and <strong>Qwen3.8-Flash-Next</strong> (FP8 + GGUF quants from Unsloth). Both are under open licenses. Two major architecture drops in one day is rare — clear pattern of Chinese labs shipping concurrent "architectural statement" releases.
+    </div>
+  </div>
+</section>
+
+<!-- ON THE HORIZON -->
+<section>
+  <div class="section-label label-horizon">🔭 On the Horizon</div>
+
+  <div class="card">
+    <div class="card-title"><a href="https://bloomberg.com" target="_blank">Z.ai confirms "Ox Alpha" — a new GLM-series model, weights coming</a></div>
+    <div class="card-meta">Bloomberg · HN #3, 365 pts · 6 hours ago · Announced, not yet released</div>
+    <div class="card-body">
+      Z.ai confirmed in a Bloomberg interview that <strong>Ox Alpha</strong> is a new model in the GLM series with weights to be released. No technical specs disclosed yet, but the HN thread is speculating it sits above GLM-5.3-Flash and below a hypothetical closed-weight frontier variant. Worth watching given GLM-5.3-Flash's architectural novelty — Ox Alpha may be the first large-scale deployment of the glm5_next stack.
+    </div>
+  </div>
+</section>
+
+<!-- ALSO WORTH READING -->
+<section>
+  <div class="section-label label-reading">📚 Also Worth Reading</div>
+
+  <div class="card">
+    <div class="card-title"><a href="https://ducklabs.com" target="_blank">AWS Acquires DuckDB</a></div>
+    <div class="card-meta">ducklabs.com → AWS · HN #1, 626 pts · 3 hours ago</div>
+    <div class="card-body">
+      Top story on HN today. DuckDB is increasingly the data processing backbone for local LLM data pipelines, evals, and offline analytics. The acquisition by AWS is big for anyone building on it — the 160-comment thread is worth skimming for developer sentiment on what this means for the open-source project's future.
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><a href="https://lighthousenewsletter.com" target="_blank">RAG Is Simpler Than You Think</a></div>
+    <div class="card-meta">lighthousenewsletter.com · HN #7, 315 pts · 7 hours ago</div>
+    <div class="card-body">
+      High-signal HN thread demystifying RAG implementation. 138 comments. Given how often RAG gets over-engineered, the title alone has energy. Worth reading alongside the arxiv paper below.
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><a href="https://arxiv.org" target="_blank">Agentic Context Management: Memory and Cost as Architecture Problems</a></div>
+    <div class="card-meta">arxiv.org · HN #8, 75 pts · 13 hours ago</div>
+    <div class="card-body">
+      Paper framing context management in agent loops as a first-class systems design problem — not a prompt engineering afterthought. Directly relevant if you're building multi-step AI workflows and watching token costs grow with session depth.
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><a href="https://openai.com" target="_blank">OpenAI: Disrupting a new covert influence campaign from Russia</a></div>
+    <div class="card-meta">openai.com · HN #25, 89 pts · 8 hours ago</div>
+    <div class="card-body">
+      OpenAI published details of a Russian covert influence operation that used their models to generate propaganda content. Worth skimming for the detection methodology — it has implications for anyone thinking about abuse detection in production AI systems.
+    </div>
+  </div>
+</section>
+
+<!-- TODAY'S LESSON -->
+<section>
+  <div class="section-label label-lesson">📖 Today's Lesson</div>
+  <div class="lesson-box">
+    <div class="lesson-title">MTP Heads: How Models Become Their Own Draft Models for Speculative Decoding</div>
+    <div class="lesson-body">
+      <p>Standard speculative decoding requires a separate small "draft" model that proposes <em>k</em> tokens, which the main model then verifies in a single parallel forward pass. The friction: you need to load, serve, and schedule that draft model independently, and if the draft model is too different from the main model, acceptance rates tank.</p>
+
+      <p><strong>Multi-Token Prediction (MTP) heads</strong> solve this by baking the draft model directly into the checkpoint. During training, auxiliary prediction heads are attached after the final transformer block — one head per speculative position. Each head is trained to predict the token at position <em>+n</em> using a small MLP or shallow transformer. They share the same hidden states as the main model, so no extra KV cache or batch-splitting is needed at inference.</p>
+
+      <p>At serving time, the MTP heads run on the <em>same</em> forward pass that already computed the main model's next-token logits, producing draft tokens essentially for free. The main model then verifies all <em>k</em> proposals in one speculative step. DeepSeek-V3 popularized this pattern; GLM-5.3-Flash ships one MTP head in its weights today, and the official vLLM config uses it with <code>speculative_tokens=5</code>.</p>
+
+      <p><strong>The gotcha to know:</strong> longer speculative chains hurt at long context. GLM's benchmarkers found <code>k=7</code> drops throughput from 76 to 55 tok/s at 65K tokens — verification cost grows faster than the draft gains. The rule of thumb: use <code>k=3–5</code> for typical workloads, drop to <code>k=2–3</code> when serving long-context requests. Dial it per deployment, not globally.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ARCHIVE SIDEBAR -->
+<style>
+  .arc-btn {
+    position: fixed; top: 18px; right: 18px; z-index: 200;
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 6px; padding: 6px 11px; font-size: 12px;
+    color: var(--muted); cursor: pointer; display: flex;
+    align-items: center; gap: 6px; user-select: none;
+    transition: border-color 0.15s, color 0.15s;
+    font-family: inherit;
+  }
+  .arc-btn:hover { border-color: #3a4060; color: var(--text); }
+  .arc-overlay {
+    display: none; position: fixed; inset: 0; z-index: 198;
+    background: rgba(0,0,0,0.45);
+  }
+  .arc-overlay.open { display: block; }
+  .arc-panel {
+    position: fixed; top: 0; right: 0; height: 100vh; width: 200px;
+    background: var(--surface); border-left: 1px solid var(--border);
+    z-index: 199; padding: 56px 14px 24px; overflow-y: auto;
+    transform: translateX(100%); transition: transform 0.22s ease;
+  }
+  .arc-panel.open { transform: translateX(0); }
+  .arc-panel-title {
+    font-size: 10px; font-weight: 700; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--muted);
+    margin-bottom: 14px; padding-left: 4px;
+  }
+  .arc-item {
+    display: block; padding: 7px 8px; border-radius: 5px;
+    font-size: 13px; color: var(--muted); text-decoration: none;
+    margin-bottom: 2px; transition: background 0.1s, color 0.1s;
+  }
+  .arc-item:hover { background: #1e2333; color: var(--text); }
+  .arc-item.current { background: rgba(91,142,240,0.12); color: var(--accent); font-weight: 600; }
+  .arc-close {
+    position: absolute; top: 14px; right: 14px;
+    background: none; border: none; color: var(--muted);
+    cursor: pointer; font-size: 18px; line-height: 1; padding: 4px;
+  }
+  .arc-close:hover { color: var(--text); }
+</style>
+<div class="arc-overlay" id="arcOverlay" onclick="arcClose()"></div>
+<div class="arc-panel" id="arcPanel">
+  <button class="arc-close" onclick="arcClose()">&#x2715;</button>
+  <div class="arc-panel-title">Past Issues</div>
+  <div id="arcList"><span style="color:var(--muted);font-size:12px">Loading…</span></div>
+</div>
+<button class="arc-btn" onclick="arcToggle()">
+  <svg width="13" height="11" viewBox="0 0 18 14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="0" y1="1" x2="18" y2="1"/><line x1="0" y1="7" x2="18" y2="7"/><line x1="0" y1="13" x2="18" y2="13"/></svg>
+  Past issues
+</button>
+<script>
+(function(){
+  var PAD = function(n){return String(n).padStart(2,'0');};
+  var MONTHS = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  var DAYS   = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+  var current = window.location.pathname.split('/').pop().replace(/\.html$/,'');
+  var found = [], tasks = [];
+  for(var i=0;i<45;i++){
+    (function(offset){
+      var d = new Date(); d.setDate(d.getDate()-offset);
+      var s = d.getFullYear()+'-'+PAD(d.getMonth()+1)+'-'+PAD(d.getDate());
+      tasks.push(fetch('./'+s+'.html',{method:'HEAD'}).then(function(r){if(r.ok)found.push({s:s,d:new Date(d)});}).catch(function(){}));
+    })(i);
+  }
+  Promise.all(tasks).then(function(){
+    found.sort(function(a,b){return b.d-a.d;});
+    var html='';
+    found.forEach(function(f){
+      var label=DAYS[f.d.getDay()]+', '+MONTHS[f.d.getMonth()]+' '+f.d.getDate();
+      var cls='arc-item'+(f.s===current?' current':'');
+      html+='<a class="'+cls+'" href="./'+f.s+'.html">'+label+'</a>';
+    });
+    document.getElementById('arcList').innerHTML=html||'<span style="color:var(--muted);font-size:12px">None found</span>';
+  });
+})();
+function arcToggle(){
+  var p=document.getElementById('arcPanel'),o=document.getElementById('arcOverlay');
+  var open=p.classList.contains('open');
+  if(open){arcClose();}else{p.classList.add('open');o.classList.add('open');}
+}
+function arcClose(){
+  document.getElementById('arcPanel').classList.remove('open');
+  document.getElementById('arcOverlay').classList.remove('open');
+}
+</script>
+
+</body>
+</html>
