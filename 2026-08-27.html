@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Daily Dump — August 27, 2026</title>
+<style>
+  :root {
+    --bg: #0d1117;
+    --surface: #161b22;
+    --surface2: #1c2330;
+    --border: #21262d;
+    --text: #e6edf3;
+    --muted: #7d8590;
+    --accent: #5b8ef0;
+    --hot: #f0855b;
+    --release: #58a6ff;
+    --horizon: #bc8cff;
+    --reading: #3fb950;
+    --lesson: #f0c05b;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+    font-size: 15px;
+    line-height: 1.65;
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 48px 24px 80px;
+  }
+  .header { margin-bottom: 40px; border-bottom: 1px solid var(--border); padding-bottom: 24px; }
+  .header-label { font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-bottom: 6px; }
+  .header-title { font-size: 28px; font-weight: 700; color: var(--text); }
+  .header-sub { font-size: 13px; color: var(--muted); margin-top: 4px; }
+
+  .section { margin-bottom: 40px; }
+  .section-label {
+    font-size: 10px; font-weight: 700; letter-spacing: 0.14em;
+    text-transform: uppercase; padding: 3px 8px; border-radius: 4px;
+    display: inline-block; margin-bottom: 16px;
+  }
+  .label-hot { background: rgba(240,133,91,0.15); color: var(--hot); }
+  .label-release { background: rgba(88,166,255,0.15); color: var(--release); }
+  .label-horizon { background: rgba(188,140,255,0.15); color: var(--horizon); }
+  .label-reading { background: rgba(63,185,80,0.15); color: var(--reading); }
+  .label-lesson { background: rgba(240,192,91,0.15); color: var(--lesson); }
+
+  .item { margin-bottom: 22px; padding-bottom: 22px; border-bottom: 1px solid var(--border); }
+  .item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+  .item-title { font-size: 15px; font-weight: 600; color: var(--text); margin-bottom: 5px; }
+  .item-title a { color: inherit; text-decoration: none; }
+  .item-title a:hover { color: var(--accent); }
+  .item-meta { font-size: 12px; color: var(--muted); margin-bottom: 7px; }
+  .item-body { font-size: 14px; color: #9198a1; line-height: 1.6; }
+
+  .tag {
+    display: inline-block; font-size: 10px; font-weight: 600;
+    padding: 2px 6px; border-radius: 3px; margin-right: 6px;
+    text-transform: uppercase; letter-spacing: 0.06em;
+  }
+  .tag-open { background: rgba(63,185,80,0.15); color: var(--reading); }
+  .tag-big { background: rgba(240,133,91,0.15); color: var(--hot); }
+  .tag-chip { background: rgba(188,140,255,0.15); color: var(--horizon); }
+  .tag-deal { background: rgba(88,166,255,0.15); color: var(--release); }
+
+  .lesson-box {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--lesson);
+    border-radius: 8px;
+    padding: 22px 24px;
+  }
+  .lesson-title { font-size: 16px; font-weight: 700; color: var(--lesson); margin-bottom: 14px; }
+  .lesson-body { font-size: 14px; color: #9198a1; line-height: 1.7; }
+  .lesson-body p { margin-bottom: 12px; }
+  .lesson-body p:last-child { margin-bottom: 0; }
+
+  a { color: var(--accent); }
+  a:hover { text-decoration: underline; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-label">AI Daily Dump</div>
+  <div class="header-title">Thursday, August 27, 2026</div>
+  <div class="header-sub">For Pranesh — inference engineer edition</div>
+</div>
+
+<!-- WHAT'S HOT -->
+<div class="section">
+  <div class="section-label label-hot">🔥 What's Hot Right Now</div>
+
+  <div class="item">
+    <div class="item-title"><span class="tag tag-big">BOMBSHELL</span><a href="https://techcrunch.com/2026/08/26/nvidia-closes-in-on-hugging-face-acquisition/" target="_blank">Nvidia to Acquire Hugging Face for $12.9B</a></div>
+    <div class="item-meta">The Information / TechCrunch · Aug 26–27 · Still unsigned but widely confirmed</div>
+    <div class="item-body">Nvidia is buying the "GitHub of AI" at 86× revenue — a $12.9B bet on open-source ecosystem control at exactly the moment OpenAI, Anthropic, and Google are building their own silicon to reduce Nvidia dependence. The deal would hand Nvidia the primary distribution layer for open weights: every model drop, every fine-tune, every dataset. The strategic read: if the closed labs leave the Nvidia stack, Nvidia captures the open-weight community instead. Talks are advanced but no signed agreement yet.</div>
+  </div>
+
+  <div class="item">
+    <div class="item-title"><span class="tag tag-open">OPEN WEIGHTS</span><a href="https://siliconangle.com/2026/08/26/z-ai-open-sources-ox-alpha-model-as-glm-5-3-flash/" target="_blank">Ox Alpha Unmasked: Z.ai's Stealth Model Was GLM-5.3-Flash All Along</a></div>
+    <div class="item-meta">Bloomberg / SiliconANGLE · Aug 26</div>
+    <div class="item-body">For a week, an anonymous model called "Ox Alpha" was quietly top of the OpenRouter usage charts — free, multimodal, weirdly capable. Z.ai confirmed yesterday it's GLM-5.3-Flash: a 320B-parameter MoE with 18B active per token, 1M-token multimodal context, MIT license. Weights dropped same-day on Hugging Face with day-one support in SGLang, vLLM, TokenSpeed, and KTransformers. Self-reported DeepSWE score of 63.4 vs. 46.2 for the prior GLM-5.2. The stealth-then-drop rollout is becoming a pattern worth watching.</div>
+  </div>
+
+  <div class="item">
+    <div class="item-title"><span class="tag tag-open">OPEN WEIGHTS</span><a href="https://qwen.ai/blog?id=qwen3.8-flash-next" target="_blank">Qwen3.8-Flash-Next: First Look at the Qwen4 Architecture</a></div>
+    <div class="item-meta">Alibaba Qwen · Aug 26</div>
+    <div class="item-body">125B total / 6B active MoE, open-weight, multimodal — and more importantly, a confirmed preview of the Qwen4 architecture. The key changes: a Gated DeltaNet + Qwen Sparse Attention hybrid (linear attention meets sparse transformers), Gated Residual, N-gram Embeddings, and the Muon optimizer. QSA operates at the micro-block level, slashing long-context latency — critical for agentic workloads. Training cost is reportedly 1/9th of Qwen3.7-Plus. GGUF weights already up from Unsloth. The production cloud version (QwenCloud API at $0.16/$0.47 per 1M) will follow.</div>
+  </div>
+
+</div>
+
+<!-- NEW RELEASES -->
+<div class="section">
+  <div class="section-label label-release">🚀 New Releases &amp; Updates</div>
+
+  <div class="item">
+    <div class="item-title"><span class="tag tag-chip">SILICON</span><a href="https://newsletter.semianalysis.com/p/openai-jalapeno-better-than-nvidia" target="_blank">OpenAI Jalapeño: 1.5–1.9× Better Performance/Watt Than Blackwell</a></div>
+    <div class="item-meta">SemiAnalysis · Aug 27</div>
+    <div class="item-body">OpenAI published evals on Jalapeño, its custom AI chip: 1.5–1.9× more AI work per watt and 1.7–3.6× lower latency than Nvidia Blackwell in tested scenarios. Big caveat from SemiAnalysis: Blackwell uses HBM3e while Jalapeño uses HBM4 — Nvidia's Rubin (also HBM4) is the fair comparison, and Rubin is already shipping. Jalapeño is still at engineering sample stage. But the direction of travel is clear: hyperscalers are closing the custom-silicon gap, and OpenAI's numbers are credible enough to matter for Nvidia's margin story.</div>
+  </div>
+
+  <div class="item">
+    <div class="item-title"><span class="tag tag-deal">DEAL</span><a href="https://www.aboutamazon.com/news/company-news/aws-ducklabs" target="_blank">AWS Acquires DuckLabs (the DuckDB Team)</a></div>
+    <div class="item-meta">AWS / The Register · Aug 26</div>
+    <div class="item-body">Amazon is acquiring DuckLabs — the Amsterdam-based company behind DuckDB — to deepen AWS analytics. The DuckDB open-source project stays MIT-licensed under the independent DuckDB Foundation. Hannes Mühleisen and Mark Raasveldt keep leading it. Relevance for AI engineers: DuckDB has quietly become the go-to in-process query engine for ML pipelines, dataset preprocessing, and embedding workflows. AWS owning the team will likely accelerate native DuckDB integration across S3, Glue, and SageMaker.</div>
+  </div>
+
+</div>
+
+<!-- ON THE HORIZON -->
+<div class="section">
+  <div class="section-label label-horizon">🔭 On the Horizon</div>
+
+  <div class="item">
+    <div class="item-title"><a href="https://www.bloomberg.com/news/articles/2026-08-06/deepseek-resumes-8-billion-round-with-monolith-in-the-running" target="_blank">DeepSeek Nearing $8B Raise at $74B Valuation</a></div>
+    <div class="item-meta">Bloomberg / WSJ · Aug 26–27</div>
+    <div class="item-body">DeepSeek has resumed its funding round targeting ~$8B at a $74B valuation, with Monolith Management joining a syndicate that includes China's national AI fund, NetEase, JD.com, and IDG Capital. The cash is earmarked for R&D and compute infrastructure buildout. At this valuation, DeepSeek-V4-Pro-0813 and whatever comes next will continue to be funded at frontier scale — and the open-weight pricing pressure on Western labs isn't going anywhere.</div>
+  </div>
+
+</div>
+
+<!-- ALSO WORTH READING -->
+<div class="section">
+  <div class="section-label label-reading">📚 Also Worth Reading</div>
+
+  <div class="item">
+    <div class="item-title"><a href="https://simonwillison.net/2026/Aug/26/qwen38-flash-next/" target="_blank">Simon Willison: Qwen3.8-Flash-Next Breakdown</a></div>
+    <div class="item-meta">simonwillison.net · Aug 26</div>
+    <div class="item-body">Simon's usual clean walkthrough of the architecture changes — useful companion to the official blog post if you want a faster read on what DeltaNet + QSA actually does.</div>
+  </div>
+
+  <div class="item">
+    <div class="item-title"><a href="https://www.lighthousenewsletter.com/p/rag-is-simpler-than-you-think" target="_blank">RAG Is Simpler Than You Think</a></div>
+    <div class="item-meta">Lighthouse Newsletter · HN #16 today</div>
+    <div class="item-body">Making the rounds on HN — a pushback on the overcomplicated RAG stacks that have proliferated. Worth a skim if you're evaluating retrieval architecture for an agent loop.</div>
+  </div>
+
+  <div class="item">
+    <div class="item-title"><a href="https://newsletter.semianalysis.com/p/openai-jalapeno-better-than-nvidia" target="_blank">SemiAnalysis Deep-Dive: OpenAI Jalapeño vs. Blackwell vs. Rubin</a></div>
+    <div class="item-meta">SemiAnalysis · Aug 27</div>
+    <div class="item-body">The full technical treatment of the benchmark methodology, HBM generation differences, and what custom silicon timelines actually mean for inference costs over the next 18 months.</div>
+  </div>
+
+</div>
+
+<!-- TODAY'S LESSON -->
+<div class="section">
+  <div class="section-label label-lesson">📖 Today's Lesson</div>
+  <div class="lesson-box">
+    <div class="lesson-title">MoE Expert Routing: How 6B of 125B Parameters Do All the Work</div>
+    <div class="lesson-body">
+      <p>Both models dropped today — Qwen3.8-Flash-Next (125B total / 6B active) and GLM-5.3-Flash (320B total / 18B active) — are Mixture-of-Experts architectures. The numbers look strange until you understand how MoE routing works.</p>
+      <p>A standard dense transformer activates every parameter for every token. An MoE model instead splits the FFN layer into N "expert" sub-networks. For each token, a lightweight <strong>router</strong> (usually a small linear layer followed by softmax) scores all experts and picks the top-k. Only those k experts process the token — the rest sit idle. So a 125B-parameter model might activate only 6B parameters per forward pass, matching the compute cost of a much smaller dense model while retaining the knowledge capacity of the larger one.</p>
+      <p>The router is trained end-to-end with the rest of the model, but it needs careful load-balancing: if every token routes to the same two experts, you get a bottleneck and wasted capacity. Most implementations add an <strong>auxiliary load-balancing loss</strong> during training that penalizes uneven expert utilization, nudging the router toward spreading load. DeepSeek-V3/V4 goes further with a "no auxiliary loss" approach, using bias terms on the router logits instead to achieve balance without polluting the main loss signal.</p>
+      <p>For inference, MoE introduces a new problem: <strong>expert locality</strong>. In a multi-GPU setup, experts are sharded across devices. A token needing expert 7 (on GPU 3) and expert 22 (on GPU 11) requires two all-to-all communication rounds per MoE layer. This is why MoE models are often harder to serve efficiently than their active-parameter count suggests — the communication overhead can dominate at small batch sizes. vLLM and SGLang both have ongoing work on expert-parallel scheduling to minimize this. Something worth watching as these 100B+ MoE models become the community norm.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ARCHIVE SIDEBAR -->
+<style>
+  .arc-btn {
+    position: fixed; top: 18px; right: 18px; z-index: 200;
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 6px; padding: 6px 11px; font-size: 12px;
+    color: var(--muted); cursor: pointer; display: flex;
+    align-items: center; gap: 6px; user-select: none;
+    transition: border-color 0.15s, color 0.15s;
+    font-family: inherit;
+  }
+  .arc-btn:hover { border-color: #3a4060; color: var(--text); }
+  .arc-overlay {
+    display: none; position: fixed; inset: 0; z-index: 198;
+    background: rgba(0,0,0,0.45);
+  }
+  .arc-overlay.open { display: block; }
+  .arc-panel {
+    position: fixed; top: 0; right: 0; height: 100vh; width: 200px;
+    background: var(--surface); border-left: 1px solid var(--border);
+    z-index: 199; padding: 56px 14px 24px; overflow-y: auto;
+    transform: translateX(100%); transition: transform 0.22s ease;
+  }
+  .arc-panel.open { transform: translateX(0); }
+  .arc-panel-title {
+    font-size: 10px; font-weight: 700; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--muted);
+    margin-bottom: 14px; padding-left: 4px;
+  }
+  .arc-item {
+    display: block; padding: 7px 8px; border-radius: 5px;
+    font-size: 13px; color: var(--muted); text-decoration: none;
+    margin-bottom: 2px; transition: background 0.1s, color 0.1s;
+  }
+  .arc-item:hover { background: #1e2333; color: var(--text); }
+  .arc-item.current { background: rgba(91,142,240,0.12); color: var(--accent); font-weight: 600; }
+  .arc-close {
+    position: absolute; top: 14px; right: 14px;
+    background: none; border: none; color: var(--muted);
+    cursor: pointer; font-size: 18px; line-height: 1; padding: 4px;
+  }
+  .arc-close:hover { color: var(--text); }
+</style>
+<div class="arc-overlay" id="arcOverlay" onclick="arcClose()"></div>
+<div class="arc-panel" id="arcPanel">
+  <button class="arc-close" onclick="arcClose()">&#x2715;</button>
+  <div class="arc-panel-title">Past Issues</div>
+  <div id="arcList"><span style="color:var(--muted);font-size:12px">Loading…</span></div>
+</div>
+<button class="arc-btn" onclick="arcToggle()">
+  <svg width="13" height="11" viewBox="0 0 18 14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="0" y1="1" x2="18" y2="1"/><line x1="0" y1="7" x2="18" y2="7"/><line x1="0" y1="13" x2="18" y2="13"/></svg>
+  Past issues
+</button>
+<script>
+(function(){
+  var PAD = function(n){return String(n).padStart(2,'0');};
+  var MONTHS = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  var DAYS   = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+  var current = window.location.pathname.split('/').pop().replace(/\.html$/,'');
+  var found = [], tasks = [];
+  for(var i=0;i<45;i++){
+    (function(offset){
+      var d = new Date(); d.setDate(d.getDate()-offset);
+      var s = d.getFullYear()+'-'+PAD(d.getMonth()+1)+'-'+PAD(d.getDate());
+      tasks.push(fetch('./'+s+'.html',{method:'HEAD'}).then(function(r){if(r.ok)found.push({s:s,d:new Date(d)});}).catch(function(){}));
+    })(i);
+  }
+  Promise.all(tasks).then(function(){
+    found.sort(function(a,b){return b.d-a.d;});
+    var html='';
+    found.forEach(function(f){
+      var label=DAYS[f.d.getDay()]+', '+MONTHS[f.d.getMonth()]+' '+f.d.getDate();
+      var cls='arc-item'+(f.s===current?' current':'');
+      html+='<a class="'+cls+'" href="./'+f.s+'.html">'+label+'</a>';
+    });
+    document.getElementById('arcList').innerHTML=html||'<span style="color:var(--muted);font-size:12px">None found</span>';
+  });
+})();
+function arcToggle(){
+  var p=document.getElementById('arcPanel'),o=document.getElementById('arcOverlay');
+  var open=p.classList.contains('open');
+  if(open){arcClose();}else{p.classList.add('open');o.classList.add('open');}
+}
+function arcClose(){
+  document.getElementById('arcPanel').classList.remove('open');
+  document.getElementById('arcOverlay').classList.remove('open');
+}
+</script>
+
+</body>
+</html>
