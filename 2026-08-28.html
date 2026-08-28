@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Daily Dump — August 28, 2026</title>
+<style>
+  :root {
+    --bg: #0d0f1a;
+    --surface: #13162a;
+    --surface2: #1a1e33;
+    --border: #252840;
+    --text: #e2e4f0;
+    --muted: #7a7f9a;
+    --accent: #5b8ef0;
+    --accent2: #8b5cf6;
+    --green: #34d399;
+    --orange: #fb923c;
+    --red: #f87171;
+    --yellow: #fbbf24;
+    --lesson: #f0c05b;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+    font-size: 15px;
+    line-height: 1.65;
+    padding: 0 0 80px;
+  }
+  .header {
+    border-bottom: 1px solid var(--border);
+    padding: 28px 32px 22px;
+    max-width: 760px;
+    margin: 0 auto;
+  }
+  .header-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 6px;
+  }
+  .header-date {
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--text);
+    letter-spacing: -0.02em;
+  }
+  .header-sub {
+    font-size: 13px;
+    color: var(--muted);
+    margin-top: 4px;
+  }
+  .main { max-width: 760px; margin: 0 auto; padding: 0 32px; }
+  .section { margin-top: 40px; }
+  .section-title {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 18px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--border);
+  }
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 18px 20px;
+    margin-bottom: 12px;
+    transition: border-color 0.15s;
+  }
+  .card:hover { border-color: #3a4060; }
+  .card-title {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 7px;
+    line-height: 1.4;
+  }
+  .card-title a {
+    color: inherit;
+    text-decoration: none;
+  }
+  .card-title a:hover { color: var(--accent); }
+  .card-body {
+    font-size: 14px;
+    color: #b0b5cc;
+    line-height: 1.6;
+  }
+  .card-meta {
+    font-size: 12px;
+    color: var(--muted);
+    margin-top: 10px;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  .label {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+  .label-hot { background: rgba(251,146,60,0.12); color: var(--orange); }
+  .label-release { background: rgba(52,211,153,0.10); color: var(--green); }
+  .label-horizon { background: rgba(91,142,240,0.12); color: var(--accent); }
+  .label-read { background: rgba(139,92,246,0.12); color: var(--accent2); }
+  .label-security { background: rgba(248,113,113,0.12); color: var(--red); }
+  .label-lesson { background: rgba(240,192,91,0.15); color: var(--lesson); }
+
+  .lesson-box {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--lesson);
+    border-radius: 10px;
+    padding: 22px 24px;
+  }
+  .lesson-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--lesson);
+    margin-bottom: 14px;
+  }
+  .lesson-body {
+    font-size: 14px;
+    color: #b0b5cc;
+    line-height: 1.75;
+  }
+  .lesson-body p { margin-bottom: 12px; }
+  .lesson-body p:last-child { margin-bottom: 0; }
+  .lesson-body code {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    padding: 1px 5px;
+    font-size: 12.5px;
+    font-family: 'SF Mono', 'Fira Mono', 'Consolas', monospace;
+    color: var(--accent);
+  }
+  .divider {
+    height: 1px;
+    background: var(--border);
+    margin: 32px 0 0;
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-label">AI Daily Dump</div>
+  <div class="header-date">Friday, August 28, 2026</div>
+  <div class="header-sub">Inference engineering · Model releases · Community signal</div>
+</div>
+
+<div class="main">
+
+  <!-- WHAT'S HOT -->
+  <div class="section">
+    <div class="section-title">What's Hot Right Now</div>
+
+    <div class="card">
+      <div class="card-title">
+        <a href="https://www.explainx.ai/blog/apodex-1-1-agent-team-frontieragent-august-2026" target="_blank">Apodex 1.1 drops open weights + FrontierAgent harness — AMA live on r/LocalLLaMA</a>
+      </div>
+      <div class="card-body">
+        Apodex 1.1 mini (Qwen3.5 fine-tune, Apache-2.0) ships with FrontierAgent, an open-source local workbench for ReAct vs Agent Team comparisons. The headline claim: the async Agent Team mode is a trained capability baked into the model weights, not an orchestration wrapper bolted on top. The AMA thread is pulling solid engagement — worth reading the Q&amp;A for the reasoning behind the architecture decisions.
+      </div>
+      <div class="card-meta">
+        <span class="label label-hot">Hot</span>
+        <span>Aug 24 release · AMA active now on r/LocalLLaMA</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">
+        <a href="https://cdn.openai.com/pdf/GPT_5_6_August_Updates.pdf" target="_blank">SemiAnalysis tears down OpenAI's Jalapeño inference chip</a>
+      </div>
+      <div class="card-body">
+        OpenAI's first custom inference ASIC (taped out with Broadcom on TSMC N3P in 16 months) hits 13.4 PFLOPs MXFP4 at 700W — versus Rubin's 900–1,150W. HBM4 at 15.4 TB/s, posting 700+ tok/s per user on DeepSeek R1 and ~1,400 tok/s on lighter loads. The chip slipped from a 2026 launch to 2027, but the engineering analysis in the writeup is excellent reading: how they traded flop density for memory bandwidth to optimize for autoregressive decode latency.
+      </div>
+      <div class="card-meta">
+        <span class="label label-hot">Hot</span>
+        <span>SemiAnalysis deep dive · Aug 28</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">
+        <a href="https://techstartups.com/2026/08/28/top-tech-news-today-august-28-2026-alibaba-anthropic-openai-google-marvell-microsoft-waymo-more/" target="_blank">Adversa AI: Grok "Cryptographic Context Injection" leaks user data to attacker servers</a>
+      </div>
+      <div class="card-body">
+        Adversa AI disclosed a prompt injection technique against xAI's Grok — ask it to summarize a page, a malicious payload in that page exfiltrates the conversation to an attacker-controlled URL. Attack works because the model conflates user data with instruction space. Relevant for anyone building RAG pipelines or summarization agents over untrusted content.
+      </div>
+      <div class="card-meta">
+        <span class="label label-security">Security</span>
+        <span>Aug 28</span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- NEW RELEASES -->
+  <div class="section">
+    <div class="section-title">New Releases &amp; Updates</div>
+
+    <div class="card">
+      <div class="card-title">
+        <a href="https://enterprisedna.co/resources/news/openai-gpt-56-sol-price-cut-20-percent-frontier-model-august-2026/" target="_blank">GPT-5.6 Sol: 20%+ price cut, input now $4/1M tokens</a>
+      </div>
+      <div class="card-body">
+        OpenAI dropped Sol API pricing on Aug 21 — input from $5 → $4/1M, output from $30 → $20/1M, through Nov 21. Applies to pay-as-you-go API, Codex credits, and eligible Work plans. First Sol price cut since launch; Anthropic and DeepSeek squeezing enterprise margins. OpenRouter is reportedly passing through an even deeper ~50% cut on the routing layer.
+      </div>
+      <div class="card-meta">
+        <span class="label label-release">Release</span>
+        <span>Aug 21 · Promotional through Nov 21</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">
+        <a href="https://benchlm.ai/model-updates" target="_blank">GLM-5.3-Flash by Z.ai (Aug 26)</a>
+      </div>
+      <div class="card-body">
+        Z.ai's latest Flash-tier model released yesterday. GLM-5.3-Flash continues Z.ai's pattern of punching above its weight class in Chinese-language and code tasks. Worth benchmarking if you're looking for a cheap inference option in the GLM lineage.
+      </div>
+      <div class="card-meta">
+        <span class="label label-release">Release</span>
+        <span>Aug 26</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">
+        <a href="https://aiweekly.co/ai-news-today" target="_blank">Groq 3 LPX enters full production in Vera Rubin platform</a>
+      </div>
+      <div class="card-body">
+        Nvidia's Groq 3 LPX (the dedicated inference accelerator from the $20B acqui-hire) is now in full production and slots into Vera Rubin racks at up to 256 LPX accelerators per rack. The combined CPU + GPU + LPU stack promises 40% better energy efficiency on large-model inference vs last gen — a direct response to enterprise TCO concerns at scale.
+      </div>
+      <div class="card-meta">
+        <span class="label label-release">Release</span>
+        <span>Aug 28</span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ON THE HORIZON -->
+  <div class="section">
+    <div class="section-title">On the Horizon</div>
+
+    <div class="card">
+      <div class="card-title">OpenAI Jalapeño ASIC: 2026 launch slips to 2027</div>
+      <div class="card-body">
+        Per the SemiAnalysis writeup, Jalapeño's B0 silicon looks solid (13.4 PFLOPs, HBM4, optimized for decode) but the production ramp pushed from 2026 to 2027. OpenAI is still entirely on Nvidia hardware for the foreseeable future. The chip is designed to compete with Nvidia's LPX on per-user throughput, not raw FLOP count.
+      </div>
+      <div class="card-meta">
+        <span class="label label-horizon">Upcoming</span>
+        <span>2027 now targeted</span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ALSO WORTH READING -->
+  <div class="section">
+    <div class="section-title">Also Worth Reading</div>
+
+    <div class="card">
+      <div class="card-title">
+        <a href="https://simonwillison.net/2026/Aug/19/conceptual-integrity-and-counting-lines-of-code/" target="_blank">Simon Willison: "Extensible Software" — coding agents change the extension calculus</a>
+      </div>
+      <div class="card-body">
+        Willison argues there's a new opportunity for extensible, user-modifiable software on the web: LLMs have drastically cut the cost of authoring extensions, and modern sandbox primitives (think Wasm / isolated workers) have cut the cost and security risk of deploying them. Worth a read if you're thinking about how agent-first products should be architected.
+      </div>
+      <div class="card-meta">
+        <span class="label label-read">Read</span>
+        <span>simonwillison.net · Aug 19</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">
+        <a href="https://techstartups.com/2026/08/28/top-tech-news-today-august-28-2026-alibaba-anthropic-openai-google-marvell-microsoft-waymo-more/" target="_blank">Nvidia contract builders warn of 15%+ AI server price hikes in early 2027</a>
+      </div>
+      <div class="card-body">
+        Microsoft, Google, and Oracle's contract server manufacturers have flagged price increases on AI rack systems starting with early 2027 shipments — citing rising component costs and supply constraints on HBM4. If you're planning infra spend, now is a reasonable time to lock in commitments.
+      </div>
+      <div class="card-meta">
+        <span class="label label-read">Read</span>
+        <span>Aug 28</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">
+        <a href="https://aiweekly.co/ai-news-today" target="_blank">A2A protocol joins Linux Foundation's Agentic AI Foundation (AAIF)</a>
+      </div>
+      <div class="card-body">
+        Google's Agent-to-Agent protocol moved under neutral governance at the Linux Foundation AAIF alongside Anthropic's MCP on Aug 20. Both A2A and MCP are now governed by the same foundation. Meaningful for long-term interop bets — if you're building multi-agent systems, the protocol landscape is consolidating faster than expected.
+      </div>
+      <div class="card-meta">
+        <span class="label label-read">Read</span>
+        <span>Aug 20 · ~8 days ago</span>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- TODAY'S LESSON -->
+  <div class="section">
+    <div class="section-title">Today's Lesson</div>
+
+    <div class="lesson-box">
+      <div class="lesson-title">Prefix Caching: Free Tokens on Every Repeated Prompt</div>
+      <div class="lesson-body">
+
+        <p>Every time you call an LLM API, the model runs through your prompt token-by-token to build up the Key-Value cache before it generates the first output token. Prefix caching skips that work when you've sent the same prefix before.</p>
+
+        <p>Here's how it works: the inference engine hashes the token sequence of your prompt prefix. If that hash matches a previously computed KV cache block that hasn't been evicted, it reuses it — your TTFT drops dramatically and you pay nothing for those input tokens (on APIs that pass savings through, like OpenAI's prompt caching or SGLang's radix attention). A cache miss means a full prefill as normal.</p>
+
+        <p>The practical win is largest when you have a long, stable prefix. A 4,000-token system prompt that stays constant across requests? After the first call, subsequent requests hit the cache and pay only for the user-turn tokens. Few-shot examples, tool definitions, retrieved documents that are the same across a session — all cacheable.</p>
+
+        <p>Architecturally, vLLM implements this via <code>enable_prefix_caching=True</code> in its engine args; SGLang calls the same idea <em>RadixAttention</em> and makes it the default. Both use a radix-tree structure to share KV cache memory across requests with common prefixes, not just identical full prompts. That means partial matches (different user turns on the same system prompt) get cache hits on the shared prefix portion.</p>
+
+        <p>Tie to today: OpenAI's GPT-5.6 Sol price cut drops input to $4/1M tokens. With prompt caching, repeated system prompt tokens are charged at a discounted cache-hit rate (typically 50–75% off). On high-throughput agent loops with a fixed 2,000-token system prompt, the effective cost per call can be closer to $1/1M on the prompt portion — before you've done any other optimization.</p>
+
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ARCHIVE SIDEBAR -->
+<style>
+  .arc-btn {
+    position: fixed; top: 18px; right: 18px; z-index: 200;
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 6px; padding: 6px 11px; font-size: 12px;
+    color: var(--muted); cursor: pointer; display: flex;
+    align-items: center; gap: 6px; user-select: none;
+    transition: border-color 0.15s, color 0.15s;
+    font-family: inherit;
+  }
+  .arc-btn:hover { border-color: #3a4060; color: var(--text); }
+  .arc-overlay {
+    display: none; position: fixed; inset: 0; z-index: 198;
+    background: rgba(0,0,0,0.45);
+  }
+  .arc-overlay.open { display: block; }
+  .arc-panel {
+    position: fixed; top: 0; right: 0; height: 100vh; width: 200px;
+    background: var(--surface); border-left: 1px solid var(--border);
+    z-index: 199; padding: 56px 14px 24px; overflow-y: auto;
+    transform: translateX(100%); transition: transform 0.22s ease;
+  }
+  .arc-panel.open { transform: translateX(0); }
+  .arc-panel-title {
+    font-size: 10px; font-weight: 700; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--muted);
+    margin-bottom: 14px; padding-left: 4px;
+  }
+  .arc-item {
+    display: block; padding: 7px 8px; border-radius: 5px;
+    font-size: 13px; color: var(--muted); text-decoration: none;
+    margin-bottom: 2px; transition: background 0.1s, color 0.1s;
+  }
+  .arc-item:hover { background: #1e2333; color: var(--text); }
+  .arc-item.current { background: rgba(91,142,240,0.12); color: var(--accent); font-weight: 600; }
+  .arc-close {
+    position: absolute; top: 14px; right: 14px;
+    background: none; border: none; color: var(--muted);
+    cursor: pointer; font-size: 18px; line-height: 1; padding: 4px;
+  }
+  .arc-close:hover { color: var(--text); }
+</style>
+<div class="arc-overlay" id="arcOverlay" onclick="arcClose()"></div>
+<div class="arc-panel" id="arcPanel">
+  <button class="arc-close" onclick="arcClose()">&#x2715;</button>
+  <div class="arc-panel-title">Past Issues</div>
+  <div id="arcList"><span style="color:var(--muted);font-size:12px">Loading…</span></div>
+</div>
+<button class="arc-btn" onclick="arcToggle()">
+  <svg width="13" height="11" viewBox="0 0 18 14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="0" y1="1" x2="18" y2="1"/><line x1="0" y1="7" x2="18" y2="7"/><line x1="0" y1="13" x2="18" y2="13"/></svg>
+  Past issues
+</button>
+<script>
+(function(){
+  var PAD = function(n){return String(n).padStart(2,'0');};
+  var MONTHS = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  var DAYS   = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+  var current = window.location.pathname.split('/').pop().replace(/\.html$/,'');
+  var found = [], tasks = [];
+  for(var i=0;i<45;i++){
+    (function(offset){
+      var d = new Date(); d.setDate(d.getDate()-offset);
+      var s = d.getFullYear()+'-'+PAD(d.getMonth()+1)+'-'+PAD(d.getDate());
+      tasks.push(fetch('./'+s+'.html',{method:'HEAD'}).then(function(r){if(r.ok)found.push({s:s,d:new Date(d)});}).catch(function(){}));
+    })(i);
+  }
+  Promise.all(tasks).then(function(){
+    found.sort(function(a,b){return b.d-a.d;});
+    var html='';
+    found.forEach(function(f){
+      var label=DAYS[f.d.getDay()]+', '+MONTHS[f.d.getMonth()]+' '+f.d.getDate();
+      var cls='arc-item'+(f.s===current?' current':'');
+      html+='<a class="'+cls+'" href="./'+f.s+'.html">'+label+'</a>';
+    });
+    document.getElementById('arcList').innerHTML=html||'<span style="color:var(--muted);font-size:12px">None found</span>';
+  });
+})();
+function arcToggle(){
+  var p=document.getElementById('arcPanel'),o=document.getElementById('arcOverlay');
+  var open=p.classList.contains('open');
+  if(open){arcClose();}else{p.classList.add('open');o.classList.add('open');}
+}
+function arcClose(){
+  document.getElementById('arcPanel').classList.remove('open');
+  document.getElementById('arcOverlay').classList.remove('open');
+}
+</script>
+
+</body>
+</html>
