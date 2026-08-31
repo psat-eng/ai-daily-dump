@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Daily Dump — August 30, 2026</title>
+<style>
+  :root {
+    --bg: #0d0f1a;
+    --surface: #13162a;
+    --border: #1f2440;
+    --text: #e2e4f0;
+    --muted: #6b7099;
+    --accent: #5b8ef0;
+    --hot: #f07050;
+    --release: #50c0a0;
+    --horizon: #b080f0;
+    --reading: #f0b840;
+    --lesson: #f0d060;
+    --tag-bg: #1a1e36;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+    font-size: 15px;
+    line-height: 1.65;
+    padding: 0 0 60px;
+  }
+  .header {
+    border-bottom: 1px solid var(--border);
+    padding: 32px 0 24px;
+    text-align: center;
+  }
+  .header-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 8px;
+  }
+  .header-date {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--text);
+    letter-spacing: -0.5px;
+  }
+  .header-sub {
+    font-size: 13px;
+    color: var(--muted);
+    margin-top: 6px;
+  }
+  .container {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+  .section {
+    margin-top: 40px;
+  }
+  .section-label {
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--border);
+  }
+  .label-hot { color: var(--hot); border-color: rgba(240,112,80,0.3); }
+  .label-release { color: var(--release); border-color: rgba(80,192,160,0.3); }
+  .label-horizon { color: var(--horizon); border-color: rgba(176,128,240,0.3); }
+  .label-reading { color: var(--reading); border-color: rgba(240,184,64,0.3); }
+  .label-lesson { color: var(--lesson); border-color: rgba(240,208,96,0.3); }
+  .item {
+    margin-bottom: 24px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid var(--border);
+  }
+  .item:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+  .item-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 6px;
+    line-height: 1.35;
+  }
+  .item-title a {
+    color: inherit;
+    text-decoration: none;
+  }
+  .item-title a:hover { color: var(--accent); }
+  .item-meta {
+    font-size: 12px;
+    color: var(--muted);
+    margin-bottom: 8px;
+  }
+  .item-body {
+    font-size: 14px;
+    color: #b0b4cc;
+    line-height: 1.7;
+  }
+  .item-body strong { color: var(--text); }
+  .tag {
+    display: inline-block;
+    background: var(--tag-bg);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 2px 7px;
+    font-size: 11px;
+    color: var(--muted);
+    margin-right: 5px;
+    margin-bottom: 4px;
+    vertical-align: middle;
+  }
+  .lesson-box {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 20px 22px;
+  }
+  .lesson-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--lesson);
+    margin-bottom: 14px;
+    line-height: 1.3;
+  }
+  .lesson-body {
+    font-size: 14px;
+    color: #b0b4cc;
+    line-height: 1.75;
+  }
+  .lesson-body strong { color: var(--text); }
+  .lesson-body code {
+    background: #1a1e36;
+    border-radius: 3px;
+    padding: 1px 5px;
+    font-size: 13px;
+    color: var(--accent);
+    font-family: 'SF Mono', 'Fira Code', monospace;
+  }
+  .callout {
+    background: rgba(91,142,240,0.08);
+    border-left: 3px solid var(--accent);
+    border-radius: 0 5px 5px 0;
+    padding: 10px 14px;
+    margin: 12px 0;
+    font-size: 13px;
+    color: #a0b4d8;
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-label">AI Daily Dump</div>
+  <div class="header-date">Sunday, August 30, 2026</div>
+  <div class="header-sub">For Pranesh — inference engineering edition</div>
+</div>
+
+<div class="container">
+
+  <!-- WHAT'S HOT -->
+  <div class="section">
+    <div class="section-label label-hot">🔥 What's Hot Right Now</div>
+
+    <div class="item">
+      <div class="item-title">Five open-weight releases in nine days — and the model is now the cheap part</div>
+      <div class="item-meta">Requesty · August 28, 2026</div>
+      <div class="item-body">
+        Between Aug 20–28, Z.ai, Alibaba, Tencent, MiniMax and DeepSeek all shipped open-weight models with <strong>1M token context windows at Flash-tier prices</strong>. Model launch mentions in Requesty's corpus nearly doubled week-over-week. The interesting conclusion: the frontier didn't move much — <em>the price of reaching it collapsed</em>.
+        <br><br>
+        Three things that were premium features 18 months ago are now table stakes at the cheap tier: 1M context, native multimodality, and permissive open weights. Meanwhile closed labs are competing on price too — OpenAI cut GPT-5.6 Sol API pricing by over 20%.
+        <br><br>
+        The r/vibecoding post <em>"The LLM Model War Is Over"</em> went widely upvoted, with a user holding two Codex business seats and a $100 Claude Max plan arguing the game changed in two weeks. The Requesty team's pushback: <strong>cheap per token ≠ cheap per task</strong>. What actually drives cost is reasoning effort defaults, cache hit rate, and provider choice — not model price.
+      </div>
+    </div>
+
+    <div class="item">
+      <div class="item-title">Tencent Hy4 Preview: 770B total, 49B active, leads SWE-bench Pro</div>
+      <div class="item-meta">Tencent / Cline · August 28, 2026 <span class="tag">open weights</span></div>
+      <div class="item-body">
+        Hy4 Preview dropped Aug 28 — 770B total parameters, 49B active, 1M context, open source. <strong>Cline reported it at the top of SWE-bench Pro</strong> and called it their biggest generational leap measured to date. Notably, Tencent claims Hy4 coordinated several Codex sessions in parallel and evaluated their results — an agentic benchmark claim worth watching independently.
+      </div>
+    </div>
+
+    <div class="item">
+      <div class="item-title">GLM-5.3-Flash spent six days on OpenRouter as anonymous "Ox Alpha" before Z.ai claimed it</div>
+      <div class="item-meta">Z.ai / Requesty · August 26, 2026 <span class="tag">stealth launch</span></div>
+      <div class="item-body">
+        GLM-5.3-Flash (320B total, 18B active, MIT, 1M context, natively multimodal, <strong>$0.15/$0.50 per M tokens</strong>) had an unusual rollout: it ran anonymously as "Ox Alpha" on OpenRouter and processed ~20 trillion tokens in six days before Z.ai announced it. Beats GLM-5.2 on every benchmark at less than half the size. The lesson for anyone pinning model IDs in production: anonymous models with no paper can be very real — and very popular.
+      </div>
+    </div>
+
+  </div>
+
+  <!-- NEW RELEASES -->
+  <div class="section">
+    <div class="section-label label-release">🚀 New Releases &amp; Updates</div>
+
+    <div class="item">
+      <div class="item-title"><a href="https://blog.google/innovation-and-ai/technology/developers-tools/build-with-gemini-omni-1-1-flash/" target="_blank">Gemini Omni 1.1 Flash goes GA — 40-second scene extension, 4K output</a></div>
+      <div class="item-meta">Google DeepMind · August 27, 2026</div>
+      <div class="item-body">
+        Google's video gen model gets a production-grade update: <strong>scene extension chaining clips up to 40s</strong>, first-and-last-frame interpolation, character-consistent video references, and a <strong>360p draft mode</strong> that renders ~60% faster at one-third the cost of standard 720p. Draft then upscale to 1080p or 4K. Billing at $17.50/M tokens (~$0.10/s at 720p, ~$0.03/s for drafts). Available on Gemini Developer API, AI Studio, and Gemini Enterprise Agent Platform.
+      </div>
+    </div>
+
+    <div class="item">
+      <div class="item-title">Qwen3.8-Flash — early preview of the Qwen4 architecture, runs locally on 75GB RAM</div>
+      <div class="item-meta">Alibaba / Qwen · August 26, 2026 <span class="tag">open weight</span></div>
+      <div class="item-body">
+        Alibaba's Qwen3.8-Flash is a multimodal MoE (125B + 51B N-gram component) and an early look at the Qwen4 architecture. API at <strong>$0.16/$0.47 per M tokens</strong>. Alibaba demoed it running locally on 75GB RAM with day-zero Unsloth support, and the 1M context variant shipping in OpenCode Go.
+      </div>
+    </div>
+
+    <div class="item">
+      <div class="item-title">Claude Fable 5.1 quietly rolled out; Anthropic was routing users before announcing</div>
+      <div class="item-meta">Anthropic · ~August 26, 2026 <span class="tag">closed</span></div>
+      <div class="item-body">
+        TestingCatalog spotted Anthropic <strong>silently routing users to Fable 5.1</strong> before a formal announcement. No published benchmarks yet, but the stealth rollout pattern is consistent with how Anthropic shipped the original Fable 5 series.
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ALSO WORTH READING -->
+  <div class="section">
+    <div class="section-label label-reading">📎 Also Worth Reading</div>
+
+    <div class="item">
+      <div class="item-title"><a href="https://www.requesty.ai/blog/open-weight-frontier-august-2026-glm-qwen-hy4" target="_blank">The collapse of the capability premium — Requesty's full breakdown</a></div>
+      <div class="item-meta">Requesty · August 28, 2026</div>
+      <div class="item-body">
+        The most useful analytical piece of the week. Key datapoints: Opus 5 at <code>medium</code> effort ranks <strong>2nd on FrontierCode at $4.31/task</strong>; at <code>xhigh</code> it ranks 16th at $9.14/task — half the cost, better output. And Kyle Reidhead's charts put 86% of agentic token burn on <em>cached</em> input, against 7.3 trillion tokens/week of agent traffic. Cache hit rate is close to the whole cost story. Worth reading in full.
+      </div>
+    </div>
+
+    <div class="item">
+      <div class="item-title"><a href="https://www.businessinsider.com/dario-amodei-anthropic-not-destroying-saas-2026-8" target="_blank">Dario Amodei: "Anthropic is not interested in destroying anyone"</a></div>
+      <div class="item-meta">Business Insider · ~August 29, 2026</div>
+      <div class="item-body">
+        With Salesforce CEO Marc Benioff beside him, Amodei pushed back on the narrative that Anthropic aims to eat SaaS. Context: the January Claude Cowork plugins announcement reportedly triggered a "Saaspocalypse" — roughly $1 trillion in software sector market cap wiped in a week. Worth 5 minutes for the industry framing.
+      </div>
+    </div>
+
+    <div class="item">
+      <div class="item-title"><a href="https://askmike.org/articles/ai-coding-lessons-in-the-90s-from-my-dad/" target="_blank">What my dad taught me about AI coding in the 90s</a></div>
+      <div class="item-meta">AskMike.org · August 30, 2026</div>
+      <div class="item-body">
+        Short, good. "If you spend little time saying what you want, and no time reading what it coded up — you are vibecoding and the resulting software is not going to last very long." A useful framing for conversations about where the human loop should stay.
+      </div>
+    </div>
+
+  </div>
+
+  <!-- TODAY'S LESSON -->
+  <div class="section">
+    <div class="section-label label-lesson">📖 Today's Lesson</div>
+    <div class="lesson-box">
+      <div class="lesson-title">Reasoning Effort Settings: Why "xhigh" Can Cost 2× More and Rank Worse</div>
+      <div class="lesson-body">
+        <p>Most frontier models now expose an <strong>effort or thinking budget</strong> control — Anthropic calls it <code>thinking: { budget_tokens }</code>, OpenAI exposes <code>reasoning_effort: low | medium | high</code>, and several open-weight serving stacks add their own equivalents. The naive assumption is "higher effort = better output." Cline's FrontierCode benchmarks this week put a number on why that assumption is wrong.</p>
+
+        <div class="callout">Opus 5 at <code>medium</code> effort: ranked 2nd, $4.31/task. Opus 5 at <code>xhigh</code>: ranked 16th, $9.14/task. Half the cost and 14 positions higher.</div>
+
+        <p>What's happening: <strong>extended thinking burns tokens on chain-of-thought that doesn't always help on structured coding tasks.</strong> The model generates more reasoning trace, which increases latency and cost, but for tasks where the answer is well-defined the extra reasoning often explores dead ends or restates the problem. The thinking tokens are billed at full input rates and don't benefit from prefix caching (reasoning traces are dynamic per-request).</p>
+
+        <p>The practical takeaway for agentic workloads: <strong>effort should be task-dependent, not a global default.</strong> High effort is worth it for ambiguous planning or complex debugging. For structured code generation, test writing, or tool-call orchestration — medium or even low often wins on both quality and cost. If you're using a harness like Claude Code, Cline, or a custom agent loop, check what effort level it defaults to; many ship with <code>high</code> out of the box and it silently 2× your per-task spend.</p>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ARCHIVE SIDEBAR -->
+<style>
+  .arc-btn {
+    position: fixed; top: 18px; right: 18px; z-index: 200;
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 6px; padding: 6px 11px; font-size: 12px;
+    color: var(--muted); cursor: pointer; display: flex;
+    align-items: center; gap: 6px; user-select: none;
+    transition: border-color 0.15s, color 0.15s;
+    font-family: inherit;
+  }
+  .arc-btn:hover { border-color: #3a4060; color: var(--text); }
+  .arc-overlay {
+    display: none; position: fixed; inset: 0; z-index: 198;
+    background: rgba(0,0,0,0.45);
+  }
+  .arc-overlay.open { display: block; }
+  .arc-panel {
+    position: fixed; top: 0; right: 0; height: 100vh; width: 200px;
+    background: var(--surface); border-left: 1px solid var(--border);
+    z-index: 199; padding: 56px 14px 24px; overflow-y: auto;
+    transform: translateX(100%); transition: transform 0.22s ease;
+  }
+  .arc-panel.open { transform: translateX(0); }
+  .arc-panel-title {
+    font-size: 10px; font-weight: 700; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--muted);
+    margin-bottom: 14px; padding-left: 4px;
+  }
+  .arc-item {
+    display: block; padding: 7px 8px; border-radius: 5px;
+    font-size: 13px; color: var(--muted); text-decoration: none;
+    margin-bottom: 2px; transition: background 0.1s, color 0.1s;
+  }
+  .arc-item:hover { background: #1e2333; color: var(--text); }
+  .arc-item.current { background: rgba(91,142,240,0.12); color: var(--accent); font-weight: 600; }
+  .arc-close {
+    position: absolute; top: 14px; right: 14px;
+    background: none; border: none; color: var(--muted);
+    cursor: pointer; font-size: 18px; line-height: 1; padding: 4px;
+  }
+  .arc-close:hover { color: var(--text); }
+</style>
+<div class="arc-overlay" id="arcOverlay" onclick="arcClose()"></div>
+<div class="arc-panel" id="arcPanel">
+  <button class="arc-close" onclick="arcClose()">&#x2715;</button>
+  <div class="arc-panel-title">Past Issues</div>
+  <div id="arcList"><span style="color:var(--muted);font-size:12px">Loading…</span></div>
+</div>
+<button class="arc-btn" onclick="arcToggle()">
+  <svg width="13" height="11" viewBox="0 0 18 14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="0" y1="1" x2="18" y2="1"/><line x1="0" y1="7" x2="18" y2="7"/><line x1="0" y1="13" x2="18" y2="13"/></svg>
+  Past issues
+</button>
+<script>
+(function(){
+  var PAD = function(n){return String(n).padStart(2,'0');};
+  var MONTHS = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  var DAYS   = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+  var current = window.location.pathname.split('/').pop().replace(/\.html$/,'');
+  var found = [], tasks = [];
+  for(var i=0;i<45;i++){
+    (function(offset){
+      var d = new Date(); d.setDate(d.getDate()-offset);
+      var s = d.getFullYear()+'-'+PAD(d.getMonth()+1)+'-'+PAD(d.getDate());
+      tasks.push(fetch('./'+s+'.html',{method:'HEAD'}).then(function(r){if(r.ok)found.push({s:s,d:new Date(d)});}).catch(function(){}));
+    })(i);
+  }
+  Promise.all(tasks).then(function(){
+    found.sort(function(a,b){return b.d-a.d;});
+    var html='';
+    found.forEach(function(f){
+      var label=DAYS[f.d.getDay()]+', '+MONTHS[f.d.getMonth()]+' '+f.d.getDate();
+      var cls='arc-item'+(f.s===current?' current':'');
+      html+='<a class="'+cls+'" href="./'+f.s+'.html">'+label+'</a>';
+    });
+    document.getElementById('arcList').innerHTML=html||'<span style="color:var(--muted);font-size:12px">None found</span>';
+  });
+})();
+function arcToggle(){
+  var p=document.getElementById('arcPanel'),o=document.getElementById('arcOverlay');
+  var open=p.classList.contains('open');
+  if(open){arcClose();}else{p.classList.add('open');o.classList.add('open');}
+}
+function arcClose(){
+  document.getElementById('arcPanel').classList.remove('open');
+  document.getElementById('arcOverlay').classList.remove('open');
+}
+</script>
+
+</body>
+</html>
