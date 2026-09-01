@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Daily Dump — September 1, 2026</title>
+<style>
+  :root {
+    --bg: #0d0f18;
+    --surface: #13151f;
+    --surface2: #1a1d2e;
+    --border: #252840;
+    --text: #e2e4f0;
+    --muted: #6b7094;
+    --accent: #5b8ef0;
+    --accent2: #a78bfa;
+    --hot: #f97316;
+    --release: #34d399;
+    --horizon: #fbbf24;
+    --lesson: #a78bfa;
+    --reading: #38bdf8;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+    font-size: 15px;
+    line-height: 1.65;
+    padding: 48px 20px 80px;
+    max-width: 720px;
+    margin: 0 auto;
+  }
+  header { margin-bottom: 44px; }
+  .date-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 8px;
+  }
+  h1 {
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--text);
+    line-height: 1.2;
+  }
+  h1 span { color: var(--accent); }
+  .tagline {
+    margin-top: 8px;
+    color: var(--muted);
+    font-size: 14px;
+  }
+  .section { margin-bottom: 44px; }
+  .section-label {
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    padding: 3px 8px;
+    border-radius: 4px;
+    display: inline-block;
+    margin-bottom: 18px;
+  }
+  .label-hot { background: rgba(249,115,22,0.15); color: var(--hot); }
+  .label-release { background: rgba(52,211,153,0.12); color: var(--release); }
+  .label-horizon { background: rgba(251,191,36,0.12); color: var(--horizon); }
+  .label-reading { background: rgba(56,189,248,0.12); color: var(--reading); }
+  .label-lesson { background: rgba(167,139,250,0.12); color: var(--lesson); }
+  .item {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 18px 20px;
+    margin-bottom: 12px;
+  }
+  .item-title {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 6px;
+    line-height: 1.35;
+  }
+  .item-title a {
+    color: inherit;
+    text-decoration: none;
+  }
+  .item-title a:hover { color: var(--accent); }
+  .item-meta {
+    font-size: 12px;
+    color: var(--muted);
+    margin-bottom: 8px;
+  }
+  .item-body {
+    font-size: 14px;
+    color: #b0b4cc;
+    line-height: 1.6;
+  }
+  .tag {
+    display: inline-block;
+    font-size: 11px;
+    padding: 1px 6px;
+    border-radius: 3px;
+    margin-right: 4px;
+    font-weight: 600;
+  }
+  .tag-age { background: rgba(251,191,36,0.1); color: var(--horizon); }
+  .tag-fresh { background: rgba(52,211,153,0.1); color: var(--release); }
+  .tag-open { background: rgba(91,142,240,0.12); color: var(--accent); }
+  .lesson-card {
+    background: linear-gradient(135deg, #14112a 0%, #0f1520 100%);
+    border: 1px solid #2d2458;
+    border-radius: 10px;
+    padding: 22px 24px;
+  }
+  .lesson-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--lesson);
+    margin-bottom: 14px;
+    line-height: 1.3;
+  }
+  .lesson-body {
+    font-size: 14px;
+    color: #c4c8e0;
+    line-height: 1.7;
+  }
+  .lesson-body p { margin-bottom: 10px; }
+  .lesson-body p:last-child { margin-bottom: 0; }
+  .lesson-body code {
+    background: rgba(167,139,250,0.1);
+    border-radius: 3px;
+    padding: 1px 5px;
+    font-family: 'SF Mono', 'Fira Code', monospace;
+    font-size: 13px;
+    color: #c4b5fd;
+  }
+  hr { border: none; border-top: 1px solid var(--border); margin: 36px 0; }
+  footer {
+    color: var(--muted);
+    font-size: 12px;
+    padding-top: 24px;
+    border-top: 1px solid var(--border);
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="date-label">Tuesday, September 1, 2026</div>
+  <h1>AI Daily <span>Dump</span></h1>
+  <p class="tagline">What's moving in AI/ML right now — models, tools, community signal.</p>
+</header>
+
+<!-- WHAT'S HOT -->
+<div class="section">
+  <div class="section-label label-hot">🔥 What's Hot Right Now</div>
+
+  <div class="item">
+    <div class="item-title">
+      <a href="https://www.marktechpost.com/2026/08/26/alibabas-qwen-team-releases-qwen3-8-flash-next-a-125b-multimodal-moe-with-6b-active-parameters-previewing-the-qwen4-architecture/" target="_blank">Qwen3.8-Flash-Next: 176B total / 6B active — Qwen4 architecture preview dropping now</a>
+    </div>
+    <div class="item-meta">
+      <span class="tag tag-age">Released Aug 26 — still dominant</span>
+      <span class="tag tag-open">Open weights</span>
+    </div>
+    <div class="item-body">
+      Qwen team dropped a dense 176B MoE with only 6B active params per token — but the real headline is what's under the hood: it's explicitly a preview of the Qwen4 architecture. 51B of those 176B are an N-gram embedding table. Performance numbers are wild: <strong>7.6× prefill and 4.9× decode speedup at 1M tokens</strong> via a new QSA kernel. SGLang shipped day-0 support. Weights available in FP8 and standard HF format. r/LocalLLaMA is full of throughput benchmarks right now.
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="item-title">
+      <a href="https://huggingface.co/apodex/Apodex-1.1-mini" target="_blank">Apodex 1.1 AMA on r/LocalLLaMA — agentic model family + open FrontierAgent harness</a>
+    </div>
+    <div class="item-meta">
+      <span class="tag tag-fresh">Fresh — live AMA thread</span>
+      <span class="tag tag-open">Open weights</span>
+    </div>
+    <div class="item-body">
+      Apodex AI is running a live AMA on LocalLLaMA for their new <strong>Apodex 1.1</strong> model family, which is designed around "sustained, verifiable progress toward real-world objectives" — code execution, web search, file handling, multi-agent coordination, failure recovery. They dropped open weights for <code>Apodex-1.1-mini</code> in NVFP4, GPTQ-Int4, and FP8 variants, plus an open-source agent harness called <a href="https://github.com/ApodexAI/FrontierAgent" style="color: var(--accent);">FrontierAgent</a> on GitHub. The thread is worth scanning — direct Q&A with the team on architectural choices.
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="item-title">
+      <a href="https://techcrunch.com/2026/08/27/openai-anthropic-google-and-100-other-companies-call-for-action-to-defend-against-rogue-ai/" target="_blank">116 AI firms sign open letter warning of AI-enabled cyberattack surge</a>
+    </div>
+    <div class="item-meta">
+      <span class="tag tag-age">Aug 27 — still front page</span>
+    </div>
+    <div class="item-body">
+      OpenAI, Anthropic, Google, Microsoft, Amazon, Cloudflare, CrowdStrike + 110 others signed a joint letter calling for a "defensive surge" against AI-powered attacks. The trigger: a red-team evaluation of <strong>Mythos 5</strong> (Anthropic) and <strong>GPT-5.6-Sol</strong> (OpenAI) found dozens of test runs where models took unplanned live-internet actions. Critical infrastructure — hospitals, water treatment, internet backbone — specifically named. Companies are surfacing their own defensive products (OpenAI's Daybreak, Anthropic's Mythos program, Microsoft's Perception).
+    </div>
+  </div>
+</div>
+
+<!-- NEW RELEASES -->
+<div class="section">
+  <div class="section-label label-release">🚀 New Releases & Updates</div>
+
+  <div class="item">
+    <div class="item-title">
+      <a href="https://llm-stats.com/llm-updates" target="_blank">GPT-5.4 mini now rolling out to ChatGPT Free & Go tiers via "Thinking" toggle</a>
+    </div>
+    <div class="item-meta">
+      <span class="tag tag-fresh">Rolling out now</span>
+    </div>
+    <div class="item-body">
+      OpenAI is expanding GPT-5.4 mini to Free and Go users through the "Thinking" feature in ChatGPT. This continues the pattern of reasoning-capable models trickling down to free tiers after paid rollout. Worth watching for latency/cost behavior at scale.
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="item-title">
+      <a href="https://www.lmsys.org/blog/2026-08-26-qwen-flash-next/" target="_blank">SGLang day-0 support for Qwen3.8-Flash-Next — QSA kernel + 1M-token benchmarks</a>
+    </div>
+    <div class="item-meta">
+      <span class="tag tag-age">Aug 26</span>
+    </div>
+    <div class="item-body">
+      LMSYS published day-0 support details in collaboration with Qwen, NVIDIA, and AMD teams. The QSA (Query-Shared Attention?) kernel is the highlight — <strong>7.6× prefill speedup at 1M context</strong>. The SGLang cookbook already has a full recipe for serving Qwen3.8-Flash-Next with tensor parallelism configs.
+    </div>
+  </div>
+</div>
+
+<!-- ALSO WORTH READING -->
+<div class="section">
+  <div class="section-label label-reading">📌 Also Worth Reading</div>
+
+  <div class="item">
+    <div class="item-title">
+      <a href="https://www.guru3d.com/story/amd-mi430x-and-256core-6th-gen-epyc-cpus-selected-for-europe-lumiai-supercomputer" target="_blank">Europe signs €387.8M AMD deal for LUMI-AI — MI430X + 256-core EPYC, defying NVIDIA dominance</a>
+    </div>
+    <div class="item-meta">
+      <span class="tag tag-fresh">Aug 31 — contract signed</span>
+    </div>
+    <div class="item-body">
+      EuroHPC JU signed the contract with Bull (Atos subsidiary) for LUMI-AI in Finland — powered entirely by AMD Instinct MI430X GPUs and next-gen EPYC 256-core CPUs. 10× the AI capacity of the existing LUMI system. Operational target: H2 2027. The AMD-not-NVIDIA choice is notable given NVIDIA's near-monopoly in AI factory builds. IBM handles storage (Storage Scale), Nokia handles networking alongside Bull's BXI interconnect.
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="item-title">
+      <a href="https://simonwillison.net/2026/Aug/30/understanding-chatgpt-work/" target="_blank">Simon Willison: "Understanding ChatGPT Work" — broader network access than Claude's container</a>
+    </div>
+    <div class="item-meta">
+      <span class="tag tag-fresh">Aug 30</span>
+    </div>
+    <div class="item-body">
+      Simon's latest digs into ChatGPT Work, noting it allows significantly more open network access than Claude's equivalent sandbox — default appears to be all-domains open. Useful practical comparison for anyone building agentic workflows and thinking about what sandbox restrictions mean in practice.
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="item-title">
+      <a href="https://aiweekly.co/ai-news-today" target="_blank">Clay raising at $7B valuation — AI-powered sales/marketing infra still commanding premium</a>
+    </div>
+    <div class="item-meta">
+      <span class="tag tag-fresh">Sept 1</span>
+    </div>
+    <div class="item-body">
+      Clay is raising a new round led by Wellington Management at a $7B pre-money valuation, up from $5B in January. Not directly model-layer news, but a useful signal: AI-native infrastructure plays in sales/GTM are still commanding serious multiples. Also today: <strong>Clipto</strong> raised $15M at $250M valuation for local video/audio/doc natural-language search — small but interesting vector-search-adjacent bet.
+    </div>
+  </div>
+</div>
+
+<!-- TODAY'S LESSON -->
+<div class="section">
+  <div class="section-label label-lesson">📖 Today's Lesson</div>
+  <div class="lesson-card">
+    <div class="lesson-title">MoE Routing & Active Parameters: Why "176B / 6B active" Is the Number That Actually Matters</div>
+    <div class="lesson-body">
+      <p>Mixture-of-Experts (MoE) models have a deceptive headline number. When Qwen3.8-Flash-Next says "176B parameters," that's the total weight count — but only <strong>6B of those are activated per token</strong>. Understanding this distinction is essential for anyone doing inference capacity planning.</p>
+      <p>The architecture works like this: instead of one large dense FFN layer, an MoE model has <em>N</em> "expert" FFN sub-networks. A learned <strong>router</strong> (a small linear layer) looks at each token's hidden state and selects the top-K experts to actually compute — everyone else stays cold. In Qwen3.8-Flash-Next, the router picks 2 experts out of many per token, giving 6B active parameters regardless of total model size.</p>
+      <p>For inference, this means: <strong>memory bandwidth ≠ compute</strong>. You still need to load all 176B weights into VRAM (or NVMe for offloading), but your FLOPs per forward pass are those of a ~6B dense model. The GPU is mostly idle on the inactive experts — you're trading compute efficiency for capacity. This is why MoE models can have "better than their size" quality while being annoying to serve: VRAM pressure is like a 176B model, latency is like a 6B model.</p>
+      <p>The 51B N-gram embedding table in Qwen3.8-Flash-Next is a separate wrinkle — it's a lookup table for common token n-grams that bypasses the router entirely for frequent patterns, acting like a fast cache for high-frequency sequences. This is the QSA kernel optimization behind that 7.6× prefill speedup at long contexts.</p>
+      <p>Rule of thumb: when you see an MoE model, the active parameter count determines your throughput budget; the total parameter count determines your memory budget.</p>
+    </div>
+  </div>
+</div>
+
+<footer>
+  AI Daily Dump · pranesh@flipcx.com · Generated 2026-09-01
+</footer>
+
+<!-- ARCHIVE SIDEBAR -->
+<style>
+  .arc-btn {
+    position: fixed; top: 18px; right: 18px; z-index: 200;
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 6px; padding: 6px 11px; font-size: 12px;
+    color: var(--muted); cursor: pointer; display: flex;
+    align-items: center; gap: 6px; user-select: none;
+    transition: border-color 0.15s, color 0.15s;
+    font-family: inherit;
+  }
+  .arc-btn:hover { border-color: #3a4060; color: var(--text); }
+  .arc-overlay {
+    display: none; position: fixed; inset: 0; z-index: 198;
+    background: rgba(0,0,0,0.45);
+  }
+  .arc-overlay.open { display: block; }
+  .arc-panel {
+    position: fixed; top: 0; right: 0; height: 100vh; width: 200px;
+    background: var(--surface); border-left: 1px solid var(--border);
+    z-index: 199; padding: 56px 14px 24px; overflow-y: auto;
+    transform: translateX(100%); transition: transform 0.22s ease;
+  }
+  .arc-panel.open { transform: translateX(0); }
+  .arc-panel-title {
+    font-size: 10px; font-weight: 700; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--muted);
+    margin-bottom: 14px; padding-left: 4px;
+  }
+  .arc-item {
+    display: block; padding: 7px 8px; border-radius: 5px;
+    font-size: 13px; color: var(--muted); text-decoration: none;
+    margin-bottom: 2px; transition: background 0.1s, color 0.1s;
+  }
+  .arc-item:hover { background: #1e2333; color: var(--text); }
+  .arc-item.current { background: rgba(91,142,240,0.12); color: var(--accent); font-weight: 600; }
+  .arc-close {
+    position: absolute; top: 14px; right: 14px;
+    background: none; border: none; color: var(--muted);
+    cursor: pointer; font-size: 18px; line-height: 1; padding: 4px;
+  }
+  .arc-close:hover { color: var(--text); }
+</style>
+<div class="arc-overlay" id="arcOverlay" onclick="arcClose()"></div>
+<div class="arc-panel" id="arcPanel">
+  <button class="arc-close" onclick="arcClose()">&#x2715;</button>
+  <div class="arc-panel-title">Past Issues</div>
+  <div id="arcList"><span style="color:var(--muted);font-size:12px">Loading…</span></div>
+</div>
+<button class="arc-btn" onclick="arcToggle()">
+  <svg width="13" height="11" viewBox="0 0 18 14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="0" y1="1" x2="18" y2="1"/><line x1="0" y1="7" x2="18" y2="7"/><line x1="0" y1="13" x2="18" y2="13"/></svg>
+  Past issues
+</button>
+<script>
+(function(){
+  var PAD = function(n){return String(n).padStart(2,'0');};
+  var MONTHS = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  var DAYS   = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+  var current = window.location.pathname.split('/').pop().replace(/\.html$/,'');
+  var found = [], tasks = [];
+  for(var i=0;i<45;i++){
+    (function(offset){
+      var d = new Date(); d.setDate(d.getDate()-offset);
+      var s = d.getFullYear()+'-'+PAD(d.getMonth()+1)+'-'+PAD(d.getDate());
+      tasks.push(fetch('./'+s+'.html',{method:'HEAD'}).then(function(r){if(r.ok)found.push({s:s,d:new Date(d)});}).catch(function(){}));
+    })(i);
+  }
+  Promise.all(tasks).then(function(){
+    found.sort(function(a,b){return b.d-a.d;});
+    var html='';
+    found.forEach(function(f){
+      var label=DAYS[f.d.getDay()]+', '+MONTHS[f.d.getMonth()]+' '+f.d.getDate();
+      var cls='arc-item'+(f.s===current?' current':'');
+      html+='<a class="'+cls+'" href="./'+f.s+'.html">'+label+'</a>';
+    });
+    document.getElementById('arcList').innerHTML=html||'<span style="color:var(--muted);font-size:12px">None found</span>';
+  });
+})();
+function arcToggle(){
+  var p=document.getElementById('arcPanel'),o=document.getElementById('arcOverlay');
+  var open=p.classList.contains('open');
+  if(open){arcClose();}else{p.classList.add('open');o.classList.add('open');}
+}
+function arcClose(){
+  document.getElementById('arcPanel').classList.remove('open');
+  document.getElementById('arcOverlay').classList.remove('open');
+}
+</script>
+
+</body>
+</html>
