@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Daily Dump — September 2, 2026</title>
+<style>
+  :root {
+    --bg: #0d1117;
+    --surface: #161b22;
+    --border: #30363d;
+    --text: #e6edf3;
+    --muted: #7d8590;
+    --accent: #5b8ef0;
+    --green: #3fb950;
+    --orange: #f0883e;
+    --red: #f85149;
+    --purple: #bc8cff;
+    --lesson: #f0c05b;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+    font-size: 15px;
+    line-height: 1.65;
+    padding: 48px 20px 80px;
+  }
+
+  .container { max-width: 720px; margin: 0 auto; }
+
+  .header {
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 20px;
+    margin-bottom: 36px;
+  }
+
+  .header-date {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 6px;
+  }
+
+  .header-title {
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--text);
+    letter-spacing: -0.3px;
+  }
+
+  .header-sub {
+    font-size: 13px;
+    color: var(--muted);
+    margin-top: 6px;
+  }
+
+  .section { margin-bottom: 40px; }
+
+  .section-label {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 3px 8px;
+    border-radius: 4px;
+    margin-bottom: 16px;
+  }
+
+  .label-hot    { background: rgba(248,81,73,0.12);   color: var(--red); }
+  .label-new    { background: rgba(63,185,80,0.12);   color: var(--green); }
+  .label-horizon{ background: rgba(188,140,255,0.12); color: var(--purple); }
+  .label-reads  { background: rgba(91,142,240,0.12);  color: var(--accent); }
+  .label-lesson { background: rgba(240,192,91,0.15);  color: var(--lesson); }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 16px 18px;
+    margin-bottom: 12px;
+    transition: border-color 0.15s;
+  }
+
+  .card:hover { border-color: #3a4060; }
+
+  .card-title {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 6px;
+    line-height: 1.4;
+  }
+
+  .card-title a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .card-title a:hover { color: var(--accent); }
+
+  .card-meta {
+    font-size: 12px;
+    color: var(--muted);
+    margin-bottom: 8px;
+  }
+
+  .card-body {
+    font-size: 14px;
+    color: #9198a1;
+    line-height: 1.6;
+  }
+
+  .card-body p + p { margin-top: 8px; }
+
+  .tag {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 2px 7px;
+    border-radius: 3px;
+    margin-right: 5px;
+    margin-bottom: 8px;
+  }
+
+  .tag-model   { background: rgba(63,185,80,0.12);   color: var(--green); }
+  .tag-open    { background: rgba(188,140,255,0.12); color: var(--purple); }
+  .tag-privacy { background: rgba(248,81,73,0.12);   color: var(--red); }
+  .tag-tools   { background: rgba(91,142,240,0.12);  color: var(--accent); }
+  .tag-research{ background: rgba(240,192,91,0.15);  color: var(--lesson); }
+
+  .lesson-box {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--lesson);
+    border-radius: 8px;
+    padding: 20px 22px;
+  }
+
+  .lesson-title { font-size: 16px; font-weight: 700; color: var(--lesson); margin-bottom: 14px; }
+
+  .lesson-body { font-size: 14px; color: #9198a1; line-height: 1.7; }
+  .lesson-body strong { color: var(--text); }
+  .lesson-body code {
+    background: rgba(110,118,129,0.1);
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    padding: 1px 5px;
+    font-size: 13px;
+    font-family: 'SF Mono', 'Fira Code', monospace;
+    color: #e6edf3;
+  }
+  .lesson-body p + p { margin-top: 10px; }
+
+  .divider {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 32px 0;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <div class="header">
+    <div class="header-date">Wednesday, September 2, 2026</div>
+    <div class="header-title">AI Daily Dump</div>
+    <div class="header-sub">What's happening in AI/ML right now — for the practicing engineer.</div>
+  </div>
+
+  <!-- WHAT'S HOT -->
+  <div class="section">
+    <div class="section-label label-hot">🔥 What's Hot Right Now</div>
+
+    <div class="card">
+      <span class="tag tag-open">Open Weight</span><span class="tag tag-model">Agentic</span>
+      <div class="card-title"><a href="https://huggingface.co/apodex/Apodex-1.1-mini" target="_blank">Apodex 1.1: New Agentic Model Family Drops Open Weights</a></div>
+      <div class="card-meta">r/LocalLLaMA AMA · Today</div>
+      <div class="card-body">
+        <p>Team Apodex ran an AMA on r/LocalLLaMA today for their new 1.1 model family, built around "sustained, verifiable progress toward real-world objectives" — meaning multi-step agent loops, code execution, file manipulation, failure recovery, and multi-agent coordination. Open weights are live on Hugging Face: <strong>Apodex-1.1-mini</strong> in NVFP4, GPTQ-Int4, and FP8 flavors. They also released an open-source agent harness (FrontierAgent) and two papers: a model paper and FrontierChallenge benchmark.</p>
+        <p>Worth pulling if you're comparing small agentic models — the quantized variants are approachable on consumer hardware.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <span class="tag tag-model">Coding Agent</span>
+      <div class="card-title"><a href="https://simonwillison.net/" target="_blank">Paint.NET Shipped 180K Lines of Claude-Written Direct2D Code for WINE</a></div>
+      <div class="card-meta">Simon Willison · September 2, 2026</div>
+      <div class="card-body">
+        <p>Rick Brewster (author of Paint.NET) wrote today about shipping a from-scratch, clean-room rewrite of Direct2D in managed code — written almost entirely by Claude — to make Paint.NET run on WINE/Linux. 180,000 lines. He called it "vibe coded" in the sense that he couldn't review every line, but directed the architecture carefully and had to "slap it a few times" on resource management issues (COM AddRef/Release). At times Claude "was working with the fury of 10 freshly unshackled Einstein genius-level 10x coders."</p>
+        <p>The interesting angle: this is a production shippable artifact at real scale, running on millions of machines. Raises real questions about what review even means for agent-produced code at this volume.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- NEW RELEASES -->
+  <div class="section">
+    <div class="section-label label-new">🚀 New Releases &amp; Updates</div>
+
+    <div class="card">
+      <span class="tag tag-model">Anthropic</span>
+      <div class="card-title"><a href="https://www.anthropic.com/news" target="_blank">Claude Fable 5.1 &amp; Mythos 5.1 Released</a></div>
+      <div class="card-meta">Anthropic · September 1, 2026</div>
+      <div class="card-body">
+        <p>Anthropic shipped Fable 5.1 and Mythos 5.1 yesterday. Billed as their most advanced models for coding and knowledge work, with a notable focus on scientific research. Per Simon Willison's writeup, Fable 5.1 scores <strong>52.6% on Terminal-Bench-Science 0.1</strong> (a new benchmark first released Aug 27), up from 24.7% for Fable 5, 29.0% for Opus 5, and 22.4% for GPT-5.6 Sol. Other benchmark improvements are incremental but the science score is the headline number.</p>
+        <p>Anthropic describes this as "an early glimpse of how AI models will contribute to scientific progress." No pricing change announced.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <span class="tag tag-privacy">Privacy Change</span>
+      <div class="card-title"><a href="https://mistral.ai/news/" target="_blank">Mistral Now Trains on User Input by Default (Except Enterprise)</a></div>
+      <div class="card-meta">HN · 60 points · 1 hour ago today</div>
+      <div class="card-body">
+        <p>Mistral quietly updated their data policy — user inputs are now used for model training by default, with an opt-out available. Enterprise tier customers are exempt. This landed on HN today with immediate attention. If you're using Mistral's API or consumer products, worth checking your account settings and the updated TOS. The usual reminder: anything sensitive should go through an enterprise agreement or a self-hosted model regardless of what the default policy says.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- TOOLS & INFERENCE -->
+  <div class="section">
+    <div class="section-label label-reads">⚙️ Harnesses, Tools &amp; Inference</div>
+
+    <div class="card">
+      <span class="tag tag-tools">Inference Engineering</span>
+      <div class="card-title"><a href="https://www.baseten.co/blog/the-efficient-frontier-of-llm-inference/" target="_blank">The Efficient Frontier of LLM Inference (Baseten)</a></div>
+      <div class="card-meta">Philip Kiely, Baseten · HN: 141 points · Today</div>
+      <div class="card-body">
+        <p>Clean conceptual framing that's worth internalizing: inference techniques either <strong>move you along the latency–throughput frontier</strong> (batch sizing, parallelism strategy) or <strong>push the entire frontier outward</strong> (kernel optimization, speculative decoding, disaggregation). The distinction matters because frontier-pushing gains compound: 2× from hardware + 2× from software = 4× total, allocatable however you want.</p>
+        <p>Good section on parallelism: Tensor Parallelism for latency, Expert Parallelism and Attention Data Parallelism for throughput. Also covers MXFP4/NVFP4 quantization as a frontier-pusher (quality tradeoff is surprisingly flat until you push too hard). Ties into their book <em>Inference Engineering</em> for deeper dives.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <hr class="divider">
+
+  <!-- ALSO WORTH READING -->
+  <div class="section">
+    <div class="section-label label-reads">📖 Also Worth Reading</div>
+
+    <div class="card">
+      <div class="card-title"><a href="https://simonwillison.net/" target="_blank">Claude's New System Prompt Really Doesn't Want to Reproduce Song Lyrics</a></div>
+      <div class="card-meta">Simon Willison · September 2, 2026</div>
+      <div class="card-body">Anthropic publishes their Claude consumer system prompts and tracks changes over time — Simon digs into what's new. Fun read if you've ever wondered how much of Claude's behavior is baked into the model vs. the system prompt.
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><a href="https://www.anthropic.com/news" target="_blank">Anthropic: Improving Our Alignment and Security Efforts</a></div>
+      <div class="card-meta">Anthropic · August 31, 2026 · HN: 26 points</div>
+      <div class="card-body">Short but notable — Anthropic published an update on where their alignment and security work is heading. On HN the day it dropped with modest traction, but worth bookmarking for context on how they're thinking about the next 12 months.</div>
+    </div>
+
+    <div class="card">
+      <span class="tag tag-research">Research</span>
+      <div class="card-title"><a href="https://arxiv.org" target="_blank">The Emergent Symbolic Structure of Artificial Neural Networks</a></div>
+      <div class="card-meta">arxiv.org · HN: 221 points · 10 hours ago</div>
+      <div class="card-body">Second-highest scoring AI item on HN today (221 pts, 74 comments) — a paper examining how symbolic structure emerges inside neural networks. Good fodder if you're interested in interpretability and why models seem to develop internal representations that look almost compositional.
+      </div>
+    </div>
+
+  </div>
+
+  <hr class="divider">
+
+  <!-- TODAY'S LESSON -->
+  <div class="section">
+    <div class="section-label label-lesson">📖 Today's Lesson</div>
+    <div class="lesson-box">
+      <div class="lesson-title">Prefill–Decode Disaggregation: Why Your GPU Cluster Has Two Distinct Jobs</div>
+      <div class="lesson-body">
+        <p>When you send a prompt to an LLM, inference has two completely different phases. <strong>Prefill</strong> processes all your input tokens in parallel and fills the KV cache — it's compute-bound, burns through matrix multiplications at high intensity, and completes in one forward pass. <strong>Decode</strong> then generates output tokens one at a time (or a small speculative batch), which is memory-bandwidth-bound: each step fetches the entire KV cache from GPU HBM. These two phases have almost opposite hardware requirements.</p>
+        <p>The traditional approach runs both on the same pool of GPUs. That works, but it's a permanent compromise: batch sizing that's good for prefill hurts decode latency, and vice versa. <strong>P/D disaggregation</strong> (prefill–decode disaggregation) solves this by routing each phase to a dedicated worker fleet. Prefill workers get heavy compute (wide tensor parallelism, big batches), decode workers get optimized memory bandwidth (aggressive KV cache management, smaller per-request footprint).</p>
+        <p>The ratio between prefill and decode workers isn't fixed — it's tuned to match your traffic's input/output token ratio and cache hit rate. High prompt-cache hit rates mean you need fewer prefill workers. Long output sequences (agentic loops, code generation) push you toward more decode capacity. In practice, disaggregation is best for <strong>high-volume, latency-sensitive deployments</strong>; smaller clusters often don't have enough total GPUs for the separation to pay off. Frameworks like vLLM and SGLang have been adding disaggregation support — it's moving from research curiosity to production primitive.</p>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ARCHIVE SIDEBAR -->
+<style>
+  .arc-btn {
+    position: fixed; top: 18px; right: 18px; z-index: 200;
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 6px; padding: 6px 11px; font-size: 12px;
+    color: var(--muted); cursor: pointer; display: flex;
+    align-items: center; gap: 6px; user-select: none;
+    transition: border-color 0.15s, color 0.15s;
+    font-family: inherit;
+  }
+  .arc-btn:hover { border-color: #3a4060; color: var(--text); }
+  .arc-overlay {
+    display: none; position: fixed; inset: 0; z-index: 198;
+    background: rgba(0,0,0,0.45);
+  }
+  .arc-overlay.open { display: block; }
+  .arc-panel {
+    position: fixed; top: 0; right: 0; height: 100vh; width: 200px;
+    background: var(--surface); border-left: 1px solid var(--border);
+    z-index: 199; padding: 56px 14px 24px; overflow-y: auto;
+    transform: translateX(100%); transition: transform 0.22s ease;
+  }
+  .arc-panel.open { transform: translateX(0); }
+  .arc-panel-title {
+    font-size: 10px; font-weight: 700; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--muted);
+    margin-bottom: 14px; padding-left: 4px;
+  }
+  .arc-item {
+    display: block; padding: 7px 8px; border-radius: 5px;
+    font-size: 13px; color: var(--muted); text-decoration: none;
+    margin-bottom: 2px; transition: background 0.1s, color 0.1s;
+  }
+  .arc-item:hover { background: #1e2333; color: var(--text); }
+  .arc-item.current { background: rgba(91,142,240,0.12); color: var(--accent); font-weight: 600; }
+  .arc-close {
+    position: absolute; top: 14px; right: 14px;
+    background: none; border: none; color: var(--muted);
+    cursor: pointer; font-size: 18px; line-height: 1; padding: 4px;
+  }
+  .arc-close:hover { color: var(--text); }
+</style>
+<div class="arc-overlay" id="arcOverlay" onclick="arcClose()"></div>
+<div class="arc-panel" id="arcPanel">
+  <button class="arc-close" onclick="arcClose()">&#x2715;</button>
+  <div class="arc-panel-title">Past Issues</div>
+  <div id="arcList"><span style="color:var(--muted);font-size:12px">Loading…</span></div>
+</div>
+<button class="arc-btn" onclick="arcToggle()">
+  <svg width="13" height="11" viewBox="0 0 18 14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="0" y1="1" x2="18" y2="1"/><line x1="0" y1="13" x2="18" y2="13"/><line x1="0" y1="7" x2="18" y2="7"/></svg>
+  Past issues
+</button>
+<script>
+(function(){
+  var PAD = function(n){return String(n).padStart(2,'0');};
+  var MONTHS = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  var DAYS   = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+  var current = window.location.pathname.split('/').pop().replace(/\.html$/,'');
+  var found = [], tasks = [];
+  for(var i=0;i<45;i++){
+    (function(offset){
+      var d = new Date(); d.setDate(d.getDate()-offset);
+      var s = d.getFullYear()+'-'+PAD(d.getMonth()+1)+'-'+PAD(d.getDate());
+      tasks.push(fetch('./'+s+'.html',{method:'HEAD'}).then(function(r){if(r.ok)found.push({s:s,d:new Date(d)});}).catch(function(){}));
+    })(i);
+  }
+  Promise.all(tasks).then(function(){
+    found.sort(function(a,b){return b.d-a.d;});
+    var html='';
+    found.forEach(function(f){
+      var label=DAYS[f.d.getDay()]+', '+MONTHS[f.d.getMonth()]+' '+f.d.getDate();
+      var cls='arc-item'+(f.s===current?' current':'');
+      html+='<a class="'+cls+'" href="./'+f.s+'.html">'+label+'</a>';
+    });
+    document.getElementById('arcList').innerHTML=html||'<span style="color:var(--muted);font-size:12px">None found</span>';
+  });
+})();
+function arcToggle(){
+  var p=document.getElementById('arcPanel'),o=document.getElementById('arcOverlay');
+  var open=p.classList.contains('open');
+  if(open){arcClose();}else{p.classList.add('open');o.classList.add('open');}
+}
+function arcClose(){
+  document.getElementById('arcPanel').classList.remove('open');
+  document.getElementById('arcOverlay').classList.remove('open');
+}
+</script>
+
+</body>
+</html>
