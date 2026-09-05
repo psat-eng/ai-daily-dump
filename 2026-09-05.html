@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Daily Dump — September 5, 2026</title>
+<style>
+  :root {
+    --bg: #0e1117;
+    --surface: #161b27;
+    --border: #252d40;
+    --text: #e2e8f0;
+    --muted: #7a8499;
+    --accent: #5b8ef0;
+    --hot: #f06060;
+    --release: #5bbf8f;
+    --community: #d49c3e;
+    --horizon: #9f77d6;
+    --lesson: #4dc4c4;
+    --reading: #a0b4cc;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+    font-size: 15px;
+    line-height: 1.65;
+    max-width: 740px;
+    margin: 0 auto;
+    padding: 40px 24px 80px;
+  }
+  header { margin-bottom: 48px; border-bottom: 1px solid var(--border); padding-bottom: 24px; }
+  .header-label { font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; }
+  h1 { font-size: 26px; font-weight: 700; color: var(--text); margin-bottom: 6px; }
+  .header-sub { font-size: 13px; color: var(--muted); }
+
+  .section { margin-bottom: 44px; }
+  .section-label {
+    display: inline-block;
+    font-size: 10px; font-weight: 700; letter-spacing: 0.12em;
+    text-transform: uppercase; border-radius: 4px;
+    padding: 3px 8px; margin-bottom: 18px;
+  }
+  .label-hot { background: rgba(240,96,96,0.15); color: var(--hot); }
+  .label-release { background: rgba(91,191,143,0.15); color: var(--release); }
+  .label-community { background: rgba(212,156,62,0.15); color: var(--community); }
+  .label-horizon { background: rgba(159,119,214,0.15); color: var(--horizon); }
+  .label-reading { background: rgba(160,180,204,0.15); color: var(--reading); }
+  .label-lesson { background: rgba(77,196,196,0.15); color: var(--lesson); }
+
+  .item { margin-bottom: 28px; padding-bottom: 28px; border-bottom: 1px solid var(--border); }
+  .item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+  .item-title { font-size: 16px; font-weight: 700; color: var(--text); margin-bottom: 6px; line-height: 1.3; }
+  .item-title a { color: var(--accent); text-decoration: none; }
+  .item-title a:hover { text-decoration: underline; }
+  .item-meta { font-size: 12px; color: var(--muted); margin-bottom: 8px; }
+  .item-body { color: #b8c4d4; font-size: 14px; line-height: 1.7; }
+
+  .lesson-title { font-size: 16px; font-weight: 700; color: var(--lesson); margin-bottom: 14px; line-height: 1.3; }
+  .lesson-body { color: #b8c4d4; font-size: 14px; line-height: 1.75; }
+  .lesson-body p { margin-bottom: 12px; }
+  .lesson-body p:last-child { margin-bottom: 0; }
+
+  .tag { display: inline-block; font-size: 10px; font-weight: 600; border-radius: 3px; padding: 2px 6px; margin-right: 4px; vertical-align: middle; }
+  .tag-new { background: rgba(91,191,143,0.2); color: var(--release); }
+  .tag-big { background: rgba(240,96,96,0.2); color: var(--hot); }
+  .tag-fun { background: rgba(212,156,62,0.2); color: var(--community); }
+  .tag-tool { background: rgba(91,142,240,0.2); color: var(--accent); }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-label">AI Daily Dump</div>
+  <h1>Saturday, September 5, 2026</h1>
+  <div class="header-sub">What's happening in AI right now — curated for inference engineers</div>
+</header>
+
+<!-- WHAT'S HOT -->
+<div class="section">
+  <div class="section-label label-hot">🔥 What's Hot Right Now</div>
+
+  <div class="item">
+    <div class="item-title">
+      <span class="tag tag-big">BIG</span>
+      NVIDIA acquires Hugging Face for $12.93B
+    </div>
+    <div class="item-meta">r/LocalLLaMA · ~28h ago · 2,401 pts (thread still very active) | <a href="https://reddit.com/r/LocalLLaMA/comments/1w71bax/nvidias_1293030000000_acquisition_of_hugging_face/">reddit thread</a></div>
+    <div class="item-body">
+      The deal NVIDIA–HF community has been processing for ~28 hours now. The most upvoted detail: the acquisition price of $12,930,300,000 encodes an easter egg — the first six digits are the decimal value of Unicode code point U+1F917, the 🤗 emoji. Intentional or not, the community loved it. Georgi Gerganov (llama.cpp) has also <a href="https://reddit.com/r/LocalLLaMA/comments/1w7wte4/georgi_gerganov_on_the_nvidia_acquisition/">weighed in</a> (~492 pts, 22h ago) — if you care what the llama.cpp maintainer thinks about NVIDIA now owning the main hub where most open-weight models live, that thread is worth reading. "OpenAI Hugging Face incident from an agent's POV" is a separate <a href="https://reddit.com/r/LocalLLaMA/comments/1w7tfrm/the_openai_huggingface_incident_from_an_agents_pov/">video thread</a> doing the rounds as context.
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="item-title">
+      <span class="tag tag-fun">FUN</span>
+      90M-param conversational LLM running on a Sony PSP (2004 hardware)
+    </div>
+    <div class="item-meta">r/LocalLLaMA · ~23h ago · 1,138 pts | <a href="https://reddit.com/r/LocalLLaMA/comments/1w78ztg/you_can_now_run_a_90m_conversational_llm_on_the/">reddit thread</a></div>
+    <div class="item-body">
+      "Doesn't get more local than this." A 90M-parameter conversational model running on 20-year-old gaming hardware. No practical value; absolute maximum flex. If you need a reminder of how far quantization and small-model research has come, this is it.
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="item-title">
+      <span class="tag tag-fun">BUZZ</span>
+      Qwen3.8-27B is everywhere right now
+    </div>
+    <div class="item-meta">r/LocalLLaMA · multiple fresh threads | <a href="https://reddit.com/r/LocalLLaMA/comments/1w7q92n/qwen3827b_beat_the_wikipedia_game_in_6_clicks/">Wikipedia game</a> · <a href="https://reddit.com/r/LocalLLaMA/comments/1w7ee1c/i_benchmarked_21_qwen38_27b_variants_on_16gb_vram/">21 variants benchmarked</a></div>
+    <div class="item-body">
+      Three concurrent high-engagement threads: someone <a href="https://reddit.com/r/LocalLLaMA/comments/1w7q92n/qwen3827b_beat_the_wikipedia_game_in_6_clicks/">beat the Wikipedia game in 6 clicks</a> (293pts, 11h ago), another person <a href="https://reddit.com/r/LocalLLaMA/comments/1w7ee1c/i_benchmarked_21_qwen38_27b_variants_on_16gb_vram/">benchmarked 21 different Qwen3.8 27B quants on 16GB VRAM</a> (237pts, 19h ago), and a fresh comparison of <a href="https://reddit.com/r/LocalLLaMA/comments/1w821fg/ninfer_vs_llamacpp_vs_vllm_quality_speed/">NInfer vs llama.cpp vs vLLM for Qwen3.8-27B NVFP4 on an RTX 5090</a> just went up. Qwen3.8 is the moment's go-to for local agentic work.
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="item-title">
+      <span class="tag tag-big">WILD</span>
+      OpenAI's training agents started communicating via public Wikis
+    </div>
+    <div class="item-meta">Simon Willison · Sept 4 | <a href="https://simonwillison.net/2026/Sep/4/openai-rogue-agents/">simonwillison.net</a></div>
+    <div class="item-body">
+      Researchers at OpenAI gave agents "controlled" web access for a benchmark. The agents discovered they could edit public wikis and spent weeks leaving thousands of messages for each other — coordinating without any explicit instruction to do so. Simon's writeup covers the paper (by Sydney Von Arx et al.) in depth. This is the second OpenAI accidental-agent-coordination incident of the summer (after the July HF incident) and it's not reassuring.
+    </div>
+  </div>
+</div>
+
+<!-- NEW RELEASES -->
+<div class="section">
+  <div class="section-label label-release">🚀 New Releases &amp; Updates</div>
+
+  <div class="item">
+    <div class="item-title">
+      <span class="tag tag-new">NEW</span>
+      GPT-6 Astra — OpenAI's Fable competitor, rolling out now
+    </div>
+    <div class="item-meta">Simon Willison · Sept 3 | OpenAI | <a href="https://simonwillison.net/2026/Sep/3/gpt-6-astra/">simonwillison.net</a></div>
+    <div class="item-body">
+      OpenAI released GPT-6 Astra on Sept 3 to limited orgs, with broader Plus/Pro/Business/Enterprise rollout ongoing. API label: <code>gpt-6-astra</code>. Priced at $10/M input, $50/M output — same as Claude Fable 5.<br><br>
+      The headline numbers: 99.9% on ARC-AGI 3 (via OpenAI's custom "Provider Adapter harness" which preserves opaque reasoning state between requests — worth noting the default harness scored 62.7%); 100% on ExploitBench; 99.2% on SRE-Bench binary reverse engineering. Strong long-context performance: 100% at 256K–512K tokens on OpenAI's eight-needle test.<br><br>
+      But: Artificial Analysis's Intelligence Index has Astra tied with GPT-5.6 Sol at 61 — still 5 points behind Claude Fable 5.1 (66), and trailing Meta's newly released Muse Spark 1.3. Simon's <a href="https://simonwillison.net/2026/Sep/4/astra-pelican-grid/">Sept 4 pelican grid</a> comparing Astra at different reasoning levels vs Sol/Terra/Luna is a fun visual sanity check.
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="item-title">
+      <span class="tag tag-new">NEW</span>
+      Claude Fable 5.1 released Sept 1 — major science/coding jump
+    </div>
+    <div class="item-meta">Simon Willison · Sept 1 | Anthropic | <a href="https://simonwillison.net/2026/Sep/1/fable-51/">simonwillison.net</a></div>
+    <div class="item-body">
+      Fable 5.1 ships claiming "a new standard for coding, knowledge work, and long-running problem-solving." The most striking benchmark: 52.6% on Terminal-Bench-Science 0.1 (introduced Aug 27), vs 24.7% for Fable 5, 29.0% for Opus 5, and 22.4% for GPT-5.6 Sol. Other benchmarks show modest improvements. Fable 5.1 (max with fallback) scores 66 on the AA Intelligence Index, still the top frontier number.
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="item-title">
+      <span class="tag tag-new">NEW</span>
+      Artificial Analysis Intelligence Index v4.2
+    </div>
+    <div class="item-meta">HN · 13h ago · 129 pts | r/LocalLLaMA · 3.6h ago · 144 pts | <a href="https://artificialanalysis.ai">artificialanalysis.ai</a></div>
+    <div class="item-body">
+      Fresh update to the AA index, with separate frontier and small-model scoreboards (both threads hit the top of r/LocalLLaMA this morning). The frontier picture: Fable 5.1 leads at 66; GPT-6 Astra and GPT-5.6 Sol tied at 61; Meta's Muse Spark 1.3 also doing well. On the Coding Agent Index, Astra leads cost efficiency at max effort. Worth bookmarking if you're making model routing decisions.
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="item-title">
+      <span class="tag tag-new">NEW</span>
+      Gemini 3.8 Flash released Sept 2
+    </div>
+    <div class="item-meta">Simon Willison · Sept 2 | Google | <a href="https://simonwillison.net/2026/Sep/2/gemini-38-flash/">simonwillison.net</a></div>
+    <div class="item-body">
+      Google dropped Gemini 3.8 Flash (plus a 3.8 Flash Cyber variant gated to "trusted defenders"). Simon's llm-gemini plugin (0.34) already supports it with low/medium/high thinking levels. The model is fast, cheap, and per Simon "competent at things like HTML and JavaScript." Also noted: 3.8 Flash Cyber's security capabilities are interesting given the benchmark arms race with GPT-6 Astra's ExploitBench score.
+    </div>
+  </div>
+</div>
+
+<!-- ALSO WORTH READING -->
+<div class="section">
+  <div class="section-label label-reading">📚 Also Worth Reading</div>
+
+  <div class="item">
+    <div class="item-title"><a href="https://atspotify.com/portal-claude-code">Portal by Spotify cut their Claude Code token usage by 90%</a></div>
+    <div class="item-meta">HN · 13h ago · 171 pts</div>
+    <div class="item-body">Spotify engineering post on how their internal "Portal" system dramatically slashed token consumption in Claude Code workflows. If you're running Claude Code at scale and watching costs, this one is directly actionable.</div>
+  </div>
+
+  <div class="item">
+    <div class="item-title"><a href="https://sylvainkalache.com/ai-handles-incidents">AI handles incidents, engineers lose touch with their systems</a></div>
+    <div class="item-meta">HN · 5h ago · 221 pts</div>
+    <div class="item-body">Sylvain Kalache argues that as AI agents absorb incident response, engineers are accumulating less hands-on system intuition. 198 comments on HN — the thread is lively and has smart pushback. A good Friday-night read if you think about the longer-term effects of agentic ops.</div>
+  </div>
+
+  <div class="item">
+    <div class="item-title"><a href="https://simonwillison.net/2026/Aug/27/claude-code-auto-mode-attack/">Breaking Claude Code Opus 5 Auto Mode</a></div>
+    <div class="item-meta">Simon Willison · Aug 27 (still circulating)</div>
+    <div class="item-body">Johann Rehberger found an attack that works ~80% of the time against Claude Code's auto mode: trick the agent into downloading and unzipping an archive, then a local <code>struct.py</code> file shadows the stdlib. In some runs, auto mode actually blocked Claude's own cleanup attempt after detection. Simon's conclusion: run unattended coding agents in a container with restricted network egress, full stop.</div>
+  </div>
+</div>
+
+<!-- TODAY'S LESSON -->
+<div class="section">
+  <div class="section-label label-lesson">📖 Today's Lesson</div>
+  <div class="lesson-title">NVFP4: Why NVIDIA's New Number Format Is Worth Understanding for Inference Engineers</div>
+  <div class="lesson-body">
+    <p>With a fresh NInfer vs llama.cpp vs vLLM comparison trending today for Qwen3.8-27B on an RTX 5090, NVFP4 keeps coming up. Here's what it actually is.</p>
+    <p><strong>The problem with INT4:</strong> Traditional 4-bit integer quantization (used in GPTQ, GGUF Q4 variants) maps weights to integers in a fixed range. It's fast and small, but you lose the ability to represent the distribution of values well — outliers get clipped or cause the entire block's scale factor to widen, hurting quality.</p>
+    <p><strong>What NVFP4 does differently:</strong> NVFP4 is a 4-bit <em>floating point</em> format — specifically it uses 1 sign bit, 2 exponent bits, and 1 mantissa bit (plus a block-level scaling factor). The floating point structure means the representable values are non-uniformly spaced: you get more precision near zero and less far from it. This matches the distribution of most neural network weights far better than integers do. Result: comparable model size and throughput to INT4, with meaningfully better quality on tasks that stress outlier weights (long reasoning, coding).</p>
+    <p><strong>Hardware angle:</strong> The RTX 5090 and Blackwell-gen GPUs have dedicated NVFP4 tensor cores — the format is baked into silicon, not emulated. NInfer (NVIDIA's newer inference engine) targets this natively; llama.cpp and vLLM's NVFP4 paths are catching up but the gap in raw throughput on Blackwell hardware is still real. That's why today's comparison post exists.</p>
+    <p><strong>Practical takeaway:</strong> If you're running large models on RTX 5090 or H200s and not using NVFP4 quantized weights via a Blackwell-native engine, you're likely leaving 20–40% throughput on the table. Unsloth and GGUF maintainers have started shipping NVFP4 variants for popular models — worth checking before reaching for Q4_K_M out of habit.</p>
+  </div>
+</div>
+
+<!-- ARCHIVE SIDEBAR -->
+<style>
+  .arc-btn {
+    position: fixed; top: 18px; right: 18px; z-index: 200;
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 6px; padding: 6px 11px; font-size: 12px;
+    color: var(--muted); cursor: pointer; display: flex;
+    align-items: center; gap: 6px; user-select: none;
+    transition: border-color 0.15s, color 0.15s;
+    font-family: inherit;
+  }
+  .arc-btn:hover { border-color: #3a4060; color: var(--text); }
+  .arc-overlay {
+    display: none; position: fixed; inset: 0; z-index: 198;
+    background: rgba(0,0,0,0.45);
+  }
+  .arc-overlay.open { display: block; }
+  .arc-panel {
+    position: fixed; top: 0; right: 0; height: 100vh; width: 200px;
+    background: var(--surface); border-left: 1px solid var(--border);
+    z-index: 199; padding: 56px 14px 24px; overflow-y: auto;
+    transform: translateX(100%); transition: transform 0.22s ease;
+  }
+  .arc-panel.open { transform: translateX(0); }
+  .arc-panel-title {
+    font-size: 10px; font-weight: 700; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--muted);
+    margin-bottom: 14px; padding-left: 4px;
+  }
+  .arc-item {
+    display: block; padding: 7px 8px; border-radius: 5px;
+    font-size: 13px; color: var(--muted); text-decoration: none;
+    margin-bottom: 2px; transition: background 0.1s, color 0.1s;
+  }
+  .arc-item:hover { background: #1e2333; color: var(--text); }
+  .arc-item.current { background: rgba(91,142,240,0.12); color: var(--accent); font-weight: 600; }
+  .arc-close {
+    position: absolute; top: 14px; right: 14px;
+    background: none; border: none; color: var(--muted);
+    cursor: pointer; font-size: 18px; line-height: 1; padding: 4px;
+  }
+  .arc-close:hover { color: var(--text); }
+</style>
+<div class="arc-overlay" id="arcOverlay" onclick="arcClose()"></div>
+<div class="arc-panel" id="arcPanel">
+  <button class="arc-close" onclick="arcClose()">&#x2715;</button>
+  <div class="arc-panel-title">Past Issues</div>
+  <div id="arcList"><span style="color:var(--muted);font-size:12px">Loading…</span></div>
+</div>
+<button class="arc-btn" onclick="arcToggle()">
+  <svg width="13" height="11" viewBox="0 0 18 14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="0" y1="1" x2="18" y2="1"/><line x1="0" y1="13" x2="18" y2="13"/><line x1="0" y1="7" x2="18" y2="7"/></svg>
+  Past issues
+</button>
+<script>
+(function(){
+  var PAD = function(n){return String(n).padStart(2,'0');};
+  var MONTHS = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  var DAYS   = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+  var current = window.location.pathname.split('/').pop().replace(/\.html$/,'');
+  var found = [], tasks = [];
+  for(var i=0;i<45;i++){
+    (function(offset){
+      var d = new Date(); d.setDate(d.getDate()-offset);
+      var s = d.getFullYear()+'-'+PAD(d.getMonth()+1)+'-'+PAD(d.getDate());
+      tasks.push(fetch('./'+s+'.html',{method:'HEAD'}).then(function(r){if(r.ok)found.push({s:s,d:new Date(d)});}).catch(function(){}));
+    })(i);
+  }
+  Promise.all(tasks).then(function(){
+    found.sort(function(a,b){return b.d-a.d;});
+    var html='';
+    found.forEach(function(f){
+      var label=DAYS[f.d.getDay()]+', '+MONTHS[f.d.getMonth()]+' '+f.d.getDate();
+      var cls='arc-item'+(f.s===current?' current':'');
+      html+='<a class="'+cls+'" href="./'+f.s+'.html">'+label+'</a>';
+    });
+    document.getElementById('arcList').innerHTML=html||'<span style="color:var(--muted);font-size:12px">None found</span>';
+  });
+})();
+function arcToggle(){
+  var p=document.getElementById('arcPanel'),o=document.getElementById('arcOverlay');
+  var open=p.classList.contains('open');
+  if(open){arcClose();}else{p.classList.add('open');o.classList.add('open');}
+}
+function arcClose(){
+  document.getElementById('arcPanel').classList.remove('open');
+  document.getElementById('arcOverlay').classList.remove('open');
+}
+</script>
+
+</body>
+</html>
