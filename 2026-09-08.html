@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Daily Dump — September 8, 2026</title>
+<style>
+  :root {
+    --bg: #0d1117;
+    --surface: #161b22;
+    --border: #21262d;
+    --text: #e6edf3;
+    --muted: #7d8590;
+    --accent: #5b8ef0;
+    --accent2: #f0a05b;
+    --green: #3fb950;
+    --red: #f85149;
+    --card: #1c2128;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    font-size: 15px;
+    line-height: 1.65;
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 40px 24px 80px;
+  }
+  header {
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 20px;
+    margin-bottom: 36px;
+  }
+  .date-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 6px;
+  }
+  h1 {
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--text);
+    letter-spacing: -0.3px;
+  }
+  h1 span { color: var(--accent); }
+  .tagline {
+    color: var(--muted);
+    font-size: 13px;
+    margin-top: 4px;
+  }
+  h2 {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 16px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--border);
+  }
+  section { margin-bottom: 40px; }
+  .item {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 16px 18px;
+    margin-bottom: 12px;
+  }
+  .item:hover { border-color: #2d333b; }
+  .item-title {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 5px;
+  }
+  .item-title a {
+    color: inherit;
+    text-decoration: none;
+  }
+  .item-title a:hover { color: var(--accent); }
+  .item-meta {
+    font-size: 11px;
+    color: var(--muted);
+    margin-bottom: 8px;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .tag {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    padding: 2px 7px;
+    border-radius: 4px;
+    margin-right: 6px;
+    vertical-align: middle;
+  }
+  .tag-hot { background: rgba(240,90,90,0.15); color: #f0a05b; }
+  .tag-release { background: rgba(63,185,80,0.12); color: var(--green); }
+  .tag-tool { background: rgba(91,142,240,0.12); color: var(--accent); }
+  .tag-soon { background: rgba(188,140,255,0.12); color: #bc8cff; }
+  .tag-read { background: rgba(125,133,144,0.12); color: var(--muted); }
+  .item-body {
+    font-size: 14px;
+    color: #8b949e;
+    line-height: 1.6;
+  }
+  .item-body a { color: var(--accent); text-decoration: none; }
+  .item-body a:hover { text-decoration: underline; }
+  .age-note {
+    font-size: 11px;
+    color: var(--accent2);
+    font-style: italic;
+  }
+  .lesson-box {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--accent);
+    border-radius: 8px;
+    padding: 20px 22px;
+  }
+  .lesson-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 12px;
+  }
+  .lesson-body {
+    font-size: 14px;
+    color: #8b949e;
+    line-height: 1.7;
+  }
+  .lesson-body p { margin-bottom: 10px; }
+  .lesson-body p:last-child { margin-bottom: 0; }
+  .lesson-body code {
+    background: #0d1117;
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    padding: 1px 5px;
+    font-size: 12px;
+    font-family: "SFMono-Regular", Consolas, monospace;
+    color: var(--text);
+  }
+  .hn-score {
+    color: var(--accent2);
+    font-size: 11px;
+    font-weight: 600;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="date-label">Tuesday, September 8, 2026</div>
+  <h1>AI Daily <span>Dump</span></h1>
+  <p class="tagline">What's actually happening in AI/inference — curated for practitioners.</p>
+</header>
+
+<!-- ── WHAT'S HOT ──────────────────────────────────────────── -->
+<section>
+  <h2>🔥 What's Hot Right Now</h2>
+
+  <div class="item">
+    <div class="item-title">
+      <span class="tag tag-hot">Funding</span>
+      <a href="https://www.euronews.com/business/2026/09/08/mistral-ai-raises-record-3-billion-in-samsung-led-funding-round" target="_blank">Mistral Raises €3B at €21B Valuation — Europe's Largest Private AI Round</a>
+    </div>
+    <div class="item-meta">
+      <span>Sep 8, 2026</span>
+      <span class="hn-score">▲ 682 pts on HN · 499 comments</span>
+    </div>
+    <div class="item-body">
+      Paris-based Mistral closed its Series D today — €3B (~$3.5B) led by Samsung alongside the EU-backed Scaleup Europe Fund and PSG Equity. Valuation nearly doubled from €11.7B (2025 Series C) to €21B. CEO Arthur Mensch said proceeds go to data centers and compute capacity that Mistral can rent to others. This is Europe's largest private tech equity raise on record and puts Mistral firmly in the same funding tier as the US frontier labs. The HN thread is lively — lots of discussion on European AI sovereignty and whether Mistral's bet on compute ownership (vs. pure-play API) makes sense.
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="item-title">
+      <span class="tag tag-hot">Community</span>
+      <a href="https://alvins82.github.io" target="_blank">I Tested 10 Model/Harness Combos on the Same Three.js Task</a>
+    </div>
+    <div class="item-meta">
+      <span>Sep 8, 2026 · ~12h ago</span>
+      <span class="hn-score">▲ 110 pts on HN · 62 comments</span>
+    </div>
+    <div class="item-body">
+      A practitioner ran the same Three.js implementation task across 10 different model + harness combinations and published the full results. Worth reading for concrete, un-PR'd signal on which combos actually produce working code vs. plausible-looking hallucinations. The HN thread has engineers sharing their own observations on harness choice mattering as much as model choice for coding tasks.
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="item-title">
+      <span class="tag tag-hot">Funny/Signal</span>
+      <a href="https://manualdousuario.net" target="_blank">LibreOffice Breaks Download Records After Declaring "No AI Features"</a>
+    </div>
+    <div class="item-meta">
+      <span>Sep 8, 2026 · ~1h ago</span>
+      <span class="hn-score">▲ 354 pts on HN · 116 comments</span>
+    </div>
+    <div class="item-body">
+      LibreOffice announced it has no AI features baked in — and promptly hit a download record. Trending fast on HN. Useful sentiment signal: there's a meaningful cohort of users actively avoiding AI-augmented tools. Not the mainstream direction, but worth tracking as a product reality.
+    </div>
+  </div>
+
+</section>
+
+<!-- ── NEW RELEASES ──────────────────────────────────────────── -->
+<section>
+  <h2>🚀 New Releases &amp; Updates</h2>
+
+  <div class="item">
+    <div class="item-title">
+      <span class="tag tag-release">OpenAI</span>
+      <a href="https://www.cnbc.com/2026/09/03/open-ai-astra-gpt-6-cyber.html" target="_blank">GPT-6 Astra — OpenAI's Frontier Flagship</a>
+    </div>
+    <div class="item-meta">
+      <span class="age-note">Released Sep 3 — still dominant conversation</span>
+    </div>
+    <div class="item-body">
+      OpenAI's GPT-6 Astra went live on September 3, billed as the product of "years of research and big bets." Described as the company's most capable model to date. If you haven't benchmarked it yet against your workloads this week, now's the time — early reports suggest strong coding and structured output performance. API details and pricing at <a href="https://openai.com/blog" target="_blank">openai.com/blog</a>.
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="item-title">
+      <span class="tag tag-release">Anthropic</span>
+      Claude Fable 5.1 &amp; Mythos 5.1
+    </div>
+    <div class="item-meta">
+      <span class="age-note">Released Sep 1 — same pricing as Fable 5 ($10/$50)</span>
+    </div>
+    <div class="item-body">
+      Anthropic shipped point releases of both Fable and Mythos on Sep 1. Fable 5.1 maintains the same $10/$50 price point as Fable 5. No major architectural changes reported — likely tuning/RLHF improvements. Model strings: <code>claude-fable-5-1</code> and <code>claude-mythos-5-1</code> (verify against current API docs).
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="item-title">
+      <span class="tag tag-release">Google</span>
+      <a href="https://deepmind.google/research/" target="_blank">Gemini 3.8 Flash — Released Sep 2</a>
+    </div>
+    <div class="item-meta">
+      <span class="age-note">Released Sep 2 · same intro pricing as 3.7 Flash</span>
+    </div>
+    <div class="item-body">
+      Google dropped Gemini 3.8 Flash at the same introductory price as 3.7 Flash, alongside a Fairwind-gated Cyber variant. Flash-tier continues to be the go-to for high-throughput, cost-sensitive inference workloads. If you're already using 3.7 Flash in production, it's worth a quick A/B test.
+    </div>
+  </div>
+
+</section>
+
+<!-- ── ALSO WORTH READING ──────────────────────────────────────────── -->
+<section>
+  <h2>📖 Also Worth Reading</h2>
+
+  <div class="item">
+    <div class="item-title">
+      <span class="tag tag-read">Engineering</span>
+      <a href="https://danluu.com/agentic-testing/" target="_blank">How Well Do Agents Use Test/Verification Techniques? — Dan Luu</a>
+    </div>
+    <div class="item-meta">
+      <span>Sep 8, 2026 · ~12h ago on HN · 155 pts · 60 comments</span>
+    </div>
+    <div class="item-body">
+      Dan Luu re-uses his Zstd implementation benchmark to test whether telling agents to use specific techniques — TDD, Lean 4, QuickCheck, property-based testing — actually improves correctness. The finding: agents having some idea how to test without expert guidance would substantially increase agentic coding effectiveness. Concrete, empirical, and a useful calibration if you're building agentic coding workflows. See also his related <a href="https://danluu.com/ai-coding/" target="_blank">agentic coding notes from Galapagos</a>.
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="item-title">
+      <span class="tag tag-read">Infra</span>
+      <a href="https://rohanadwankar.github.io" target="_blank">The VMs Powering Mobile Agents (Claude Code, Instinct)</a>
+    </div>
+    <div class="item-meta">
+      <span>Sep 8, 2026 · ~11h ago on HN · 60 pts · 23 comments</span>
+    </div>
+    <div class="item-body">
+      A look at the sandboxed VM infrastructure behind Claude Code and Instinct-style mobile agents — how isolation, state management, and tool execution work at the OS level. Useful if you're designing agent sandboxing for your own stack.
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="item-title">
+      <span class="tag tag-read">Hardware</span>
+      <a href="https://arm.com" target="_blank">Arm Mali G2-Ultra NX GPU — "Desktop-Class Mobile Gameplay with AI-Native Graphics"</a>
+    </div>
+    <div class="item-meta">
+      <span>Sep 8, 2026 · ~11h ago on HN · 75 pts · 56 comments</span>
+    </div>
+    <div class="item-body">
+      Arm's new Mali GPU targets AI-accelerated graphics on mobile. The "AI-native" framing is mostly marketing but the underlying hardware (dedicated matrix units, improved memory bandwidth) is real and relevant to on-device inference trajectories. Worth a skim if you track edge/on-device deployment.
+    </div>
+  </div>
+
+</section>
+
+<!-- ── TODAY'S LESSON ──────────────────────────────────────────── -->
+<section>
+  <h2>🎓 Today's Lesson</h2>
+  <div class="lesson-box">
+    <div class="lesson-title">Prefix Caching: Why Your Agent's Second Call Is Much Cheaper Than Its First</div>
+    <div class="lesson-body">
+      <p>When an LLM processes a prompt, it builds a <strong>KV cache</strong> — key-value tensors for every token in the context window. These are expensive to compute. Prefix caching (sometimes called prompt caching) lets the serving layer reuse that computed KV cache across requests that share a common prefix.</p>
+      <p>In practice: if every call to your agent starts with a 4,000-token system prompt, and you're making 1,000 calls per hour, the serving infrastructure (vLLM, SGLang, or your API provider) can compute those 4,000 tokens once and cache the result. Subsequent requests that start with the same prefix skip that computation entirely — TTFT drops and cost per call falls, often dramatically.</p>
+      <p>The catch: cache keys are exact prefix matches. Even one changed token invalidates the cache. This means prompt design discipline matters for cost: put stable content (instructions, tool schemas, long documents) first, and put dynamic content (the user's message, retrieved chunks) at the end. A common mistake is interpolating session IDs or timestamps into the system prompt, which defeats caching for every request.</p>
+      <p>On the API side, Anthropic's <code>cache_control</code> parameter, OpenAI's implicit prefix caching, and Google's context caching all implement variants of this. vLLM's <code>enable-prefix-caching</code> flag does the same for self-hosted deployments. At scale — especially in agentic loops with long, repeated context — prefix caching is one of the highest-ROI infrastructure choices you can make.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ARCHIVE SIDEBAR -->
+<style>
+  .arc-btn {
+    position: fixed; top: 18px; right: 18px; z-index: 200;
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 6px; padding: 6px 11px; font-size: 12px;
+    color: var(--muted); cursor: pointer; display: flex;
+    align-items: center; gap: 6px; user-select: none;
+    transition: border-color 0.15s, color 0.15s;
+    font-family: inherit;
+  }
+  .arc-btn:hover { border-color: #3a4060; color: var(--text); }
+  .arc-overlay {
+    display: none; position: fixed; inset: 0; z-index: 198;
+    background: rgba(0,0,0,0.45);
+  }
+  .arc-overlay.open { display: block; }
+  .arc-panel {
+    position: fixed; top: 0; right: 0; height: 100vh; width: 200px;
+    background: var(--surface); border-left: 1px solid var(--border);
+    z-index: 199; padding: 56px 14px 24px; overflow-y: auto;
+    transform: translateX(100%); transition: transform 0.22s ease;
+  }
+  .arc-panel.open { transform: translateX(0); }
+  .arc-panel-title {
+    font-size: 10px; font-weight: 700; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--muted);
+    margin-bottom: 14px; padding-left: 4px;
+  }
+  .arc-item {
+    display: block; padding: 7px 8px; border-radius: 5px;
+    font-size: 13px; color: var(--muted); text-decoration: none;
+    margin-bottom: 2px; transition: background 0.1s, color 0.1s;
+  }
+  .arc-item:hover { background: #1e2333; color: var(--text); }
+  .arc-item.current { background: rgba(91,142,240,0.12); color: var(--accent); font-weight: 600; }
+  .arc-close {
+    position: absolute; top: 14px; right: 14px;
+    background: none; border: none; color: var(--muted);
+    cursor: pointer; font-size: 18px; line-height: 1; padding: 4px;
+  }
+  .arc-close:hover { color: var(--text); }
+</style>
+<div class="arc-overlay" id="arcOverlay" onclick="arcClose()"></div>
+<div class="arc-panel" id="arcPanel">
+  <button class="arc-close" onclick="arcClose()">&#x2715;</button>
+  <div class="arc-panel-title">Past Issues</div>
+  <div id="arcList"><span style="color:var(--muted);font-size:12px">Loading…</span></div>
+</div>
+<button class="arc-btn" onclick="arcToggle()">
+  <svg width="13" height="11" viewBox="0 0 18 14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="0" y1="1" x2="18" y2="1"/><line x1="0" y1="13" x2="18" y2="13"/><line x1="0" y1="7" x2="18" y2="7"/></svg>
+  Past issues
+</button>
+<script>
+(function(){
+  var PAD = function(n){return String(n).padStart(2,'0');};
+  var MONTHS = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  var DAYS   = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+  var current = window.location.pathname.split('/').pop().replace(/\.html$/,'');
+  var found = [], tasks = [];
+  for(var i=0;i<45;i++){
+    (function(offset){
+      var d = new Date(); d.setDate(d.getDate()-offset);
+      var s = d.getFullYear()+'-'+PAD(d.getMonth()+1)+'-'+PAD(d.getDate());
+      tasks.push(fetch('./'+s+'.html',{method:'HEAD'}).then(function(r){if(r.ok)found.push({s:s,d:new Date(d)});}).catch(function(){}));
+    })(i);
+  }
+  Promise.all(tasks).then(function(){
+    found.sort(function(a,b){return b.d-a.d;});
+    var html='';
+    found.forEach(function(f){
+      var label=DAYS[f.d.getDay()]+', '+MONTHS[f.d.getMonth()]+' '+f.d.getDate();
+      var cls='arc-item'+(f.s===current?' current':'');
+      html+='<a class="'+cls+'" href="./'+f.s+'.html">'+label+'</a>';
+    });
+    document.getElementById('arcList').innerHTML=html||'<span style="color:var(--muted);font-size:12px">None found</span>';
+  });
+})();
+function arcToggle(){
+  var p=document.getElementById('arcPanel'),o=document.getElementById('arcOverlay');
+  var open=p.classList.contains('open');
+  if(open){arcClose();}else{p.classList.add('open');o.classList.add('open');}
+}
+function arcClose(){
+  document.getElementById('arcPanel').classList.remove('open');
+  document.getElementById('arcOverlay').classList.remove('open');
+}
+</script>
+
+</body>
+</html>
