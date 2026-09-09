@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Daily Dump — September 9, 2026</title>
+<style>
+  :root {
+    --bg: #0e1117;
+    --surface: #161b27;
+    --border: #252d3d;
+    --text: #e2e8f0;
+    --muted: #8892a4;
+    --accent: #5b8ef0;
+    --hot: #f06060;
+    --release: #60c4a0;
+    --horizon: #c4a060;
+    --lesson: #a988f0;
+    --reading: #f0c060;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg); color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    font-size: 15px; line-height: 1.65;
+    max-width: 760px; margin: 0 auto; padding: 48px 24px 80px;
+  }
+  .header { margin-bottom: 40px; padding-bottom: 20px; border-bottom: 1px solid var(--border); }
+  .header-date { font-size: 12px; color: var(--muted); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 6px; }
+  .header-title { font-size: 26px; font-weight: 700; color: var(--text); }
+  .header-sub { font-size: 14px; color: var(--muted); margin-top: 6px; }
+
+  .section { margin-bottom: 38px; }
+  .section-label {
+    display: inline-block; font-size: 10px; font-weight: 700;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    padding: 3px 9px; border-radius: 4px; margin-bottom: 16px;
+  }
+  .label-hot { background: rgba(240,96,96,0.15); color: var(--hot); border: 1px solid rgba(240,96,96,0.3); }
+  .label-release { background: rgba(96,196,160,0.15); color: var(--release); border: 1px solid rgba(96,196,160,0.3); }
+  .label-horizon { background: rgba(196,160,96,0.15); color: var(--horizon); border: 1px solid rgba(196,160,96,0.3); }
+  .label-lesson { background: rgba(169,136,240,0.15); color: var(--lesson); border: 1px solid rgba(169,136,240,0.3); }
+  .label-reading { background: rgba(240,192,96,0.15); color: var(--reading); border: 1px solid rgba(240,192,96,0.3); }
+
+  .item { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 16px 18px; margin-bottom: 12px; }
+  .item-title { font-size: 15px; font-weight: 600; color: var(--text); margin-bottom: 5px; }
+  .item-title a { color: inherit; text-decoration: none; }
+  .item-title a:hover { color: var(--accent); }
+  .item-meta { font-size: 12px; color: var(--muted); margin-bottom: 8px; }
+  .item-body { font-size: 14px; color: #b0bac8; line-height: 1.6; }
+
+  .tag {
+    display: inline-block; font-size: 10px; font-weight: 600;
+    padding: 2px 7px; border-radius: 3px; margin-right: 6px;
+    letter-spacing: 0.05em; text-transform: uppercase;
+  }
+  .tag-hn { background: rgba(255,102,0,0.15); color: #ff9955; }
+  .tag-reddit { background: rgba(255,69,0,0.15); color: #ff7755; }
+  .tag-simon { background: rgba(91,142,240,0.15); color: var(--accent); }
+
+  .lesson-box { background: rgba(169,136,240,0.07); border: 1px solid rgba(169,136,240,0.25); border-radius: 8px; padding: 20px 22px; }
+  .lesson-title { font-size: 16px; font-weight: 700; color: var(--lesson); margin-bottom: 14px; line-height: 1.3; }
+  .lesson-body { font-size: 14px; color: #b8b0d0; line-height: 1.7; }
+  .lesson-body code { background: rgba(169,136,240,0.1); padding: 1px 5px; border-radius: 3px; font-size: 13px; font-family: "SF Mono", Monaco, Consolas, monospace; }
+  .lesson-body strong { color: var(--text); font-weight: 600; }
+
+  .footer { margin-top: 48px; padding-top: 16px; border-top: 1px solid var(--border); font-size: 12px; color: var(--muted); text-align: center; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-date">Wednesday, September 9, 2026</div>
+  <div class="header-title">AI Daily Dump</div>
+  <div class="header-sub">For Pranesh — what's actually happening in AI/inference right now</div>
+</div>
+
+<!-- WHAT'S HOT -->
+<div class="section">
+  <div class="section-label label-hot">🔥 What's Hot Right Now</div>
+
+  <div class="item">
+    <div class="item-title"><a href="https://news.ycombinator.com/item?id=todays-top" target="_blank">OpenAI solved the Navier–Stokes Millennium Prize — and is accused of stealing the work</a></div>
+    <div class="item-meta">
+      <span class="tag tag-hn">HN 634 pts</span>
+      <span class="tag tag-simon">Simon Willison</span>
+      Sep 8–9, 2026 · ongoing
+    </div>
+    <div class="item-body">
+      The dominant story of the day: OpenAI's agents (running on an unreleased model + GPT-5.6 Sol) resolved the Navier–Stokes existence and smoothness problem in about 88 hours, beginning Sep 1. The catch: NYU mathematician Tristan Buckmaster and Anthropic employee Levent Alpöge had spent nearly a year on the same problem using Claude and Codex, had a breakthrough Aug 15, and learned OpenAI launched their effort "in the past few days" after hearing a rumor about their work. Key unresolved question: did their months of prompting in Codex influence training of the model OpenAI then deployed against the same problem? An Anthropic employee posted "I resigned from Anthropic today" on X this morning (634 pts HN), widely read as connected. Simon Willison has the best writeup with the full Buckmaster quote and OpenAI's response.
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="item-title"><a href="https://www.reddit.com/r/LocalLLaMA/comments/1wbfrut/deepseek_has_soft_retired_deepseek_v4_pro/" target="_blank">DeepSeek soft-retires V4 Pro — V4.1 Flash is now the default</a></div>
+    <div class="item-meta">
+      <span class="tag tag-reddit">r/LocalLLaMA 889 pts</span>
+      <span class="tag tag-hn">HN 296 pts</span>
+      ~9 hours ago
+    </div>
+    <div class="item-body">
+      DeepSeek has quietly moved V4 Pro to maintenance mode. V4.1 Flash is now positioned as the primary model: cheaper and reportedly more capable on the benchmarks that matter. The r/LocalLLaMA thread is full of screenshots confirming the transition. If you're routing to DeepSeek in prod, worth checking your model pinning.
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="item-title"><a href="https://opusfived.dev" target="_blank">opusfived.dev: "Make the Add to Cart button blue. Don't let Claude change anything else."</a></div>
+    <div class="item-meta">
+      <span class="tag tag-hn">HN 540 pts</span>
+      ~6 hours ago
+    </div>
+    <div class="item-body">
+      A minimal demo that's been lighting up HN: one button, one instruction, a live page where you watch Claude's computer use agent try to accomplish the task and nothing else. Deceptively simple — it's the cleanest possible illustration of constrained agentic action, and the comments are full of people noting how much the real-world UX of "authorized but bounded" agents is still an open design problem.
+    </div>
+  </div>
+</div>
+
+<!-- NEW RELEASES -->
+<div class="section">
+  <div class="section-label label-release">🚀 New Releases &amp; Updates</div>
+
+  <div class="item">
+    <div class="item-title"><a href="https://simonwillison.net/" target="_blank">ChatGPT Images 2.5: gpt-image-2.5-sunburst and gpt-image-2.5-flare</a></div>
+    <div class="item-meta">
+      <span class="tag tag-simon">Simon Willison</span>
+      Sep 8, 2026
+    </div>
+    <div class="item-body">
+      OpenAI dropped two new image-gen model IDs: <code>gpt-image-2.5-sunburst</code> (editing precision, multi-turn instruction-following, subject preservation) and <code>gpt-image-2.5-flare</code> (fast, high-quality everyday generation). Both are faster than the previous generation. Simon already has the pelicans ready.
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="item-title"><a href="https://www.reddit.com/r/LocalLLaMA/comments/1wbm50k/1bit_27b_in_the_browser_2530_toks_on_a_6_gb_rtx/" target="_blank">1-bit 27B running in the browser: 25–30 tok/s on a 6 GB RTX 3060 (WebGPU, no install)</a></div>
+    <div class="item-meta">
+      <span class="tag tag-reddit">r/LocalLLaMA 26 pts</span>
+      ~4 hours ago · growing
+    </div>
+    <div class="item-body">
+      Early but impressive: a 1.58-bit (BitNet-style) 27B model running fully in-browser via WebGPU. 25–30 tok/s on a 6 GB laptop GPU, nothing to install. The "shouldn't be possible" reaction is justified — see today's lesson for how this actually works.
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="item-title"><a href="https://huggingface.co/Qwen/Qwen-Drive-1.0-4B" target="_blank">Qwen-Drive-1.0-4B: a vision-language foundation model for autonomous driving</a></div>
+    <div class="item-meta">
+      <span class="tag tag-reddit">r/LocalLLaMA 429 pts</span>
+      Released ~10 days ago · went viral yesterday
+    </div>
+    <div class="item-body">
+      Qwen dropped a 4B VLM purpose-built for autonomous driving perception and decision-making. The r/LocalLLaMA thread blew up yesterday — the community is impressed by the small footprint for the task scope. Paper on arXiv (2609.00111). Likely the first of a Qwen vertical model series.
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="item-title"><a href="https://www.reddit.com/r/LocalLLaMA/comments/1wb7p70/qwen38flashnext_on_mlxserve_1m_context_is_released/" target="_blank">Qwen3.8-Flash-Next on MLX-serve: 1M context window released</a></div>
+    <div class="item-meta">
+      <span class="tag tag-reddit">r/LocalLLaMA 196 pts</span>
+      ~16 hours ago
+    </div>
+    <div class="item-body">
+      MLX-serve now ships Qwen3.8-Flash-Next with a 1M context window on Apple Silicon. Fast, cheap, and local — if you're doing long-context work on M-series Macs this is worth a look.
+    </div>
+  </div>
+</div>
+
+<!-- COMMUNITY BUZZ -->
+<div class="section">
+  <div class="section-label label-hot" style="background:rgba(91,142,240,0.1);color:var(--accent);border-color:rgba(91,142,240,0.3);">💬 Community Buzz</div>
+
+  <div class="item">
+    <div class="item-title"><a href="https://www.reddit.com/r/LocalLLaMA/comments/1wbkpnw/glm_53_flash_q4_60tps_550tps_on_m3_ultra/" target="_blank">GLM 5.3 Flash Q4 hitting 60 tok/s prefill and 550 tok/s generation on M3 Ultra</a></div>
+    <div class="item-meta"><span class="tag tag-reddit">r/LocalLLaMA</span> ~5 hours ago</div>
+    <div class="item-body">
+      Benchmark post showing GLM 5.3 Flash at Q4 quantization doing 550 tok/s decode on M3 Ultra. For context: GLM 5.3 Flash is the 18B-active / 320B-total MoE that ran anonymously as "Ox Alpha" on OpenRouter a few weeks back. These speeds make it competitive with API calls for latency-sensitive local use cases.
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="item-title"><a href="https://www.reddit.com/r/LocalLLaMA/comments/1wbi5u1/deepseekv4flashvisionexp_285b_moe_on_1012x_rtx/" target="_blank">DeepSeek-V4-Flash-Vision-Exp (285B MoE) with spec decoding on 10–12× RTX 3090</a></div>
+    <div class="item-meta"><span class="tag tag-reddit">r/LocalLLaMA</span> ~7 hours ago</div>
+    <div class="item-body">
+      Someone's running the 285B MoE vision variant of DeepSeek V4 Flash across a cluster of RTX 3090s with speculative decoding enabled. Good thread for anyone thinking about multi-GPU consumer setups — the spec decoding overhead and the vision pipeline interaction are both documented in the comments.
+    </div>
+  </div>
+</div>
+
+<!-- ON THE HORIZON -->
+<div class="section">
+  <div class="section-label label-horizon">👀 On the Horizon</div>
+
+  <div class="item">
+    <div class="item-title"><a href="https://www.reddit.com/r/LocalLLaMA/comments/1wbejtp/mimoxpropreview_and_mimoxflashpreview_new_mimo/" target="_blank">MiMo-X-Pro-Preview and MiMo-X-Flash-Preview spotted in Mimo Desktop app</a></div>
+    <div class="item-meta"><span class="tag tag-reddit">r/LocalLLaMA 35 pts</span> ~10 hours ago</div>
+    <div class="item-body">
+      Two new reasoning model names were found buried in the Mimo Desktop preview announcement: MiMo-X-Pro-Preview and MiMo-X-Flash-Preview. No weights or benchmarks yet — could be imminent given MiMo's track record of quick releases after leaks.
+    </div>
+  </div>
+</div>
+
+<!-- ALSO WORTH READING -->
+<div class="section">
+  <div class="section-label label-reading">📚 Also Worth Reading</div>
+
+  <div class="item">
+    <div class="item-title"><a href="https://simonwillison.net/" target="_blank">Simon Willison: full breakdown of the Navier-Stokes / OpenAI / Anthropic situation</a></div>
+    <div class="item-meta"><span class="tag tag-simon">Simon Willison</span> Sep 8, 2026</div>
+    <div class="item-body">Best single-source writeup of the math controversy, including the Buckmaster quote, OpenAI's full statement, and Simon's own take on the "if I train a model on your API sessions, what exactly did I take from you?" question. Includes the Terence Tao quote on the chilling effect of AI on open mathematics.</div>
+  </div>
+
+  <div class="item">
+    <div class="item-title"><a href="https://desertant.com/blog/introducing-desert-ant-labs/" target="_blank">Desert Ant Labs: on-device intelligence for every product</a></div>
+    <div class="item-meta"><span class="tag tag-hn">HN 237 pts</span> ~4 hours ago</div>
+    <div class="item-body">New startup focused entirely on on-device AI inference — no cloud dependency, privacy-first. Trending on both HN and r/LocalLLaMA simultaneously, which is a decent signal. The timing alongside today's 1-bit browser demo suggests on-device is having a moment.</div>
+  </div>
+
+  <div class="item">
+    <div class="item-title"><a href="https://news.ycombinator.com/item?id=todays-gpt56sol" target="_blank">How GPT-5.6 Sol helps run quantum computing experiments (openai.com)</a></div>
+    <div class="item-meta"><span class="tag tag-hn">HN 129 pts</span> ~8 hours ago</div>
+    <div class="item-body">OpenAI blog post on using Sol in active physics research workflows. Interesting companion to the math controversy — this is the "look how we're helping science" side of the same coin. Worth skimming for how the research loop is actually structured.</div>
+  </div>
+</div>
+
+<!-- TODAY'S LESSON -->
+<div class="section">
+  <div class="section-label label-lesson">📖 Today's Lesson</div>
+  <div class="lesson-box">
+    <div class="lesson-title">1.58-bit Quantization (BitNet): Why a 27B Model Can Run in Your Browser Today</div>
+    <div class="lesson-body">
+      <p>The 1-bit 27B browser demo today sounds impossible until you understand what "1-bit" actually means here.</p>
+
+      <p style="margin-top:12px;"><strong>Standard post-training quantization (GGUF Q4, AWQ, GPTQ)</strong> takes a model trained in FP16 and compresses its weights after training — usually to 4–8 bits per parameter. A 27B model at Q4 is still ~14 GB, far too large for a 6 GB GPU, and it still requires floating-point multiply-accumulate operations at inference time.</p>
+
+      <p style="margin-top:12px;"><strong>BitNet b1.58</strong> (Microsoft Research, 2024) is different in kind, not degree. Every weight in the network is constrained to one of three values: <code>{-1, 0, +1}</code>. With ~⅓ of weights at zero, the effective entropy per weight is about 1.58 bits — hence the name. But crucially, this constraint is baked into training from the start. You can't quantize a normal model down to 1.58 bits; you have to train a BitNet model.</p>
+
+      <p style="margin-top:12px;"><strong>Why this unlocks the browser:</strong> Matrix multiplication with ternary weights reduces to integer additions and subtractions — no floating-point multipliers. WebGPU (the API available in every modern browser) handles integer operations efficiently. The 27B model fits in ~5 GB at 1.58 bits, squeezed under the 6 GB limit. Hardware multipliers — expensive in area and power — are completely bypassed.</p>
+
+      <p style="margin-top:12px;"><strong>The catch:</strong> BitNet models need to be trained from scratch and they're not yet at parity with standard-precision models of the same parameter count. The quality/size tradeoff is improving fast, but don't expect a BitNet 27B to out-think a properly quantized Q4 70B. What you get is "reasonable quality at sizes that were previously impossible" — which, for edge and browser deployments, is exactly the trade worth making.</p>
+    </div>
+  </div>
+</div>
+
+<div class="footer">AI Daily Dump · auto-generated · September 9, 2026</div>
+
+<!-- ARCHIVE SIDEBAR -->
+<style>
+  .arc-btn {
+    position: fixed; top: 18px; right: 18px; z-index: 200;
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 6px; padding: 6px 11px; font-size: 12px;
+    color: var(--muted); cursor: pointer; display: flex;
+    align-items: center; gap: 6px; user-select: none;
+    transition: border-color 0.15s, color 0.15s;
+    font-family: inherit;
+  }
+  .arc-btn:hover { border-color: #3a4060; color: var(--text); }
+  .arc-overlay {
+    display: none; position: fixed; inset: 0; z-index: 198;
+    background: rgba(0,0,0,0.45);
+  }
+  .arc-overlay.open { display: block; }
+  .arc-panel {
+    position: fixed; top: 0; right: 0; height: 100vh; width: 200px;
+    background: var(--surface); border-left: 1px solid var(--border);
+    z-index: 199; padding: 56px 14px 24px; overflow-y: auto;
+    transform: translateX(100%); transition: transform 0.22s ease;
+  }
+  .arc-panel.open { transform: translateX(0); }
+  .arc-panel-title {
+    font-size: 10px; font-weight: 700; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--muted);
+    margin-bottom: 14px; padding-left: 4px;
+  }
+  .arc-item {
+    display: block; padding: 7px 8px; border-radius: 5px;
+    font-size: 13px; color: var(--muted); text-decoration: none;
+    margin-bottom: 2px; transition: background 0.1s, color 0.1s;
+  }
+  .arc-item:hover { background: #1e2333; color: var(--text); }
+  .arc-item.current { background: rgba(91,142,240,0.12); color: var(--accent); font-weight: 600; }
+  .arc-close {
+    position: absolute; top: 14px; right: 14px;
+    background: none; border: none; color: var(--muted);
+    cursor: pointer; font-size: 18px; line-height: 1; padding: 4px;
+  }
+  .arc-close:hover { color: var(--text); }
+</style>
+<div class="arc-overlay" id="arcOverlay" onclick="arcClose()"></div>
+<div class="arc-panel" id="arcPanel">
+  <button class="arc-close" onclick="arcClose()">&#x2715;</button>
+  <div class="arc-panel-title">Past Issues</div>
+  <div id="arcList"><span style="color:var(--muted);font-size:12px">Loading…</span></div>
+</div>
+<button class="arc-btn" onclick="arcToggle()">
+  <svg width="13" height="11" viewBox="0 0 18 14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="0" y1="1" x2="18" y2="1"/><line x1="0" y1="13" x2="18" y2="13"/><line x1="0" y1="7" x2="18" y2="7"/></svg>
+  Past issues
+</button>
+<script>
+(function(){
+  var PAD = function(n){return String(n).padStart(2,'0');};
+  var MONTHS = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  var DAYS   = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+  var current = window.location.pathname.split('/').pop().replace(/\.html$/,'');
+  var found = [], tasks = [];
+  for(var i=0;i<45;i++){
+    (function(offset){
+      var d = new Date(); d.setDate(d.getDate()-offset);
+      var s = d.getFullYear()+'-'+PAD(d.getMonth()+1)+'-'+PAD(d.getDate());
+      tasks.push(fetch('./'+s+'.html',{method:'HEAD'}).then(function(r){if(r.ok)found.push({s:s,d:new Date(d)});}).catch(function(){}));
+    })(i);
+  }
+  Promise.all(tasks).then(function(){
+    found.sort(function(a,b){return b.d-a.d;});
+    var html='';
+    found.forEach(function(f){
+      var label=DAYS[f.d.getDay()]+', '+MONTHS[f.d.getMonth()]+' '+f.d.getDate();
+      var cls='arc-item'+(f.s===current?' current':'');
+      html+='<a class="'+cls+'" href="./'+f.s+'.html">'+label+'</a>';
+    });
+    document.getElementById('arcList').innerHTML=html||'<span style="color:var(--muted);font-size:12px">None found</span>';
+  });
+})();
+function arcToggle(){
+  var p=document.getElementById('arcPanel'),o=document.getElementById('arcOverlay');
+  var open=p.classList.contains('open');
+  if(open){arcClose();}else{p.classList.add('open');o.classList.add('open');}
+}
+function arcClose(){
+  document.getElementById('arcPanel').classList.remove('open');
+  document.getElementById('arcOverlay').classList.remove('open');
+}
+</script>
+</body>
+</html>
