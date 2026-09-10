@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Daily Dump — September 10, 2026</title>
+<style>
+  :root {
+    --bg: #0f1117;
+    --surface: #161b27;
+    --surface2: #1c2235;
+    --border: #252d42;
+    --text: #e2e8f0;
+    --muted: #7a8499;
+    --accent: #5b8ef0;
+    --accent2: #7c6af5;
+    --green: #34d399;
+    --yellow: #fbbf24;
+    --red: #f87171;
+    --orange: #fb923c;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+    font-size: 15px;
+    line-height: 1.65;
+    max-width: 740px;
+    margin: 0 auto;
+    padding: 40px 24px 80px;
+  }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  /* Header */
+  .header { margin-bottom: 40px; padding-bottom: 24px; border-bottom: 1px solid var(--border); }
+  .header-label {
+    font-size: 11px; font-weight: 700; letter-spacing: 0.12em;
+    text-transform: uppercase; color: var(--muted); margin-bottom: 8px;
+  }
+  .header h1 { font-size: 26px; font-weight: 700; color: var(--text); line-height: 1.2; }
+  .header-sub { color: var(--muted); font-size: 13px; margin-top: 6px; }
+
+  /* Section labels */
+  .section { margin-bottom: 44px; }
+  .section-label {
+    display: inline-flex; align-items: center; gap: 7px;
+    font-size: 10px; font-weight: 700; letter-spacing: 0.12em;
+    text-transform: uppercase; padding: 3px 9px; border-radius: 4px;
+    margin-bottom: 18px;
+  }
+  .label-hot { background: rgba(251,146,60,0.15); color: var(--orange); border: 1px solid rgba(251,146,60,0.3); }
+  .label-releases { background: rgba(52,211,153,0.12); color: var(--green); border: 1px solid rgba(52,211,153,0.25); }
+  .label-horizon { background: rgba(124,106,245,0.12); color: var(--accent2); border: 1px solid rgba(124,106,245,0.25); }
+  .label-reading { background: rgba(91,142,240,0.1); color: var(--accent); border: 1px solid rgba(91,142,240,0.25); }
+  .label-lesson { background: rgba(251,191,36,0.1); color: var(--yellow); border: 1px solid rgba(251,191,36,0.25); }
+
+  /* Cards */
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 18px 20px;
+    margin-bottom: 12px;
+    transition: border-color 0.15s;
+  }
+  .card:hover { border-color: #3a4060; }
+  .card-title { font-size: 15px; font-weight: 600; color: var(--text); margin-bottom: 6px; line-height: 1.4; }
+  .card-title a { color: var(--text); }
+  .card-title a:hover { color: var(--accent); text-decoration: none; }
+  .card-body { color: #a0aab8; font-size: 14px; line-height: 1.6; }
+  .card-meta {
+    display: flex; align-items: center; gap: 10px;
+    font-size: 11px; color: var(--muted); margin-top: 10px; flex-wrap: wrap;
+  }
+  .tag {
+    background: var(--surface2); border: 1px solid var(--border);
+    border-radius: 3px; padding: 1px 7px; font-size: 11px; color: var(--muted);
+  }
+  .tag-hot { background: rgba(251,146,60,0.1); color: var(--orange); border-color: rgba(251,146,60,0.2); }
+  .tag-new { background: rgba(52,211,153,0.1); color: var(--green); border-color: rgba(52,211,153,0.2); }
+  .score { color: var(--accent); font-weight: 600; }
+
+  /* Lesson */
+  .lesson-card {
+    background: var(--surface);
+    border: 1px solid rgba(251,191,36,0.2);
+    border-radius: 10px;
+    padding: 24px;
+  }
+  .lesson-title { font-size: 17px; font-weight: 700; color: var(--yellow); margin-bottom: 14px; }
+  .lesson-body { color: #a8b3c5; font-size: 14px; line-height: 1.75; }
+  .lesson-body p { margin-bottom: 12px; }
+  .lesson-body strong { color: var(--text); }
+
+  /* Reading items */
+  .reading-item { margin-bottom: 14px; padding-bottom: 14px; border-bottom: 1px solid var(--border); }
+  .reading-item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+  .reading-item-title { font-size: 14px; font-weight: 600; margin-bottom: 3px; }
+  .reading-item-desc { font-size: 13px; color: var(--muted); }
+
+  /* Highlight banner */
+  .big-story {
+    background: linear-gradient(135deg, rgba(91,142,240,0.08), rgba(124,106,245,0.08));
+    border: 1px solid rgba(91,142,240,0.3);
+    border-left: 3px solid var(--accent);
+    border-radius: 10px;
+    padding: 18px 20px;
+    margin-bottom: 12px;
+  }
+  .big-story .card-title { font-size: 16px; }
+  .big-story-badge {
+    display: inline-block; background: var(--accent); color: #fff;
+    font-size: 10px; font-weight: 700; letter-spacing: 0.08em;
+    text-transform: uppercase; padding: 2px 8px; border-radius: 3px;
+    margin-bottom: 8px;
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-label">AI Daily Dump</div>
+  <h1>September 10, 2026</h1>
+  <div class="header-sub">Thursday · DeepSeek drops a freight train · Apple's local-LLM-friendly chip · OpenAI drama hits HN hard</div>
+</div>
+
+<!-- WHAT'S HOT -->
+<div class="section">
+  <span class="section-label label-hot">🔥 What's Hot Right Now</span>
+
+  <div class="big-story">
+    <div class="big-story-badge">Story of the day</div>
+    <div class="card-title"><a href="https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash" target="_blank">DeepSeek V4.1 Flash drops: 748B params, multimodal MoE, free API</a></div>
+    <div class="card-body">
+      The community is calling it DeepSeek's biggest drop since V3. V4.1 Flash is a multimodal Mixture-of-Experts model with <strong>748B total / 552B backbone parameters</strong> (the r/LocalLLaMA thread spent hours clarifying this — the HF card said 552B but the safetensors show 748B). The "Flash" branding signals it's tuned for speed over raw quality, but early benchmarks are impressing people. The <strong>reasoning_effort</strong> parameter from V3 returns here — there's already a guide on the sub explaining how to tune it. Available on HF, and the API is live.
+    </div>
+    <div class="card-meta">
+      <span class="tag tag-hot">🔥 Released today</span>
+      <span class="score">🚀 777 pts r/LocalLLaMA · 668 pts HN</span>
+      <a href="https://www.reddit.com/r/LocalLLaMA/comments/1wcbid7/deepseek_v41_flash_is_out/" target="_blank">Reddit thread</a>
+      <a href="https://news.ycombinator.com/item?id=" target="_blank">HN #1 today</a>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">Apple A20 Pro: 50% more memory bandwidth, 32-core Neural Engine on 2nm</div>
+    <div class="card-body">
+      r/LocalLLaMA is buzzing over the Apple A20 Pro's spec sheet: a <strong>96-bit LPDDR5X memory bus</strong> (up from 64-bit) delivers roughly <strong>~115 GB/s</strong> — 50% more than M-series predecessors. The Neural Engine doubles from 16 to 32 cores. For the local LLM crowd this is the headline: more memory bandwidth means faster token generation per watt on Apple Silicon. The 2nm TSMC process makes the wider bus expensive but Apple clearly prioritized it.
+    </div>
+    <div class="card-meta">
+      <span class="tag tag-hot">Hardware</span>
+      <span class="score">463 pts r/LocalLLaMA</span>
+      <a href="https://www.reddit.com/r/LocalLLaMA/comments/1wc0ekw/apple_a20_pro_debuts_with_7core_gpu_32core_neural/" target="_blank">Reddit thread</a>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><a href="https://www.reddit.com/r/LocalLLaMA/comments/1wcj5q3/harness_does_matter/" target="_blank">Harness does matter — benchmarking chaos thread</a></div>
+    <div class="card-body">
+      In the shadow of V4.1 Flash's launch, a well-upvoted post is making the rounds arguing that eval harness choice meaningfully skews model rankings — different harnesses on identical models can produce wildly different MMLU scores. Good timing for a gut-check on trusting benchmarks.
+    </div>
+    <div class="card-meta">
+      <span class="tag">Community</span>
+      <span class="score">58 pts</span>
+    </div>
+  </div>
+</div>
+
+<!-- NEW RELEASES -->
+<div class="section">
+  <span class="section-label label-releases">✦ New Releases &amp; Updates</span>
+
+  <div class="card">
+    <div class="card-title"><a href="https://www.reddit.com/r/LocalLLaMA/comments/1wchl1x/gigachat35reasoning/" target="_blank">GigaChat-3.5-Reasoning — 432B-A28B MoE with Gated DeltaNet</a></div>
+    <div class="card-body">
+      Russia's Sber drops GigaChat-3.5-Reasoning, a <strong>432B total / 28B active parameter</strong> MoE. The interesting architectural detail: it uses <strong>Gated DeltaNet</strong> for long-context efficiency — a linear attention variant designed to avoid quadratic KV cache growth at very long sequence lengths. Weights are available and the team is positioning it for reasoning tasks.
+    </div>
+    <div class="card-meta">
+      <span class="tag tag-new">Released today</span>
+      <span class="score">76 pts r/LocalLLaMA</span>
+    </div>
+  </div>
+</div>
+
+<!-- ALSO WORTH READING -->
+<div class="section">
+  <span class="section-label label-reading">📎 Also Worth Reading</span>
+
+  <div class="card">
+    <div class="reading-item">
+      <div class="reading-item-title"><a href="https://hugovergnes.github.io/" target="_blank">Training a 3.8B LLM to 0.384 CORE for $998</a></div>
+      <div class="reading-item-desc">HN #6 today (103 pts). Someone trained a small LLM to a competitive "CORE" benchmark score for under a grand. The write-up covers the data mix, training tricks, and cost breakdown — useful reference for anyone thinking about fine-tuning economics.</div>
+    </div>
+    <div class="reading-item">
+      <div class="reading-item-title"><a href="https://news.ycombinator.com/item?id=deepseekv41" target="_blank">OpenAI training & attribution controversy heating up on HN</a></div>
+      <div class="reading-item-desc">Three separate HN threads today: "OpenAI might have stolen another major proof" (272 pts), "Another researcher says OpenAI trained on conversations" (164 pts), and "Tell HN: OpenAI keeps re-enabling the 'allow training' setting" (179 pts). Worth keeping an eye on — the pattern of complaints is intensifying.</div>
+    </div>
+    <div class="reading-item">
+      <div class="reading-item-title"><a href="https://thelec.net/" target="_blank">Samsung debuts zHBM prototype — memory stacked directly on AI accelerators</a></div>
+      <div class="reading-item-desc">Samsung's zHBM (zero-height HBM) puts memory dies directly on top of the logic die, eliminating the interposer. Potential for dramatically higher bandwidth at lower power. Early prototype, but directionally important for future AI chips. (HN #12, appeared 3 days ago — still worth noting.)</div>
+    </div>
+    <div class="reading-item">
+      <div class="reading-item-title"><a href="https://www.reddit.com/r/LocalLLaMA/comments/1wcbt99/closed_ai_doesnt_like_biological_research_user/" target="_blank">Closed AI blocks biotech researcher, who switches to open weights</a></div>
+      <div class="reading-item-desc">A researcher doing protein design work for a client got shut down by OpenAI's content filters. The thread has good discussion on what open-weight models actually unlock for scientific compute. 169 pts this morning.</div>
+    </div>
+  </div>
+</div>
+
+<!-- TODAY'S LESSON -->
+<div class="section">
+  <span class="section-label label-lesson">📖 Today's Lesson</span>
+  <div class="lesson-card">
+    <div class="lesson-title">Memory Bandwidth is the Real Bottleneck for Autoregressive Inference</div>
+    <div class="lesson-body">
+      <p>The Apple A20 Pro news got the local LLM community excited for one specific reason: <strong>memory bandwidth</strong>. But why does bandwidth matter more than raw compute (FLOPS) for running LLMs?</p>
+      <p>During the <strong>decode phase</strong> of autoregressive generation — generating tokens one at a time — the GPU has to load all model weights from memory on every single forward pass. A 7B parameter model in fp16 takes about 14 GB. If your chip has 100 GB/s of bandwidth, it takes 140ms just to move the weights — before doing any arithmetic. You're almost always memory-bound, not compute-bound.</p>
+      <p>The key metric is <strong>arithmetic intensity</strong>: FLOPs per byte of memory accessed. For matrix-vector operations (which dominate decoding), this is very low — typically 1–10 FLOPs/byte. Modern GPUs are built for thousands of FLOPs/byte. So they sit mostly idle waiting for data.</p>
+      <p>This is why the A20 Pro's jump from 64-bit to 96-bit LPDDR5X matters: going from ~77 GB/s to ~115 GB/s means roughly <strong>50% faster token generation</strong> at the same model size, all else equal. It also explains why quantization (4-bit, 8-bit) boosts throughput beyond just fitting a larger model — you load fewer bytes per weight per token.</p>
+      <p>The practical implication: for single-user local inference, bandwidth >> TFLOPS. For batch inference serving many users simultaneously, arithmetic intensity rises and compute starts to matter more — which is why datacenter GPUs with HBM (900+ GB/s) look so different from consumer hardware.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ARCHIVE SIDEBAR -->
+<style>
+  .arc-btn {
+    position: fixed; top: 18px; right: 18px; z-index: 200;
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 6px; padding: 6px 11px; font-size: 12px;
+    color: var(--muted); cursor: pointer; display: flex;
+    align-items: center; gap: 6px; user-select: none;
+    transition: border-color 0.15s, color 0.15s;
+    font-family: inherit;
+  }
+  .arc-btn:hover { border-color: #3a4060; color: var(--text); }
+  .arc-overlay {
+    display: none; position: fixed; inset: 0; z-index: 198;
+    background: rgba(0,0,0,0.45);
+  }
+  .arc-overlay.open { display: block; }
+  .arc-panel {
+    position: fixed; top: 0; right: 0; height: 100vh; width: 200px;
+    background: var(--surface); border-left: 1px solid var(--border);
+    z-index: 199; padding: 56px 14px 24px; overflow-y: auto;
+    transform: translateX(100%); transition: transform 0.22s ease;
+  }
+  .arc-panel.open { transform: translateX(0); }
+  .arc-panel-title {
+    font-size: 10px; font-weight: 700; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--muted);
+    margin-bottom: 14px; padding-left: 4px;
+  }
+  .arc-item {
+    display: block; padding: 7px 8px; border-radius: 5px;
+    font-size: 13px; color: var(--muted); text-decoration: none;
+    margin-bottom: 2px; transition: background 0.1s, color 0.1s;
+  }
+  .arc-item:hover { background: #1e2333; color: var(--text); }
+  .arc-item.current { background: rgba(91,142,240,0.12); color: var(--accent); font-weight: 600; }
+  .arc-close {
+    position: absolute; top: 14px; right: 14px;
+    background: none; border: none; color: var(--muted);
+    cursor: pointer; font-size: 18px; line-height: 1; padding: 4px;
+  }
+  .arc-close:hover { color: var(--text); }
+</style>
+<div class="arc-overlay" id="arcOverlay" onclick="arcClose()"></div>
+<div class="arc-panel" id="arcPanel">
+  <button class="arc-close" onclick="arcClose()">&#x2715;</button>
+  <div class="arc-panel-title">Past Issues</div>
+  <div id="arcList"><span style="color:var(--muted);font-size:12px">Loading…</span></div>
+</div>
+<button class="arc-btn" onclick="arcToggle()">
+  <svg width="13" height="11" viewBox="0 0 18 14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="0" y1="1" x2="18" y2="1"/><line x1="0" y1="13" x2="18" y2="13"/><line x1="0" y1="7" x2="18" y2="7"/></svg>
+  Past issues
+</button>
+<script>
+(function(){
+  var PAD = function(n){return String(n).padStart(2,'0');};
+  var MONTHS = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  var DAYS   = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+  var current = window.location.pathname.split('/').pop().replace(/\.html$/,'');
+  var found = [], tasks = [];
+  for(var i=0;i<45;i++){
+    (function(offset){
+      var d = new Date(); d.setDate(d.getDate()-offset);
+      var s = d.getFullYear()+'-'+PAD(d.getMonth()+1)+'-'+PAD(d.getDate());
+      tasks.push(fetch('./'+s+'.html',{method:'HEAD'}).then(function(r){if(r.ok)found.push({s:s,d:new Date(d)});}).catch(function(){}));
+    })(i);
+  }
+  Promise.all(tasks).then(function(){
+    found.sort(function(a,b){return b.d-a.d;});
+    var html='';
+    found.forEach(function(f){
+      var label=DAYS[f.d.getDay()]+', '+MONTHS[f.d.getMonth()]+' '+f.d.getDate();
+      var cls='arc-item'+(f.s===current?' current':'');
+      html+='<a class="'+cls+'" href="./'+f.s+'.html">'+label+'</a>';
+    });
+    document.getElementById('arcList').innerHTML=html||'<span style="color:var(--muted);font-size:12px">None found</span>';
+  });
+})();
+function arcToggle(){
+  var p=document.getElementById('arcPanel'),o=document.getElementById('arcOverlay');
+  var open=p.classList.contains('open');
+  if(open){arcClose();}else{p.classList.add('open');o.classList.add('open');}
+}
+function arcClose(){
+  document.getElementById('arcPanel').classList.remove('open');
+  document.getElementById('arcOverlay').classList.remove('open');
+}
+</script>
+
+</body>
+</html>
