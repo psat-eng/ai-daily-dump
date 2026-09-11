@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Daily Dump — September 11, 2026</title>
+<style>
+  :root {
+    --bg: #0f1117;
+    --surface: #161b27;
+    --border: #252d3d;
+    --text: #e2e8f0;
+    --muted: #6b7a99;
+    --accent: #5b8ef0;
+    --green: #4ade80;
+    --yellow: #fbbf24;
+    --red: #f87171;
+    --purple: #c084fc;
+    --teal: #2dd4bf;
+    --lesson: #a78bfa;
+    --label-hot: rgba(251,191,36,0.12);
+    --label-hot-text: #fbbf24;
+    --label-release: rgba(74,222,128,0.12);
+    --label-release-text: #4ade80;
+    --label-tool: rgba(91,142,240,0.12);
+    --label-tool-text: #5b8ef0;
+    --label-horizon: rgba(192,132,252,0.12);
+    --label-horizon-text: #c084fc;
+    --label-read: rgba(45,212,191,0.12);
+    --label-read-text: #2dd4bf;
+    --label-lesson: rgba(167,139,250,0.12);
+    --label-lesson-text: #a78bfa;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+    font-size: 15px;
+    line-height: 1.65;
+    padding: 40px 20px 80px;
+  }
+  .container { max-width: 680px; margin: 0 auto; }
+  .header { margin-bottom: 44px; }
+  .header-eyebrow {
+    font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--muted); margin-bottom: 6px;
+  }
+  .header-title {
+    font-size: 28px; font-weight: 800; color: var(--text); margin-bottom: 4px;
+  }
+  .header-date { font-size: 14px; color: var(--muted); }
+  .section { margin-bottom: 44px; }
+  .section-label {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-size: 10px; font-weight: 700; letter-spacing: 0.1em;
+    text-transform: uppercase; padding: 4px 10px; border-radius: 4px;
+    margin-bottom: 18px;
+  }
+  .label-hot { background: var(--label-hot); color: var(--label-hot-text); }
+  .label-release { background: var(--label-release); color: var(--label-release-text); }
+  .label-tool { background: var(--label-tool); color: var(--label-tool-text); }
+  .label-horizon { background: var(--label-horizon); color: var(--label-horizon-text); }
+  .label-read { background: var(--label-read); color: var(--label-read-text); }
+  .label-lesson { background: var(--label-lesson); color: var(--label-lesson-text); }
+  .card {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 10px; padding: 18px 20px; margin-bottom: 12px;
+  }
+  .card-title {
+    font-size: 15px; font-weight: 700; color: var(--text);
+    margin-bottom: 6px; line-height: 1.35;
+  }
+  .card-title a { color: inherit; text-decoration: none; }
+  .card-title a:hover { color: var(--accent); }
+  .card-body { font-size: 14px; color: var(--muted); line-height: 1.6; }
+  .card-meta {
+    font-size: 11px; color: var(--muted); margin-top: 10px;
+    display: flex; gap: 12px; flex-wrap: wrap;
+  }
+  .tag {
+    display: inline-block; font-size: 10px; padding: 2px 7px;
+    border-radius: 3px; font-weight: 600; letter-spacing: 0.04em;
+  }
+  .tag-reddit { background: rgba(255,87,34,0.15); color: #ff7043; }
+  .tag-hn { background: rgba(255,102,0,0.12); color: #fb923c; }
+  .tag-hf { background: rgba(255,220,0,0.12); color: #facc15; }
+  .tag-github { background: rgba(100,116,139,0.2); color: #94a3b8; }
+  .tag-new { background: rgba(74,222,128,0.15); color: #4ade80; }
+  .score { color: var(--accent); font-weight: 600; }
+  .lesson-card {
+    background: linear-gradient(135deg, #1a1432 0%, #161b27 100%);
+    border: 1px solid rgba(167,139,250,0.25);
+    border-radius: 10px; padding: 22px 24px;
+  }
+  .lesson-title {
+    font-size: 17px; font-weight: 700; color: var(--lesson);
+    margin-bottom: 14px; line-height: 1.3;
+  }
+  .lesson-body { font-size: 14px; color: #b8c0d8; line-height: 1.75; }
+  .lesson-body p + p { margin-top: 12px; }
+  .lesson-body code {
+    background: rgba(255,255,255,0.07); padding: 1px 5px;
+    border-radius: 3px; font-size: 13px; font-family: 'SF Mono', Monaco, monospace;
+  }
+  .divider { border: none; border-top: 1px solid var(--border); margin: 40px 0; }
+  a { color: var(--accent); }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <div class="header">
+    <div class="header-eyebrow">AI Daily Dump</div>
+    <div class="header-title">Thursday, September 11</div>
+    <div class="header-date">2026 · for Pranesh</div>
+  </div>
+
+  <!-- WHAT'S HOT -->
+  <div class="section">
+    <div class="section-label label-hot">🔥 What's Hot Right Now</div>
+
+    <div class="card">
+      <div class="card-title">
+        <a href="https://www.reddit.com/r/LocalLLaMA/comments/1wd4xxv/someone_apparently_managed_to_kind_of_replicate/" target="_blank">
+          Someone replicated Gemini Flash's KV approximation trick — on Qwen3-8B
+        </a>
+      </div>
+      <div class="card-body">
+        A researcher trained a small "KV Approximation Projector" that compresses the KV cache during prefill, mimicking what Gemini 2.5 Flash does internally for fast long-context processing. The model (<code>kishida/Q3-8B-KVA-Projector</code> on Hugging Face) works on Qwen3-8B with a live browser demo. The post is blowing up with people asking if it can scale to 27B. Blog post and weights both public. This is the kind of "shouldn't be possible as a side project" story the community loves.
+      </div>
+      <div class="card-meta">
+        <span class="tag tag-reddit">r/LocalLLaMA</span>
+        <span class="score">▲ 409</span>
+        <span>Sep 11 · <a href="https://huggingface.co/kishida/Q3-8B-KVA-Projector/tree/main" target="_blank">HF weights</a> · <a href="https://kishida.github.io/webdemos/llkvapprox/" target="_blank">Demo</a></span>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">
+        <a href="https://www.reddit.com/r/LocalLLaMA/comments/1wcmgbn/another_researcher_accuses_openai_of_training_on/" target="_blank">
+          Another researcher accuses OpenAI of training on conversations, then calling it a "breakthrough"
+        </a>
+      </div>
+      <div class="card-body">
+        A Bluesky thread from a researcher claiming OpenAI's opt-out policy has a loophole: reasoning tokens are never "received" by users, so the TOS wording arguably doesn't protect them from being used for training. The post argues that since the hidden chain-of-thought contains a lightly-processed version of your entire input and the output, the opt-out guarantee is largely vacuous. 288 comments on Reddit, and it's the second time this type of accusation has landed this week.
+      </div>
+      <div class="card-meta">
+        <span class="tag tag-reddit">r/LocalLLaMA</span>
+        <span class="score">▲ 1081</span>
+        <span>Sep 10</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">
+        <a href="https://pocoo.org/log/2026/09/astra-for-coding/" target="_blank">
+          Astra for Coding: Why Are We Doing This Again?
+        </a>
+      </div>
+      <div class="card-body">
+        A skeptical engineering post from the Pocoo team (Flask/Jinja authors) pushing back on the wave of "vision + coding agents" hype. The piece questions whether bolting screen-vision onto coding assistants solves any real problem, or if it's a solution in search of a use case. 402 HN points, 301 comments — engineers clearly have feelings about this.
+      </div>
+      <div class="card-meta">
+        <span class="tag tag-hn">Hacker News</span>
+        <span class="score">▲ 402</span>
+        <span>Sep 11, 9 hrs ago</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">
+        <a href="https://www.reddit.com/r/LocalLLaMA/comments/1wcvmuo/i_find_it_funny_that_a_flash_model_is_now_512gb/" target="_blank">
+          "I find it funny that a flash model is now 512GB"
+        </a>
+      </div>
+      <div class="card-body">
+        A post that hit the r/LocalLLaMA zeitgeist perfectly: a few years ago 100GB was "very large." Now there are 512GB "flash" variants. What do we even call sub-100GB models now? 88 comments of people commiserating, benchmarking their puny setups, and debating whether model size inflation is progress or absurdity.
+      </div>
+      <div class="card-meta">
+        <span class="tag tag-reddit">r/LocalLLaMA</span>
+        <span class="score">▲ 467</span>
+        <span>Sep 10</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- NEW RELEASES -->
+  <div class="section">
+    <div class="section-label label-release">🚀 New Releases &amp; Updates</div>
+
+    <div class="card">
+      <div class="card-title">
+        <a href="https://huggingface.co/m-a-p/YuE2-3B" target="_blank">
+          YuE2-3B: Open music generation model with symbolic planning
+        </a>
+      </div>
+      <div class="card-body">
+        The m-a-p team dropped YuE2-3B, a 3B-parameter frontier music model using symbolic planning to generate structured, coherent compositions. The demo at <a href="https://map-yue2.github.io/" target="_blank">map-yue2.github.io</a> is worth trying — people are calling the outputs surprisingly musical. Also hit HN front page with 101 points today.
+      </div>
+      <div class="card-meta">
+        <span class="tag tag-hf">Hugging Face</span>
+        <span class="tag tag-new">New Model</span>
+        <span class="score">▲ 292</span>
+        <span>Sep 11</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">
+        <a href="https://openai.com/index/gpt-live-1-in-the-api/" target="_blank">
+          GPT-Live-1 now in the API
+        </a>
+      </div>
+      <div class="card-body">
+        OpenAI's real-time/live inference model is now generally available via API. Landed on HN today with 52 points — modest reaction suggests engineers are waiting to see the pricing and latency numbers before getting excited. Worth tracking for voice/streaming-heavy workloads.
+      </div>
+      <div class="card-meta">
+        <span class="tag tag-hn">Hacker News</span>
+        <span>Sep 11 · 10 hrs ago</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">
+        <a href="https://huggingface.co/nex-agi/Nex-N2.5-Pro" target="_blank">
+          Nex N2.5 Pro (407GB) dropped on Hugging Face
+        </a>
+      </div>
+      <div class="card-body">
+        A 407GB open-weights model from Nex AGI. Little context in the Reddit post but the HF card is up. Community reaction is mixed — some excited, others pointing out that 407GB is firmly in "you need a serious server rack" territory, echoing today's size-inflation discussion.
+      </div>
+      <div class="card-meta">
+        <span class="tag tag-hf">Hugging Face</span>
+        <span class="tag tag-new">New Model</span>
+        <span>Sep 11</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- TOOLS & INFERENCE -->
+  <div class="section">
+    <div class="section-label label-tool">🔧 Harnesses, Tools &amp; Inference</div>
+
+    <div class="card">
+      <div class="card-title">
+        <a href="https://github.com/ggml-org/llama.cpp/pull/28102" target="_blank">
+          llama.cpp: Flash Attention tuning for RDNA4 (gfx1201) lands as PR #28102
+        </a>
+      </div>
+      <div class="card-body">
+        A PR from contributor <code>pwilkin</code> adds Flash Attention tuning specifically for AMD's RDNA4 architecture (RX 9700) and RDNA 3.5 (RX 9060 XT, 8060S). Benchmarks in the PR show solid prompt-processing improvements, plus better numbers on large context. Good news for anyone running llama.cpp on newer AMD consumer GPUs.
+      </div>
+      <div class="card-meta">
+        <span class="tag tag-github">GitHub</span>
+        <span>Sep 11</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">
+        <a href="https://mmoustafa.com/posts/openrouter/" target="_blank">
+          So you want to use OpenRouter? (Practical engineering guide)
+        </a>
+      </div>
+      <div class="card-body">
+        A detailed how-to from Mohamed Moustafa covering OpenRouter's model routing, fallbacks, cost controls, and gotchas from real production use. 453 HN points with 118 comments — clearly filling a gap. If you're routing between multiple inference providers, this is worth the read.
+      </div>
+      <div class="card-meta">
+        <span class="tag tag-hn">Hacker News</span>
+        <span class="score">▲ 453</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ALSO WORTH READING -->
+  <div class="section">
+    <div class="section-label label-read">📌 Also Worth Reading</div>
+
+    <div class="card">
+      <div class="card-title">
+        <a href="https://nasutton.notion.site" target="_blank">
+          Nine coding harnesses vs. your laptop — a benchmark (HN #3 today)
+        </a>
+      </div>
+      <div class="card-body">
+        A side-by-side comparison of nine coding agent setups, run locally. 160 HN points, 53 comments. The framing ("vs. your laptop") makes it immediately practical for anyone evaluating Claude Code, Cursor, Copilot, and friends. Good empirical data rather than vibes.
+      </div>
+      <div class="card-meta">
+        <span class="tag tag-hn">Hacker News</span>
+        <span class="score">▲ 160</span>
+        <span>Sep 11</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">
+        <a href="https://www.reddit.com/r/LocalLLaMA/comments/1wdc7r9/terminal_bench_v4_scores/" target="_blank">
+          Terminal Bench v4 scores: GLM-5.3 dominates open models
+        </a>
+      </div>
+      <div class="card-body">
+        New Terminal Bench v4 results. GLM-5.3 leads open-weights models at 41.9%, with GLM-5.3-Flash at 32.8% — considerably ahead of DSV4.1-Flash (26.8%) and Qwen3.8-Flash-Next (25.3%). Kimi-K3 underperforms for its size (12.6%). Community consensus: this benchmark tracks real intelligence better than most.
+      </div>
+      <div class="card-meta">
+        <span class="tag tag-reddit">r/LocalLLaMA</span>
+        <span>Sep 11</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">
+        <a href="https://www.bbc.com/news/articles/google-finland-nuclear" target="_blank">
+          Google buys half the electricity from a Finnish nuclear plant
+        </a>
+      </div>
+      <div class="card-body">
+        Google signed a deal to purchase ~50% of the output from one of Finland's nuclear plants to power AI infrastructure. 218 HN points. The nuclear-for-AI-compute story keeps getting bigger — this is now a genuine infrastructure trend, not a talking point.
+      </div>
+      <div class="card-meta">
+        <span class="tag tag-hn">Hacker News</span>
+        <span class="score">▲ 218</span>
+        <span>Sep 11</span>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- TODAY'S LESSON -->
+  <div class="section">
+    <div class="section-label label-lesson">📖 Today's Lesson</div>
+    <div class="lesson-card">
+      <div class="lesson-title">KV Cache Approximation: The Trick Behind Fast Long-Context Prefill</div>
+      <div class="lesson-body">
+        <p>Today's most-upvoted Reddit post is about someone who replicated "what Gemini Flash does for KV" as a side project. But what exactly is that trick?</p>
+        <p>In standard transformer inference, the prefill phase computes the full key-value cache for every token in the prompt before generation starts. For a 100K-token context, that's 100K full attention computations — expensive, especially on the memory-bandwidth-constrained hardware most people run locally.</p>
+        <p>KV cache approximation (also called KV compression or low-rank KV projection) works by learning a smaller "proxy" representation of the KV cache. Instead of storing full-precision keys and values for every token, a trained projector maps them into a compressed latent space that preserves most of the semantic structure at a fraction of the memory and compute cost.</p>
+        <p>The tradeoff is fidelity: the approximated KV cache won't be identical to the full cache, so attention scores are slightly off — especially for tokens that sit far apart. For most generation tasks this error is imperceptible; for needle-in-a-haystack retrieval tasks, it can hurt. Models like Gemini Flash reportedly train the projector jointly with the base model to minimize this gap.</p>
+        <p>The community's excitement about <code>Q3-8B-KVA-Projector</code> is that someone did this <em>post hoc</em> — training only the projector on top of a frozen Qwen3-8B without retraining the full model. Whether it holds up at 27B and whether the quality degradation is acceptable for production use is the open question everyone's testing right now.</p>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ARCHIVE SIDEBAR -->
+<style>
+  .arc-btn {
+    position: fixed; top: 18px; right: 18px; z-index: 200;
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 6px; padding: 6px 11px; font-size: 12px;
+    color: var(--muted); cursor: pointer; display: flex;
+    align-items: center; gap: 6px; user-select: none;
+    transition: border-color 0.15s, color 0.15s;
+    font-family: inherit;
+  }
+  .arc-btn:hover { border-color: #3a4060; color: var(--text); }
+  .arc-overlay {
+    display: none; position: fixed; inset: 0; z-index: 198;
+    background: rgba(0,0,0,0.45);
+  }
+  .arc-overlay.open { display: block; }
+  .arc-panel {
+    position: fixed; top: 0; right: 0; height: 100vh; width: 200px;
+    background: var(--surface); border-left: 1px solid var(--border);
+    z-index: 199; padding: 56px 14px 24px; overflow-y: auto;
+    transform: translateX(100%); transition: transform 0.22s ease;
+  }
+  .arc-panel.open { transform: translateX(0); }
+  .arc-panel-title {
+    font-size: 10px; font-weight: 700; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--muted);
+    margin-bottom: 14px; padding-left: 4px;
+  }
+  .arc-item {
+    display: block; padding: 7px 8px; border-radius: 5px;
+    font-size: 13px; color: var(--muted); text-decoration: none;
+    margin-bottom: 2px; transition: background 0.1s, color 0.1s;
+  }
+  .arc-item:hover { background: #1e2333; color: var(--text); }
+  .arc-item.current { background: rgba(91,142,240,0.12); color: var(--accent); font-weight: 600; }
+  .arc-close {
+    position: absolute; top: 14px; right: 14px;
+    background: none; border: none; color: var(--muted);
+    cursor: pointer; font-size: 18px; line-height: 1; padding: 4px;
+  }
+  .arc-close:hover { color: var(--text); }
+</style>
+<div class="arc-overlay" id="arcOverlay" onclick="arcClose()"></div>
+<div class="arc-panel" id="arcPanel">
+  <button class="arc-close" onclick="arcClose()">&#x2715;</button>
+  <div class="arc-panel-title">Past Issues</div>
+  <div id="arcList"><span style="color:var(--muted);font-size:12px">Loading…</span></div>
+</div>
+<button class="arc-btn" onclick="arcToggle()">
+  <svg width="13" height="11" viewBox="0 0 18 14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="0" y1="1" x2="18" y2="1"/><line x1="0" y1="13" x2="18" y2="13"/><line x1="0" y1="7" x2="18" y2="7"/></svg>
+  Past issues
+</button>
+<script>
+(function(){
+  var PAD = function(n){return String(n).padStart(2,'0');};
+  var MONTHS = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  var DAYS   = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+  var current = window.location.pathname.split('/').pop().replace(/\.html$/,'');
+  var found = [], tasks = [];
+  for(var i=0;i<45;i++){
+    (function(offset){
+      var d = new Date(); d.setDate(d.getDate()-offset);
+      var s = d.getFullYear()+'-'+PAD(d.getMonth()+1)+'-'+PAD(d.getDate());
+      tasks.push(fetch('./'+s+'.html',{method:'HEAD'}).then(function(r){if(r.ok)found.push({s:s,d:new Date(d)});}).catch(function(){}));
+    })(i);
+  }
+  Promise.all(tasks).then(function(){
+    found.sort(function(a,b){return b.d-a.d;});
+    var html='';
+    found.forEach(function(f){
+      var label=DAYS[f.d.getDay()]+', '+MONTHS[f.d.getMonth()]+' '+f.d.getDate();
+      var cls='arc-item'+(f.s===current?' current':'');
+      html+='<a class="'+cls+'" href="./'+f.s+'.html">'+label+'</a>';
+    });
+    document.getElementById('arcList').innerHTML=html||'<span style="color:var(--muted);font-size:12px">None found</span>';
+  });
+})();
+function arcToggle(){
+  var p=document.getElementById('arcPanel'),o=document.getElementById('arcOverlay');
+  var open=p.classList.contains('open');
+  if(open){arcClose();}else{p.classList.add('open');o.classList.add('open');}
+}
+function arcClose(){
+  document.getElementById('arcPanel').classList.remove('open');
+  document.getElementById('arcOverlay').classList.remove('open');
+}
+</script>
+</body>
+</html>
