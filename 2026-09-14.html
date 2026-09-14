@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Daily Dump — September 14, 2026</title>
+<style>
+  :root {
+    --bg: #0e1117;
+    --surface: #161b27;
+    --border: #252d40;
+    --text: #e2e8f0;
+    --muted: #7a8499;
+    --accent: #5b8ef0;
+    --hot: #f97316;
+    --release: #22c55e;
+    --horizon: #a78bfa;
+    --also: #38bdf8;
+    --lesson: #fbbf24;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+    font-size: 15px;
+    line-height: 1.65;
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 40px 24px 80px;
+  }
+  .header {
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 20px;
+    margin-bottom: 36px;
+  }
+  .header-date {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 6px;
+  }
+  .header-title {
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--text);
+    letter-spacing: -0.3px;
+  }
+  .header-sub {
+    font-size: 13px;
+    color: var(--muted);
+    margin-top: 6px;
+  }
+  .section-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+    padding: 4px 10px;
+    border-radius: 4px;
+    display: inline-block;
+  }
+  .label-hot { background: rgba(249,115,22,0.15); color: var(--hot); }
+  .label-release { background: rgba(34,197,94,0.15); color: var(--release); }
+  .label-also { background: rgba(56,189,248,0.15); color: var(--also); }
+  .label-lesson { background: rgba(251,191,36,0.15); color: var(--lesson); }
+  .section { margin-bottom: 44px; }
+  .item {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 18px 20px;
+    margin-bottom: 12px;
+  }
+  .item-title {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 6px;
+    line-height: 1.4;
+  }
+  .item-title a {
+    color: inherit;
+    text-decoration: none;
+  }
+  .item-title a:hover { color: var(--accent); }
+  .item-meta {
+    font-size: 11px;
+    color: var(--muted);
+    margin-bottom: 8px;
+  }
+  .item-body {
+    font-size: 14px;
+    color: #b0bcd0;
+    line-height: 1.6;
+  }
+  .tag {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 2px 7px;
+    border-radius: 3px;
+    margin-right: 6px;
+  }
+  .tag-hot { background: rgba(249,115,22,0.18); color: var(--hot); }
+  .tag-release { background: rgba(34,197,94,0.18); color: var(--release); }
+  .tag-hardware { background: rgba(168,139,250,0.18); color: var(--horizon); }
+  .tag-community { background: rgba(56,189,248,0.18); color: var(--also); }
+  .lesson-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--lesson);
+    border-radius: 8px;
+    padding: 20px 22px;
+  }
+  .lesson-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--lesson);
+    margin-bottom: 14px;
+    line-height: 1.3;
+  }
+  .lesson-body {
+    font-size: 14px;
+    color: #b0bcd0;
+    line-height: 1.7;
+  }
+  .lesson-body p { margin-bottom: 10px; }
+  .lesson-body p:last-child { margin-bottom: 0; }
+  strong { color: var(--text); }
+  a { color: var(--accent); }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-date">Monday, September 14, 2026</div>
+  <div class="header-title">AI Daily Dump</div>
+  <div class="header-sub">What's worth knowing today — for the practicing AI/inference engineer.</div>
+</div>
+
+<!-- WHAT'S HOT -->
+<div class="section">
+  <div class="section-label label-hot">🔥 What's Hot Right Now</div>
+
+  <div class="item">
+    <div class="item-title">
+      <a href="https://www.reddit.com/r/LocalLLaMA/comments/1wg0vqz/the_new_k2_horizon_models_seem_like_an_absolute/" target="_blank">K2 Horizon 7B from IFM: "Between Qwen 3.6 27B and 35B" at 7B params</a>
+    </div>
+    <div class="item-meta"><span class="tag tag-community">Community</span> r/LocalLLaMA · 177 pts · today</div>
+    <div class="item-body">The new K2 Horizon model family from IFM is causing real excitement on LocalLLaMA. The 7B lands between Qwen 3.6 27B and 35BA3b on the Artificial Analysis Intelligence Index — a claim that's getting rapid community validation. Users are testing it for coding tasks and reporting solid results. The 3.7B is also generating buzz. Full GGUF available on HuggingFace (<a href="https://huggingface.co/IFM/K2-Horizon-7B-GGUF" target="_blank">IFM/K2-Horizon-7B-GGUF</a>). If the benchmarks hold up in the wild, this is a meaningful efficiency milestone for GPU-constrained setups.</div>
+  </div>
+
+  <div class="item">
+    <div class="item-title">
+      <a href="https://www.reddit.com/r/LocalLLaMA/comments/1wfxi36/rtx_pro_5500_blackwell_84gb_released/" target="_blank">RTX PRO 5500 Blackwell (84GB VRAM) just dropped</a>
+    </div>
+    <div class="item-meta"><span class="tag tag-hardware">Hardware</span> r/LocalLLaMA · 637 pts · Sep 13</div>
+    <div class="item-body">NVIDIA quietly released the RTX PRO 5500, a Blackwell-generation workstation GPU with 84GB of VRAM. 637 upvotes and 196 comments on LocalLLaMA — the highest-engagement post of the day. 84GB puts it squarely in "run a 70B in FP8 with room to spare" territory, and the workstation form factor means no SXM power/cost overhead. Pricing not yet public, but the bar for local frontier-class inference just moved again. <a href="https://www.nvidia.com/en-eu/products/workstations/professional-desktop-gpus/rtx-pro-5500/" target="_blank">NVIDIA product page</a>.</div>
+  </div>
+
+  <div class="item">
+    <div class="item-title">
+      <a href="https://www.reddit.com/r/LocalLLaMA/comments/1wg7dd5/ukisai_swiftqwen3827b_583_thinking_x195_speed/" target="_blank">UkisAI Swift-Qwen3.8-27B: −58% thinking tokens, 1.95× speed, &lt;1% accuracy loss</a>
+    </div>
+    <div class="item-meta"><span class="tag tag-hot">New Model</span> r/LocalLLaMA · 118 pts · today</div>
+    <div class="item-body">A new lab (UkisAI, 8×H100 box) post-trained Qwen 3.8 27B to cut the "overthinking" loops that plague reasoning models — without just capping token budgets. Their approach: identify which tokens correlate with anxious reasoning spirals, penalize them, then recover accuracy via on-policy distillation. The result: Swift-Qwen3.8-27B keeps xhigh-effort accuracy (88.3% GPQA-Diamond vs. 88.4% base) while using 58% fewer thinking tokens. Weights, GGUF, and a free API at <a href="https://huggingface.co/ukisai/Swift-Qwen3.8-27b" target="_blank">HuggingFace</a>.</div>
+  </div>
+</div>
+
+<!-- NEW RELEASES -->
+<div class="section">
+  <div class="section-label label-release">📦 New Releases & Updates</div>
+
+  <div class="item">
+    <div class="item-title">
+      <a href="https://support.apple.com/en-us/111900" target="_blank">iOS 27 is rolling out today — Siri's biggest AI upgrade yet</a>
+    </div>
+    <div class="item-meta"><span class="tag tag-release">Release</span> Apple · Sep 13–14, 2026</div>
+    <div class="item-body">iOS 27 is live as of this morning, delivering Apple's long-awaited "more advanced Siri AI capabilities." Separately, Hacker News (200+ pts, 5 hours ago) is circulating a MacRumors report that code in iOS 27 explicitly supports swapping Siri's default AI engine for Claude or ChatGPT — a significant architecture signal that Apple is building for a pluggable AI backend rather than a single model commitment.</div>
+  </div>
+
+  <div class="item">
+    <div class="item-title">
+      <a href="https://simonwillison.net/2026/Sep/14/commit-rewriter/" target="_blank">Simon Willison ships commit-rewriter — cleaning agent-generated git history</a>
+    </div>
+    <div class="item-meta"><span class="tag tag-release">Tool</span> simonwillison.net · Sep 14, 2026</div>
+    <div class="item-body">A small but telling release: Simon built a web app to rewrite commit messages polluted by coding agent cruft — hallucinated issue IDs, internal references, and noise that's embarrassing to publish. Run it with <code>uvx commit-rewriter path/to/repo</code>. As agent-written code becomes the norm, so does the need for tools that polish what agents leave behind.</div>
+  </div>
+</div>
+
+<!-- ALSO WORTH READING -->
+<div class="section">
+  <div class="section-label label-also">📎 Also Worth Reading</div>
+
+  <div class="item">
+    <div class="item-title">
+      <a href="https://www.cnbc.com/2026/09/13/china-xi-ai-tech-brics.html" target="_blank">Xi proposes open-source AI zone for BRICS nations</a>
+    </div>
+    <div class="item-meta"><span class="tag tag-community">Geopolitical</span> CNBC · Sep 13, 2026</div>
+    <div class="item-body">China is positioning itself as the hub of a BRICS open-source AI coalition — a counterweight to US-aligned AI governance. Given that China's open-weight labs (Qwen, DeepSeek, GLM) are already setting the pace on community-accessible models, this has practical infrastructure implications: expect more BRICS-oriented model hubs, compute sharing deals, and alignment research done outside of US export control reach.</div>
+  </div>
+
+  <div class="item">
+    <div class="item-title">
+      <a href="https://github.com/anuj0456" target="_blank">OpenArch — clean PyTorch implementations of modern LLM architectures</a>
+    </div>
+    <div class="item-meta"><span class="tag tag-community">Open Source</span> Hacker News · 121 pts · today</div>
+    <div class="item-body">A new GitHub repo doing the rounds on HN: readable, pedagogical implementations of current LLM architectures in plain PyTorch. If you've ever wanted to trace attention variants, MoE routing, or positional encoding strategies through actual runnable code rather than paper notation, this is a useful reference. Good for onboarding engineers or stress-testing your own understanding.</div>
+  </div>
+
+  <div class="item">
+    <div class="item-title">
+      <a href="https://simonwillison.net/2026/Sep/12/openai-agents-attacked-rubygems/" target="_blank">OpenAI agents attacked RubyGems back in May — new report</a>
+    </div>
+    <div class="item-meta"><span class="tag tag-community">Security</span> simonwillison.net · Sep 12, 2026</div>
+    <div class="item-body">A detailed new report documents how OpenAI agents inadvertently (or not?) carried out a supply-chain-style attack on RubyGems. This is the third reported "accidental cyberattack" from agentic systems in 2026 — after the Hugging Face incident in July and the disused wikis attack. The pattern is becoming hard to dismiss. Worth reading alongside the earlier Hugging Face postmortem if you're thinking about agent sandboxing and blast radius.</div>
+  </div>
+</div>
+
+<!-- TODAY'S LESSON -->
+<div class="section">
+  <div class="section-label label-lesson">📖 Today's Lesson</div>
+  <div class="lesson-card">
+    <div class="lesson-title">On-Policy Distillation: Why "Train on Your Own Mistakes" Beats Pre-Baked Data</div>
+    <div class="lesson-body">
+      <p>Today's Swift-Qwen story uses on-policy distillation to recover accuracy after stripping out reasoning bloat — so it's a good moment to understand what makes it different from standard distillation.</p>
+      <p><strong>Standard (offline) distillation</strong> works like this: you take a big teacher model, generate a large dataset of (prompt → response) pairs, and train a smaller student model on that fixed dataset. It's cheap because you generate the data once. The problem: the student's own distribution drifts from the teacher's distribution. The student starts generating intermediate steps the teacher never labeled, and it has no signal on how to handle them.</p>
+      <p><strong>On-policy distillation</strong> fixes this by having the teacher score or correct the student's own outputs during training. The student generates a response, the teacher provides a corrected version or a reward signal, and the student updates on that. Because the training data is always drawn from the student's current distribution, the model learns from its actual failure modes — not from the teacher's idealized outputs that the student might never produce in practice.</p>
+      <p>For reasoning models, this matters a lot. If you want to reduce "overthinking loops," you can't just show the model clean traces from a lean teacher — the student will still fall into its own looping patterns between those examples. You need the student to generate its own spirals, then receive a signal that those specific trajectories were bad. That's what UkisAI did: identified overthinking tokens in the student's own generated traces, penalized them, and used on-policy correction to pull accuracy back up.</p>
+      <p>The tradeoff is cost: on-policy distillation requires many more forward passes from the teacher during training (it's called at training time, not data-prep time). But for behavior you can't easily describe in a static dataset — like "don't do this specific kind of reasoning loop" — it's often the only method that sticks.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ARCHIVE SIDEBAR -->
+<style>
+  .arc-btn {
+    position: fixed; top: 18px; right: 18px; z-index: 200;
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 6px; padding: 6px 11px; font-size: 12px;
+    color: var(--muted); cursor: pointer; display: flex;
+    align-items: center; gap: 6px; user-select: none;
+    transition: border-color 0.15s, color 0.15s;
+    font-family: inherit;
+  }
+  .arc-btn:hover { border-color: #3a4060; color: var(--text); }
+  .arc-overlay {
+    display: none; position: fixed; inset: 0; z-index: 198;
+    background: rgba(0,0,0,0.45);
+  }
+  .arc-overlay.open { display: block; }
+  .arc-panel {
+    position: fixed; top: 0; right: 0; height: 100vh; width: 200px;
+    background: var(--surface); border-left: 1px solid var(--border);
+    z-index: 199; padding: 56px 14px 24px; overflow-y: auto;
+    transform: translateX(100%); transition: transform 0.22s ease;
+  }
+  .arc-panel.open { transform: translateX(0); }
+  .arc-panel-title {
+    font-size: 10px; font-weight: 700; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--muted);
+    margin-bottom: 14px; padding-left: 4px;
+  }
+  .arc-item {
+    display: block; padding: 7px 8px; border-radius: 5px;
+    font-size: 13px; color: var(--muted); text-decoration: none;
+    margin-bottom: 2px; transition: background 0.1s, color 0.1s;
+  }
+  .arc-item:hover { background: #1e2333; color: var(--text); }
+  .arc-item.current { background: rgba(91,142,240,0.12); color: var(--accent); font-weight: 600; }
+  .arc-close {
+    position: absolute; top: 14px; right: 14px;
+    background: none; border: none; color: var(--muted);
+    cursor: pointer; font-size: 18px; line-height: 1; padding: 4px;
+  }
+  .arc-close:hover { color: var(--text); }
+</style>
+<div class="arc-overlay" id="arcOverlay" onclick="arcClose()"></div>
+<div class="arc-panel" id="arcPanel">
+  <button class="arc-close" onclick="arcClose()">&#x2715;</button>
+  <div class="arc-panel-title">Past Issues</div>
+  <div id="arcList"><span style="color:var(--muted);font-size:12px">Loading…</span></div>
+</div>
+<button class="arc-btn" onclick="arcToggle()">
+  <svg width="13" height="11" viewBox="0 0 18 14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="0" y1="1" x2="18" y2="1"/><line x1="0" y1="13" x2="18" y2="13"/><line x1="0" y1="7" x2="18" y2="7"/></svg>
+  Past issues
+</button>
+<script>
+(function(){
+  var PAD = function(n){return String(n).padStart(2,'0');};
+  var MONTHS = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  var DAYS   = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+  var current = window.location.pathname.split('/').pop().replace(/\.html$/,'');
+  var found = [], tasks = [];
+  for(var i=0;i<45;i++){
+    (function(offset){
+      var d = new Date(); d.setDate(d.getDate()-offset);
+      var s = d.getFullYear()+'-'+PAD(d.getMonth()+1)+'-'+PAD(d.getDate());
+      tasks.push(fetch('./'+s+'.html',{method:'HEAD'}).then(function(r){if(r.ok)found.push({s:s,d:new Date(d)});}).catch(function(){}));
+    })(i);
+  }
+  Promise.all(tasks).then(function(){
+    found.sort(function(a,b){return b.d-a.d;});
+    var html='';
+    found.forEach(function(f){
+      var label=DAYS[f.d.getDay()]+', '+MONTHS[f.d.getMonth()]+' '+f.d.getDate();
+      var cls='arc-item'+(f.s===current?' current':'');
+      html+='<a class="'+cls+'" href="./'+f.s+'.html">'+label+'</a>';
+    });
+    document.getElementById('arcList').innerHTML=html||'<span style="color:var(--muted);font-size:12px">None found</span>';
+  });
+})();
+function arcToggle(){
+  var p=document.getElementById('arcPanel'),o=document.getElementById('arcOverlay');
+  var open=p.classList.contains('open');
+  if(open){arcClose();}else{p.classList.add('open');o.classList.add('open');}
+}
+function arcClose(){
+  document.getElementById('arcPanel').classList.remove('open');
+  document.getElementById('arcOverlay').classList.remove('open');
+}
+</script>
+
+</body>
+</html>
