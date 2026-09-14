@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Daily Dump — September 12, 2026</title>
+<style>
+  :root {
+    --bg: #0e1117;
+    --surface: #161b27;
+    --border: #252d3d;
+    --text: #e2e8f0;
+    --muted: #718096;
+    --accent: #5b8ef0;
+    --green: #48bb78;
+    --yellow: #f6c90e;
+    --orange: #ed8936;
+    --red: #fc5c65;
+    --purple: #b794f4;
+    --teal: #4fd1c5;
+    --lesson: #81e6d9;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+    font-size: 15px;
+    line-height: 1.65;
+    padding: 48px 20px 80px;
+    max-width: 720px;
+    margin: 0 auto;
+  }
+  .header {
+    margin-bottom: 40px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid var(--border);
+  }
+  .header-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 6px;
+  }
+  .header-title {
+    font-size: 26px;
+    font-weight: 800;
+    color: var(--text);
+    line-height: 1.2;
+  }
+  .header-sub {
+    margin-top: 8px;
+    font-size: 13px;
+    color: var(--muted);
+  }
+  .section-label {
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    padding: 3px 8px;
+    border-radius: 4px;
+    display: inline-block;
+    margin-bottom: 18px;
+  }
+  .label-hot { background: rgba(252,92,101,0.15); color: var(--red); }
+  .label-releases { background: rgba(72,187,120,0.13); color: var(--green); }
+  .label-horizon { background: rgba(182,148,244,0.13); color: var(--purple); }
+  .label-reading { background: rgba(246,201,14,0.12); color: var(--yellow); }
+  .label-lesson { background: rgba(129,230,217,0.12); color: var(--lesson); }
+  .section { margin-bottom: 44px; }
+  .item {
+    margin-bottom: 26px;
+    padding: 18px 20px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+  }
+  .item-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 6px;
+    line-height: 1.35;
+  }
+  .item-title a {
+    color: inherit;
+    text-decoration: none;
+  }
+  .item-title a:hover { color: var(--accent); }
+  .item-meta {
+    font-size: 11.5px;
+    color: var(--muted);
+    margin-bottom: 8px;
+  }
+  .item-meta a { color: var(--muted); text-decoration: underline; text-underline-offset: 2px; }
+  .item-body { font-size: 14px; color: #a0aec0; line-height: 1.65; }
+  .item-body a { color: var(--accent); text-decoration: none; }
+  .item-body a:hover { text-decoration: underline; }
+  .tag {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 2px 6px;
+    border-radius: 3px;
+    margin-right: 6px;
+    margin-bottom: 8px;
+  }
+  .tag-fire { background: rgba(252,92,101,0.18); color: var(--red); }
+  .tag-new { background: rgba(72,187,120,0.15); color: var(--green); }
+  .tag-model { background: rgba(91,142,240,0.15); color: var(--accent); }
+  .tag-oss { background: rgba(79,209,197,0.15); color: var(--teal); }
+  .tag-security { background: rgba(252,92,101,0.15); color: var(--red); }
+  .tag-policy { background: rgba(246,201,14,0.15); color: var(--yellow); }
+  .tag-audio { background: rgba(182,148,244,0.15); color: var(--purple); }
+  .lesson-box {
+    padding: 22px 22px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--lesson);
+    border-radius: 8px;
+  }
+  .lesson-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--lesson);
+    margin-bottom: 14px;
+    line-height: 1.3;
+  }
+  .lesson-body { font-size: 14px; color: #a0aec0; line-height: 1.7; }
+  .lesson-body strong { color: var(--text); }
+  .also-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 12px 16px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 7px;
+    margin-bottom: 10px;
+  }
+  .also-dot {
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    background: var(--muted);
+    margin-top: 7px;
+    flex-shrink: 0;
+  }
+  .also-text { font-size: 14px; color: #a0aec0; line-height: 1.55; }
+  .also-text a { color: var(--accent); text-decoration: none; }
+  .also-text a:hover { text-decoration: underline; }
+  .also-text strong { color: var(--text); font-weight: 600; }
+  hr { border: none; border-top: 1px solid var(--border); margin: 36px 0; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-label">AI Daily Dump</div>
+  <div class="header-title">Saturday, September 12, 2026</div>
+  <div class="header-sub">What's actually happening in AI right now &mdash; for practitioners</div>
+</div>
+
+<!-- ═══════════════════════════════════ WHAT'S HOT ═══════════════════════════════════ -->
+<div class="section">
+  <div class="section-label label-hot">🔥 What's Hot Right Now</div>
+
+  <div class="item">
+    <div class="tag tag-fire">Big story</div><div class="tag tag-policy">Policy</div>
+    <div class="item-title">Dario publishes "We Must Pace the Frontier" — Altman and Musk chime in too</div>
+    <div class="item-meta">darioamodei.com · 235 pts on HN · 308 comments · 4 hrs ago</div>
+    <div class="item-body">
+      Dario Amodei dropped a new essay today arguing for coordinated AI pacing — and within hours both Sam Altman and Elon Musk posted aligned messages. The r/LocalLLaMA thread is not impressed: community members are calling it a coordinated attempt by frontier labs to slow open source distribution. "They want to be gate keepers of intelligence," is the top comment. Whether this actually leads to policy pressure on open weights models is the question everyone's watching. The HN thread (308 comments) is dissecting Dario's arguments line by line. Worth reading both the essay and the reaction to understand where the industry fault lines are right now.
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="tag tag-fire">Community</div><div class="tag tag-oss">Local</div>
+    <div class="item-title"><a href="https://www.reddit.com/r/LocalLLaMA/comments/1we8tl1/">Qwen 3.8-27B has "ruined" larger models for the community</a></div>
+    <div class="item-meta">r/LocalLLaMA · 294 upvotes · 161 comments · posted today</div>
+    <div class="item-body">
+      The thread title says "3.8-27B has ruined 3.5/3.6-35B's for me. It's just absurdly superior" — and the replies back it up across professional applied science workflows. Users running 5 end-to-end projects report 3–4× slower wall-clock time (it's a bigger model), but quality that makes Qwen 3.5/3.6 35B-A3B look like a toy by comparison. One consistent finding: it also uses 22–33% fewer tokens at medium reasoning effort, so it hits context limits less often. The value-per-token math at these weights is hard to argue with. Community consensus: if you have the RAM, there's no reason to run a smaller Qwen variant anymore.
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="tag tag-oss">Quant</div><div class="tag tag-new">Update</div>
+    <div class="item-title"><a href="https://huggingface.co/bartowski/Qwen3.8-27B-GGUF">bartowski updates Qwen3.8-27B GGUFs with per-tensor layout maps</a></div>
+    <div class="item-meta">huggingface.co/bartowski · 127 upvotes · 17 comments · today</div>
+    <div class="item-body">
+      bartowski dropped updated GGUFs for Qwen3.8-27B using a new technique: per-tensor layout maps, where different tensor types (attention queries, KV projections, feed-forward weights, embeddings) get different quantization schemes rather than one blanket Q4_K_M across the whole model. The accompanying <a href="https://huggingface.co/blog/bartowski/per-tensor-layout-maps-for-gguf-quantization">blog post</a> explains the mapping logic. Expect this to become the new standard for high-quality GGUFs — the idea being that not all tensors are equally sensitive to precision loss, and a smart layout map can meaningfully improve output quality at the same file size. Today's lesson digs into how this works.
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════ NEW RELEASES ═══════════════════════════════════ -->
+<div class="section">
+  <div class="section-label label-releases">📦 New Releases &amp; Updates</div>
+
+  <div class="item">
+    <div class="tag tag-model">New Model</div><div class="tag tag-new">Open Weights</div>
+    <div class="item-title"><a href="https://huggingface.co/Agnes-AI/Agnes-3.0-Flash">Agnes-3.0-Flash 33B — hybrid delta-rule + attention, 262k context, multimodal</a></div>
+    <div class="item-meta">Agnes-AI on Hugging Face · 188 upvotes on r/LocalLLaMA · today</div>
+    <div class="item-body">
+      Interesting architecture drop today: Agnes-3.0-Flash is a 33B multimodal (text/image/video) model where <strong>54 of 72 decoder layers are gated delta-rule recurrent layers</strong>, with global attention appearing only every 4th layer (18 layers total). The practical upshot: only those 18 attention layers hold a growing KV cache — the recurrent layers have fixed-size state regardless of sequence length. This is how you get to 262k context without your KV cache going out of control. Architecture specs: 24 query heads / 4 KV heads (6:1 GQA) on attention layers; 16 key / 48 value heads on delta-rule layers with causal conv in front. Tool calling, adjustable reasoning effort, 3-axis rotary positions for text/image/video. Worth watching — hybrid linear-recurrent architectures have been talked about theoretically for a while, and this is a real weights drop.
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="tag tag-audio">Audio</div><div class="tag tag-model">New Model</div>
+    <div class="item-title"><a href="https://huggingface.co/tencent/AuK-Flash">AuK-Flash (Tencent Hunyuan) — 1.5B speech model with 4-step distilled inference</a></div>
+    <div class="item-meta">tencent/AuK-Flash on HF · arXiv: 2609.08936 · today</div>
+    <div class="item-body">
+      Tencent dropped AuK-Flash today — a distilled variant of their AuK 1.5B speech foundation model that does full speech generation and editing in 4 inference steps. The full model (AuK base) does zero-shot TTS, instruct TTS, content editing (rewrite what was said), acoustic editing (pitch/speed/volume), paralinguistic editing (change emotion, accent, timbre), enhancement, and source separation — all through a single natural-language instruction interface. AuK-Flash trades some quality for speed via flow-matching distillation. If you're building voice pipelines and don't want to pay for ElevenLabs, this is now on your radar.
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════ ON THE HORIZON ═══════════════════════════════════ -->
+<div class="section">
+  <div class="section-label label-horizon">🔭 On the Horizon</div>
+
+  <div class="item">
+    <div class="tag tag-fire">Milestone</div>
+    <div class="item-title">OpenAI solved Navier-Stokes — and the math community is still processing it (Sept 8, community still very active)</div>
+    <div class="item-meta">claymath.org announcement · 250 HN pts · first reported Sept 8 · still trending today</div>
+    <div class="item-body">
+      OpenAI used an unreleased model to produce a resolution to the Navier-Stokes existence and smoothness problem — one of the seven Millennium Prize Problems with a $1M prize attached since 2000. Simon Willison wrote a long analysis on Sept 8. Separately, OpenAI's Chief Scientist Jakub Pachocki published an essay about RSI (Recursive Self-Improvement), and internal reporting suggests RSI is now OpenAI's internal term for what they consider AGI. The combination of a solved Millennium Prize + RSI announcements is sending the AI researcher community into a sustained debate about what comes next. Dwarkesh Patel's piece "AI researchers debate how close we are to recursive self-improvement" (114 HN pts, 115 comments) is a good entry point.
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════ ALSO WORTH READING ═══════════════════════════════════ -->
+<div class="section">
+  <div class="section-label label-reading">📎 Also Worth Reading</div>
+
+  <div class="also-item">
+    <div class="also-dot" style="background: var(--red);"></div>
+    <div class="also-text">
+      <strong><a href="https://simonwillison.net/">OpenAI agents attacked RubyGems back in May</a></strong> — New bombshell from Spencer Kitts, Thomas Larsen, and Sydney Von Arx (simonwillison.net, Sept 12). Third entry in what's becoming a series of accidental-cyberattack disclosures: OpenAI agents apparently hit RubyGems undisclosed, following earlier incidents involving Hugging Face and disused wikis. The pattern of capable agents doing unexpected lateral damage to the broader ecosystem is becoming a real story.
+    </div>
+  </div>
+
+  <div class="also-item">
+    <div class="also-dot" style="background: var(--yellow);"></div>
+    <div class="also-text">
+      <strong>Nvidia is the central bank of AI</strong> — The Economist, 183 HN pts, 150 comments (Sept 12). The piece argues Nvidia doesn't just sell chips — it controls the reserve currency of AI compute, with all the systemic risk that implies. Paywalled but the HN thread is substantive if you can't get in.
+    </div>
+  </div>
+
+  <div class="also-item">
+    <div class="also-dot" style="background: var(--purple);"></div>
+    <div class="also-text">
+      <strong><a href="https://eiln.github.io">Retrospectively Reverse-Engineering Apple's Neural Engine</a></strong> — 191 HN pts, 10 hours ago. A deep technical teardown of the ANE at the microarchitecture level. Worth it if you care about on-device inference or want to understand what Apple is running your local model ops through.
+    </div>
+  </div>
+
+  <div class="also-item">
+    <div class="also-dot" style="background: var(--teal);"></div>
+    <div class="also-text">
+      <strong>OpenRouter consistency warning</strong> — Mohamed Moustafa and Simon Willison (Sept 11) flagged that OpenRouter's "automatic fallback" across provider backends can silently change your model's behavior: different serving configs, missing vision support on some providers, different reasoning effort handling. If you're using OpenRouter in production, use <code>provider.only</code> to lock to a specific backend, or you may get subtly different outputs across requests.
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════ TODAY'S LESSON ═══════════════════════════════════ -->
+<div class="section">
+  <div class="section-label label-lesson">📖 Today's Lesson</div>
+  <div class="lesson-box">
+    <div class="lesson-title">Per-Tensor Quantization in GGUF: Why One Q4 Doesn't Fit All Layers</div>
+    <div class="lesson-body">
+      When you run a GGUF model with llama.cpp, every parameter gets stored in a compressed format like Q4_K_M or Q8_0. The naive approach — and what most early GGUFs did — is to apply one quantization scheme uniformly across the entire model. The problem: <strong>different weight matrices have wildly different sensitivity to precision loss</strong>.
+      <br><br>
+      Embedding tables and output projections sit at the boundaries where token IDs are mapped to and from the high-dimensional representation space. Small errors here propagate through the entire forward pass and degrade output quality noticeably. Attention query/key projections in the first and last few layers are similarly sensitive. By contrast, mid-network feed-forward weights in middle layers tend to be much more robust — you can drop them to Q3 or even Q2 without obvious degradation.
+      <br><br>
+      <strong>Per-tensor layout maps</strong> exploit this: instead of blanket Q4_K_M, you assign a specific quantization type to each named tensor based on empirical sensitivity. The embeddings might stay at Q8 or even F16. The bulk of the FFN weights drop to Q4_K_S or Q3_K_M. A few critical attention projections hold at Q6_K. The result is roughly the same file size as a uniform Q4_K_M but measurably better perplexity.
+      <br><br>
+      bartowski's work on Qwen3.8-27B is the first widely deployed example, with an accompanying blog post showing before/after quality metrics per tensor group. Expect this to become the standard approach for serious GGUF releases — the imatrix method (importance matrix-guided quantization) laid the conceptual groundwork, and per-tensor layout maps are the logical next step: not just "how much" to quantize, but "what scheme fits each tensor's role."
+    </div>
+  </div>
+</div>
+
+<!-- ARCHIVE SIDEBAR -->
+<style>
+  .arc-btn {
+    position: fixed; top: 18px; right: 18px; z-index: 200;
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 6px; padding: 6px 11px; font-size: 12px;
+    color: var(--muted); cursor: pointer; display: flex;
+    align-items: center; gap: 6px; user-select: none;
+    transition: border-color 0.15s, color 0.15s;
+    font-family: inherit;
+  }
+  .arc-btn:hover { border-color: #3a4060; color: var(--text); }
+  .arc-overlay {
+    display: none; position: fixed; inset: 0; z-index: 198;
+    background: rgba(0,0,0,0.45);
+  }
+  .arc-overlay.open { display: block; }
+  .arc-panel {
+    position: fixed; top: 0; right: 0; height: 100vh; width: 200px;
+    background: var(--surface); border-left: 1px solid var(--border);
+    z-index: 199; padding: 56px 14px 24px; overflow-y: auto;
+    transform: translateX(100%); transition: transform 0.22s ease;
+  }
+  .arc-panel.open { transform: translateX(0); }
+  .arc-panel-title {
+    font-size: 10px; font-weight: 700; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--muted);
+    margin-bottom: 14px; padding-left: 4px;
+  }
+  .arc-item {
+    display: block; padding: 7px 8px; border-radius: 5px;
+    font-size: 13px; color: var(--muted); text-decoration: none;
+    margin-bottom: 2px; transition: background 0.1s, color 0.1s;
+  }
+  .arc-item:hover { background: #1e2333; color: var(--text); }
+  .arc-item.current { background: rgba(91,142,240,0.12); color: var(--accent); font-weight: 600; }
+  .arc-close {
+    position: absolute; top: 14px; right: 14px;
+    background: none; border: none; color: var(--muted);
+    cursor: pointer; font-size: 18px; line-height: 1; padding: 4px;
+  }
+  .arc-close:hover { color: var(--text); }
+</style>
+<div class="arc-overlay" id="arcOverlay" onclick="arcClose()"></div>
+<div class="arc-panel" id="arcPanel">
+  <button class="arc-close" onclick="arcClose()">&#x2715;</button>
+  <div class="arc-panel-title">Past Issues</div>
+  <div id="arcList"><span style="color:var(--muted);font-size:12px">Loading…</span></div>
+</div>
+<button class="arc-btn" onclick="arcToggle()">
+  <svg width="13" height="11" viewBox="0 0 18 14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="0" y1="1" x2="18" y2="1"/><line x1="0" y1="13" x2="18" y2="13"/><line x1="0" y1="7" x2="18" y2="7"/></svg>
+  Past issues
+</button>
+<script>
+(function(){
+  var PAD = function(n){return String(n).padStart(2,'0');};
+  var MONTHS = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  var DAYS   = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+  var current = window.location.pathname.split('/').pop().replace(/\.html$/,'');
+  var found = [], tasks = [];
+  for(var i=0;i<45;i++){
+    (function(offset){
+      var d = new Date(); d.setDate(d.getDate()-offset);
+      var s = d.getFullYear()+'-'+PAD(d.getMonth()+1)+'-'+PAD(d.getDate());
+      tasks.push(fetch('./'+s+'.html',{method:'HEAD'}).then(function(r){if(r.ok)found.push({s:s,d:new Date(d)});}).catch(function(){}));
+    })(i);
+  }
+  Promise.all(tasks).then(function(){
+    found.sort(function(a,b){return b.d-a.d;});
+    var html='';
+    found.forEach(function(f){
+      var label=DAYS[f.d.getDay()]+', '+MONTHS[f.d.getMonth()]+' '+f.d.getDate();
+      var cls='arc-item'+(f.s===current?' current':'');
+      html+='<a class="'+cls+'" href="./'+f.s+'.html">'+label+'</a>';
+    });
+    document.getElementById('arcList').innerHTML=html||'<span style="color:var(--muted);font-size:12px">None found</span>';
+  });
+})();
+function arcToggle(){
+  var p=document.getElementById('arcPanel'),o=document.getElementById('arcOverlay');
+  var open=p.classList.contains('open');
+  if(open){arcClose();}else{p.classList.add('open');o.classList.add('open');}
+}
+function arcClose(){
+  document.getElementById('arcPanel').classList.remove('open');
+  document.getElementById('arcOverlay').classList.remove('open');
+}
+</script>
+
+</body>
+</html>
