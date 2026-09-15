@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Daily Dump — September 15, 2026</title>
+<style>
+  :root {
+    --bg: #0f1117;
+    --surface: #161b27;
+    --border: #252d3d;
+    --text: #e2e8f0;
+    --muted: #7a8499;
+    --accent: #5b8ef0;
+    --accent2: #a78bfa;
+    --hot: #f97316;
+    --green: #34d399;
+    --red: #f87171;
+    --yellow: #fbbf24;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    font-size: 15px;
+    line-height: 1.65;
+    padding: 0 0 80px 0;
+  }
+
+  .header {
+    border-bottom: 1px solid var(--border);
+    padding: 32px 0 24px;
+    margin-bottom: 36px;
+  }
+
+  .header-inner {
+    max-width: 740px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  .date-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 8px;
+  }
+
+  h1 {
+    font-size: 26px;
+    font-weight: 800;
+    color: var(--text);
+    letter-spacing: -0.3px;
+  }
+
+  h1 span {
+    color: var(--muted);
+    font-weight: 400;
+    font-size: 20px;
+  }
+
+  .tagline {
+    color: var(--muted);
+    font-size: 13px;
+    margin-top: 6px;
+  }
+
+  .content {
+    max-width: 740px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  section { margin-bottom: 48px; }
+
+  .section-label {
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 10px;
+    margin-bottom: 24px;
+  }
+
+  .section-label.hot { color: var(--hot); border-color: rgba(249,115,22,0.25); }
+  .section-label.release { color: var(--green); border-color: rgba(52,211,153,0.25); }
+  .section-label.horizon { color: var(--accent2); border-color: rgba(167,139,250,0.25); }
+  .section-label.reading { color: var(--accent); border-color: rgba(91,142,240,0.25); }
+  .section-label.lesson { color: var(--yellow); border-color: rgba(251,191,36,0.25); }
+
+  .item {
+    margin-bottom: 28px;
+    padding-bottom: 28px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .item:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+
+  .item-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 8px;
+  }
+
+  .tag {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 2px 7px;
+    border-radius: 4px;
+    white-space: nowrap;
+    flex-shrink: 0;
+    margin-top: 3px;
+  }
+
+  .tag-fraud    { background: rgba(248,113,113,0.15); color: var(--red); }
+  .tag-quant    { background: rgba(167,139,250,0.15); color: var(--accent2); }
+  .tag-tools    { background: rgba(91,142,240,0.15); color: var(--accent); }
+  .tag-paper    { background: rgba(52,211,153,0.15); color: var(--green); }
+  .tag-hardware { background: rgba(251,191,36,0.15); color: var(--yellow); }
+  .tag-infra    { background: rgba(249,115,22,0.15); color: var(--hot); }
+  .tag-safety   { background: rgba(248,113,113,0.15); color: var(--red); }
+  .tag-acq      { background: rgba(91,142,240,0.15); color: var(--accent); }
+  .tag-community { background: rgba(249,115,22,0.12); color: var(--hot); }
+  .tag-model    { background: rgba(52,211,153,0.15); color: var(--green); }
+
+  .item-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--text);
+    line-height: 1.3;
+  }
+
+  .item-title a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .item-title a:hover {
+    color: var(--accent);
+  }
+
+  .item-meta {
+    font-size: 11px;
+    color: var(--muted);
+    margin-bottom: 10px;
+  }
+
+  .item-meta .source {
+    font-weight: 600;
+    color: var(--accent);
+  }
+
+  .item-body {
+    color: #b0bcd0;
+    font-size: 14px;
+    line-height: 1.7;
+  }
+
+  .item-body a {
+    color: var(--accent);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(91,142,240,0.3);
+  }
+
+  .item-body a:hover {
+    border-color: var(--accent);
+  }
+
+  .highlight-box {
+    background: rgba(249,115,22,0.07);
+    border-left: 3px solid var(--hot);
+    padding: 10px 14px;
+    border-radius: 0 6px 6px 0;
+    margin-top: 12px;
+    font-size: 13px;
+    color: #c0cce0;
+  }
+
+  .lesson-box {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 24px 28px;
+  }
+
+  .lesson-title {
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--yellow);
+    margin-bottom: 14px;
+  }
+
+  .lesson-body {
+    color: #b8c4d8;
+    font-size: 14px;
+    line-height: 1.78;
+  }
+
+  .lesson-body p { margin-bottom: 12px; }
+  .lesson-body p:last-child { margin-bottom: 0; }
+
+  .lesson-body code {
+    background: rgba(255,255,255,0.07);
+    border-radius: 3px;
+    padding: 1px 5px;
+    font-family: "SFMono-Regular", Consolas, monospace;
+    font-size: 12px;
+    color: var(--accent2);
+  }
+
+  .flame { color: var(--hot); }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-inner">
+    <div class="date-label">Tuesday, September 15, 2026</div>
+    <h1>AI Daily Dump <span>— your 5-minute briefing</span></h1>
+    <p class="tagline">Fresh from r/LocalLLaMA, HN, and the labs. Inference engineer edition.</p>
+  </div>
+</div>
+
+<div class="content">
+
+  <!-- WHAT'S HOT -->
+  <section>
+    <div class="section-label hot">🔥 What's Hot Right Now</div>
+
+    <div class="item">
+      <div class="item-header">
+        <span class="tag tag-fraud">Fraud</span>
+        <div class="item-title">
+          <a href="https://kendell.dev/blog/crofaifalse/" target="_blank">CrofAI exposed: "cheapest inference in the world" was an OpenRouter wrapper at 20× markup</a>
+        </div>
+      </div>
+      <div class="item-meta">
+        <span class="source">r/LocalLLaMA</span> · Sep 15, 2026 · 533 upvotes, 73 comments
+      </div>
+      <div class="item-body">
+        CrofAI claimed it ran its own inference infra and could undercut every provider through sheer engineering. An investigator (kendell.dev) spent weeks fingerprinting responses and found it was a straight-up OpenRouter wrapper — routing your request for <code>kimi-k3</code> ($2/M input) to <code>GLM 5.3 Flash</code> ($0.10/M input) and pocketing the 13–20× spread. Its own "greg" model family was equally fake: <code>greg-2-ultra</code> → GLM 5.2, <code>greg-1-mini</code> → Qwen 3.5 9B.
+        <div class="highlight-box">
+          After the exposé published, the owner announced shutdown, then launched a fake "team takeover" blog post, then deleted crof.ai, nahcrof.com, Twitter, and the subreddit entirely within hours. The redditor who broke it notes the owner's Discord handle was "Devious Flimflam." Flimflam is literally defined as "deception, fraud." <strong>If you used their API, rotate your keys and file chargebacks for every transaction.</strong>
+        </div>
+      </div>
+    </div>
+
+    <div class="item">
+      <div class="item-header">
+        <span class="tag tag-quant">Quant</span>
+        <div class="item-title">
+          <a href="https://github.com/curvedinf/voodoo-dyn-quant" target="_blank">Voodoo Dynamic Quant goes MIT — gradient descent picks per-tensor quant levels</a>
+        </div>
+      </div>
+      <div class="item-meta">
+        <span class="source">r/LocalLLaMA</span> · Sep 14, 2026 · 251 upvotes
+      </div>
+      <div class="item-body">
+        Two months after teasing SOTA quant results, the creator open-sourced Voodoo Quant: instead of static analysis heuristics, it runs all candidate quantization levels for every tensor simultaneously, then lets a gradient-descent step pick which level minimizes KL divergence against BF16 for a given file-size target. A single scalar gate per tensor-per-quant-level is trained with softmax over the candidates, while a tau parameter anneals over time to force discrete selections. The author benchmarks it against Unsloth Dynamic V3: VQ wins at very aggressive quantization (Q2 and below), UD3 wins at higher bit widths.
+        <br><br>
+        Why open source now? "I have like a dozen irons in the fire and this is just sitting there." Currently set up for Qwen architectures but straightforward to adapt. MIT licensed.
+      </div>
+    </div>
+
+    <div class="item">
+      <div class="item-header">
+        <span class="tag tag-community">Community</span>
+        <div class="item-title">
+          <a href="https://www.reddit.com/r/LocalLLaMA/comments/1wgwh7k/" target="_blank">The GGUF naming epidemic has a new victim: "Qwen3.8-27B-TURBO-Fable-Cold-Fusion-735-882-Heretic-Uncensored-NEO-CODER-MAX-MTP-GGUF"</a>
+        </div>
+      </div>
+      <div class="item-meta">
+        <span class="source">r/LocalLLaMA</span> · Sep 14, 2026 · 281 upvotes
+      </div>
+      <div class="item-body">
+        A viral video parody captures the state of community model naming perfectly. 281 upvotes and 51 comments of people either relating painfully or proposing even worse names. The comment thread has gems like "it's giving Diablo item drop energy" and a proposal to add "ANTI-WOKE-BASED-REDPILLED" to any model missing it. Not actionable, but a perfect cultural artifact of the moment.
+      </div>
+    </div>
+
+  </section>
+
+  <!-- NEW RELEASES -->
+  <section>
+    <div class="section-label release">⬆ New Releases &amp; Updates</div>
+
+    <div class="item">
+      <div class="item-header">
+        <span class="tag tag-quant">Quant</span>
+        <div class="item-title">
+          <a href="https://huggingface.co/byteshape/Qwen3.8-27B-GGUF" target="_blank">ByteShape Qwen 3.8 27B GGUFs: 3.84 bpw hits 99.63% of BF16, KLD is a bad quant metric</a>
+        </div>
+      </div>
+      <div class="item-meta">
+        <span class="source">r/LocalLLaMA</span> · Sep 15, 2026 · 65 upvotes + <a href="https://byteshape.com/blogs/Qwen3.8-27B/" target="_blank">blog</a> + <a href="https://arxiv.org/pdf/2606.19558" target="_blank">EMNLP paper</a>
+      </div>
+      <div class="item-body">
+        ByteShape dropped their full ShapeLearn GGUFs for Qwen 3.8 27B — benchmarked across RTX 3090 through RTX 6000 Pro Blackwell on 8 tasks (GSM8K, IFEval, MMLU, LiveCodeBench V6, ACEBench, BFCL V4, etc). Their 3.84 bpw model reached 99.63% of BF16 aggregate score, outperforming Unsloth's UD-IQ3_S despite the latter having 20% lower KLD.
+        <div class="highlight-box">
+          The headline finding: KL divergence is a useful sanity check to avoid catastrophically bad quants, but it's not a quality leaderboard. Their paper (accepted to EMNLP 2026 Industry Track) shows task performance and KLD diverge significantly at low bit widths. Closer token distributions ≠ better answers. The practical takeaway: benchmark on real tasks, not just KLD.
+        </div>
+        Also: DFlash2 gave 1.34–2.10× baseline throughput; MTP gave 1.28–1.66× with temperature sampling.
+      </div>
+    </div>
+
+    <div class="item">
+      <div class="item-header">
+        <span class="tag tag-paper">Paper</span>
+        <div class="item-title">
+          <a href="https://pub.sakana.ai/pc-alm/" target="_blank">Sakana AI's PC-ALM trains 1,000-layer networks without backprop</a>
+        </div>
+      </div>
+      <div class="item-meta">
+        <span class="source">Hacker News #21</span> · Sep 14, 2026 · 113 HN points · <a href="https://arxiv.org/abs/2605.31022" target="_blank">arxiv</a>
+      </div>
+      <div class="item-body">
+        Augmented Lagrangian Predictive Coding (PC-ALM) is Sakana AI's new layer-local alternative to backpropagation. Instead of a global backward pass, each layer minimizes its own local energy via a per-layer Lagrange multiplier that accumulates constraint errors across time. In linear networks, PC-ALM provably converges to exact BP gradients using only local updates. In deep residual MLPs up to 1,000 layers, it stays within ~2 percentage points of backprop across all width-depth configurations — including the deep-narrow regime where vanilla predictive coding breaks down.
+        <br><br>
+        An MIT-licensed JAX reference implementation is up and reproduces the paper's full width-depth grid on CPU. This is a research result rather than a production-ready training library, but it's a legitimate step toward biologically plausible and potentially more parallelizable training.
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ALSO WORTH READING -->
+  <section>
+    <div class="section-label reading">📖 Also Worth Reading</div>
+
+    <div class="item">
+      <div class="item-header">
+        <span class="tag tag-acq">Acquisition</span>
+        <div class="item-title">
+          <a href="https://techcrunch.com/2026/09/14/openai-buys-smartphone-camera-maker-glass-imaging-for-300-million-report-says/" target="_blank">OpenAI acquires Glass Imaging for $300M — iPhone Portrait Mode creators join the hardware push</a>
+        </div>
+      </div>
+      <div class="item-meta">
+        <span class="source">TechCrunch</span> · Sep 14, 2026
+      </div>
+      <div class="item-body">
+        Glass Imaging was co-founded by former Apple engineers who built iPhone's Portrait Mode. Their GlassAI product is a neural image signal processor that runs raw sensor output through networks trained to a specific camera module — essentially AI-native ISP software. OpenAI paid over $300M, well above Glass Imaging's ~$100M 2025 valuation. This lands squarely inside OpenAI's consumer hardware buildout (they paid $6.5B for Jony Ive's io Products last year, then hired dozens of Apple engineers). The picture being built: multimodal consumer devices where the camera pipeline is AI-native from sensor to output.
+      </div>
+    </div>
+
+    <div class="item">
+      <div class="item-header">
+        <span class="tag tag-infra">Infra</span>
+        <div class="item-title">
+          <a href="https://techcrunch.com/2026/09/10/openai-puts-pro-subscriptions-on-hold-due-to-astra-demand/" target="_blank">OpenAI pauses new $200/mo Pro signups — GPT-6 Astra demand is "unprecedented"</a>
+        </div>
+      </div>
+      <div class="item-meta">
+        <span class="source">TechCrunch</span> · Sep 10, 2026 · still widely discussed
+      </div>
+      <div class="item-body">
+        GPT-6 Astra launched Sep 3 and immediately buried OpenAI's capacity. They've locked new upgrades to the Pro $200/mo tier (existing subs unaffected). Product lead Thibault Sottiaux: "I've not seen anything like it — and we went through very steep growth before." Notable: this is partly what's driving the Glass Imaging acquisition above. When your frontier model saturates inference capacity within two weeks of launch, you need every efficiency lever imaginable — from better ISPs to smarter serving.
+      </div>
+    </div>
+
+    <div class="item">
+      <div class="item-header">
+        <span class="tag tag-safety">Safety</span>
+        <div class="item-title">
+          <a href="https://techcrunch.com/2026/09/09/gambling-with-our-lives-anthropic-researcher-quits-warns-against-self-improving-ai/" target="_blank">Anthropic researcher Jacob Coxon quits, Alignment Lead Hubinger puts AI risk at &gt;10% per decade</a>
+        </div>
+      </div>
+      <div class="item-meta">
+        <span class="source">TechCrunch</span> · Sep 9, 2026 · ongoing discussion on HN + Simon Willison Sep 14
+      </div>
+      <div class="item-body">
+        Jacob Coxon spent three years in pretraining at OpenAI and Anthropic before quitting publicly, writing that people building frontier AI "earnestly believe it could kill us all by the end of the decade" and are "gambling with our lives." Evan Hubinger (Anthropic's Alignment Science Lead) replied on X confirming the internal view: he personally puts the probability of AI killing all humans at over 10% in the next decade.
+        <br><br>
+        Bryan Cantrill pushed back in a thoughtful piece linked by Simon Willison: domain experts who raise alarms without mechanistic specificity ("hacking critical infrastructure," "extinction-level bioweapons") are abusing the public's trust — the burden of detail lies with the claimant, not the audience.
+      </div>
+    </div>
+
+  </section>
+
+  <!-- TODAY'S LESSON -->
+  <section>
+    <div class="section-label lesson">💡 Today's Lesson</div>
+    <div class="lesson-box">
+      <div class="lesson-title">KL Divergence and Quantization: Why the Best-Calibrated Quant Isn't Always the Best Quant</div>
+      <div class="lesson-body">
+        <p>KL divergence (KLD) measures how different a quantized model's token probability distributions are from the original BF16 model on a calibration dataset. Lower KLD → the quant is acting more like the original. This makes intuitive sense as a quality metric. It's also fast to compute, which is why it's used everywhere from llama.cpp quantization selection to dynamic quant comparison.</p>
+        <p>Today's ByteShape release showed what practitioners have been quietly noticing: KLD and downstream task performance diverge, especially at low bit widths. Unsloth's UD-IQ3_S had ~20% lower KLD than ByteShape's Lite model at a comparable size — but scored 95.55% vs Lite's 97.33% on real task benchmarks. The quant that was "further from BF16" performed better on actual tasks.</p>
+        <p>Why does this happen? KLD is measured on a calibration set — a specific slice of tokens that may not represent your actual workload. A quant optimized to minimize KLD on that slice can distort weights in ways that happen to help on your eval benchmarks. More fundamentally, KLD penalizes probability mass shifts uniformly across the vocabulary, but most tokens are irrelevant for any given task. Getting the top-1 token right under pressure (math, code, tool calls) matters far more than having a tighter distribution over low-probability tails.</p>
+        <p>The right mental model: treat KLD as a floor check. A very high KLD (say, >0.1 on a good calibration set) is a red flag that a quant has probably fallen over a cliff. But two quants with similar-low KLD can still have meaningfully different task performance. For production model selection, always benchmark on a task representative of your actual use — GSM8K for math, LiveCodeBench for code, BFCL for tool use. KLD alone won't tell you which quant to ship.</p>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<!-- ARCHIVE SIDEBAR -->
+<style>
+  .arc-btn {
+    position: fixed; top: 18px; right: 18px; z-index: 200;
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 6px; padding: 6px 11px; font-size: 12px;
+    color: var(--muted); cursor: pointer; display: flex;
+    align-items: center; gap: 6px; user-select: none;
+    transition: border-color 0.15s, color 0.15s;
+    font-family: inherit;
+  }
+  .arc-btn:hover { border-color: #3a4060; color: var(--text); }
+  .arc-overlay {
+    display: none; position: fixed; inset: 0; z-index: 198;
+    background: rgba(0,0,0,0.45);
+  }
+  .arc-overlay.open { display: block; }
+  .arc-panel {
+    position: fixed; top: 0; right: 0; height: 100vh; width: 200px;
+    background: var(--surface); border-left: 1px solid var(--border);
+    z-index: 199; padding: 56px 14px 24px; overflow-y: auto;
+    transform: translateX(100%); transition: transform 0.22s ease;
+  }
+  .arc-panel.open { transform: translateX(0); }
+  .arc-panel-title {
+    font-size: 10px; font-weight: 700; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--muted);
+    margin-bottom: 14px; padding-left: 4px;
+  }
+  .arc-item {
+    display: block; padding: 7px 8px; border-radius: 5px;
+    font-size: 13px; color: var(--muted); text-decoration: none;
+    margin-bottom: 2px; transition: background 0.1s, color 0.1s;
+  }
+  .arc-item:hover { background: #1e2333; color: var(--text); }
+  .arc-item.current { background: rgba(91,142,240,0.12); color: var(--accent); font-weight: 600; }
+  .arc-close {
+    position: absolute; top: 14px; right: 14px;
+    background: none; border: none; color: var(--muted);
+    cursor: pointer; font-size: 18px; line-height: 1; padding: 4px;
+  }
+  .arc-close:hover { color: var(--text); }
+</style>
+<div class="arc-overlay" id="arcOverlay" onclick="arcClose()"></div>
+<div class="arc-panel" id="arcPanel">
+  <button class="arc-close" onclick="arcClose()">&#x2715;</button>
+  <div class="arc-panel-title">Past Issues</div>
+  <div id="arcList"><span style="color:var(--muted);font-size:12px">Loading…</span></div>
+</div>
+<button class="arc-btn" onclick="arcToggle()">
+  <svg width="13" height="11" viewBox="0 0 18 14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="0" y1="1" x2="18" y2="1"/><line x1="0" y1="13" x2="18" y2="13"/><line x1="0" y1="7" x2="18" y2="7"/></svg>
+  Past issues
+</button>
+<script>
+(function(){
+  var PAD = function(n){return String(n).padStart(2,'0');};
+  var MONTHS = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  var DAYS   = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+  var current = window.location.pathname.split('/').pop().replace(/\.html$/,'');
+  var found = [], tasks = [];
+  for(var i=0;i<45;i++){
+    (function(offset){
+      var d = new Date(); d.setDate(d.getDate()-offset);
+      var s = d.getFullYear()+'-'+PAD(d.getMonth()+1)+'-'+PAD(d.getDate());
+      tasks.push(fetch('./'+s+'.html',{method:'HEAD'}).then(function(r){if(r.ok)found.push({s:s,d:new Date(d)});}).catch(function(){}));
+    })(i);
+  }
+  Promise.all(tasks).then(function(){
+    found.sort(function(a,b){return b.d-a.d;});
+    var html='';
+    found.forEach(function(f){
+      var label=DAYS[f.d.getDay()]+', '+MONTHS[f.d.getMonth()]+' '+f.d.getDate();
+      var cls='arc-item'+(f.s===current?' current':'');
+      html+='<a class="'+cls+'" href="./'+f.s+'.html">'+label+'</a>';
+    });
+    document.getElementById('arcList').innerHTML=html||'<span style="color:var(--muted);font-size:12px">None found</span>';
+  });
+})();
+function arcToggle(){
+  var p=document.getElementById('arcPanel'),o=document.getElementById('arcOverlay');
+  var open=p.classList.contains('open');
+  if(open){arcClose();}else{p.classList.add('open');o.classList.add('open');}
+}
+function arcClose(){
+  document.getElementById('arcPanel').classList.remove('open');
+  document.getElementById('arcOverlay').classList.remove('open');
+}
+</script>
+
+</body>
+</html>
