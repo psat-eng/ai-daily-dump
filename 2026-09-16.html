@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Daily Dump — September 16, 2026</title>
+<style>
+  :root {
+    --bg: #0f1117;
+    --surface: #161b27;
+    --border: #252c3d;
+    --text: #e2e8f0;
+    --muted: #7a8499;
+    --accent: #5b8ef0;
+    --green: #4ade80;
+    --yellow: #fbbf24;
+    --red: #f87171;
+    --orange: #fb923c;
+    --purple: #a78bfa;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-size: 15px;
+    line-height: 1.65;
+    padding: 40px 20px 80px;
+    max-width: 740px;
+    margin: 0 auto;
+  }
+  .header {
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 24px;
+    margin-bottom: 36px;
+  }
+  .header-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 8px;
+  }
+  .header h1 {
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 4px;
+  }
+  .header .subtitle {
+    color: var(--muted);
+    font-size: 13px;
+  }
+  .section {
+    margin-bottom: 42px;
+  }
+  .section-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 3px 9px;
+    border-radius: 4px;
+    display: inline-block;
+    margin-bottom: 18px;
+  }
+  .label-hot { background: rgba(251,146,60,0.15); color: var(--orange); }
+  .label-releases { background: rgba(74,222,128,0.12); color: var(--green); }
+  .label-horizon { background: rgba(167,139,250,0.12); color: var(--purple); }
+  .label-reading { background: rgba(91,142,240,0.12); color: var(--accent); }
+  .label-lesson { background: rgba(251,191,36,0.12); color: var(--yellow); }
+  .item {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 18px 20px;
+    margin-bottom: 14px;
+  }
+  .item:last-child { margin-bottom: 0; }
+  .item-title {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 7px;
+    line-height: 1.4;
+  }
+  .item-title a {
+    color: var(--text);
+    text-decoration: none;
+  }
+  .item-title a:hover { color: var(--accent); }
+  .item-meta {
+    font-size: 11px;
+    color: var(--muted);
+    margin-bottom: 9px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .tag {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    padding: 2px 7px;
+    border-radius: 3px;
+    text-transform: uppercase;
+  }
+  .tag-community { background: rgba(251,146,60,0.15); color: var(--orange); }
+  .tag-hardware { background: rgba(167,139,250,0.15); color: var(--purple); }
+  .tag-release { background: rgba(74,222,128,0.12); color: var(--green); }
+  .tag-policy { background: rgba(248,113,113,0.15); color: var(--red); }
+  .tag-tools { background: rgba(91,142,240,0.12); color: var(--accent); }
+  .item-body {
+    font-size: 14px;
+    color: #b0bad0;
+    line-height: 1.6;
+  }
+  .item-body a { color: var(--accent); text-decoration: none; }
+  .item-body a:hover { text-decoration: underline; }
+  .lesson-card {
+    background: rgba(251,191,36,0.05);
+    border: 1px solid rgba(251,191,36,0.2);
+    border-radius: 10px;
+    padding: 22px 24px;
+  }
+  .lesson-title {
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--yellow);
+    margin-bottom: 14px;
+  }
+  .lesson-body {
+    font-size: 14px;
+    color: #c8d0e0;
+    line-height: 1.7;
+  }
+  .lesson-body p { margin-bottom: 12px; }
+  .lesson-body p:last-child { margin-bottom: 0; }
+  .lesson-body code {
+    background: rgba(255,255,255,0.08);
+    padding: 1px 5px;
+    border-radius: 3px;
+    font-size: 13px;
+    font-family: monospace;
+  }
+  .divider {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 36px 0;
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-label">AI Daily Dump</div>
+  <h1>September 16, 2026</h1>
+  <div class="subtitle">Wednesday · for Pranesh · inference engineer edition</div>
+</div>
+
+<!-- WHAT'S HOT -->
+<div class="section">
+  <div class="section-label label-hot">🔥 What's Hot Right Now</div>
+
+  <div class="item">
+    <div class="item-title">
+      <a href="https://www.reddit.com/r/LocalLLaMA/comments/1whx5xi/you_can_offload_most_of_qwen38flashnexts_kv_cache/" target="_blank">You can offload most of Qwen3.8-Flash-Next's KV cache to RAM with near-zero decode slowdown</a>
+    </div>
+    <div class="item-meta">
+      <span class="tag tag-community">Community</span>
+      r/LocalLLaMA · Sep 16 · 1M context on 3× RTX 3090
+    </div>
+    <div class="item-body">
+      A vLLM contributor showed that because Qwen3.8-Flash-Next uses Query-Selective Attention (QSA) — only 12 of its 48 layers have a KV cache, and those layers never read more than 2,048 positions per decode step regardless of total context length — most of the KV cache can live in system RAM. The author patched vLLM and is getting 80 tok/s at short context, staying near 60 tok/s at 1M tokens, with prefill reaching 3,701 tok/s at 248k. PCIe bandwidth for cache reads stays around 3.9 GB/s — a small fraction of a 4.0 x16 slot's 32 GB/s ceiling. Patches and model are on their Hugging Face page.
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="item-title">
+      <a href="https://www.reddit.com/r/LocalLLaMA/comments/1whf7ov/dont_buy_a_9k_rtx_5090_instead/" target="_blank">Don't buy a $9K RTX 5090 — fly to Taiwan instead (1,596 upvotes)</a>
+    </div>
+    <div class="item-meta">
+      <span class="tag tag-community">Community</span>
+      r/LocalLLaMA · Sep 15 · 372 comments
+    </div>
+    <div class="item-body">
+      The sub's most-upvoted post this week: someone flew round-trip from Orlando to Taipei ($1,081), bought an Apple Silicon machine at a Taiwanese retailer for NT$129,990 (~$4,093), spent two weeks eating their way through Taipei, and flew home with a better local AI rig than a $9K 5090 — for roughly the same total spend. Very thread, much discuss.
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="item-title">
+      <a href="https://huggingface.co/ISTA-DASLab/Qwen3.8-Flash-Next-GSQ-RCO-GGUF" target="_blank">[Release] SOTA GGUFs for Qwen3.8-Flash-Next: GSQ-RCO quants hit near-baseline on AIME25</a>
+    </div>
+    <div class="item-meta">
+      <span class="tag tag-release">Release</span>
+      ISTA-DASLab · HuggingFace · Sep 16
+    </div>
+    <div class="item-body">
+      ISTA-DASLab dropped GSQ-RCO quantizations for Qwen3.8-Flash-Next, shrinking the model from 80–95 GB down to 68–76 GB. IQ3_XXS matches baseline exactly on AIME25 (100.00) and is within 0.5 points on GPQA-Diamond. Their Q2_0 variant trades a small quality dip for 3.4× the prompt throughput and 1.9× lower end-to-end latency versus IQ2_XS — useful when you need throughput over quality. Decode rate stays flat across workloads, unlike IQ2_XS.
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="item-title">
+      <a href="https://www.reddit.com/r/LocalLLaMA/comments/1whqm2c/hey_meta_wheres_those_muse_spark_weights/" target="_blank">Meta Muse Spark weights: promised August 10, now on v1.3, still nothing</a>
+    </div>
+    <div class="item-meta">
+      <span class="tag tag-community">Community</span>
+      r/LocalLLaMA · Sep 16 · 278 upvotes
+    </div>
+    <div class="item-body">
+      The community is getting impatient. Meta promised open weights for Muse Spark 1.2 on August 10 — Zuckerberg even cited China competition as a reason not to delay model releases "even a month." It's been over a month. Now on 1.3 internally, nothing released. No official explanation. The irony isn't lost that China's frontier models are all open.
+    </div>
+  </div>
+</div>
+
+<!-- NEW RELEASES -->
+<div class="section">
+  <div class="section-label label-releases">🚀 New Releases &amp; Updates</div>
+
+  <div class="item">
+    <div class="item-title">
+      <a href="https://mistral.ai/news/mistral-x-mozilla/" target="_blank">Mistral × Mozilla: Mistral models now power Firefox Smart Window</a>
+    </div>
+    <div class="item-meta">
+      <span class="tag tag-release">Release</span>
+      Mistral AI · Sep 16 · HN #5, 262 pts
+    </div>
+    <div class="item-body">
+      Firefox's AI browsing assistant (Smart Window, still in beta) now runs on Mistral models. Zero data retention by default — conversations aren't saved on Mozilla's servers, and Mistral agrees to the same. Multilingual focus, initially rolling out for France and North America, with UK and Germany to follow later in 2026. An independent browser + European open-model company as an alternative to the browser/AI lab vertical integrations is a useful competitive signal.
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="item-title">
+      <a href="https://openai.com/index/testing-ads-in-chatgpt/" target="_blank">OpenAI expands ChatGPT ads with Sponsored Agents — Angi is first pilot brand</a>
+    </div>
+    <div class="item-meta">
+      <span class="tag tag-policy">Policy</span>
+      OpenAI · Sep 16 · HN #28, 70 pts
+    </div>
+    <div class="item-body">
+      Following February's initial ad rollout, OpenAI is now testing "Sponsored Agents" — branded AI agents that can appear in relevant ChatGPT conversations. Angi (formerly Angie's List, home services) is the first brand in the pilot. Ads are matched to conversation topic and past chats; advertisers only see aggregate performance data, not user conversations. The agent surface is new territory: instead of a banner, a brand's AI can insert itself into task flow.
+    </div>
+  </div>
+</div>
+
+<!-- ALSO WORTH READING -->
+<div class="section">
+  <div class="section-label label-reading">📖 Also Worth Reading</div>
+
+  <div class="item">
+    <div class="item-title">
+      <a href="https://codyho.dev" target="_blank">Building a Linux GPU Driver for the M4 Mac Mini in One Month</a>
+    </div>
+    <div class="item-meta">
+      <span class="tag tag-hardware">Hardware</span>
+      codyho.dev · Sep 15 · HN #6, 386 pts
+    </div>
+    <div class="item-body">
+      Cody Ho and Niklas Sheth reverse-engineered Apple's M4 GPU in a month to build a working Linux Mesa driver — reaching OpenGL ES 3.0 compliance. They used a hypervisor to trace GPU commands, then wrote Mesa drivers from those traces. Minecraft at 200+ fps is the benchmark. Relevant: Apple Silicon is increasingly the hardware of choice for running local inference (and now potentially cloud inference), and a solid open GPU driver matters a lot for the Linux ML stack.
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="item-title">
+      <a href="https://stateofopensource.ai/" target="_blank">Mozilla: China–US AI capability gap has narrowed to 4.4 months</a>
+    </div>
+    <div class="item-meta">
+      <span class="tag tag-community">Community</span>
+      stateofopensource.ai · Sep 16 · r/LocalLLaMA
+    </div>
+    <div class="item-body">
+      Mozilla's State of Open Source AI report puts the China–US frontier model gap at 4.4 months — down from what was comfortably over a year in 2024. The community thread notes that all Chinese frontier models are open-weight, making them directly runnable locally, while US labs increasingly hold back their best weights (see: Muse Spark above). The policy/competitive dynamic is shifting.
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="item-title">
+      <a href="https://www.macrumors.com/2026/09/16/apple-may-return-to-server-market/" target="_blank">Apple considering M8-based AI servers with NVLink Fusion networking (2029 target)</a>
+    </div>
+    <div class="item-meta">
+      <span class="tag tag-hardware">Hardware</span>
+      MacRumors / The Information · Sep 16
+    </div>
+    <div class="item-body">
+      The Information reports Apple is exploring a return to the server market — a business it abandoned when it killed Xserve in 2011. The target is inference-focused AI servers built around M8 chips, potentially interconnected using Nvidia's NVLink Fusion. Would be sold to external customers who want to run AI models on-prem. Tentative 2029 target, could be cancelled. If it ships, it opens an interesting "Apple Silicon cluster" path for enterprise inference.
+    </div>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- TODAY'S LESSON -->
+<div class="section">
+  <div class="section-label label-lesson">💡 Today's Lesson</div>
+  <div class="lesson-card">
+    <div class="lesson-title">Hybrid Attention Architectures: Why QSA Lets Qwen3.8-Flash-Next Ignore Context Length at Decode Time</div>
+    <div class="lesson-body">
+      <p>Standard transformer attention is an <em>O(n)</em> memory bandwidth problem at decode time: producing each new token requires reading the entire KV cache (all keys and values for every prior token) across all attention layers. As context grows, so does VRAM pressure and PCIe bandwidth consumption for any cache you dare to offload.</p>
+
+      <p>Qwen3.8-Flash-Next (the <code>qwen4_exp</code> architecture) sidesteps this in two ways. First, only 12 of its 48 layers are full attention layers — the other 36 are <strong>gated delta-net layers</strong>, a form of linear attention with a fixed-size recurrent state. Linear attention compresses history into a state matrix that doesn't grow with context; it reads the same amount of data per decode step whether your context is 1K tokens or 1M.</p>
+
+      <p>Second, those 12 full attention layers use <strong>Query-Selective Attention (QSA)</strong>: instead of attending to all prior tokens, QSA runs a cheap indexer over a pooled, compressed key (4× compression), then retrieves full KV rows only for the top <code>indexer_budget=2048</code> positions. The budget is fixed. So the per-step KV read for all 12 QSA layers is <em>at most</em> 2,048 tokens × 12 layers × constant row size — roughly 48 MB regardless of total context length.</p>
+
+      <p>The practical result (confirmed in today's vLLM post): you can keep the full KV cache in system RAM and stream it over PCIe at ~3.9 GB/s while getting 60–80 tok/s — because the indexer only fetches 2,048 rows, not 1,000,000. You've broken the decode speed / context length coupling. The trade-off is retrieval quality — QSA may miss tokens the indexer didn't select. Whether that matters depends on your workload.</p>
+
+      <p>The broader lesson: hybrid architectures that mix fixed-state layers (SSMs, linear attention, delta-net) with sparse full-attention layers are now the main architectural lever for escaping the KV cache bottleneck without fully abandoning attention's recall quality.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ARCHIVE SIDEBAR -->
+<style>
+  .arc-btn {
+    position: fixed; top: 18px; right: 18px; z-index: 200;
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 6px; padding: 6px 11px; font-size: 12px;
+    color: var(--muted); cursor: pointer; display: flex;
+    align-items: center; gap: 6px; user-select: none;
+    transition: border-color 0.15s, color 0.15s;
+    font-family: inherit;
+  }
+  .arc-btn:hover { border-color: #3a4060; color: var(--text); }
+  .arc-overlay {
+    display: none; position: fixed; inset: 0; z-index: 198;
+    background: rgba(0,0,0,0.45);
+  }
+  .arc-overlay.open { display: block; }
+  .arc-panel {
+    position: fixed; top: 0; right: 0; height: 100vh; width: 200px;
+    background: var(--surface); border-left: 1px solid var(--border);
+    z-index: 199; padding: 56px 14px 24px; overflow-y: auto;
+    transform: translateX(100%); transition: transform 0.22s ease;
+  }
+  .arc-panel.open { transform: translateX(0); }
+  .arc-panel-title {
+    font-size: 10px; font-weight: 700; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--muted);
+    margin-bottom: 14px; padding-left: 4px;
+  }
+  .arc-item {
+    display: block; padding: 7px 8px; border-radius: 5px;
+    font-size: 13px; color: var(--muted); text-decoration: none;
+    margin-bottom: 2px; transition: background 0.1s, color 0.1s;
+  }
+  .arc-item:hover { background: #1e2333; color: var(--text); }
+  .arc-item.current { background: rgba(91,142,240,0.12); color: var(--accent); font-weight: 600; }
+  .arc-close {
+    position: absolute; top: 14px; right: 14px;
+    background: none; border: none; color: var(--muted);
+    cursor: pointer; font-size: 18px; line-height: 1; padding: 4px;
+  }
+  .arc-close:hover { color: var(--text); }
+</style>
+<div class="arc-overlay" id="arcOverlay" onclick="arcClose()"></div>
+<div class="arc-panel" id="arcPanel">
+  <button class="arc-close" onclick="arcClose()">&#x2715;</button>
+  <div class="arc-panel-title">Past Issues</div>
+  <div id="arcList"><span style="color:var(--muted);font-size:12px">Loading…</span></div>
+</div>
+<button class="arc-btn" onclick="arcToggle()">
+  <svg width="13" height="11" viewBox="0 0 18 14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="0" y1="1" x2="18" y2="1"/><line x1="0" y1="13" x2="18" y2="13"/><line x1="0" y1="7" x2="18" y2="7"/></svg>
+  Past issues
+</button>
+<script>
+(function(){
+  var PAD = function(n){return String(n).padStart(2,'0');};
+  var MONTHS = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  var DAYS   = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+  var current = window.location.pathname.split('/').pop().replace(/\.html$/,'');
+  var found = [], tasks = [];
+  for(var i=0;i<45;i++){
+    (function(offset){
+      var d = new Date(); d.setDate(d.getDate()-offset);
+      var s = d.getFullYear()+'-'+PAD(d.getMonth()+1)+'-'+PAD(d.getDate());
+      tasks.push(fetch('./'+s+'.html',{method:'HEAD'}).then(function(r){if(r.ok)found.push({s:s,d:new Date(d)});}).catch(function(){}));
+    })(i);
+  }
+  Promise.all(tasks).then(function(){
+    found.sort(function(a,b){return b.d-a.d;});
+    var html='';
+    found.forEach(function(f){
+      var label=DAYS[f.d.getDay()]+', '+MONTHS[f.d.getMonth()]+' '+f.d.getDate();
+      var cls='arc-item'+(f.s===current?' current':'');
+      html+='<a class="'+cls+'" href="./'+f.s+'.html">'+label+'</a>';
+    });
+    document.getElementById('arcList').innerHTML=html||'<span style="color:var(--muted);font-size:12px">None found</span>';
+  });
+})();
+function arcToggle(){
+  var p=document.getElementById('arcPanel'),o=document.getElementById('arcOverlay');
+  var open=p.classList.contains('open');
+  if(open){arcClose();}else{p.classList.add('open');o.classList.add('open');}
+}
+function arcClose(){
+  document.getElementById('arcPanel').classList.remove('open');
+  document.getElementById('arcOverlay').classList.remove('open');
+}
+</script>
+
+</body>
+</html>
