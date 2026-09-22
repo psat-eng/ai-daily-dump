@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Daily Dump — September 17, 2026</title>
+<style>
+  :root {
+    --bg: #0d1117;
+    --surface: #161b22;
+    --border: #21262d;
+    --text: #e6edf3;
+    --muted: #7d8590;
+    --accent: #5b8ef0;
+    --accent2: #e3b341;
+    --tag-bg: #1c2128;
+    --hot: #f85149;
+    --green: #3fb950;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+    font-size: 15px;
+    line-height: 1.6;
+    max-width: 740px;
+    margin: 0 auto;
+    padding: 48px 24px 80px;
+  }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  .header { margin-bottom: 40px; }
+  .header-label {
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 6px;
+  }
+  .header-title {
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 4px;
+  }
+  .header-sub {
+    font-size: 13px;
+    color: var(--muted);
+  }
+
+  .section { margin-bottom: 44px; }
+  .section-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    padding: 3px 8px;
+    border-radius: 4px;
+    display: inline-block;
+    margin-bottom: 16px;
+  }
+  .label-hot { background: rgba(248,81,73,0.15); color: var(--hot); }
+  .label-releases { background: rgba(63,185,80,0.12); color: var(--green); }
+  .label-tools { background: rgba(91,142,240,0.12); color: var(--accent); }
+  .label-horizon { background: rgba(227,179,65,0.12); color: var(--accent2); }
+  .label-reading { background: rgba(125,133,144,0.15); color: var(--muted); }
+  .label-lesson { background: rgba(91,142,240,0.12); color: var(--accent); }
+
+  .item { margin-bottom: 24px; padding-bottom: 24px; border-bottom: 1px solid var(--border); }
+  .item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+
+  .item-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 4px;
+    line-height: 1.4;
+  }
+  .item-title a { color: var(--text); }
+  .item-title a:hover { color: var(--accent); text-decoration: none; }
+
+  .item-meta {
+    font-size: 12px;
+    color: var(--muted);
+    margin-bottom: 8px;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  .meta-tag {
+    background: var(--tag-bg);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 1px 6px;
+    font-size: 11px;
+  }
+  .meta-score { color: var(--accent2); font-weight: 600; }
+
+  .item-body { color: #cdd3db; font-size: 14px; line-height: 1.65; }
+  .item-body p + p { margin-top: 8px; }
+
+  .lesson-box {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--accent);
+    border-radius: 8px;
+    padding: 22px 24px;
+  }
+  .lesson-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 12px;
+    line-height: 1.4;
+  }
+  .lesson-body { font-size: 14px; color: #cdd3db; line-height: 1.7; }
+  .lesson-body p + p { margin-top: 10px; }
+
+  hr.divider { border: none; border-top: 1px solid var(--border); margin: 40px 0; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-label">AI Daily Dump</div>
+  <div class="header-title">September 17, 2026</div>
+  <div class="header-sub">Fresh from r/LocalLLaMA, Hacker News, and the open-source trenches</div>
+</div>
+
+<!-- WHAT'S HOT RIGHT NOW -->
+<div class="section">
+  <div class="section-label label-hot">🔥 What's Hot Right Now</div>
+
+  <div class="item">
+    <div class="item-title"><a href="https://www.reddit.com/r/LocalLLaMA/comments/1wijo3e/i_literally_built_the_jev_architecture_one_year/" target="_blank">The Jev Prior Art Fight — r/LocalLLaMA Erupts</a></div>
+    <div class="item-meta">
+      <span class="meta-score">⬆ 1041</span>
+      <span class="meta-tag">r/LocalLLaMA</span>
+      <span>Sep 17</span>
+    </div>
+    <div class="item-body">
+      <p>Community developer claims they published the exact architecture now being called "Jev" — a non-autoregressive model for ultra-fast JSON-schema prediction — over a year ago, with an arxiv paper, HuggingFace weights, a PyPI package, and a training dataset. A frontier lab (browser-use) has since announced it to widespread attention without referencing the prior work.</p>
+      <p>The timing is perfect: both <a href="https://github.com/browser-use" target="_blank">Jev Ultrafast (browser-use)</a> and a reverse-engineered Jev-like implementation landed on HN's front page today — 77 pts and 144 pts respectively. The architecture skips autoregression entirely, outputting probability distributions over schema choices in a single pass. Whether the prior art holds up technically is being picked apart in the thread.</p>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="item-title"><a href="https://technode.com/2026/09/14/z-ai-completes-around-us5-billion-financing-for-next-generation-glm-models/" target="_blank">GLM-5.3 Built Its Own Inference Stack — on 100,000+ Chinese Chips</a></div>
+    <div class="item-meta">
+      <span class="meta-score">⬆ 204 HN</span>
+      <span class="meta-tag">z.ai</span>
+      <span>Sep 17</span>
+    </div>
+    <div class="item-body">
+      <p>Z.ai published a detailed breakdown of how their GLM-5.3 model acted as an "Infra Agent" to build the production inference stack that now serves it — on a cluster of 100,000+ Chinese AI accelerators (the largest deployment of Chinese-made chips at this scale). End-to-end throughput tripled in 13 days. The model wrote CUDA kernels, debugged deployment configs, and coordinated the rollout with minimal human intervention beyond goal-setting.</p>
+      <p>Z.ai is careful not to call it RSI (recursive self-improvement) — humans still set objectives and assess risk — but the framing is deliberate. Also: Z.ai closed ~$5B in new financing on Sep 14 for next-gen GLM development.</p>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="item-title"><a href="https://www.tomshardware.com/tech-industry/artificial-intelligence/chinas-open-weight-ai-models-are-now-just-4-months-behind-frontier-us-offerings-mozilla-report-claims-models-still-lag-in-some-benchmarks-but-are-drastically-cheaper-to-use" target="_blank">China's Open-Weight Models: 4 Months Behind, 10x Cheaper</a></div>
+    <div class="item-meta">
+      <span class="meta-score">⬆ 1113</span>
+      <span class="meta-tag">r/LocalLLaMA</span>
+      <span class="meta-tag">Mozilla Report</span>
+      <span>Sep 16</span>
+    </div>
+    <div class="item-body">
+      <p>Mozilla's State of AI 2026 report finds Chinese open-weight models are now approximately 4 months behind frontier US offerings in capability benchmarks — down from 12+ months two years ago. The gap in deployment cost is the other side of the story: these models are "drastically cheaper to use" even where US models still lead on capability. 239 comments on the thread debating what "behind" even means as the two ecosystems optimize for different things.</p>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="item-title"><a href="https://www.reddit.com/r/LocalLLaMA/comments/1wisr6h/first_m5_ultra_benchmarks/" target="_blank">First M5 Ultra Benchmarks: 50 tok/s, 1800 tok/s Prefill</a></div>
+    <div class="item-meta">
+      <span class="meta-score">⬆ 64</span>
+      <span class="meta-tag">r/LocalLLaMA</span>
+      <span>Sep 17</span>
+    </div>
+    <div class="item-body">
+      <p>Early omlx.ai benchmarks for Apple's M5 Ultra show Qwen3 27B Q4 hitting 50 tok/s generation and 1800 tok/s prompt processing at 8K context (no multi-token prediction). Thread is excited — those prefill numbers are roughly 3x what the M3 Ultra could do. If the benchmarks hold, the M5 Ultra will be a genuinely compelling local inference machine for mid-to-large models.</p>
+    </div>
+  </div>
+</div>
+
+<!-- NEW RELEASES & UPDATES -->
+<div class="section">
+  <div class="section-label label-releases">🚀 New Releases & Updates</div>
+
+  <div class="item">
+    <div class="item-title"><a href="https://simonwillison.net/2026/Sep/15/gemini-38-live/" target="_blank">Google Releases Gemini 3.8 Live + Live Extended Thinking</a></div>
+    <div class="item-meta">
+      <span class="meta-tag">Google</span>
+      <span class="meta-tag">Speech Models</span>
+      <span>Sep 15</span>
+    </div>
+    <div class="item-body">
+      <p>Two new speech-to-speech models from Google — Gemini 3.8 Live and 3.8 Live Extended Thinking — shipped yesterday, matching the shape of OpenAI's GPT-Live family. They expose a WebSocket API at the generativelanguage endpoint. Extended Thinking variant adds audible reasoning traces. Simon Willison has a web demo up built entirely without libraries.</p>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="item-title"><a href="https://simonwillison.net/2026/Sep/16/claude-cowork/" target="_blank">Anthropic Merges Claude Cowork and Claude Chat into One Product</a></div>
+    <div class="item-meta">
+      <span class="meta-tag">Anthropic</span>
+      <span>Sep 16</span>
+    </div>
+    <div class="item-body">
+      <p>Anthropic announced that Claude Cowork (the desktop agent product) and the regular Claude chat interface are merging into a single product called Claude, rolling out to Pro and Max plan users on web, desktop, and mobile over the coming weeks. Simon Willison's read: "Claude is becoming a general agent in its own right" — paralleling OpenAI's move to rename Codex desktop to ChatGPT last month.</p>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="item-title"><a href="https://openai.com" target="_blank">OpenAI Publishes Model Misalignment Report</a></div>
+    <div class="item-meta">
+      <span class="meta-score">⬆ 91 HN</span>
+      <span class="meta-tag">OpenAI</span>
+      <span>Sep 17</span>
+    </div>
+    <div class="item-body">
+      <p>OpenAI released a new model misalignment report this morning (81 HN comments). Details aren't fully clear from initial reading, but the thread is engaged — worth keeping an eye on as more analysis comes in today.</p>
+    </div>
+  </div>
+</div>
+
+<!-- HARNESSES, TOOLS & INFERENCE -->
+<div class="section">
+  <div class="section-label label-tools">⚙️ Harnesses, Tools & Inference</div>
+
+  <div class="item">
+    <div class="item-title"><a href="https://doug.sh/posts/vllm-kv-cache-agents/" target="_blank">Keeping vLLM's Prefix Cache Warm Between Agent Turns</a></div>
+    <div class="item-meta">
+      <span class="meta-score">⬆ 35</span>
+      <span class="meta-tag">r/LocalLLaMA</span>
+      <span class="meta-tag">Tutorial</span>
+      <span>Sep 17</span>
+    </div>
+    <div class="item-body">
+      <p>Solid practical guide on structuring multi-turn agent prompts to maximize vLLM prefix cache hit rate between turns. The core insight: put your system prompt and tool definitions first (stable prefix), conversation history last (volatile suffix). A cache miss on a 6K-token system prompt + tool block costs you the same as a full prefill — structuring prompts correctly means those tokens are computed once per server restart, not once per turn. Directly applicable to any agentic workload on vLLM.</p>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="item-title"><a href="https://www.alphaxiv.org/abs/2609.deepseek-v4-1-flash" target="_blank">DeepSeek-V4.1-Flash: 890 Bytes/Token KV Cache via CSA2 + FP4</a></div>
+    <div class="item-meta">
+      <span class="meta-score">⬆ 125 HN</span>
+      <span class="meta-tag">DeepSeek</span>
+      <span class="meta-tag">Inference</span>
+      <span>Sep 17</span>
+    </div>
+    <div class="item-body">
+      <p>A detailed breakdown of DeepSeek-V4.1-Flash's KV cache compression approach has been making rounds. The model compresses KV state to ~890 bytes/token — roughly ¼ of V4-Flash and 437x smaller than DeepSeek-V1 — by combining Compressed Sparse Attention 2 (CSA2, which assigns each attention layer a static Full/Reindex/Reuse mode to share KV across layers) with FP4 KV caching using the E2M1 format. The payoff: million-token context without the usual memory cliff. The model launched in early September but the analysis is still circulating.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ALSO WORTH READING -->
+<div class="section">
+  <div class="section-label label-reading">📚 Also Worth Reading</div>
+
+  <div class="item">
+    <div class="item-title"><a href="https://harnesstax.github.io" target="_blank">HarnessTax: How Much Does the Scaffold Matter for Coding Agents?</a></div>
+    <div class="item-meta">
+      <span class="meta-score">⬆ 189 HN</span>
+      <span>Sep 17</span>
+    </div>
+    <div class="item-body">
+      <p>New research measuring how much the agent harness (context management, retry logic, tool API shapes, error handling) contributes to coding benchmark results — independently of the underlying model. Turns out: quite a lot. Important reading if you're benchmarking or choosing between frameworks, since "swapping harnesses" is often not a controlled experiment.</p>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="item-title"><a href="https://news.ycombinator.com/item?id=nvidiarust2026" target="_blank">Nvidia Announces Native Rust GPU Programming</a></div>
+    <div class="item-meta">
+      <span class="meta-score">⬆ 841 HN</span>
+      <span class="meta-tag">nvidia.com</span>
+      <span>Sep 16</span>
+    </div>
+    <div class="item-body">
+      <p>Top HN story today: Nvidia has announced Rust as a first-class language for native GPU programming. Big news for systems and AI infrastructure engineers — Rust's safety guarantees applied to CUDA-style programming could reshape how inference kernels are written. 336 comments and climbing.</p>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="item-title"><a href="https://www.reuters.com/world/asia-pacific/chinas-huawei-launch-two-new-ai-chips-2027-2026-09-17/" target="_blank">Huawei: AI Chip Demand Outstrips Supply, Two New Chips Coming 2027</a></div>
+    <div class="item-meta">
+      <span class="meta-tag">Reuters</span>
+      <span class="meta-tag">Hardware</span>
+      <span>Sep 17</span>
+    </div>
+    <div class="item-body">
+      <p>Huawei says demand for its Ascend AI chips is outstripping supply as it steps up its challenge to Nvidia. Two new AI chip variants are planned for 2027. Context for the Z.ai story above: GLM-5.3's 100,000-chip deployment runs on Huawei Ascend 910C hardware.</p>
+    </div>
+  </div>
+</div>
+
+<!-- TODAY'S LESSON -->
+<div class="section">
+  <div class="section-label label-lesson">💡 Today's Lesson</div>
+  <div class="lesson-box">
+    <div class="lesson-title">Prefix Cache Hit Rate: Why Stable Prompt Structure Is Worth More Than You Think</div>
+    <div class="lesson-body">
+      <p>A prefix cache hit means the server already has the KV state for a chunk of your prompt computed and stored in GPU HBM — so it doesn't recompute it. In vLLM, the cache operates at the block granularity (e.g., 16 tokens per block). Two requests share a cache hit only if they share the exact same prefix token-by-token up to a block boundary.</p>
+
+      <p>For an agent loop, the anatomy of a prompt is roughly: <em>[system prompt + tool definitions] + [conversation history] + [new user turn]</em>. The first section is stable — it's the same across every turn. The conversation history grows. If you structure your prompts so the stable section comes <em>first</em>, every turn after the first gets those blocks for free. Put the volatile stuff (history) before the system prompt and you evict yourself on every call.</p>
+
+      <p>The math is unforgiving at scale. Say your system prompt + tool defs = 6,000 tokens. At $2/M input tokens and 1,000 agent turns per hour, that's $12/hour in avoidable prefill compute — just from bad prompt ordering. Prefix cache hits drop that to near-zero for the stable portion.</p>
+
+      <p>Two practical rules: (1) always put your static context first; (2) for multi-agent setups where child agents share a parent's system prompt, ensure all children use byte-for-byte identical prefixes — even a single token difference breaks the hit. The <a href="https://doug.sh/posts/vllm-kv-cache-agents/" target="_blank">vLLM prefix cache warming tutorial</a> linked above covers implementation details including how to pre-warm the cache on server startup.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ARCHIVE SIDEBAR -->
+<style>
+  .arc-btn {
+    position: fixed; top: 18px; right: 18px; z-index: 200;
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 6px; padding: 6px 11px; font-size: 12px;
+    color: var(--muted); cursor: pointer; display: flex;
+    align-items: center; gap: 6px; user-select: none;
+    transition: border-color 0.15s, color 0.15s;
+    font-family: inherit;
+  }
+  .arc-btn:hover { border-color: #3a4060; color: var(--text); }
+  .arc-overlay {
+    display: none; position: fixed; inset: 0; z-index: 198;
+    background: rgba(0,0,0,0.45);
+  }
+  .arc-overlay.open { display: block; }
+  .arc-panel {
+    position: fixed; top: 0; right: 0; height: 100vh; width: 200px;
+    background: var(--surface); border-left: 1px solid var(--border);
+    z-index: 199; padding: 56px 14px 24px; overflow-y: auto;
+    transform: translateX(100%); transition: transform 0.22s ease;
+  }
+  .arc-panel.open { transform: translateX(0); }
+  .arc-panel-title {
+    font-size: 10px; font-weight: 700; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--muted);
+    margin-bottom: 14px; padding-left: 4px;
+  }
+  .arc-item {
+    display: block; padding: 7px 8px; border-radius: 5px;
+    font-size: 13px; color: var(--muted); text-decoration: none;
+    margin-bottom: 2px; transition: background 0.1s, color 0.1s;
+  }
+  .arc-item:hover { background: #1e2333; color: var(--text); }
+  .arc-item.current { background: rgba(91,142,240,0.12); color: var(--accent); font-weight: 600; }
+  .arc-close {
+    position: absolute; top: 14px; right: 14px;
+    background: none; border: none; color: var(--muted);
+    cursor: pointer; font-size: 18px; line-height: 1; padding: 4px;
+  }
+  .arc-close:hover { color: var(--text); }
+</style>
+<div class="arc-overlay" id="arcOverlay" onclick="arcClose()"></div>
+<div class="arc-panel" id="arcPanel">
+  <button class="arc-close" onclick="arcClose()">&#x2715;</button>
+  <div class="arc-panel-title">Past Issues</div>
+  <div id="arcList"><span style="color:var(--muted);font-size:12px">Loading…</span></div>
+</div>
+<button class="arc-btn" onclick="arcToggle()">
+  <svg width="13" height="11" viewBox="0 0 18 14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="0" y1="1" x2="18" y2="1"/><line x1="0" y1="13" x2="18" y2="13"/><line x1="0" y1="7" x2="18" y2="7"/></svg>
+  Past issues
+</button>
+<script>
+(function(){
+  var PAD = function(n){return String(n).padStart(2,'0');};
+  var MONTHS = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  var DAYS   = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+  var current = window.location.pathname.split('/').pop().replace(/\.html$/,'');
+  var found = [], tasks = [];
+  for(var i=0;i<45;i++){
+    (function(offset){
+      var d = new Date(); d.setDate(d.getDate()-offset);
+      var s = d.getFullYear()+'-'+PAD(d.getMonth()+1)+'-'+PAD(d.getDate());
+      tasks.push(fetch('./'+s+'.html',{method:'HEAD'}).then(function(r){if(r.ok)found.push({s:s,d:new Date(d)});}).catch(function(){}));
+    })(i);
+  }
+  Promise.all(tasks).then(function(){
+    found.sort(function(a,b){return b.d-a.d;});
+    var html='';
+    found.forEach(function(f){
+      var label=DAYS[f.d.getDay()]+', '+MONTHS[f.d.getMonth()]+' '+f.d.getDate();
+      var cls='arc-item'+(f.s===current?' current':'');
+      html+='<a class="'+cls+'" href="./'+f.s+'.html">'+label+'</a>';
+    });
+    document.getElementById('arcList').innerHTML=html||'<span style="color:var(--muted);font-size:12px">None found</span>';
+  });
+})();
+function arcToggle(){
+  var p=document.getElementById('arcPanel'),o=document.getElementById('arcOverlay');
+  var open=p.classList.contains('open');
+  if(open){arcClose();}else{p.classList.add('open');o.classList.add('open');}
+}
+function arcClose(){
+  document.getElementById('arcPanel').classList.remove('open');
+  document.getElementById('arcOverlay').classList.remove('open');
+}
+</script>
+</body>
+</html>

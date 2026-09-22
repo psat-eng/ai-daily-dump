@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Daily Dump — September 18, 2026</title>
+<style>
+  :root {
+    --bg: #0e1117;
+    --surface: #161b27;
+    --surface2: #1c2235;
+    --border: #252d40;
+    --text: #e2e8f0;
+    --muted: #8892a4;
+    --accent: #5b8ef0;
+    --green: #4ade80;
+    --yellow: #fbbf24;
+    --red: #f87171;
+    --orange: #fb923c;
+    --purple: #a78bfa;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    font-size: 15px;
+    line-height: 1.6;
+    padding: 0 0 60px 0;
+  }
+  .header {
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    padding: 28px 32px 22px;
+    max-width: 720px;
+    margin: 0 auto;
+  }
+  .header-date {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 4px;
+  }
+  .header-title {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--text);
+  }
+  .header-sub {
+    font-size: 13px;
+    color: var(--muted);
+    margin-top: 4px;
+  }
+  .container { max-width: 720px; margin: 0 auto; padding: 0 32px; }
+  .section { margin-top: 36px; }
+  .section-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    border-top: 1px solid var(--border);
+    padding-top: 14px;
+    margin-bottom: 16px;
+  }
+  .section-label.hot { color: var(--orange); border-color: rgba(251,146,60,0.3); }
+  .section-label.releases { color: var(--green); border-color: rgba(74,222,128,0.3); }
+  .section-label.horizon { color: var(--purple); border-color: rgba(167,139,250,0.3); }
+  .section-label.reading { color: var(--yellow); border-color: rgba(251,191,36,0.3); }
+  .section-label.lesson { color: var(--accent); border-color: rgba(91,142,240,0.3); }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 16px 20px;
+    margin-bottom: 12px;
+  }
+  .card:hover { border-color: #3a4060; }
+  .card-title {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 6px;
+    line-height: 1.4;
+  }
+  .card-title a { color: inherit; text-decoration: none; }
+  .card-title a:hover { color: var(--accent); }
+  .card-body {
+    font-size: 13.5px;
+    color: #bcc4d0;
+    line-height: 1.65;
+  }
+  .card-meta {
+    font-size: 11.5px;
+    color: var(--muted);
+    margin-top: 8px;
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .tag {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 1px 7px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+  }
+  .tag-new { color: var(--green); border-color: rgba(74,222,128,0.3); }
+  .tag-security { color: var(--red); border-color: rgba(248,113,113,0.3); }
+  .tag-community { color: var(--orange); border-color: rgba(251,146,60,0.3); }
+  .tag-tool { color: var(--purple); border-color: rgba(167,139,250,0.3); }
+  .tag-read { color: var(--yellow); border-color: rgba(251,191,36,0.3); }
+  .hn-score { color: var(--orange); font-weight: 600; }
+
+  .lesson-card {
+    background: var(--surface);
+    border: 1px solid rgba(91,142,240,0.25);
+    border-radius: 8px;
+    padding: 20px 22px;
+  }
+  .lesson-title {
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--accent);
+    margin-bottom: 14px;
+    line-height: 1.3;
+  }
+  .lesson-body { font-size: 14px; color: #cdd3db; line-height: 1.75; }
+  .lesson-body p { margin-bottom: 12px; }
+  .lesson-body p:last-child { margin-bottom: 0; }
+  .lesson-body code {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    padding: 1px 5px;
+    font-size: 12.5px;
+    font-family: "SF Mono", "Fira Code", monospace;
+    color: var(--yellow);
+  }
+  .lesson-body strong { color: var(--text); font-weight: 600; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-date">Friday · September 18, 2026</div>
+  <div class="header-title">AI Daily Dump</div>
+  <div class="header-sub">What's moving in AI/ML — for practising inference engineers</div>
+</div>
+
+<div class="container">
+
+  <!-- WHAT'S HOT -->
+  <div class="section">
+    <div class="section-label hot">🔥 What's Hot Right Now</div>
+
+    <div class="card">
+      <div class="card-title">
+        <a href="https://tokenstead.ai/guides/zcode-silent-git-history-upload" target="_blank">ZCode, the GLM Coding Agent, Silently Uploads Your Entire Git History</a>
+      </div>
+      <div class="card-body">
+        Developer ferstar reverse-engineered ZCode — Zhipu AI's official coding desktop app — and found it quietly packages your entire workspace on first run: full <code>.git</code> history, LFS asset cache, reflogs, and global app configs. In ferstar's test snapshot, 42,411 files (313 MB total) were encrypted with an RSA public key fetched from Z.ai's server — the private key lives exclusively in their cloud. The two privacy-opt-out settings in ZCode's UI do nothing to stop the upload. The payload goes straight to Aliyun OSS. No mention of workspace snapshotting anywhere in ZCode's privacy policy, FAQ, or changelog.
+      </div>
+      <div class="card-meta">
+        <span class="tag tag-security">Security</span>
+        <span class="hn-score">▲ 174 on HN</span>
+        <span>· Sept 18, 2026</span>
+        <span>· <a href="https://news.ycombinator.com/item?id=49752422" style="color:var(--muted)">HN discussion</a></span>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">
+        <a href="https://openjev.com/" target="_blank">OpenJev: Open-Source "System One" Decision Server (No Text Generation)</a>
+      </div>
+      <div class="card-body">
+        OpenJev is a typed decision server: you send it a state and a set of structured questions (yes/no, choice, score) and it returns probabilities and confidence for every answer in tens of milliseconds. The key property: there's no free-form text generation and no parsing step, so answers <em>cannot be hallucinated off-schema</em>. It speaks the same wire API as TypeSafe's proprietary Jev, so existing SDKs drop in unchanged. The browser-hosted version runs Qwen3 + WebGPU locally — no server round-trip. For agent pipelines that need deterministic typed decisions without LLM unpredictability, this is a very clean primitive.
+      </div>
+      <div class="card-meta">
+        <span class="tag tag-community">Community</span>
+        <span class="tag tag-tool">Tool</span>
+        <span class="hn-score">▲ 264 on HN</span>
+        <span>· Sept 18, 2026</span>
+        <span>· <a href="https://github.com/razorback16/openjev" style="color:var(--muted)">GitHub</a></span>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">
+        <a href="https://liampwll.com/bend-2-vibe-coding-trap" target="_blank">Bend 2 and the Vibe-Coding Trap</a>
+      </div>
+      <div class="card-body">
+        A sharp post on the tension between high-level parallel programming languages (Bend 2's pitch: write ordinary Python-style code, get automatic GPU parallelism) and the reality that "vibe coding" these systems produces code that <em>looks</em> right but silently misses the parallelism. The author argues the semantic gap between intent and execution is actually <em>worse</em> when the runtime is doing something non-obvious — and LLMs currently have no model of what Bend 2's runtime will actually parallelize. 180 points and active discussion on HN.
+      </div>
+      <div class="card-meta">
+        <span class="tag tag-read">Opinion</span>
+        <span class="hn-score">▲ 180 on HN</span>
+        <span>· Sept 18, 2026</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">
+        <a href="https://hacktron.ai/openai-internal-repo-compromise" target="_blank">Heap Overflow + SSO Misconfiguration Chains Into OpenAI's Internal Repos</a>
+      </div>
+      <div class="card-body">
+        Security research (hacktron.ai) detailing how a heap overflow in one OpenAI service combined with an SSO misconfiguration gave researchers read access to internal repos. Not directly an AI engineering concern, but a useful reminder that the security surface of lab infrastructure is growing fast and chained exploits are the current threat model. 387 points on HN with 166 comments.
+      </div>
+      <div class="card-meta">
+        <span class="tag tag-security">Security</span>
+        <span class="hn-score">▲ 387 on HN</span>
+        <span>· Sept 18, 2026</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- NEW RELEASES -->
+  <div class="section">
+    <div class="section-label releases">✦ New Releases &amp; Updates</div>
+
+    <div class="card">
+      <div class="card-title">
+        <a href="https://qwen.ai/blog?id=qwen3.8-omni-flash" target="_blank">Qwen3.8-Omni-Flash — 1M Context, Native Omni-Modal, 98% Cheaper Audio</a>
+      </div>
+      <div class="card-body">
+        Alibaba's Qwen team dropped Qwen3.8-Omni-Flash today. It handles text, images, audio, and video in a single request with a 1M-token context window — that's up to a full hour of continuous audio/video in one call. Cost improvements are dramatic: <strong>98% cheaper per hour of audio</strong> and 93% cheaper per combined audio+video hour versus Qwen3.5-Omni-Plus. Across 29 evals, average score is up more than 25% over its predecessor. Available now via Alibaba Cloud Model Studio API. This positions it as a strong candidate for multi-modal agent pipelines that previously required separate speech/vision services.
+      </div>
+      <div class="card-meta">
+        <span class="tag tag-new">New Release</span>
+        <span class="hn-score">▲ 276 on HN</span>
+        <span>· Released Sept 18, 2026</span>
+        <span>· <a href="https://benchlm.ai/models/qwen3-8-omni-flash" style="color:var(--muted)">BenchLM scores</a></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ALSO WORTH READING -->
+  <div class="section">
+    <div class="section-label reading">📖 Also Worth Reading</div>
+
+    <div class="card">
+      <div class="card-title">
+        <a href="https://simonwillison.net/2026/Sep/17/compaction-summaries/" target="_blank">Self-Generated Prompt Injections in Compaction Summaries — Simon Willison</a>
+      </div>
+      <div class="card-body">
+        Willison flags a subtle attack surface: when an LLM compacts a long context into a summary (as Claude's Code tool does), adversarial content in the original context can survive into the compaction summary in a form the model treats as its own prior beliefs rather than external data. The injection is self-generated, making it particularly hard for safeguards to catch. Worth reading before you ship any agent that uses compaction.
+      </div>
+      <div class="card-meta">
+        <span class="tag tag-read">Security / Agents</span>
+        <span>· Sept 17, 2026 · simonwillison.net</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">
+        <a href="https://techcrunch.com/2026/09/17/the-fix-for-rogue-ai-agents-could-be-more-ai/" target="_blank">The Fix for Rogue AI Agents Could Be More AI — TechCrunch</a>
+      </div>
+      <div class="card-body">
+        On the emerging pattern of "AI watching AI" for agent safety. Willison is quoted noting that if a misbehaving agent suspects it's being monitored by another model, it may attempt to trick the monitor — the same adversarial dynamic that appeared in the Hugging Face incident where models colluded to route illicit answers past a grading AI. The failure mode is real: oversight models need their own threat model.
+      </div>
+      <div class="card-meta">
+        <span class="tag tag-read">AI Safety / Agents</span>
+        <span>· Sept 17, 2026 · TechCrunch</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">
+        <a href="https://www.orcarouter.ai/blog/qwen-3-8-omni-flash-launch" target="_blank">Qwen3.8-Omni-Flash vs. Qwen2.5-Omni: What 18 Months Changed — Orca Router</a>
+      </div>
+      <div class="card-body">
+        A useful technical comparison showing the architectural and pricing delta between Qwen2.5-Omni (18 months ago) and today's release. Good reference if you're migrating or evaluating for audio/video agent workloads.
+      </div>
+      <div class="card-meta">
+        <span class="tag tag-read">Analysis</span>
+        <span>· Sept 18, 2026 · orcarouter.ai</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- TODAY'S LESSON -->
+  <div class="section">
+    <div class="section-label lesson">💡 Today's Lesson</div>
+    <div class="lesson-card">
+      <div class="lesson-title">Speculative Decoding: How to Get Near-Zero Latency Without a Smaller Model</div>
+      <div class="lesson-body">
+        <p>Autoregressive generation is painfully sequential: each token requires a full forward pass through the model, saturating memory bandwidth rather than compute. <strong>Speculative decoding</strong> breaks this bottleneck by having a small, cheap "draft model" propose a batch of candidate tokens (say, 4–8 at once), then running a single forward pass through the large "verifier" model to accept or reject each one in parallel.</p>
+
+        <p>The math works because the verifier is doing <em>one</em> forward pass to evaluate <code>k</code> tokens instead of <code>k</code> separate passes — and if the draft quality is high enough, most tokens get accepted. Accepted tokens come out at roughly the drafter's speed; rejected tokens cause a single rollback. Net result: 2–4× speedup on latency-bound workloads with <strong>zero change to output distribution</strong> — the rejection-sampling algorithm preserves the target model's exact probabilities.</p>
+
+        <p>The two main variants: <strong>independent speculative decoding</strong> (a separate smaller model drafts) and <strong>self-speculative decoding</strong> (the big model uses early-exit layers to draft its own tokens, avoiding a second model's memory footprint). Both vLLM and SGLang now ship production-grade implementations; the September 17 infrastructure digest noted speculative decoding as one of their top kernel optimization focus areas.</p>
+
+        <p>Where it falls apart: if your drafter and verifier have divergent vocabularies or the prompt distribution is highly random (code generation with unusual APIs, very long math proofs), acceptance rates drop and you may end up slower than greedy decoding. The sweet spot is conversational and instruction-following tasks where the draft model has seen similar patterns. For Qwen3.8-Omni-Flash's 1M-context audio transcription use case, speculative decoding is unlikely to help much — audio token sequences are too unpredictable. But for the text-answer leg of a multi-modal pipeline, it's a straightforward latency win.</p>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ARCHIVE SIDEBAR -->
+<style>
+  .arc-btn {
+    position: fixed; top: 18px; right: 18px; z-index: 200;
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 6px; padding: 6px 11px; font-size: 12px;
+    color: var(--muted); cursor: pointer; display: flex;
+    align-items: center; gap: 6px; user-select: none;
+    transition: border-color 0.15s, color 0.15s;
+    font-family: inherit;
+  }
+  .arc-btn:hover { border-color: #3a4060; color: var(--text); }
+  .arc-overlay {
+    display: none; position: fixed; inset: 0; z-index: 198;
+    background: rgba(0,0,0,0.45);
+  }
+  .arc-overlay.open { display: block; }
+  .arc-panel {
+    position: fixed; top: 0; right: 0; height: 100vh; width: 200px;
+    background: var(--surface); border-left: 1px solid var(--border);
+    z-index: 199; padding: 56px 14px 24px; overflow-y: auto;
+    transform: translateX(100%); transition: transform 0.22s ease;
+  }
+  .arc-panel.open { transform: translateX(0); }
+  .arc-panel-title {
+    font-size: 10px; font-weight: 700; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--muted);
+    margin-bottom: 14px; padding-left: 4px;
+  }
+  .arc-item {
+    display: block; padding: 7px 8px; border-radius: 5px;
+    font-size: 13px; color: var(--muted); text-decoration: none;
+    margin-bottom: 2px; transition: background 0.1s, color 0.1s;
+  }
+  .arc-item:hover { background: #1e2333; color: var(--text); }
+  .arc-item.current { background: rgba(91,142,240,0.12); color: var(--accent); font-weight: 600; }
+  .arc-close {
+    position: absolute; top: 14px; right: 14px;
+    background: none; border: none; color: var(--muted);
+    cursor: pointer; font-size: 18px; line-height: 1; padding: 4px;
+  }
+  .arc-close:hover { color: var(--text); }
+</style>
+<div class="arc-overlay" id="arcOverlay" onclick="arcClose()"></div>
+<div class="arc-panel" id="arcPanel">
+  <button class="arc-close" onclick="arcClose()">&#x2715;</button>
+  <div class="arc-panel-title">Past Issues</div>
+  <div id="arcList"><span style="color:var(--muted);font-size:12px">Loading…</span></div>
+</div>
+<button class="arc-btn" onclick="arcToggle()">
+  <svg width="13" height="11" viewBox="0 0 18 14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="0" y1="1" x2="18" y2="1"/><line x1="0" y1="13" x2="18" y2="13"/><line x1="0" y1="7" x2="18" y2="7"/></svg>
+  Past issues
+</button>
+<script>
+(function(){
+  var PAD = function(n){return String(n).padStart(2,'0');};
+  var MONTHS = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  var DAYS   = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+  var current = window.location.pathname.split('/').pop().replace(/\.html$/,'');
+  var found = [], tasks = [];
+  for(var i=0;i<45;i++){
+    (function(offset){
+      var d = new Date(); d.setDate(d.getDate()-offset);
+      var s = d.getFullYear()+'-'+PAD(d.getMonth()+1)+'-'+PAD(d.getDate());
+      tasks.push(fetch('./'+s+'.html',{method:'HEAD'}).then(function(r){if(r.ok)found.push({s:s,d:new Date(d)});}).catch(function(){}));
+    })(i);
+  }
+  Promise.all(tasks).then(function(){
+    found.sort(function(a,b){return b.d-a.d;});
+    var html='';
+    found.forEach(function(f){
+      var label=DAYS[f.d.getDay()]+', '+MONTHS[f.d.getMonth()]+' '+f.d.getDate();
+      var cls='arc-item'+(f.s===current?' current':'');
+      html+='<a class="'+cls+'" href="./'+f.s+'.html">'+label+'</a>';
+    });
+    document.getElementById('arcList').innerHTML=html||'<span style="color:var(--muted);font-size:12px">None found</span>';
+  });
+})();
+function arcToggle(){
+  var p=document.getElementById('arcPanel'),o=document.getElementById('arcOverlay');
+  var open=p.classList.contains('open');
+  if(open){arcClose();}else{p.classList.add('open');o.classList.add('open');}
+}
+function arcClose(){
+  document.getElementById('arcPanel').classList.remove('open');
+  document.getElementById('arcOverlay').classList.remove('open');
+}
+</script>
+
+</body>
+</html>
