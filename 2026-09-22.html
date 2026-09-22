@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Daily Dump — September 22, 2026</title>
+<style>
+  :root {
+    --bg: #0f1117;
+    --surface: #161b27;
+    --surface2: #1c2233;
+    --border: #252d3d;
+    --text: #e2e8f0;
+    --muted: #7a8499;
+    --accent: #5b8ef0;
+    --accent2: #7c6af5;
+    --green: #4ade80;
+    --orange: #fb923c;
+    --red: #f87171;
+    --yellow: #facc15;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+    font-size: 15px;
+    line-height: 1.65;
+    max-width: 740px;
+    margin: 0 auto;
+    padding: 48px 24px 80px;
+  }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  .header { margin-bottom: 40px; border-bottom: 1px solid var(--border); padding-bottom: 24px; }
+  .header-label {
+    font-size: 11px; font-weight: 700; letter-spacing: 0.12em;
+    text-transform: uppercase; color: var(--muted); margin-bottom: 6px;
+  }
+  .header h1 { font-size: 26px; font-weight: 700; color: var(--text); letter-spacing: -0.02em; }
+  .header-sub { font-size: 13px; color: var(--muted); margin-top: 4px; }
+
+  .section-label {
+    font-size: 10px; font-weight: 700; letter-spacing: 0.12em;
+    text-transform: uppercase; color: var(--muted);
+    border-left: 2px solid var(--border);
+    padding-left: 10px; margin-bottom: 16px; margin-top: 40px;
+  }
+  .section-label.hot { color: var(--orange); border-color: rgba(251,146,60,0.4); }
+  .section-label.releases { color: var(--green); border-color: rgba(74,222,128,0.4); }
+  .section-label.horizon { color: var(--accent2); border-color: rgba(124,106,245,0.4); }
+  .section-label.reading { color: var(--yellow); border-color: rgba(250,204,21,0.4); }
+  .section-label.lesson { color: var(--accent); border-color: rgba(91,142,240,0.3); }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 18px 20px;
+    margin-bottom: 12px;
+  }
+  .card:hover { border-color: #3a4060; }
+
+  .card-title {
+    font-size: 15px; font-weight: 600; color: var(--text);
+    margin-bottom: 6px; line-height: 1.4;
+  }
+  .card-title a { color: var(--text); }
+  .card-title a:hover { color: var(--accent); text-decoration: none; }
+  .card-body { font-size: 13.5px; color: #b0bac9; line-height: 1.65; }
+  .card-body p { margin-bottom: 8px; }
+  .card-body p:last-child { margin-bottom: 0; }
+
+  .tag {
+    display: inline-block;
+    font-size: 10px; font-weight: 700; letter-spacing: 0.07em;
+    text-transform: uppercase; border-radius: 4px;
+    padding: 2px 7px; margin-bottom: 8px;
+  }
+  .tag.new { background: rgba(74,222,128,0.12); color: var(--green); }
+  .tag.hot { background: rgba(251,146,60,0.12); color: var(--orange); }
+  .tag.tool { background: rgba(91,142,240,0.12); color: var(--accent); }
+  .tag.story { background: rgba(248,113,113,0.12); color: var(--red); }
+  .tag.read { background: rgba(250,204,21,0.1); color: var(--yellow); }
+
+  .lesson-card {
+    background: linear-gradient(135deg, #131825 0%, #161d2e 100%);
+    border: 1px solid rgba(91,142,240,0.2);
+    border-radius: 8px;
+    padding: 22px 24px;
+  }
+  .lesson-title {
+    font-size: 16px; font-weight: 700; color: var(--text);
+    margin-bottom: 14px; line-height: 1.4;
+  }
+  .lesson-body { font-size: 14px; color: #cdd3db; line-height: 1.75; }
+  .lesson-body p { margin-bottom: 12px; }
+  .lesson-body p:last-child { margin-bottom: 0; }
+  .lesson-body code {
+    background: #1e2540; border-radius: 3px;
+    padding: 1px 5px; font-size: 12.5px; color: #a5b4fc;
+    font-family: 'SF Mono', 'Fira Code', monospace;
+  }
+  .lesson-body strong { color: var(--text); font-weight: 600; }
+
+  .divider { border: none; border-top: 1px solid var(--border); margin: 32px 0; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-label">AI Daily Dump</div>
+  <h1>Tuesday, September 22, 2026</h1>
+  <div class="header-sub">What's happening in AI/ML right now — for the practicing engineer</div>
+</div>
+
+<!-- WHAT'S HOT -->
+<div class="section-label hot">🔥 What's Hot Right Now</div>
+
+<div class="card">
+  <div class="tag story">Platform War</div>
+  <div class="card-title"><a href="https://techcrunch.com/2026/09/21/metas-ai-agent-has-been-blocked-from-using-amazon-com/" target="_blank">Amazon pulls the plug on Meta's Muse AI agent — mid-purchase</a></div>
+  <div class="card-body">
+    <p>Amazon started blocking Meta's Muse shopping agent on Sunday night, flashing a popup: <em>"Continued access by an unauthorized AI agent violates Amazon's Conditions of Use."</em> Amazon says Muse conceals its identity and retains customer credentials; Meta says Muse never sees passwords or payment info, they go into secure storage.</p>
+    <p>This is the first major platform-vs-agent standoff to hit mainstream coverage, and it won't be the last. The core tension: whose UX does a customer "own" when an agent acts on their behalf? Amazon reportedly asked Meta to exclude its site before blocking. Meta said no. Now every other retailer is watching.</p>
+  </div>
+</div>
+
+<div class="card">
+  <div class="tag hot">Trending</div>
+  <div class="card-title"><a href="https://huggingface.co/Qwen/Qwen3.8-27B" target="_blank">Qwen3.8-27B is lapping the Hugging Face leaderboards</a></div>
+  <div class="card-body">
+    <p>15,971 weekly likes and 7.15M downloads — Qwen3.8-27B is dominating HF trending this week. The 27B multimodal (text + image + video in, 1M context, Apache 2.0) reportedly beats Claude Opus 4.6 Max on several agentic coding and browser-use benchmarks. It's from August but the community is clearly still working through it — quants, fine-tunes, and merge experiments are everywhere.</p>
+    <p>Also trending: <strong>DeepSeek-V4.1-Flash</strong> for low-latency vision-language tasks, and two low-bit quantization lines — Ternary-Bonsai-2-27B (2-bit) and GSQ-RCO mixed-precision — both getting traction for edge deployment.</p>
+  </div>
+</div>
+
+<!-- NEW RELEASES -->
+<div class="section-label releases">🚀 New Releases &amp; Updates</div>
+
+<div class="card">
+  <div class="tag new">Released Sep 21</div>
+  <div class="card-title"><a href="https://www.androidheadlines.com/2026/09/grok-4-7-ai-launch-coding-upgrades-pricing.html" target="_blank">Grok 4.7 — 2.1T params, SpaceX data baked in, same price</a></div>
+  <div class="card-body">
+    <p>xAI shipped Grok 4.7 yesterday. The headline number is 2.1 trillion parameters (up 40% from 4.6's 1.5T). Pricing holds at $2/$6 per million input/output tokens. Available via Cursor, the Grok API, and third-party harnesses.</p>
+    <p>What's genuinely interesting: xAI supplemented training with SpaceX telemetry, manufacturing records, and engineering failure logs — positioning it as the first frontier model with serious grounding in physical/hardware systems reasoning. Coding benchmarks improved too: CursorBench 4.0 at 46.3% (up from 40.4%), DeepSWE v1.1 at 71.0% (up from 65.2%). The model also doubles down on self-checking and claims a new safety stack with 3.3% risky-prompt pass-through on HackerBench v0.3.</p>
+  </div>
+</div>
+
+<div class="card">
+  <div class="tag tool">Inference Engine</div>
+  <div class="card-title"><a href="https://github.com/sgl-project/sglang/releases/tag/v0.5.20" target="_blank">SGLang v0.5.20 — smarter prefix cache, dedicated RL rollout path, CUDA 12 dropped</a></div>
+  <div class="card-body">
+    <p>A big release. The unified radix tree now records branching points, so requests sharing a long system prompt reuse far more of the cache. On DeepSeek-V4-Flash, token hit rate goes 43.8% → 60.8% and TTFT drops 1.57s → 1.07s. That's a real gain with zero prompt engineering.</p>
+    <p>RL rollouts get a dedicated path: sampling masks with overlap scheduling raise decode throughput on Qwen3-8B by 17% at batch 1 and 52% at batch 64. New <code>--sampling-mask-max-tokens</code> flag controls capacity. New models: GLM-5.3-Flash, Qwen3.8-Flash-Next, Tencent Hy4-Preview, K2 Horizon, plus Mamba 1/2 state-space support. <strong>Breaking:</strong> no CUDA 12 wheels — pin v0.5.19 if you're not on CUDA 12.4+.</p>
+  </div>
+</div>
+
+<!-- ALSO WORTH READING -->
+<div class="section-label reading">📖 Also Worth Reading</div>
+
+<div class="card">
+  <div class="tag read">Blog</div>
+  <div class="card-title"><a href="https://simonwillison.net/2026/Sep/21/jev/" target="_blank">Simon Willison: Jev and "Decision Models" — a new category or clever marketing?</a></div>
+  <div class="card-body">
+    <p>TypeSafe AI came out of stealth Sep 15 with $40M and a model called Jev. Unlike standard LLMs, Jev outputs floating-point numbers for categories, yes/no questions, ratings, and confidence scores — no text. The pitch: it's a fast, cheap classification layer (≈$0.042/M input tokens, free output) for judgments software can consume directly. Simon covers it well — worth 5 minutes if you build pipelines with classification steps, reranking, or routing decisions.</p>
+  </div>
+</div>
+
+<div class="card">
+  <div class="tag read">Policy</div>
+  <div class="card-title">California signs AI datacenter energy bills; UN issues agent safety warning</div>
+  <div class="card-body">
+    <p>Two policy items that are upstream of infrastructure costs: California Governor Newsom signed seven bills targeting AI datacenter energy/water use, preventing them from shifting utility costs to residents. Separately, the UN's scientific advisory group issued guidance that governments must adopt AI regulatory measures before autonomous agent risks are fully understood — citing the precautionary principle explicitly. Neither is immediate but both affect how and where big training and inference clusters get built.</p>
+  </div>
+</div>
+
+<div class="card">
+  <div class="tag read">vLLM RFC</div>
+  <div class="card-title">vLLM's incremental MoE Expert Offloading — run 100B+ MoE on limited VRAM</div>
+  <div class="card-body">
+    <p>An active RFC in the vLLM repo proposes an incremental expert offloading scheme for large MoE models: experts that don't fit in GPU VRAM are cached in CPU pinned memory and streamed in as needed. Also in progress: ViT Full CUDA Graph support for production Qwen3-VL, GLM-V, and Kimi K2.5 multimodal inference. Both are in-flight, not shipped — but worth watching.</p>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- TODAY'S LESSON -->
+<div class="section-label lesson">💡 Today's Lesson</div>
+<div class="lesson-card">
+  <div class="lesson-title">MoE Expert Offloading: How to Run a 200B Model on a Box That Can't Hold It</div>
+  <div class="lesson-body">
+    <p>Mixture-of-Experts (MoE) models like DeepSeek-V4 and Qwen3.8 are structurally appealing for inference: only a small subset of "experts" activate per token, so compute per token stays low even as total parameter count is huge. The catch is that all those expert weights still have to live somewhere — and a 200B MoE model can have 160–180B of that mass sitting in expert layers alone.</p>
+    <p><strong>The problem:</strong> On a server with, say, 80GB of GPU VRAM, most of a large MoE doesn't fit. Naively, you'd need to parallelize across many GPUs or use a smaller model. Expert offloading offers a third path: keep only the most-frequently-used experts in GPU VRAM, and cache the rest in <strong>CPU pinned memory</strong> (page-locked RAM that the GPU can DMA from without going through the OS).</p>
+    <p><strong>How it works:</strong> A router module (the part of MoE that decides which experts handle each token) predicts which experts will be needed for an upcoming batch. The offloading layer pre-fetches those expert weights from CPU to GPU asynchronously — overlapping the data transfer with the computation of the previous layer. If your batch is big enough and your prediction is accurate, the GPU never stalls waiting for weights. This is sometimes called "prefetch-and-compute overlap."</p>
+    <p><strong>The tradeoff space:</strong> Pinned memory transfer bandwidth (PCIe 5.0 saturates around 60–64 GB/s bidirectional) is roughly 10× slower than GPU HBM bandwidth (~3.3 TB/s on H100). So expert offloading works when: (a) experts are large relative to per-token compute — true for MoE; (b) batch sizes are big enough to amortize the transfer; (c) the router's expert predictions are accurate and made early enough. It breaks down at small batch sizes or when expert selection is unpredictable. That's why vLLM's RFC frames this as "incremental" — only cold/rarely-used experts get offloaded, not the whole model.</p>
+    <p>The practical upshot: if you're running a large MoE on a single node with 1–2 GPUs and the model doesn't quite fit, expert offloading can close the gap — at the cost of some throughput. Worth profiling before you scale to more cards.</p>
+  </div>
+</div>
+
+<!-- ARCHIVE SIDEBAR -->
+<style>
+  .arc-btn {
+    position: fixed; top: 18px; right: 18px; z-index: 200;
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 6px; padding: 6px 11px; font-size: 12px;
+    color: var(--muted); cursor: pointer; display: flex;
+    align-items: center; gap: 6px; user-select: none;
+    transition: border-color 0.15s, color 0.15s;
+    font-family: inherit;
+  }
+  .arc-btn:hover { border-color: #3a4060; color: var(--text); }
+  .arc-overlay {
+    display: none; position: fixed; inset: 0; z-index: 198;
+    background: rgba(0,0,0,0.45);
+  }
+  .arc-overlay.open { display: block; }
+  .arc-panel {
+    position: fixed; top: 0; right: 0; height: 100vh; width: 200px;
+    background: var(--surface); border-left: 1px solid var(--border);
+    z-index: 199; padding: 56px 14px 24px; overflow-y: auto;
+    transform: translateX(100%); transition: transform 0.22s ease;
+  }
+  .arc-panel.open { transform: translateX(0); }
+  .arc-panel-title {
+    font-size: 10px; font-weight: 700; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--muted);
+    margin-bottom: 14px; padding-left: 4px;
+  }
+  .arc-item {
+    display: block; padding: 7px 8px; border-radius: 5px;
+    font-size: 13px; color: var(--muted); text-decoration: none;
+    margin-bottom: 2px; transition: background 0.1s, color 0.1s;
+  }
+  .arc-item:hover { background: #1e2333; color: var(--text); }
+  .arc-item.current { background: rgba(91,142,240,0.12); color: var(--accent); font-weight: 600; }
+  .arc-close {
+    position: absolute; top: 14px; right: 14px;
+    background: none; border: none; color: var(--muted);
+    cursor: pointer; font-size: 18px; line-height: 1; padding: 4px;
+  }
+  .arc-close:hover { color: var(--text); }
+</style>
+<div class="arc-overlay" id="arcOverlay" onclick="arcClose()"></div>
+<div class="arc-panel" id="arcPanel">
+  <button class="arc-close" onclick="arcClose()">&#x2715;</button>
+  <div class="arc-panel-title">Past Issues</div>
+  <div id="arcList"><span style="color:var(--muted);font-size:12px">Loading…</span></div>
+</div>
+<button class="arc-btn" onclick="arcToggle()">
+  <svg width="13" height="11" viewBox="0 0 18 14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="0" y1="1" x2="18" y2="1"/><line x1="0" y1="13" x2="18" y2="13"/><line x1="0" y1="7" x2="18" y2="7"/></svg>
+  Past issues
+</button>
+<script>
+(function(){
+  var PAD = function(n){return String(n).padStart(2,'0');};
+  var MONTHS = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  var DAYS   = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+  var current = window.location.pathname.split('/').pop().replace(/\.html$/,'');
+  var found = [], tasks = [];
+  for(var i=0;i<45;i++){
+    (function(offset){
+      var d = new Date(); d.setDate(d.getDate()-offset);
+      var s = d.getFullYear()+'-'+PAD(d.getMonth()+1)+'-'+PAD(d.getDate());
+      tasks.push(fetch('./'+s+'.html',{method:'HEAD'}).then(function(r){if(r.ok)found.push({s:s,d:new Date(d)});}).catch(function(){}));
+    })(i);
+  }
+  Promise.all(tasks).then(function(){
+    found.sort(function(a,b){return b.d-a.d;});
+    var html='';
+    found.forEach(function(f){
+      var label=DAYS[f.d.getDay()]+', '+MONTHS[f.d.getMonth()]+' '+f.d.getDate();
+      var cls='arc-item'+(f.s===current?' current':'');
+      html+='<a class="'+cls+'" href="./'+f.s+'.html">'+label+'</a>';
+    });
+    document.getElementById('arcList').innerHTML=html||'<span style="color:var(--muted);font-size:12px">None found</span>';
+  });
+})();
+function arcToggle(){
+  var p=document.getElementById('arcPanel'),o=document.getElementById('arcOverlay');
+  var open=p.classList.contains('open');
+  if(open){arcClose();}else{p.classList.add('open');o.classList.add('open');}
+}
+function arcClose(){
+  document.getElementById('arcPanel').classList.remove('open');
+  document.getElementById('arcOverlay').classList.remove('open');
+}
+</script>
+
+</body>
+</html>

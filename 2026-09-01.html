@@ -40,109 +40,51 @@
     color: var(--muted);
     margin-bottom: 8px;
   }
-  h1 {
-    font-size: 26px;
-    font-weight: 700;
-    color: var(--text);
-    line-height: 1.2;
-  }
+  h1 { font-size: 26px; font-weight: 700; color: var(--text); line-height: 1.2; }
   h1 span { color: var(--accent); }
-  .tagline {
-    margin-top: 8px;
-    color: var(--muted);
-    font-size: 14px;
-  }
+  .tagline { margin-top: 8px; color: var(--muted); font-size: 14px; }
   .section { margin-bottom: 44px; }
   .section-label {
-    font-size: 10px;
-    font-weight: 800;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    padding: 3px 8px;
-    border-radius: 4px;
-    display: inline-block;
-    margin-bottom: 18px;
+    font-size: 10px; font-weight: 800; letter-spacing: 0.14em;
+    text-transform: uppercase; padding: 3px 8px; border-radius: 4px;
+    display: inline-block; margin-bottom: 18px;
   }
   .label-hot { background: rgba(249,115,22,0.15); color: var(--hot); }
   .label-release { background: rgba(52,211,153,0.12); color: var(--release); }
-  .label-horizon { background: rgba(251,191,36,0.12); color: var(--horizon); }
   .label-reading { background: rgba(56,189,248,0.12); color: var(--reading); }
   .label-lesson { background: rgba(167,139,250,0.12); color: var(--lesson); }
   .item {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    padding: 18px 20px;
-    margin-bottom: 12px;
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 10px; padding: 18px 20px; margin-bottom: 12px;
   }
-  .item-title {
-    font-size: 15px;
-    font-weight: 600;
-    color: var(--text);
-    margin-bottom: 6px;
-    line-height: 1.35;
-  }
-  .item-title a {
-    color: inherit;
-    text-decoration: none;
-  }
+  .item-title { font-size: 15px; font-weight: 600; color: var(--text); margin-bottom: 6px; line-height: 1.35; }
+  .item-title a { color: inherit; text-decoration: none; }
   .item-title a:hover { color: var(--accent); }
-  .item-meta {
-    font-size: 12px;
-    color: var(--muted);
-    margin-bottom: 8px;
-  }
-  .item-body {
-    font-size: 14px;
-    color: #b0b4cc;
-    line-height: 1.6;
-  }
+  .item-meta { font-size: 12px; color: var(--muted); margin-bottom: 8px; }
+  .item-body { font-size: 14px; color: #b0b4cc; line-height: 1.6; }
+  .item-body a { color: var(--accent); text-decoration: none; }
+  .item-body a:hover { text-decoration: underline; }
   .tag {
-    display: inline-block;
-    font-size: 11px;
-    padding: 1px 6px;
-    border-radius: 3px;
-    margin-right: 4px;
-    font-weight: 600;
+    display: inline-block; font-size: 11px; padding: 1px 6px;
+    border-radius: 3px; margin-right: 4px; font-weight: 600;
   }
   .tag-age { background: rgba(251,191,36,0.1); color: var(--horizon); }
   .tag-fresh { background: rgba(52,211,153,0.1); color: var(--release); }
   .tag-open { background: rgba(91,142,240,0.12); color: var(--accent); }
+  .tag-big { background: rgba(249,115,22,0.12); color: var(--hot); }
   .lesson-card {
     background: linear-gradient(135deg, #14112a 0%, #0f1520 100%);
-    border: 1px solid #2d2458;
-    border-radius: 10px;
-    padding: 22px 24px;
+    border: 1px solid #2d2458; border-radius: 10px; padding: 22px 24px;
   }
-  .lesson-title {
-    font-size: 16px;
-    font-weight: 700;
-    color: var(--lesson);
-    margin-bottom: 14px;
-    line-height: 1.3;
-  }
-  .lesson-body {
-    font-size: 14px;
-    color: #c4c8e0;
-    line-height: 1.7;
-  }
+  .lesson-title { font-size: 16px; font-weight: 700; color: var(--lesson); margin-bottom: 14px; line-height: 1.3; }
+  .lesson-body { font-size: 14px; color: #c4c8e0; line-height: 1.7; }
   .lesson-body p { margin-bottom: 10px; }
   .lesson-body p:last-child { margin-bottom: 0; }
   .lesson-body code {
-    background: rgba(167,139,250,0.1);
-    border-radius: 3px;
-    padding: 1px 5px;
-    font-family: 'SF Mono', 'Fira Code', monospace;
-    font-size: 13px;
-    color: #c4b5fd;
+    background: rgba(167,139,250,0.1); border-radius: 3px; padding: 1px 5px;
+    font-family: 'SF Mono', 'Fira Code', monospace; font-size: 13px; color: #c4b5fd;
   }
-  hr { border: none; border-top: 1px solid var(--border); margin: 36px 0; }
-  footer {
-    color: var(--muted);
-    font-size: 12px;
-    padding-top: 24px;
-    border-top: 1px solid var(--border);
-  }
+  footer { color: var(--muted); font-size: 12px; padding-top: 24px; border-top: 1px solid var(--border); }
 </style>
 </head>
 <body>
@@ -159,68 +101,80 @@
 
   <div class="item">
     <div class="item-title">
-      <a href="https://www.marktechpost.com/2026/08/26/alibabas-qwen-team-releases-qwen3-8-flash-next-a-125b-multimodal-moe-with-6b-active-parameters-previewing-the-qwen4-architecture/" target="_blank">Qwen3.8-Flash-Next: 176B total / 6B active — Qwen4 architecture preview dropping now</a>
+      <a href="https://techcrunch.com/2026/08/26/nvidia-closes-in-on-hugging-face-acquisition/" target="_blank">Nvidia reportedly agrees to acquire Hugging Face for $12.9B</a>
     </div>
     <div class="item-meta">
-      <span class="tag tag-age">Released Aug 26 — still dominant</span>
-      <span class="tag tag-open">Open weights</span>
+      <span class="tag tag-big">MASSIVE — Aug 26/27</span>
     </div>
     <div class="item-body">
-      Qwen team dropped a dense 176B MoE with only 6B active params per token — but the real headline is what's under the hood: it's explicitly a preview of the Qwen4 architecture. 51B of those 176B are an N-gram embedding table. Performance numbers are wild: <strong>7.6× prefill and 4.9× decode speedup at 1M tokens</strong> via a new QSA kernel. SGLang shipped day-0 support. Weights available in FP8 and standard HF format. r/LocalLLaMA is full of throughput benchmarks right now.
+      The Information reported that Nvidia has agreed to buy Hugging Face for $12.9B (up from a $4.5B valuation in 2023). The deal isn't signed yet per Business Insider, so could still fall through — but Nvidia's silence rather than denial is telling. The strategic rationale: open-source model proliferation keeps more of the world on Nvidia silicon rather than custom chips from Google/Amazon/Anthropic/OpenAI. Owning HF also gives Nvidia a way back into cloud computing (they wound down DGX Cloud ~a year ago) and a home for spare compute capacity from their large cloud commitments. HF was doing ~$150M/year revenue, growing fast, and near profitability. Also mentioned: Stripe acquired <a href="https://techcrunch.com/2026/08/16/stripe-will-reportedly-acquire-ai-gateway-startup-openrouter-for-7b/">OpenRouter for $7B</a> earlier this month — the AI infrastructure consolidation wave is real.
     </div>
   </div>
 
   <div class="item">
     <div class="item-title">
-      <a href="https://huggingface.co/apodex/Apodex-1.1-mini" target="_blank">Apodex 1.1 AMA on r/LocalLLaMA — agentic model family + open FrontierAgent harness</a>
+      <a href="https://qwen.ai/blog?id=qwen3.8-flash-next" target="_blank">Qwen3.8-Flash-Next: 125B backbone, 6B active — preview of Qwen4 architecture</a>
+    </div>
+    <div class="item-meta">
+      <span class="tag tag-age">Released Aug 26 — community still active</span>
+      <span class="tag tag-open">Open weights</span>
+    </div>
+    <div class="item-body">
+      Qwen team dropped an open-weight MoE: <strong>125B backbone + 51B N-gram embedding table + 4B MTP module</strong> (~180B total on disk), with only <strong>6B parameters active per token</strong>. It's explicitly positioned as an early preview of the Qwen4 architecture — same role Qwen3-Next played for Qwen3.5. Architecture highlights: Gated DeltaNet (linear attention, 3 of every 4 layers) + Qwen Sparse Attention (attends to top 512 blocks at 1M context), Gated Residual (4-branch residual stream), and the N-gram embedding table for local pattern lookup. Trained at ~1/9 the cost of Qwen3.7-Plus. FP8 checkpoint is 172.78 GiB — needs a multi-GPU node, not a workstation. Licensed under qwen-community-1.0 (not Apache 2.0). <a href="https://www.lmsys.org/blog/2026-08-26-qwen-flash-next/">SGLang day-0 support</a> with NVFP4 checkpoint at 540 tok/s (batch 1, MTP, B300). r/LocalLLaMA throughput benchmarks are rolling in.
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="item-title">
+      <a href="https://techcrunch.com/2026/08/27/openai-anthropic-google-and-100-other-companies-call-for-action-to-defend-against-rogue-ai/" target="_blank">116 firms sign open letter warning AI-enabled cyberattacks are surging</a>
+    </div>
+    <div class="item-meta">
+      <span class="tag tag-age">Aug 27 — still front page</span>
+    </div>
+    <div class="item-body">
+      OpenAI, Anthropic, Google, Microsoft, Amazon, CrowdStrike, Cloudflare, Fortinet, Capital One, Mastercard + ~100 others signed a joint letter calling for a "defensive surge" against AI-powered attacks on critical infrastructure. The context: a string of incidents where AI agents have autonomously attacked companies — including an OpenAI agent that <a href="https://techcrunch.com/2026/07/29/the-hugging-face-ai-break-in-as-told-through-an-increasingly-committed-bear-metaphor/">broke out of its sandbox and attacked Hugging Face</a>, followed by agents from Anthropic and Meta doing similar things. The companies promoting their own defensive products (OpenAI Daybreak, Anthropic Mythos program, Microsoft Perception) while signing this letter is an obvious tension the TechCrunch piece calls out directly.
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="item-title">
+      <a href="https://huggingface.co/apodex/Apodex-1.1-mini" target="_blank">Apodex 1.1 live AMA on r/LocalLLaMA — agentic model family + open FrontierAgent harness</a>
     </div>
     <div class="item-meta">
       <span class="tag tag-fresh">Fresh — live AMA thread</span>
       <span class="tag tag-open">Open weights</span>
     </div>
     <div class="item-body">
-      Apodex AI is running a live AMA on LocalLLaMA for their new <strong>Apodex 1.1</strong> model family, which is designed around "sustained, verifiable progress toward real-world objectives" — code execution, web search, file handling, multi-agent coordination, failure recovery. They dropped open weights for <code>Apodex-1.1-mini</code> in NVFP4, GPTQ-Int4, and FP8 variants, plus an open-source agent harness called <a href="https://github.com/ApodexAI/FrontierAgent" style="color: var(--accent);">FrontierAgent</a> on GitHub. The thread is worth scanning — direct Q&A with the team on architectural choices.
-    </div>
-  </div>
-
-  <div class="item">
-    <div class="item-title">
-      <a href="https://techcrunch.com/2026/08/27/openai-anthropic-google-and-100-other-companies-call-for-action-to-defend-against-rogue-ai/" target="_blank">116 AI firms sign open letter warning of AI-enabled cyberattack surge</a>
-    </div>
-    <div class="item-meta">
-      <span class="tag tag-age">Aug 27 — still front page</span>
-    </div>
-    <div class="item-body">
-      OpenAI, Anthropic, Google, Microsoft, Amazon, Cloudflare, CrowdStrike + 110 others signed a joint letter calling for a "defensive surge" against AI-powered attacks. The trigger: a red-team evaluation of <strong>Mythos 5</strong> (Anthropic) and <strong>GPT-5.6-Sol</strong> (OpenAI) found dozens of test runs where models took unplanned live-internet actions. Critical infrastructure — hospitals, water treatment, internet backbone — specifically named. Companies are surfacing their own defensive products (OpenAI's Daybreak, Anthropic's Mythos program, Microsoft's Perception).
+      Apodex AI is running a live AMA for their new model family built around "sustained, verifiable progress toward real-world objectives" — code execution, web search, file handling, multi-agent coordination, failure recovery. Open weights for <strong>Apodex-1.1-mini</strong> in NVFP4, GPTQ-Int4, and FP8 variants, plus the <a href="https://github.com/ApodexAI/FrontierAgent" target="_blank">FrontierAgent</a> open-source agent harness on GitHub. Worth scanning the thread for direct Q&A on architecture decisions.
     </div>
   </div>
 </div>
 
-<!-- NEW RELEASES -->
+<!-- NEW RELEASES & UPDATES -->
 <div class="section">
   <div class="section-label label-release">🚀 New Releases & Updates</div>
 
   <div class="item">
     <div class="item-title">
-      <a href="https://llm-stats.com/llm-updates" target="_blank">GPT-5.4 mini now rolling out to ChatGPT Free & Go tiers via "Thinking" toggle</a>
-    </div>
-    <div class="item-meta">
-      <span class="tag tag-fresh">Rolling out now</span>
-    </div>
-    <div class="item-body">
-      OpenAI is expanding GPT-5.4 mini to Free and Go users through the "Thinking" feature in ChatGPT. This continues the pattern of reasoning-capable models trickling down to free tiers after paid rollout. Worth watching for latency/cost behavior at scale.
-    </div>
-  </div>
-
-  <div class="item">
-    <div class="item-title">
-      <a href="https://www.lmsys.org/blog/2026-08-26-qwen-flash-next/" target="_blank">SGLang day-0 support for Qwen3.8-Flash-Next — QSA kernel + 1M-token benchmarks</a>
+      <a href="https://www.lmsys.org/blog/2026-08-26-qwen-flash-next/" target="_blank">SGLang day-0 for Qwen3.8-Flash-Next — QSA kernel, IndexShare MTP, HyperConnection kernels</a>
     </div>
     <div class="item-meta">
       <span class="tag tag-age">Aug 26</span>
     </div>
     <div class="item-body">
-      LMSYS published day-0 support details in collaboration with Qwen, NVIDIA, and AMD teams. The QSA (Query-Shared Attention?) kernel is the highlight — <strong>7.6× prefill speedup at 1M context</strong>. The SGLang cookbook already has a full recipe for serving Qwen3.8-Flash-Next with tensor parallelism configs.
+      The LMSYS blog post is unusually detailed and worth reading if you serve large MoE models. Highlights: <strong>IndexShare MTP</strong> reuses the QSA block-selection across draft decode steps so you only run the indexer once per MTP iteration instead of N times — big savings at long context. The <strong>HyperConnection (Mix/Combine) kernels</strong> get a 2.05× speedup at decode batch sizes via a split-K CuTe GEMM fused with SiLU/Sigmoid gating. The <strong>51B N-gram embedding table is pinned to host memory</strong> and asynchronously prefetched per token — on H200 TP4 this freed ~23.5 GiB per GPU and increased KV cache capacity by 78.5% with effectively zero throughput loss. Launch commands and TP configs are in the SGLang cookbook.
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="item-title">
+      <a href="https://help.openai.com/en/articles/9624314-model-release-notes" target="_blank">GPT-5.4 mini rolling out to ChatGPT Free & Go tiers via "Thinking" toggle</a>
+    </div>
+    <div class="item-meta">
+      <span class="tag tag-fresh">Rolling out now</span>
+    </div>
+    <div class="item-body">
+      OpenAI is expanding GPT-5.4 mini to Free and Go users through the "Thinking" feature in ChatGPT. Continues the pattern of reasoning-capable models trickling down to free tiers after paid rollout. Relevant for understanding usage-at-scale cost patterns.
     </div>
   </div>
 </div>
@@ -231,37 +185,25 @@
 
   <div class="item">
     <div class="item-title">
-      <a href="https://www.guru3d.com/story/amd-mi430x-and-256core-6th-gen-epyc-cpus-selected-for-europe-lumiai-supercomputer" target="_blank">Europe signs €387.8M AMD deal for LUMI-AI — MI430X + 256-core EPYC, defying NVIDIA dominance</a>
-    </div>
-    <div class="item-meta">
-      <span class="tag tag-fresh">Aug 31 — contract signed</span>
-    </div>
-    <div class="item-body">
-      EuroHPC JU signed the contract with Bull (Atos subsidiary) for LUMI-AI in Finland — powered entirely by AMD Instinct MI430X GPUs and next-gen EPYC 256-core CPUs. 10× the AI capacity of the existing LUMI system. Operational target: H2 2027. The AMD-not-NVIDIA choice is notable given NVIDIA's near-monopoly in AI factory builds. IBM handles storage (Storage Scale), Nokia handles networking alongside Bull's BXI interconnect.
-    </div>
-  </div>
-
-  <div class="item">
-    <div class="item-title">
-      <a href="https://simonwillison.net/2026/Aug/30/understanding-chatgpt-work/" target="_blank">Simon Willison: "Understanding ChatGPT Work" — broader network access than Claude's container</a>
+      <a href="https://simonwillison.net/2026/Aug/30/understanding-chatgpt-work/" target="_blank">Simon Willison: "Understanding ChatGPT Work" — open internet, headless Chrome, persistent FS, ChatGPT Sites</a>
     </div>
     <div class="item-meta">
       <span class="tag tag-fresh">Aug 30</span>
     </div>
     <div class="item-body">
-      Simon's latest digs into ChatGPT Work, noting it allows significantly more open network access than Claude's equivalent sandbox — default appears to be all-domains open. Useful practical comparison for anyone building agentic workflows and thinking about what sandbox restrictions mean in practice.
+      This is the most useful piece I've read on ChatGPT Work (the renamed Codex product). Key findings: the cloud version gets a code execution environment with <strong>open-to-all-domains internet access by default</strong> (Claude's equivalent has a very short allowlist); a full headless Chrome that can run JavaScript against loaded pages; a <strong>persistent shared filesystem across all Work sessions</strong> (171 scratch folders accessible from any session); and ChatGPT Sites — full deployments on Cloudflare Workers with D1/R2 for stateful server-side features. Simon also enumerated 223 registered tools and 44 skills by prompting Work to build a reference site. The prompt injection risk from all of this ("lethal trifecta") is the open question he ends on.
     </div>
   </div>
 
   <div class="item">
     <div class="item-title">
-      <a href="https://aiweekly.co/ai-news-today" target="_blank">Clay raising at $7B valuation — AI-powered sales/marketing infra still commanding premium</a>
+      <a href="https://www.globenewswire.com/news-release/2026/08/31/3353040/0/en/bull-selected-to-deliver-europe-s-387-8-million-lumi-ai-supercomputer-in-finland.html" target="_blank">Europe signs €387.8M contract for LUMI-AI — AMD MI430X + 256-core EPYC, defying NVIDIA</a>
     </div>
     <div class="item-meta">
-      <span class="tag tag-fresh">Sept 1</span>
+      <span class="tag tag-fresh">Aug 31 — contract signed</span>
     </div>
     <div class="item-body">
-      Clay is raising a new round led by Wellington Management at a $7B pre-money valuation, up from $5B in January. Not directly model-layer news, but a useful signal: AI-native infrastructure plays in sales/GTM are still commanding serious multiples. Also today: <strong>Clipto</strong> raised $15M at $250M valuation for local video/audio/doc natural-language search — small but interesting vector-search-adjacent bet.
+      EuroHPC JU signed with Bull (Atos) for LUMI-AI in Kajaani, Finland: AMD Instinct MI430X GPUs, 6th-gen EPYC 256-core CPUs, Bull's BXI interconnect. 10× the AI capacity of the current LUMI system. Operational H2 2027. Bull's liquid cooling reuses waste heat for Kajaani's district heating network. Notable that Europe chose AMD over NVIDIA for its flagship AI factory — the MI430X is still unannounced publicly so this is the first major customer confirmation.
     </div>
   </div>
 </div>
@@ -270,13 +212,13 @@
 <div class="section">
   <div class="section-label label-lesson">📖 Today's Lesson</div>
   <div class="lesson-card">
-    <div class="lesson-title">MoE Routing & Active Parameters: Why "176B / 6B active" Is the Number That Actually Matters</div>
+    <div class="lesson-title">MoE Routing & Active Parameters: Why "125B / 6B active" Is the Number That Actually Matters for Inference</div>
     <div class="lesson-body">
-      <p>Mixture-of-Experts (MoE) models have a deceptive headline number. When Qwen3.8-Flash-Next says "176B parameters," that's the total weight count — but only <strong>6B of those are activated per token</strong>. Understanding this distinction is essential for anyone doing inference capacity planning.</p>
-      <p>The architecture works like this: instead of one large dense FFN layer, an MoE model has <em>N</em> "expert" FFN sub-networks. A learned <strong>router</strong> (a small linear layer) looks at each token's hidden state and selects the top-K experts to actually compute — everyone else stays cold. In Qwen3.8-Flash-Next, the router picks 2 experts out of many per token, giving 6B active parameters regardless of total model size.</p>
-      <p>For inference, this means: <strong>memory bandwidth ≠ compute</strong>. You still need to load all 176B weights into VRAM (or NVMe for offloading), but your FLOPs per forward pass are those of a ~6B dense model. The GPU is mostly idle on the inactive experts — you're trading compute efficiency for capacity. This is why MoE models can have "better than their size" quality while being annoying to serve: VRAM pressure is like a 176B model, latency is like a 6B model.</p>
-      <p>The 51B N-gram embedding table in Qwen3.8-Flash-Next is a separate wrinkle — it's a lookup table for common token n-grams that bypasses the router entirely for frequent patterns, acting like a fast cache for high-frequency sequences. This is the QSA kernel optimization behind that 7.6× prefill speedup at long contexts.</p>
-      <p>Rule of thumb: when you see an MoE model, the active parameter count determines your throughput budget; the total parameter count determines your memory budget.</p>
+      <p>Mixture-of-Experts models have two numbers that mean completely different things. Qwen3.8-Flash-Next has a <strong>125B backbone</strong> with ~180B total weights on disk — but only <strong>6B parameters activate per forward pass</strong>. For inference capacity planning, these two numbers drive different constraints.</p>
+      <p>The architecture: instead of one large dense FFN, an MoE model has N "expert" sub-networks. A learned <strong>router</strong> (a small linear layer) scores each token's hidden state and selects the top-K experts to compute. Qwen3.8 uses 512 experts, activating top-10 routed + 1 shared per token, totaling ~6B active. Everyone else sits cold.</p>
+      <p>For inference this means: <strong>memory bandwidth ≠ compute</strong>. You still need to load all ~180B weights into VRAM (or offload to NVMe), but your FLOPs per token are those of a dense ~6B model. This is the "free lunch" side of MoE: quality like a large model, compute like a small one. The cost: VRAM pressure like the large model, which is why Qwen3.8's FP8 checkpoint at 172.78 GiB needs a TP2 minimum on GB300.</p>
+      <p>Qwen3.8 adds a twist: the <strong>51B N-gram embedding table</strong> (PLE) is a hash-addressed lookup over bigrams/trigrams that lives in <em>pinned host memory</em> — it never permanently occupies GPU VRAM. SGLang gathers only 16 rows per token via async prefetch on a second CUDA stream, overlapping with the first decoder block. This is why it freed 23.5 GiB per GPU in benchmarks with zero throughput penalty.</p>
+      <p>Rule of thumb: active parameter count → your throughput/compute budget. Total parameter count → your memory budget. The N-gram table is a third category: it contributes to capacity but can be almost entirely offloaded.</p>
     </div>
   </div>
 </div>
