@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Daily Dump — September 23, 2026</title>
+<style>
+  :root {
+    --bg: #0f1117;
+    --surface: #161b27;
+    --surface2: #1c2233;
+    --border: #252d3d;
+    --text: #e2e8f0;
+    --muted: #7a8499;
+    --accent: #5b8ef0;
+    --accent2: #7c6af5;
+    --green: #4ade80;
+    --orange: #fb923c;
+    --red: #f87171;
+    --yellow: #facc15;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+    font-size: 15px;
+    line-height: 1.65;
+    max-width: 740px;
+    margin: 0 auto;
+    padding: 48px 24px 80px;
+  }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  .header { margin-bottom: 40px; border-bottom: 1px solid var(--border); padding-bottom: 24px; }
+  .header-label {
+    font-size: 11px; font-weight: 700; letter-spacing: 0.12em;
+    text-transform: uppercase; color: var(--muted); margin-bottom: 6px;
+  }
+  .header h1 { font-size: 26px; font-weight: 700; color: var(--text); letter-spacing: -0.02em; }
+  .header-sub { font-size: 13px; color: var(--muted); margin-top: 4px; }
+
+  .section-label {
+    font-size: 10px; font-weight: 700; letter-spacing: 0.12em;
+    text-transform: uppercase; color: var(--muted);
+    border-left: 2px solid var(--border);
+    padding-left: 10px; margin-bottom: 16px; margin-top: 40px;
+  }
+  .section-label.hot { color: var(--orange); border-color: rgba(251,146,60,0.4); }
+  .section-label.releases { color: var(--green); border-color: rgba(74,222,128,0.4); }
+  .section-label.horizon { color: var(--accent2); border-color: rgba(124,106,245,0.4); }
+  .section-label.reading { color: var(--yellow); border-color: rgba(250,204,21,0.4); }
+  .section-label.lesson { color: var(--accent); border-color: rgba(91,142,240,0.3); }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 18px 20px;
+    margin-bottom: 12px;
+  }
+  .card:hover { border-color: #3a4060; }
+
+  .card-title {
+    font-size: 15px; font-weight: 600; color: var(--text);
+    margin-bottom: 6px; line-height: 1.4;
+  }
+  .card-title a { color: var(--text); }
+  .card-title a:hover { color: var(--accent); text-decoration: none; }
+  .card-body { font-size: 13.5px; color: #b0bac9; line-height: 1.65; }
+  .card-body p { margin-bottom: 8px; }
+  .card-body p:last-child { margin-bottom: 0; }
+
+  .tag {
+    display: inline-block;
+    font-size: 10px; font-weight: 700; letter-spacing: 0.07em;
+    text-transform: uppercase; border-radius: 4px;
+    padding: 2px 7px; margin-bottom: 8px;
+  }
+  .tag.new { background: rgba(74,222,128,0.12); color: var(--green); }
+  .tag.hot { background: rgba(251,146,60,0.12); color: var(--orange); }
+  .tag.tool { background: rgba(91,142,240,0.12); color: var(--accent); }
+  .tag.story { background: rgba(248,113,113,0.12); color: var(--red); }
+  .tag.read { background: rgba(250,204,21,0.1); color: var(--yellow); }
+
+  .lesson-card {
+    background: linear-gradient(135deg, #131825 0%, #161d2e 100%);
+    border: 1px solid rgba(91,142,240,0.2);
+    border-radius: 8px;
+    padding: 22px 24px;
+  }
+  .lesson-title {
+    font-size: 16px; font-weight: 700; color: var(--text);
+    margin-bottom: 14px; line-height: 1.4;
+  }
+  .lesson-body { font-size: 14px; color: #cdd3db; line-height: 1.75; }
+  .lesson-body p { margin-bottom: 12px; }
+  .lesson-body p:last-child { margin-bottom: 0; }
+  .lesson-body code {
+    background: #1e2540; border-radius: 3px;
+    padding: 1px 5px; font-size: 12.5px; color: #a5b4fc;
+    font-family: 'SF Mono', 'Fira Code', monospace;
+  }
+  .lesson-body strong { color: var(--text); font-weight: 600; }
+
+  .divider { border: none; border-top: 1px solid var(--border); margin: 32px 0; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-label">AI Daily Dump</div>
+  <h1>Wednesday, September 23, 2026</h1>
+  <div class="header-sub">The day-after edition: Opus 5.5 and GPT-6 Sol/Luna landed within 90 minutes of each other, and prices fell hard</div>
+</div>
+
+<!-- WHAT'S HOT -->
+<div class="section-label hot">🔥 What's Hot Right Now</div>
+
+<div class="card">
+  <div class="tag hot">Price War · Sep 22</div>
+  <div class="card-title"><a href="https://simonwillison.net/2026/Sep/22/opus-and-sol-and-luna/" target="_blank">The mid-tier price war: GPT-6 Luna at $0.10/$0.50, Sol at $2/$10, Opus 5.5 at $4/$20</a></div>
+  <div class="card-body">
+    <p>Simon Willison's day-one read is the best summary. OpenAI cut Sol and Luna to half the price of their GPT-5.6 versions. Luna is now one of the cheapest models OpenAI has ever shipped, and cached input is $0.01/M. Opus 5.5 cut Anthropic's long-standing $5/$25 Opus price by 20%, and cache reads by 60% (to $0.20/M). At the top tier, GPT-6 Astra and Fable 5.1 both stay at $10/$50. The cuts are all one tier below that.</p>
+    <p>A quirk worth knowing: Opus 5.5 on <strong>"max"</strong> effort thought so long about a pelican SVG that it hit the 128K output cap without answering. It did that twice, at $2.56 per failed run. His conclusion is to be wary of max effort. He has switched his defaults to GPT-6 Sol (Codex) and Opus 5.5 (Claude Code).</p>
+  </div>
+</div>
+
+<div class="card">
+  <div class="tag hot">Open Weights · Sep 21–22</div>
+  <div class="card-title"><a href="https://www.latent.space/p/ainews-xiaomi-mimo-v26-pro-1t-a42b" target="_blank">Xiaomi MiMo-V2.6-Pro: new #1 open-weights model, MIT licence, RL environments open-sourced</a></div>
+  <div class="card-body">
+    <p>MiMo-V2.6-Pro is a 1.02T-total / 42B-active MoE. It is natively omnimodal (text, image, video and audio in one checkpoint) with a 1M-token context. It debuted at <strong>46 on the Artificial Analysis Intelligence Index</strong>, the highest of any open-weights model, at roughly $0.435/$0.87 per M tokens via API. There is also a 309B/15B-active Flash variant. The community is paying most attention to the RL stack: Xiaomi is releasing its environment code and training recipes for coding, cyber, agent and web-dev tasks. The reported RL run took about 130 hours and about $2.6M.</p>
+    <p><strong>To serve it:</strong> vLLM has day-0 support and a <a href="https://recipes.vllm.ai/XiaomiMiMo/MiMo-V2.6-Pro-RL" target="_blank">recipe</a>. The weights are stored as mxfp4 and computed in FP8, giving a 566 GB checkpoint. That needs 8×H200 (TP8) or 4×MI355X (TP4). Stable vLLM ≤0.29.0 can't load it, so use the <code>vllm/vllm-openai:mimo-v26</code> image or a nightly. It ships with a built-in DFlash drafter that proposes 7 tokens per pass. (See today's lesson on the mxfp4 format.)</p>
+  </div>
+</div>
+
+<div class="card">
+  <div class="tag story">HN #6 · today</div>
+  <div class="card-title"><a href="https://blog.szypowi.cz/p/claude-code-reads-agents.md-only-when-telemetry-is-on/" target="_blank">Claude Code only read AGENTS.md when telemetry was on (now fixed)</a></div>
+  <div class="card-body">
+    <p>Claude Code 2.1.277 added an AGENTS.md fallback, but the loader was gated on a remote feature flag (<code>tengu_agents_md_mod</code>) that defaulted to false. With <code>DISABLE_TELEMETRY</code> or <code>CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC</code> set, or when running through Bedrock, Vertex or a gateway, the flag could never resolve. The file was then skipped silently. The author proved it with a canary word. The HN title now says "[fixed]". The workaround still works everywhere: a one-line <code>CLAUDE.md</code> containing <code>@AGENTS.md</code>.</p>
+    <p>The broader lesson: if your agent seems to ignore its instructions, first check that the instructions reached the context window at all, before you rewrite the prompt.</p>
+  </div>
+</div>
+
+<!-- NEW RELEASES -->
+<div class="section-label releases">🚀 New Releases &amp; Updates</div>
+
+<div class="card">
+  <div class="tag new">Released Sep 22</div>
+  <div class="card-title"><a href="https://www.anthropic.com/claude-opus-5-5" target="_blank">Claude Opus 5.5: Fable 5.1-level results at 40% lower cost than Opus 5</a></div>
+  <div class="card-body">
+    <p>Anthropic reports Terminal-Bench 4.0 at 66.4% (Fable 5.1: 55.8%, GPT-6 Astra: 57.9%), FrontierCode 54.4%, OSWorld 2.0 81.8% and GDPval-AA 1846 Elo. The bigger point is efficiency. Anthropic says medium effort beats Astra on FrontierCode at roughly one fifth of the cost per task. Output is also more than 30% faster than Opus 5. A 2.5× fast mode costs $8/$40.</p>
+    <p><strong>Changes that affect integrations:</strong> thinking can no longer be disabled on Opus 5.5. "Preserved thinking" (an anti-distillation measure) blocks editing prior reasoning context for API accounts created on or after Aug 31. Most cybersecurity tasks are transparently re-routed to Opus 4.8. Sonnet 5.5 and Haiku 5.5 are due "in the coming weeks." Model ID: <code>claude-opus-5-5</code>.</p>
+  </div>
+</div>
+
+<div class="card">
+  <div class="tag new">Released Sep 22</div>
+  <div class="card-title"><a href="https://techcrunch.com/2026/09/22/openai-launches-gpt-6-sol-and-luna/" target="_blank">OpenAI GPT-6 Sol and Luna: Astra's smaller siblings at half price</a></div>
+  <div class="card-body">
+    <p>They shipped about 90 minutes after Opus 5.5. Sol targets complex work such as coding. Luna targets high-volume tasks with a clear goal, like extraction, summarisation and quick Q&amp;A. OpenAI says the halved prices come from caching and inference improvements. It also claims Sol makes about half as many mistakes as GPT-5.6 Sol on its internal factuality eval, reaching "Astra-level reliability." Both are available now in the API, Codex and ChatGPT Work. Per Simon, GPT-5.6 has a 25% price increase scheduled for November, so check your migration timeline.</p>
+  </div>
+</div>
+
+<div class="card">
+  <div class="tag new">Released today</div>
+  <div class="card-title"><a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-8-text-to-speech/" target="_blank">Gemini 3.8 Flash TTS and Flash-Lite TTS: prompt-designed voices, line-by-line direction</a></div>
+  <div class="card-body">
+    <p>There are two new TTS models covering 100+ languages. Flash is for creative voice design: you describe a voice in natural language and direct delivery line by line, including inline cues like <code>&lt;laughs&gt;</code> and <code>|mhm|</code> backchannels, plus native two-speaker scenes. Flash-Lite is the cheap, high-volume option for dubbing and voice agents. Voice cloning from a 30-second sample requires a verbal consent recording, and all output carries a SynthID watermark. Flash tops Hume AI's Voice Design benchmark (71.4). It's live now in the Gemini API and AI Studio, with LiveKit and Pipecat integrations. Relevant if you run a voice-agent stack.</p>
+  </div>
+</div>
+
+<!-- ON THE HORIZON -->
+<div class="section-label horizon">🔭 On the Horizon</div>
+
+<div class="card">
+  <div class="tag tool">Announced</div>
+  <div class="card-title">Claude Sonnet 5.5 and Haiku 5.5 "in the coming weeks"</div>
+  <div class="card-body">
+    <p>Anthropic confirmed both in the <a href="https://www.anthropic.com/claude-opus-5-5" target="_blank">Opus 5.5 post</a>. The open question is price at the low end. Haiku 4.5 costs $1/$5, while GPT-6 Luna is now one tenth of that. If you route cheap classification or extraction calls today, hold off on re-benchmarking until Haiku 5.5 is out.</p>
+  </div>
+</div>
+
+<!-- ALSO WORTH READING -->
+<div class="section-label reading">📖 Also Worth Reading</div>
+
+<div class="card">
+  <div class="tag read">Tooling · Sep 21</div>
+  <div class="card-title"><a href="https://huggingface.co/blog/tokenizers-v1" target="_blank">HF tokenizers v1 RC: 3–30× faster encode, same token IDs</a></div>
+  <div class="card-body">
+    <p>This is a solid systems write-up. It replaces the regex pre-tokenizer with hand-written SIMD "bitstream" splitters (64 bytes per register op) and adds a thread-local word cache and an allocation-free BPE merge loop. The result scales at 76% of linear across 8 workers. Output is identical to v0.23. The RC is Rust-only for now (<code>cargo add tokenizers --pre</code>), with Python bindings coming.</p>
+  </div>
+</div>
+
+<div class="card">
+  <div class="tag read">Agents · Sep 21</div>
+  <div class="card-title"><a href="https://strandsagents.com/blog/introducing-strands-harness/" target="_blank">AWS open-sources Strands harness: a general agent claiming 28% lower token cost than Claude Code/Codex</a></div>
+  <div class="card-body">
+    <p>Strands harness is Apache 2.0 and runs in one line of Python or TS against Bedrock, Anthropic, OpenAI, Google, Ollama or LiteLLM. The useful part is its published defaults for context management, which the team says drove most of the savings. Tool results over ~1,500 tokens get truncated, compaction triggers at 85% of the context window, and overflow is recovered inside the loop. With Fable 5 it reportedly cost 77% less than Claude Code on Terminal Bench 2.1 while scoring higher. These are vendor benchmarks, and a paper is promised.</p>
+  </div>
+</div>
+
+<div class="card">
+  <div class="tag read">Analysis · Sep 21</div>
+  <div class="card-title"><a href="https://www.interconnects.ai/p/the-current-balance-of-power-in-open" target="_blank">Nathan Lambert: The current balance of power in open models</a></div>
+  <div class="card-body">
+    <p>This is his Congressional briefing, expanded. Chinese open-weight models are about 2–5 months behind the closed frontier, and American open models about 6–9 months behind. Chinese models account for over 80% of open-model tokens on OpenRouter, up from ~70%. Open-model weekly volume there went from ~1T to ~80T tokens in a year. He estimates distillation explains only 1–2 months of the gap. It's a timely read the day after MiMo-V2.6 took the #1 spot.</p>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- TODAY'S LESSON -->
+<div class="section-label lesson">💡 Today's Lesson</div>
+<div class="lesson-card">
+  <div class="lesson-title">MXFP4: why MiMo is "stored in 4-bit, computed in FP8"</div>
+  <div class="lesson-body">
+    <p>MXFP4 is a <strong>microscaling</strong> format from the OCP MX spec. Weights are grouped into blocks of 32. Each element is a 4-bit float (E2M1), which can only represent ±{0, 0.5, 1, 1.5, 2, 3, 4, 6}. Each block shares one 8-bit scale (E8M0), which is a pure power of two. That works out to 4 + 8/32 = <strong>4.25 bits per weight</strong>.</p>
+    <p><strong>Why a float grid instead of INT4?</strong> Weights cluster near zero. The FP4 grid packs more levels near zero and fewer out at the tails, so typical values lose less precision than they would on INT4's evenly spaced levels. The power-of-two scale is cheap to apply because it's just an exponent add. The downside is coarseness: the block's range can only change in factors of 2. NVFP4 addresses this with 16-element blocks and an FP8 (E4M3) scale.</p>
+    <p><strong>Why store in one format and compute in another?</strong> Decode is memory-bandwidth-bound, so the main win is moving fewer bytes, even if the math runs at higher precision. Hopper GPUs (H200) have no FP4 tensor cores, so the kernel unpacks MXFP4 weights to FP8 in registers and runs FP8 GEMMs. Blackwell and AMD CDNA 4 (MI355X) can run MXFP4 matmuls natively, which is why the vLLM recipe needs no load-time requantization on MI355X.</p>
+    <p><strong>Sanity check:</strong> 566 GB × 8 bits ÷ 1.02T params ≈ 4.4 bits per param. That is slightly above 4.25 because some parts, such as the router, stay in bf16. When a model card lists "storage dtype" and "compute dtype" separately, the first sets how much VRAM you need and the second sets which kernels and GPUs you can use.</p>
+  </div>
+</div>
+
+<!-- ARCHIVE SIDEBAR -->
+<style>
+  .arc-btn {
+    position: fixed; top: 18px; right: 18px; z-index: 200;
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 6px; padding: 6px 11px; font-size: 12px;
+    color: var(--muted); cursor: pointer; display: flex;
+    align-items: center; gap: 6px; user-select: none;
+    transition: border-color 0.15s, color 0.15s;
+    font-family: inherit;
+  }
+  .arc-btn:hover { border-color: #3a4060; color: var(--text); }
+  .arc-overlay {
+    display: none; position: fixed; inset: 0; z-index: 198;
+    background: rgba(0,0,0,0.45);
+  }
+  .arc-overlay.open { display: block; }
+  .arc-panel {
+    position: fixed; top: 0; right: 0; height: 100vh; width: 200px;
+    background: var(--surface); border-left: 1px solid var(--border);
+    z-index: 199; padding: 56px 14px 24px; overflow-y: auto;
+    transform: translateX(100%); transition: transform 0.22s ease;
+  }
+  .arc-panel.open { transform: translateX(0); }
+  .arc-panel-title {
+    font-size: 10px; font-weight: 700; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--muted);
+    margin-bottom: 14px; padding-left: 4px;
+  }
+  .arc-item {
+    display: block; padding: 7px 8px; border-radius: 5px;
+    font-size: 13px; color: var(--muted); text-decoration: none;
+    margin-bottom: 2px; transition: background 0.1s, color 0.1s;
+  }
+  .arc-item:hover { background: #1e2333; color: var(--text); }
+  .arc-item.current { background: rgba(91,142,240,0.12); color: var(--accent); font-weight: 600; }
+  .arc-close {
+    position: absolute; top: 14px; right: 14px;
+    background: none; border: none; color: var(--muted);
+    cursor: pointer; font-size: 18px; line-height: 1; padding: 4px;
+  }
+  .arc-close:hover { color: var(--text); }
+</style>
+<div class="arc-overlay" id="arcOverlay" onclick="arcClose()"></div>
+<div class="arc-panel" id="arcPanel">
+  <button class="arc-close" onclick="arcClose()">&#x2715;</button>
+  <div class="arc-panel-title">Past Issues</div>
+  <div id="arcList"><span style="color:var(--muted);font-size:12px">Loading…</span></div>
+</div>
+<button class="arc-btn" onclick="arcToggle()">
+  <svg width="13" height="11" viewBox="0 0 18 14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="0" y1="1" x2="18" y2="1"/><line x1="0" y1="13" x2="18" y2="13"/><line x1="0" y1="7" x2="18" y2="7"/></svg>
+  Past issues
+</button>
+<script>
+(function(){
+  var PAD = function(n){return String(n).padStart(2,'0');};
+  var MONTHS = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  var DAYS   = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+  var current = window.location.pathname.split('/').pop().replace(/\.html$/,'');
+  var found = [], tasks = [];
+  for(var i=0;i<45;i++){
+    (function(offset){
+      var d = new Date(); d.setDate(d.getDate()-offset);
+      var s = d.getFullYear()+'-'+PAD(d.getMonth()+1)+'-'+PAD(d.getDate());
+      tasks.push(fetch('./'+s+'.html',{method:'HEAD'}).then(function(r){if(r.ok)found.push({s:s,d:new Date(d)});}).catch(function(){}));
+    })(i);
+  }
+  Promise.all(tasks).then(function(){
+    found.sort(function(a,b){return b.d-a.d;});
+    var html='';
+    found.forEach(function(f){
+      var label=DAYS[f.d.getDay()]+', '+MONTHS[f.d.getMonth()]+' '+f.d.getDate();
+      var cls='arc-item'+(f.s===current?' current':'');
+      html+='<a class="'+cls+'" href="./'+f.s+'.html">'+label+'</a>';
+    });
+    document.getElementById('arcList').innerHTML=html||'<span style="color:var(--muted);font-size:12px">None found</span>';
+  });
+})();
+function arcToggle(){
+  var p=document.getElementById('arcPanel'),o=document.getElementById('arcOverlay');
+  var open=p.classList.contains('open');
+  if(open){arcClose();}else{p.classList.add('open');o.classList.add('open');}
+}
+function arcClose(){
+  document.getElementById('arcPanel').classList.remove('open');
+  document.getElementById('arcOverlay').classList.remove('open');
+}
+</script>
+</body>
+</html>
