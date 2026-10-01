@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AI Daily Dump — Thu, Oct 1, 2026</title>
+<style>
+:root{--bg:#0d0f14;--surface:#141824;--border:#232840;--text:#e6e9f2;--muted:#8a91a8;--accent:#5b8ef0;--warm:#f0a35b}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font:16px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif}
+main{max-width:720px;margin:0 auto;padding:48px 20px 80px}
+h1{font-size:28px;margin:0 0 4px}.date{color:var(--muted);font-size:14px;margin-bottom:32px}
+h2{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin:36px 0 12px;border-bottom:1px solid var(--border);padding-bottom:6px}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:14px 16px;margin-bottom:12px}
+.card h3{margin:0 0 4px;font-size:16px}.card h3 a{color:var(--text);text-decoration:none}.card h3 a:hover{color:var(--accent)}
+.card p{margin:4px 0 0;color:#c3c8d8;font-size:15px}
+.meta{font-size:12px;color:var(--muted)}.tag{color:var(--warm)}
+.lesson{background:var(--surface);border-left:3px solid var(--accent);padding:14px 18px;border-radius:0 8px 8px 0}
+.lesson p{margin:8px 0}a{color:var(--accent)}
+</style></head><body><main>
+<h1>AI Daily Dump</h1>
+<div class="date">Thursday, October 1, 2026 · for Pranesh</div>
+
+<h2>What's Hot Right Now</h2>
+<div class="card"><h3><a href="https://www.marktechpost.com/2026/09/30/google-deepmind-unveils-gemini-4-argon-with-1m-output-tokens-for-coding-knowledge-work-and-cyber-defense/">Gemini 4 Argon lands: 1M output tokens per response, but access is gated</a></h3>
+<div class="meta">Sep 30 · MarkTechPost · <a href="https://artificialanalysis.ai/models/gemini-4-argon">Artificial Analysis page</a> trending on HN (69 pts)</div>
+<p>Google DeepMind's new frontier model raises the output cap from 64K to 1M tokens. Introductory pricing is $2 in / $10 out per million (cached input $0.10), rising to $4/$20 later. It leads DeepSWE v1.1 (77.9%) but trails GPT-6 Astra on FrontierSWE v2 (55.0% vs 65.5%). Artificial Analysis scores it 53 on its Intelligence Index with a 1M-token context window. MarkTechPost reports launch access is limited to the Fairwind Program for vetted cyber defenders, with no public date yet.</p></div>
+
+<div class="card"><h3><a href="https://github.com/magnitudedev/magnitude">Launch HN: Magnitude, an open-source inference engine for consumer hardware</a></h3>
+<div class="meta">Sep 30 · Hacker News, 115 points · Apache 2.0 · GitHub</div>
+<p>It profiles your machine, estimates tokens/sec for every catalog model before you download anything, then tunes the chosen model for your hardware, from context size to speculative decoding. Targets Apple Silicon, NVIDIA, AMD, CPU-only and unified-memory boxes (DGX Spark, Strix Halo), with one-click hookups to coding agents. Worth a look if you hand-tune llama.cpp flags today. I could not verify the speedup numbers floating around, so none are quoted here.</p></div>
+
+<div class="card"><h3><a href="https://github.com/deepseek-ai/DeepGEMM-Ascend">DeepSeek ports DeepGEMM to Huawei Ascend (MIT licensed)</a></h3>
+<div class="meta">Sep 30 – Oct 1 · GitHub · reported alongside Ascend ports of TileLang and other tools</div>
+<p>BF16, FP8 and FP4 GEMM kernels plus MQA-logits and MegaMoE operators for Ascend 950 devices (CANN 9.20+). The README claims 99.8% of hardware peak on dense GEMM, 861 TFLOPS FP8 and 850+ TFLOPS grouped GEMM for MoE. Those are vendor claims, but it is a concrete step away from CUDA-only kernel stacks.</p></div>
+
+<div class="card"><h3><a href="https://github.com/ninjahawk/livenerf">LiveNerf: a public, pre-registered "has the model been nerfed?" benchmark</a></h3>
+<div class="meta">Baseline since Sep 22 · status as of Sep 29: 6 of 30 baseline days · GitHub</div>
+<p>78 "sometimes-correct" questions from GPQA Diamond, MMLU-Pro and competition math, run through headless Claude Code with pinned CLI version and prompts, plus an Opus 5 control arm. A change only counts if 99% CIs exclude zero across two 10-day windows with at least a 3-point gap and no control shift. A nice template for your own regression evals.</p></div>
+
+<h2>New Releases &amp; Updates</h2>
+<div class="card"><h3><a href="https://venturebeat.com/technology/amazon-unveils-a-free-fast-open-source-jev-killer-strands-decider-2b-makes-decisions-in-fractions-of-a-second">Amazon Strands Decider 2B: an Apache-2.0 model that picks, not writes</a></h3>
+<div class="meta">Oct 1 · VentureBeat · Hugging Face weights</div>
+<p>About 2B parameters, built on a Qwen base. It scores the allowed answers directly instead of generating text, for bounded calls like "should this tool run?" or "which route fits?". VentureBeat reports tens to 100+ ms latency on local hardware and ~72% on JevBench. Amazon is publishing training code and scripts. See today's lesson.</p></div>
+
+<div class="card"><h3><a href="https://github.com/kouweizhu/agents-radar/issues/291">Inference engines: SGLang weight-cache daemon, vLLM ROCm 10.0 prep, llama.cpp new model support</a></h3>
+<div class="meta">Oct 1 · agents-radar daily digest of GitHub activity (secondary source, no new tagged releases)</div>
+<p>Per the digest: SGLang's weight cache daemon (phase one, per-rank daemons over CUDA IPC) cuts Qwen3-235B FP8 load from ~306-327s to under 1s. vLLM is preparing ROCm 10.0 as the default image with 1.27-1.64x MLA kernel speedups. llama.cpp added support for Prism Bonsai 2 27B and Qwen4Exp MTP variants. Check the repos before relying on these.</p></div>
+
+<div class="card"><h3><a href="https://simonwillison.net/2026/Sep/28/claude-sonnet-5-5/">Claude Sonnet 5.5</a></h3>
+<div class="meta tag">Released Sep 28 (3 days ago) · Simon Willison · still being digested</div>
+<p>Faster, cheaper Anthropic model, now the free tier on claude.ai. Included for age-flagged context since it is still the baseline everyone is comparing against.</p></div>
+
+<h2>On the Horizon</h2>
+<div class="card"><h3><a href="https://thenextweb.com/news/openai-gpt-6-1-sol-price-astra-devday">OpenAI Ultrafast mode for GPT-6.1 Sol</a></h3>
+<div class="meta tag">Announced Sep 29 · "coming soon" · not released</div>
+<p>Up to 8x faster token generation in Codex was announced alongside GPT-6.1 Sol. No date given.</p></div>
+
+<h2>Also Worth Reading</h2>
+<div class="card"><h3><a href="https://simonwillison.net/2026/Oct/1/matthew-green/">Matthew Green on agent worms</a></h3>
+<div class="meta">Oct 1 · Simon Willison</div>
+<p>Even sandboxed agents can pass malicious payloads through shared channels like package caches, email or chat. Isolation alone is not a defence if agents legitimately talk to each other.</p></div>
+<div class="card"><h3><a href="https://www.anthropic.com/research/glm-5-3-and-the-spread-of-advanced-cyber-capabilities">Anthropic: GLM-5.3 and the spread of advanced cyber capabilities</a></h3>
+<div class="meta">Sep 29 · Anthropic research · covered yesterday, details added</div>
+<p>Beyond the 4% control-flow hijack rate: simple deceptive prompts got past safeguards 64% of the time, prefilled reasoning 92%, and abliteration 100%. Relevant if you ship open-weight models.</p></div>
+
+<h2>Today's Lesson</h2>
+<div class="lesson"><h3 style="margin:0">Classify by scoring tokens, not generating them</h3>
+<p>Many agent decisions are multiple choice: run the tool or not, which of five routes, is this document relevant. The naive way asks the model to write an answer, then parses it. That wastes decode steps, invites formatting errors, and costs latency.</p>
+<p>A cheaper trick: run one forward pass over the prompt and read the logits at the final position for just the allowed answer tokens (say "yes" and "no", or "A" through "E"). Softmax over that small set gives a probability for each option, so you also get a confidence score for free. Decoding is skipped entirely: one prefill, no output loop.</p>
+<p>That is the idea behind today's Strands Decider 2B, which scores the allowed answers directly. The Quail paper (Sep 24, on Hacker News this week) uses a similar shortcut for AI-SQL filters, computing only TRUE/FALSE token scores instead of a full-vocabulary output projection, and it also reuses the anchor document's KV cache across join comparisons.</p>
+<p>Practical notes: put the options in a fixed format, use a threshold on the probability to escalate unsure cases to a bigger model, and calibrate on labelled examples, since raw token probabilities are often overconfident. Prefix caching makes it cheaper still when many questions share one long context.</p></div>
+
+</main>
+<!-- ARCHIVE SIDEBAR -->
+<style>
+  .arc-btn {
+    position: fixed; top: 18px; right: 18px; z-index: 200;
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 6px; padding: 6px 11px; font-size: 12px;
+    color: var(--muted); cursor: pointer; display: flex;
+    align-items: center; gap: 6px; user-select: none;
+    transition: border-color 0.15s, color 0.15s;
+    font-family: inherit;
+  }
+  .arc-btn:hover { border-color: #3a4060; color: var(--text); }
+  .arc-overlay {
+    display: none; position: fixed; inset: 0; z-index: 198;
+    background: rgba(0,0,0,0.45);
+  }
+  .arc-overlay.open { display: block; }
+  .arc-panel {
+    position: fixed; top: 0; right: 0; height: 100vh; width: 200px;
+    background: var(--surface); border-left: 1px solid var(--border);
+    z-index: 199; padding: 56px 14px 24px; overflow-y: auto;
+    transform: translateX(100%); transition: transform 0.22s ease;
+  }
+  .arc-panel.open { transform: translateX(0); }
+  .arc-panel-title {
+    font-size: 10px; font-weight: 700; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--muted);
+    margin-bottom: 14px; padding-left: 4px;
+  }
+  .arc-item {
+    display: block; padding: 7px 8px; border-radius: 5px;
+    font-size: 13px; color: var(--muted); text-decoration: none;
+    margin-bottom: 2px; transition: background 0.1s, color 0.1s;
+  }
+  .arc-item:hover { background: #1e2333; color: var(--text); }
+  .arc-item.current { background: rgba(91,142,240,0.12); color: var(--accent); font-weight: 600; }
+  .arc-close {
+    position: absolute; top: 14px; right: 14px;
+    background: none; border: none; color: var(--muted);
+    cursor: pointer; font-size: 18px; line-height: 1; padding: 4px;
+  }
+  .arc-close:hover { color: var(--text); }
+</style>
+<div class="arc-overlay" id="arcOverlay" onclick="arcClose()"></div>
+<div class="arc-panel" id="arcPanel">
+  <button class="arc-close" onclick="arcClose()">&#x2715;</button>
+  <div class="arc-panel-title">Past Issues</div>
+  <div id="arcList"><span style="color:var(--muted);font-size:12px">Loading…</span></div>
+</div>
+<button class="arc-btn" onclick="arcToggle()">
+  <svg width="13" height="11" viewBox="0 0 18 14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="0" y1="1" x2="18" y2="1"/><line x1="0" y1="13" x2="18" y2="13"/><line x1="0" y1="7" x2="18" y2="7"/></svg>
+  Past issues
+</button>
+<script>
+(function(){
+  var PAD = function(n){return String(n).padStart(2,'0');};
+  var MONTHS = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  var DAYS   = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+  var current = window.location.pathname.split('/').pop().replace(/\.html$/,'');
+  var found = [], tasks = [];
+  for(var i=0;i<45;i++){
+    (function(offset){
+      var d = new Date(); d.setDate(d.getDate()-offset);
+      var s = d.getFullYear()+'-'+PAD(d.getMonth()+1)+'-'+PAD(d.getDate());
+      tasks.push(fetch('./'+s+'.html',{method:'HEAD'}).then(function(r){if(r.ok)found.push({s:s,d:new Date(d)});}).catch(function(){}));
+    })(i);
+  }
+  Promise.all(tasks).then(function(){
+    found.sort(function(a,b){return b.d-a.d;});
+    var html='';
+    found.forEach(function(f){
+      var label=DAYS[f.d.getDay()]+', '+MONTHS[f.d.getMonth()]+' '+f.d.getDate();
+      var cls='arc-item'+(f.s===current?' current':'');
+      html+='<a class="'+cls+'" href="./'+f.s+'.html">'+label+'</a>';
+    });
+    document.getElementById('arcList').innerHTML=html||'<span style="color:var(--muted);font-size:12px">None found</span>';
+  });
+})();
+function arcToggle(){
+  var p=document.getElementById('arcPanel'),o=document.getElementById('arcOverlay');
+  var open=p.classList.contains('open');
+  if(open){arcClose();}else{p.classList.add('open');o.classList.add('open');}
+}
+function arcClose(){
+  document.getElementById('arcPanel').classList.remove('open');
+  document.getElementById('arcOverlay').classList.remove('open');
+}
+</script>
+</body></html>
