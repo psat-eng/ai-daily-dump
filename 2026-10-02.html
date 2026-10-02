@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AI Daily Dump — Fri, Oct 2, 2026</title>
+<style>
+:root{--bg:#0d0f14;--surface:#141824;--border:#232840;--text:#e6e9f2;--muted:#8a91a8;--accent:#5b8ef0;--warm:#f0a35b}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font:16px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif}
+main{max-width:720px;margin:0 auto;padding:48px 20px 80px}
+h1{font-size:28px;margin:0 0 4px}.date{color:var(--muted);font-size:14px;margin-bottom:32px}
+h2{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin:36px 0 12px;border-bottom:1px solid var(--border);padding-bottom:6px}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:14px 16px;margin-bottom:12px}
+.card h3{margin:0 0 4px;font-size:16px}.card h3 a{color:var(--text);text-decoration:none}.card h3 a:hover{color:var(--accent)}
+.card p{margin:4px 0 0;color:#c3c8d8;font-size:15px}
+.meta{font-size:12px;color:var(--muted)}.tag{color:var(--warm)}
+.lesson{background:var(--surface);border-left:3px solid var(--accent);padding:14px 18px;border-radius:0 8px 8px 0}
+.lesson p{margin:8px 0}a{color:var(--accent)}
+</style></head><body><main>
+<h1>AI Daily Dump</h1>
+<div class="date">Friday, October 2, 2026 · for Pranesh</div>
+
+<h2>What's Hot Right Now</h2>
+<div class="card"><h3><a href="https://deepseek.com/en/harness/">DeepSeek Harness Desktop tops Hacker News</a></h3>
+<div class="meta">Oct 1–2 · Hacker News front page, 371 points, 191 comments · deepseek.com</div>
+<p>DeepSeek's open-source agent harness (MIT, built on the Cordis "everything is a plugin" architecture) is now in public preview worldwide with a desktop app for macOS and Windows. Plugins can be written through chat in "Creator mode", and its demo runs on DeepSeek-V4.1-Flash. The repo warns of compatibility-breaking changes, so treat it as a preview. Worth a look if you build agent tooling.</p></div>
+
+<div class="card"><h3><a href="https://supabase.com/blog/supabase-is-acquiring-turso">Supabase is acquiring Turso, betting on a database per agent</a></h3>
+<div class="meta">Oct 2 · Supabase blog · HN, 132 points</div>
+<p>Supabase keeps building around Postgres while Turso continues on SQLite. The pitch is Turso's architecture, where one server manages millions of databases, loading and suspending them on demand, so every agent can have its own. Turso founders Glauber Costa and Pekka Enberg join Supabase to lead the agentic infrastructure work. The post says existing customers see no disruption. Press coverage also mentions a $150M raise, which I did not confirm on the primary page.</p></div>
+
+<h2>New Releases &amp; Updates</h2>
+<div class="card"><h3><a href="https://the-decoder.com/black-forest-labs-launches-flux-3-image-with-multi-step-editing-that-leaves-the-rest-of-your-picture-alone/">FLUX 3 Image from Black Forest Labs</a></h3>
+<div class="meta">Oct 2 · The Decoder · HN, 103 points</div>
+<p>Multi-step editing that leaves the rest of the picture alone, bounding-box scene composition, up to 10 reference images and 4K output. It is API and demo only for now, with API pricing discounted 50% through Oct 8. Open-weight versions are promised "in the coming weeks"; commercial licences are available for self-hosting and fine-tuning.</p></div>
+
+<div class="card"><h3><a href="https://openai.com/index/disrupting-a-coordinated-model-distillation-campaign/">OpenAI details a coordinated model-distillation campaign</a></h3>
+<div class="meta">Sep 30 · OpenAI</div>
+<p>OpenAI says it disrupted adversarial distillation by individuals associated with Moonshot AI (attribution is unclear for all operators). More than 15,000 users were involved, with a spike on July 24–25 of 16,000 requests from over 4,000 users, and techniques included copying encrypted reasoning across conversations to extract hidden content. Its fixes include stronger protection of hidden reasoning and detection on streamed output. See today's lesson.</p></div>
+
+<div class="card"><h3><a href="https://openai.com/news/">GPT-6.1 Sol: near-Astra quality at one-fifth the price</a></h3>
+<div class="meta tag">Released Sep 29 (3 days ago) · OpenAI · DevDay, still being compared</div>
+<p>$2 per million input tokens, $0.10 cached, $10 output, available as <code>gpt-6.1-sol</code> in the API and in Codex. OpenAI says it matches GPT-6 Astra on DeepSWE. An Ultrafast variant with up to 8x faster generation is announced as coming soon, with no date.</p></div>
+
+<h2>Also Worth Reading</h2>
+<div class="card"><h3><a href="https://simonwillison.net/2026/Oct/1/matthew-green/">Matthew Green on agent worms</a></h3>
+<div class="meta">Oct 1 · Simon Willison</div>
+<p>Isolated agents can still spread malicious payloads through shared infrastructure, which matters if your agents share caches, queues or databases.</p></div>
+<div class="card"><h3><a href="https://simonwillison.net/2026/Sep/29/anthropic-frontier-red-team/">Anthropic frontier red team on cyber capabilities</a></h3>
+<div class="meta">Sep 29 · Simon Willison</div>
+<p>Newer models show growing ability to hijack control flow, per Anthropic's red team findings as summarised by Simon.</p></div>
+
+<h2>Today's Lesson</h2>
+<div class="lesson"><h3 style="margin:0">Why API-only distillation is a weaker copy: sequence vs. logit distillation</h3>
+<p>Classic knowledge distillation trains a student to match the teacher's full output distribution (its logits) at every token. That is a rich signal: for each position it says how likely every alternative token was, not just the one chosen.</p>
+<p>Someone calling a model through an API usually sees only sampled text, perhaps a handful of top log-probs. So they are limited to sequence-level distillation: collect prompts and completions, then fine-tune the student on them with ordinary supervised learning. This works, and it is cheap, but each example carries roughly one token's worth of information per position instead of a whole distribution. Hence the scale in the OpenAI report: tens of thousands of requests.</p>
+<p>That is why hidden reasoning is the prize. Chain-of-thought traces are long, dense and show the steps, and a student can learn from them far more than from final answers alone. It also explains the defences: hide or encrypt reasoning, drop or limit log-probs, and watch for high-volume, templated extraction patterns in streamed output.</p>
+<p>Practical takeaway: if you expose a model behind an API, log-probs and reasoning traces are the high-value surfaces. If you distil your own models, use full logits (you have them), not sampled text.</p></div>
+</main>
+<!-- ARCHIVE SIDEBAR -->
+<style>
+  .arc-btn {
+    position: fixed; top: 18px; right: 18px; z-index: 200;
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 6px; padding: 6px 11px; font-size: 12px;
+    color: var(--muted); cursor: pointer; display: flex;
+    align-items: center; gap: 6px; user-select: none;
+    transition: border-color 0.15s, color 0.15s;
+    font-family: inherit;
+  }
+  .arc-btn:hover { border-color: #3a4060; color: var(--text); }
+  .arc-overlay {
+    display: none; position: fixed; inset: 0; z-index: 198;
+    background: rgba(0,0,0,0.45);
+  }
+  .arc-overlay.open { display: block; }
+  .arc-panel {
+    position: fixed; top: 0; right: 0; height: 100vh; width: 200px;
+    background: var(--surface); border-left: 1px solid var(--border);
+    z-index: 199; padding: 56px 14px 24px; overflow-y: auto;
+    transform: translateX(100%); transition: transform 0.22s ease;
+  }
+  .arc-panel.open { transform: translateX(0); }
+  .arc-panel-title {
+    font-size: 10px; font-weight: 700; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--muted);
+    margin-bottom: 14px; padding-left: 4px;
+  }
+  .arc-item {
+    display: block; padding: 7px 8px; border-radius: 5px;
+    font-size: 13px; color: var(--muted); text-decoration: none;
+    margin-bottom: 2px; transition: background 0.1s, color 0.1s;
+  }
+  .arc-item:hover { background: #1e2333; color: var(--text); }
+  .arc-item.current { background: rgba(91,142,240,0.12); color: var(--accent); font-weight: 600; }
+  .arc-close {
+    position: absolute; top: 14px; right: 14px;
+    background: none; border: none; color: var(--muted);
+    cursor: pointer; font-size: 18px; line-height: 1; padding: 4px;
+  }
+  .arc-close:hover { color: var(--text); }
+</style>
+<div class="arc-overlay" id="arcOverlay" onclick="arcClose()"></div>
+<div class="arc-panel" id="arcPanel">
+  <button class="arc-close" onclick="arcClose()">&#x2715;</button>
+  <div class="arc-panel-title">Past Issues</div>
+  <div id="arcList"><span style="color:var(--muted);font-size:12px">Loading…</span></div>
+</div>
+<button class="arc-btn" onclick="arcToggle()">
+  <svg width="13" height="11" viewBox="0 0 18 14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="0" y1="1" x2="18" y2="1"/><line x1="0" y1="13" x2="18" y2="13"/><line x1="0" y1="7" x2="18" y2="7"/></svg>
+  Past issues
+</button>
+<script>
+(function(){
+  var PAD = function(n){return String(n).padStart(2,'0');};
+  var MONTHS = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  var DAYS   = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+  var current = window.location.pathname.split('/').pop().replace(/\.html$/,'');
+  var found = [], tasks = [];
+  for(var i=0;i<45;i++){
+    (function(offset){
+      var d = new Date(); d.setDate(d.getDate()-offset);
+      var s = d.getFullYear()+'-'+PAD(d.getMonth()+1)+'-'+PAD(d.getDate());
+      tasks.push(fetch('./'+s+'.html',{method:'HEAD'}).then(function(r){if(r.ok)found.push({s:s,d:new Date(d)});}).catch(function(){}));
+    })(i);
+  }
+  Promise.all(tasks).then(function(){
+    found.sort(function(a,b){return b.d-a.d;});
+    var html='';
+    found.forEach(function(f){
+      var label=DAYS[f.d.getDay()]+', '+MONTHS[f.d.getMonth()]+' '+f.d.getDate();
+      var cls='arc-item'+(f.s===current?' current':'');
+      html+='<a class="'+cls+'" href="./'+f.s+'.html">'+label+'</a>';
+    });
+    document.getElementById('arcList').innerHTML=html||'<span style="color:var(--muted);font-size:12px">None found</span>';
+  });
+})();
+function arcToggle(){
+  var p=document.getElementById('arcPanel'),o=document.getElementById('arcOverlay');
+  var open=p.classList.contains('open');
+  if(open){arcClose();}else{p.classList.add('open');o.classList.add('open');}
+}
+function arcClose(){
+  document.getElementById('arcPanel').classList.remove('open');
+  document.getElementById('arcOverlay').classList.remove('open');
+}
+</script>
+</body></html>
