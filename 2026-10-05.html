@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AI Daily Dump — Mon, Oct 5, 2026</title>
+<style>
+:root{--bg:#0d0f14;--surface:#141824;--border:#232840;--text:#e6e9f2;--muted:#8a91a8;--accent:#5b8ef0;--warm:#f0a35b}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font:16px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif}
+main{max-width:720px;margin:0 auto;padding:48px 20px 80px}
+h1{font-size:28px;margin:0 0 4px}.date{color:var(--muted);font-size:14px;margin-bottom:32px}
+h2{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin:36px 0 12px;border-bottom:1px solid var(--border);padding-bottom:6px}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:14px 16px;margin-bottom:12px}
+.card h3{margin:0 0 4px;font-size:16px}.card h3 a{color:var(--text);text-decoration:none}.card h3 a:hover{color:var(--accent)}
+.card p{margin:4px 0 0;color:#c3c8d8;font-size:15px}
+.meta{font-size:12px;color:var(--muted)}.tag{color:var(--warm)}
+.lesson{background:var(--surface);border-left:3px solid var(--accent);padding:14px 18px;border-radius:0 8px 8px 0}
+.lesson p{margin:8px 0}a{color:var(--accent)}
+</style></head><body><main>
+<h1>AI Daily Dump</h1>
+<div class="date">Monday, October 5, 2026 · for Pranesh</div>
+
+<h2>What's Hot Right Now</h2>
+<div class="card"><h3><a href="https://simonwillison.net/2026/Oct/4/qwen38-addition-in-words/">Qwen3.8-27B: 24% at big-number addition without reasoning, 99% with it</a></h3>
+<div class="meta">Oct 4 · Simon Willison · local run on a DGX Spark</div>
+<p>Simon reran an old GPT-4o "add two numbers, answer in words" experiment on Qwen3.8-27B (Q4_K_M GGUF). With reasoning off it scored 23.57% overall (1,195 of 5,070 cases), falling to 6.44% on ten- to thirteen-digit operands. With reasoning on, a one-shot pilot got 167 of 169 right, and the traces show the model lining up digits and carrying column by column. A neat, concrete demo of what the thinking budget buys a small quantized model.</p></div>
+
+<div class="card"><h3><a href="https://simonwillison.net/2026/Oct/3/default-hard-budget-caps/">"We're going to need default hard budget caps on pretty much everything"</a></h3>
+<div class="meta">Oct 3 · Simon Willison · also circulating on Hacker News</div>
+<p>His argument: usage-billed APIs should ship with hard spend limits that cut service off, not warning emails, because coding agents make it easy to deploy something that quietly runs up a bill. He cites AWS spending limits (announced September) and Google Cloud Spend Caps (July) as steps in the right direction. Worth thinking about for any agent loop you run against metered APIs.</p></div>
+
+<h2>New Releases &amp; Updates</h2>
+<div class="card"><h3><a href="https://github.com/duanyytop/agents-radar/issues/3626">Inference engines: llama.cpp ships three builds, Ollama adds Intel Arc work</a></h3>
+<div class="meta">Oct 5 · AI Infrastructure Digest (agents-radar, a third-party roundup of GitHub activity)</div>
+<p>Per the digest, llama.cpp cut b11399, b11400 and b11401 in 24 hours, including mixed token batching and Vulkan kernel work, with a flagged CUDA MoE MMQ out-of-bounds bug under review. Ollama has a pull request for native Intel SYCL support on discrete Arc GPUs (not yet a release). vLLM and SGLang had no new releases, but both have active work on batch-invariant execution, KV cache resilience and hierarchical cache storage. Secondhand source, so check the repos before upgrading.</p></div>
+
+<h2>On the Horizon</h2>
+<div class="card"><h3><a href="https://www.axios.com/2026/10/04/reflection-open-weight-ai">Reflection AI is about to release its first open-weight model</a></h3>
+<div class="meta tag">Announced as upcoming, no date · Axios, Oct 4</div>
+<p>Axios reports the Nvidia-backed startup's model is coming soon, pitched as a Western alternative to Chinese open-weight models. The CEO says it will initially trail top US models but stay competitive with leading Chinese open-weight ones. No size, licence or benchmarks have been published, so treat this as a preview of a preview.</p></div>
+
+<h2>Also Worth Reading</h2>
+<div class="card"><h3><a href="https://blog.cloudflare.com/introducing-web-search-api/">Cloudflare adds a Web Search API to AI Gateway</a></h3>
+<div class="meta">Oct 2 · Cloudflare blog · on the HN front page today</div>
+<p>Beta search grounding for agents via REST or Workers bindings, with Ceramic.ai, Exa and Linkup as providers. Usage draws from AI Gateway credits at provider rates with no Cloudflare markup, you can bring your own keys, and search calls show up in the usual AI Gateway logs.</p></div>
+
+<h2>Today's Lesson</h2>
+<div class="lesson"><h3 style="margin:0">Why temperature 0 isn't deterministic: batch-invariant inference</h3>
+<p>You set temperature to 0, send the same prompt twice, and sometimes get different text. The usual suspect is "GPU randomness", but the real cause is quieter: floating-point addition isn't associative, so (a + b) + c can differ from a + (b + c) in the last bits.</p>
+<p>Inside a transformer, matmuls, attention and normalisation all sum long lists of numbers, and the GPU kernel picks how to split and order that sum. Well-tuned kernels choose differently depending on batch size and sequence layout. With continuous batching, your request lands in a different batch each time depending on server load, so the reduction order changes, the logits shift by a hair, and two near-tied tokens can swap places. After one flip, everything downstream diverges.</p>
+<p>The fix is batch-invariant kernels: fix the reduction strategy so a given row produces identical bits whatever else is in the batch. It costs some throughput, which is why it's usually opt-in. The digest above mentions vLLM work on exactly this.</p>
+<p>Why care: reproducible evals, RL training where sampler and trainer must agree, and debugging agent regressions you can't replay.</p></div>
+</main>
+<!-- ARCHIVE SIDEBAR -->
+<style>
+  .arc-btn {
+    position: fixed; top: 18px; right: 18px; z-index: 200;
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 6px; padding: 6px 11px; font-size: 12px;
+    color: var(--muted); cursor: pointer; display: flex;
+    align-items: center; gap: 6px; user-select: none;
+    transition: border-color 0.15s, color 0.15s;
+    font-family: inherit;
+  }
+  .arc-btn:hover { border-color: #3a4060; color: var(--text); }
+  .arc-overlay {
+    display: none; position: fixed; inset: 0; z-index: 198;
+    background: rgba(0,0,0,0.45);
+  }
+  .arc-overlay.open { display: block; }
+  .arc-panel {
+    position: fixed; top: 0; right: 0; height: 100vh; width: 200px;
+    background: var(--surface); border-left: 1px solid var(--border);
+    z-index: 199; padding: 56px 14px 24px; overflow-y: auto;
+    transform: translateX(100%); transition: transform 0.22s ease;
+  }
+  .arc-panel.open { transform: translateX(0); }
+  .arc-panel-title {
+    font-size: 10px; font-weight: 700; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--muted);
+    margin-bottom: 14px; padding-left: 4px;
+  }
+  .arc-item {
+    display: block; padding: 7px 8px; border-radius: 5px;
+    font-size: 13px; color: var(--muted); text-decoration: none;
+    margin-bottom: 2px; transition: background 0.1s, color 0.1s;
+  }
+  .arc-item:hover { background: #1e2333; color: var(--text); }
+  .arc-item.current { background: rgba(91,142,240,0.12); color: var(--accent); font-weight: 600; }
+  .arc-close {
+    position: absolute; top: 14px; right: 14px;
+    background: none; border: none; color: var(--muted);
+    cursor: pointer; font-size: 18px; line-height: 1; padding: 4px;
+  }
+  .arc-close:hover { color: var(--text); }
+</style>
+<div class="arc-overlay" id="arcOverlay" onclick="arcClose()"></div>
+<div class="arc-panel" id="arcPanel">
+  <button class="arc-close" onclick="arcClose()">&#x2715;</button>
+  <div class="arc-panel-title">Past Issues</div>
+  <div id="arcList"><span style="color:var(--muted);font-size:12px">Loading…</span></div>
+</div>
+<button class="arc-btn" onclick="arcToggle()">
+  <svg width="13" height="11" viewBox="0 0 18 14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="0" y1="1" x2="18" y2="1"/><line x1="0" y1="13" x2="18" y2="13"/><line x1="0" y1="7" x2="18" y2="7"/></svg>
+  Past issues
+</button>
+<script>
+(function(){
+  var PAD = function(n){return String(n).padStart(2,'0');};
+  var MONTHS = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  var DAYS   = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+  var current = window.location.pathname.split('/').pop().replace(/\.html$/,'');
+  var found = [], tasks = [];
+  for(var i=0;i<45;i++){
+    (function(offset){
+      var d = new Date(); d.setDate(d.getDate()-offset);
+      var s = d.getFullYear()+'-'+PAD(d.getMonth()+1)+'-'+PAD(d.getDate());
+      tasks.push(fetch('./'+s+'.html',{method:'HEAD'}).then(function(r){if(r.ok)found.push({s:s,d:new Date(d)});}).catch(function(){}));
+    })(i);
+  }
+  Promise.all(tasks).then(function(){
+    found.sort(function(a,b){return b.d-a.d;});
+    var html='';
+    found.forEach(function(f){
+      var label=DAYS[f.d.getDay()]+', '+MONTHS[f.d.getMonth()]+' '+f.d.getDate();
+      var cls='arc-item'+(f.s===current?' current':'');
+      html+='<a class="'+cls+'" href="./'+f.s+'.html">'+label+'</a>';
+    });
+    document.getElementById('arcList').innerHTML=html||'<span style="color:var(--muted);font-size:12px">None found</span>';
+  });
+})();
+function arcToggle(){
+  var p=document.getElementById('arcPanel'),o=document.getElementById('arcOverlay');
+  var open=p.classList.contains('open');
+  if(open){arcClose();}else{p.classList.add('open');o.classList.add('open');}
+}
+function arcClose(){
+  document.getElementById('arcPanel').classList.remove('open');
+  document.getElementById('arcOverlay').classList.remove('open');
+}
+</script>
+</body></html>
