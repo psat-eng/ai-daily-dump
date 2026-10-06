@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AI Daily Dump — Tue, Oct 6, 2026</title>
+<style>
+:root{--bg:#0d0f14;--surface:#141824;--border:#232840;--text:#e6e9f2;--muted:#8a91a8;--accent:#5b8ef0;--warm:#f0a35b}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font:16px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif}
+main{max-width:720px;margin:0 auto;padding:48px 20px 80px}
+h1{font-size:28px;margin:0 0 4px}.date{color:var(--muted);font-size:14px;margin-bottom:32px}
+h2{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin:36px 0 12px;border-bottom:1px solid var(--border);padding-bottom:6px}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:14px 16px;margin-bottom:12px}
+.card h3{margin:0 0 4px;font-size:16px}.card h3 a{color:var(--text);text-decoration:none}.card h3 a:hover{color:var(--accent)}
+.card p{margin:4px 0 0;color:#c3c8d8;font-size:15px}
+.meta{font-size:12px;color:var(--muted)}.tag{color:var(--warm)}
+.lesson{background:var(--surface);border-left:3px solid var(--accent);padding:14px 18px;border-radius:0 8px 8px 0}
+.lesson p{margin:8px 0}a{color:var(--accent)}
+</style></head><body><main>
+<h1>AI Daily Dump</h1>
+<div class="date">Tuesday, October 6, 2026 · for Pranesh</div>
+
+<h2>What's Hot Right Now</h2>
+<div class="card"><h3><a href="https://mistral.ai/news/mistral-large-4">Mistral Large 4: 1T-parameter MoE, 49B active, weights promised by end of October</a></h3>
+<div class="meta">Oct 6 · Mistral · #2 on Hacker News (836 points, 491 comments at crawl time)</div>
+<p>Mistral calls it a natively multimodal, hybrid instruct-and-reasoning mixture-of-experts, trained on 3,800 Nvidia Grace Blackwell GPUs in European datacenters. Claimed numbers: 61.7% on DeepSWE v1.1, 28.3% on Terminal-Bench 4.0, 93% on Cybench. They say it beats every open-weight model from the US or Europe. These are vendor benchmarks, so treat them as marketing until independent evals land. The preview API is live in Mistral Studio at $1.36 per million input tokens and $4.18 per million output. Open weights are due "by end of October", and the licence and context length weren't stated in the post.</p></div>
+
+<h2>New Releases &amp; Updates</h2>
+<div class="card"><h3><a href="https://github.com/ggml-org/llama.cpp/releases/tag/v0.6.0">llama.cpp v0.6.0: new batch API, Clef support, big Metal and Vulkan attention work</a></h3>
+<div class="meta">Oct 5 · ggml-org/llama.cpp · plus builds b11433 and b11435 since</div>
+<p>The headline is a new <code>llama_batch_ext</code> API that accepts mixed token and embedding inputs. Model support adds GLM-5.3-Flash (a 320B text+vision hybrid) and Cloudflare's Clef decision model, and Qwen4Exp gets MTP speculative decoding. On the kernel side there's a Metal tensor-API flash attention path for F16 KV (plus few-row matmul kernels the notes put at roughly 3x on Apple GPUs) and sparse flash attention for quantized K/V on Vulkan. The web UI was overhauled with Hugging Face Hub downloads and memory-fit estimates. Release notes were read via a summarising fetch, so skim the changelog before upgrading.</p></div>
+
+<h2>On the Horizon</h2>
+<div class="card"><h3><a href="https://mistral.ai/news/mistral-large-4">Mistral Large 4 open weights</a></h3>
+<div class="meta tag">Announced, not released · target: end of October 2026</div>
+<p>If the weights ship as promised, a 1T/49B-active model will be the largest open-weight MoE many people can try to serve themselves. Expect the conversation to turn quickly to quants, expert offloading and how many GPUs it takes (see today's lesson).</p></div>
+
+<h2>Also Worth Reading</h2>
+<div class="card"><h3><a href="https://simonwillison.net/2026/Oct/5/felix-rieseberg/">Felix Rieseberg on how Claude Cowork moved to the cloud</a></h3>
+<div class="meta">Oct 5 · Simon Willison quoting Anthropic</div>
+<p>The first Cowork ran inference in the cloud but executed tool calls in a local VM. The new version moves both into the cloud, avoiding the disk, battery and performance cost on the user's machine and letting work continue across devices. A useful data point on where agent sandboxes are heading.</p></div>
+<div class="card"><h3><a href="https://datanorth.ai/news/cloudflare-releases-clef-and-clef-flash">Cloudflare Clef and Clef-flash: open-weight "decision models"</a></h3>
+<div class="meta">Oct 1 (5 days old, but llama.cpp support landed Oct 5) · Apache 2.0</div>
+<p>27B and 9B models built on Qwen that return a probability for each allowed answer in a prefill-only pass instead of generating text. Reported latency is about 209 ms for Clef and 39 ms for Clef-flash, with a 94.2 macro-F1 on BANKING77. Now runnable in llama.cpp.</p></div>
+
+<h2>Today's Lesson</h2>
+<div class="lesson"><h3 style="margin:0">"49B active" doesn't mean "49B of memory": serving big MoEs</h3>
+<p>Mistral Large 4 has 1T total parameters but only 49B active per token. It's tempting to read that as "runs like a 49B model". It doesn't, because the two numbers limit different things.</p>
+<p>Compute per token scales with active parameters: a router picks a few experts per layer, and only those do matmuls. So FLOPs look like a 49B dense model. But the router can pick any expert for any token, so every expert's weights must be resident somewhere. Even at 4-bit that's roughly 500 GB of weights, which means a multi-GPU node regardless of how little math each token needs.</p>
+<p>At small batch sizes decoding is memory-bandwidth-bound: each step reads the weights it touches. With batch 1 you read about 49B worth. With a big continuous batch, different tokens hit different experts and you end up reading most of the experts every step, so MoE throughput gains shrink as batches grow. That's why servers use expert parallelism (experts sharded across GPUs, tokens shipped to them with all-to-all) and why router load imbalance shows up as stragglers.</p>
+<p>Rule of thumb: total parameters set your memory bill, active parameters set your FLOPs, and batch size decides which one hurts.</p></div>
+</main>
+<!-- ARCHIVE SIDEBAR -->
+<style>
+  .arc-btn {
+    position: fixed; top: 18px; right: 18px; z-index: 200;
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 6px; padding: 6px 11px; font-size: 12px;
+    color: var(--muted); cursor: pointer; display: flex;
+    align-items: center; gap: 6px; user-select: none;
+    transition: border-color 0.15s, color 0.15s;
+    font-family: inherit;
+  }
+  .arc-btn:hover { border-color: #3a4060; color: var(--text); }
+  .arc-overlay {
+    display: none; position: fixed; inset: 0; z-index: 198;
+    background: rgba(0,0,0,0.45);
+  }
+  .arc-overlay.open { display: block; }
+  .arc-panel {
+    position: fixed; top: 0; right: 0; height: 100vh; width: 200px;
+    background: var(--surface); border-left: 1px solid var(--border);
+    z-index: 199; padding: 56px 14px 24px; overflow-y: auto;
+    transform: translateX(100%); transition: transform 0.22s ease;
+  }
+  .arc-panel.open { transform: translateX(0); }
+  .arc-panel-title {
+    font-size: 10px; font-weight: 700; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--muted);
+    margin-bottom: 14px; padding-left: 4px;
+  }
+  .arc-item {
+    display: block; padding: 7px 8px; border-radius: 5px;
+    font-size: 13px; color: var(--muted); text-decoration: none;
+    margin-bottom: 2px; transition: background 0.1s, color 0.1s;
+  }
+  .arc-item:hover { background: #1e2333; color: var(--text); }
+  .arc-item.current { background: rgba(91,142,240,0.12); color: var(--accent); font-weight: 600; }
+  .arc-close {
+    position: absolute; top: 14px; right: 14px;
+    background: none; border: none; color: var(--muted);
+    cursor: pointer; font-size: 18px; line-height: 1; padding: 4px;
+  }
+  .arc-close:hover { color: var(--text); }
+</style>
+<div class="arc-overlay" id="arcOverlay" onclick="arcClose()"></div>
+<div class="arc-panel" id="arcPanel">
+  <button class="arc-close" onclick="arcClose()">&#x2715;</button>
+  <div class="arc-panel-title">Past Issues</div>
+  <div id="arcList"><span style="color:var(--muted);font-size:12px">Loading…</span></div>
+</div>
+<button class="arc-btn" onclick="arcToggle()">
+  <svg width="13" height="11" viewBox="0 0 18 14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="0" y1="1" x2="18" y2="1"/><line x1="0" y1="13" x2="18" y2="13"/><line x1="0" y1="7" x2="18" y2="7"/></svg>
+  Past issues
+</button>
+<script>
+(function(){
+  var PAD = function(n){return String(n).padStart(2,'0');};
+  var MONTHS = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  var DAYS   = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+  var current = window.location.pathname.split('/').pop().replace(/\.html$/,'');
+  var found = [], tasks = [];
+  for(var i=0;i<45;i++){
+    (function(offset){
+      var d = new Date(); d.setDate(d.getDate()-offset);
+      var s = d.getFullYear()+'-'+PAD(d.getMonth()+1)+'-'+PAD(d.getDate());
+      tasks.push(fetch('./'+s+'.html',{method:'HEAD'}).then(function(r){if(r.ok)found.push({s:s,d:new Date(d)});}).catch(function(){}));
+    })(i);
+  }
+  Promise.all(tasks).then(function(){
+    found.sort(function(a,b){return b.d-a.d;});
+    var html='';
+    found.forEach(function(f){
+      var label=DAYS[f.d.getDay()]+', '+MONTHS[f.d.getMonth()]+' '+f.d.getDate();
+      var cls='arc-item'+(f.s===current?' current':'');
+      html+='<a class="'+cls+'" href="./'+f.s+'.html">'+label+'</a>';
+    });
+    document.getElementById('arcList').innerHTML=html||'<span style="color:var(--muted);font-size:12px">None found</span>';
+  });
+})();
+function arcToggle(){
+  var p=document.getElementById('arcPanel'),o=document.getElementById('arcOverlay');
+  var open=p.classList.contains('open');
+  if(open){arcClose();}else{p.classList.add('open');o.classList.add('open');}
+}
+function arcClose(){
+  document.getElementById('arcPanel').classList.remove('open');
+  document.getElementById('arcOverlay').classList.remove('open');
+}
+</script>
+</body></html>
