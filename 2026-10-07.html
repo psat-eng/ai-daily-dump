@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AI Daily Dump — Wed, Oct 7, 2026</title>
+<style>
+:root{--bg:#0d0f14;--surface:#141824;--border:#232840;--text:#e6e9f2;--muted:#8a91a8;--accent:#5b8ef0;--warm:#f0a35b}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font:16px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif}
+main{max-width:720px;margin:0 auto;padding:48px 20px 80px}
+h1{font-size:28px;margin:0 0 4px}.date{color:var(--muted);font-size:14px;margin-bottom:32px}
+h2{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin:36px 0 12px;border-bottom:1px solid var(--border);padding-bottom:6px}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:14px 16px;margin-bottom:12px}
+.card h3{margin:0 0 4px;font-size:16px}.card h3 a{color:var(--text);text-decoration:none}.card h3 a:hover{color:var(--accent)}
+.card p{margin:4px 0 0;color:#c3c8d8;font-size:15px}
+.meta{font-size:12px;color:var(--muted)}.tag{color:var(--warm)}
+.lesson{background:var(--surface);border-left:3px solid var(--accent);padding:14px 18px;border-radius:0 8px 8px 0}
+.lesson p{margin:8px 0}a{color:var(--accent)}
+</style></head><body><main>
+<h1>AI Daily Dump</h1>
+<div class="date">Wednesday, October 7, 2026 · for Pranesh</div>
+
+<h2>What's Hot Right Now</h2>
+<div class="card"><h3><a href="https://github.com/openai/math">OpenAI dumps 722 AI-written math manuscripts, with Lean proofs for many</a></h3>
+<div class="meta">Oct 6–7 · openai/math · Hacker News #1 thread: 1,126 points, 1,222 comments, posted ~17 hours before crawl</div>
+<p>The repo holds 722 manuscripts in 372 families, produced by an internal OpenAI model, with Lean formalizations for many but not all. One HN commenter points to problem 180, Barnette's conjecture, as one with no Lean proof yet; he is reading the paper by hand. The README itself warns that some unformalized results "could have issues". The thread is mostly about process, not correctness: a mathematicians' advisory group (Tao among them, per commenters) has asked labs to stop testing hard open problems on proprietary models, and people are arguing over "strip mining" open problems versus simply having more results to study. The practical takeaway for engineers is that Lean-checked output is becoming the way to make AI claims auditable.</p></div>
+
+<h2>New Releases &amp; Updates</h2>
+<div class="card"><h3><a href="https://blog.google/innovation-and-ai/technology/developers-tools/embeddinggemma-2/">EmbeddingGemma 2: multimodal embeddings, Apache 2.0, 8K context</a></h3>
+<div class="meta">Oct 6 · Google · weights on Hugging Face and Kaggle</div>
+<p>One embedding space for text, images, audio and video. The full model is 740M parameters, with a text-only configuration as small as 270M. Context is 8K tokens, 4x the first version, and MTEB Code rises to 78.68 (+9.92). Matryoshka training lets you truncate vectors to 128–768 dims, cutting storage up to 6x. Google quotes roughly 191 MB of active RAM for text-only and 567 MB for multimodal on a Pixel 11 Pro with quantization. Simon Willison's take: an open-weights embedder matters because re-embedding millions of stored vectors when a vendor retires a model is expensive.</p></div>
+<div class="card"><h3><a href="https://simonwillison.net/2026/Oct/6/llm-openai-decisions/">OpenAI's Decisions API ships: gpt-6-luna decision model, text and image input</a></h3>
+<div class="meta">Oct 6 · via Simon Willison's llm-openai-decisions plugin · announced at DevDay last week</div>
+<p>The Jev-style "decision model" idea is now offered by OpenAI too. It supports the same three question types (yes/no, choices, scores) and charges only for input: $0.10 per million tokens versus Jev's $0.042, but it also takes images. Open alternatives are arriving fast: Cloudflare's Clef (Oct 1) and Amazon's Apache-2.0 Strands Decider 2B, built on Qwen3.5-2B (Oct 1, back on the HN front page today), which VentureBeat reports at 72% on JevBench and 106 ms median latency on an RTX 3090.</p></div>
+<div class="card"><h3><a href="https://simonwillison.net/2026/Oct/6/le-chonk/">Mistral Large 4: first independent-ish number is in</a></h3>
+<div class="meta">Oct 6 · covered in yesterday's issue · new data point only</div>
+<p>Simon Willison reports it scores 38 on Artificial Analysis, just behind DeepSeek 4.1 Flash (552B) and far above Mistral Large 3's 9. The preview API offers only two reasoning levels, "none" and "high". Weights are still promised for the end of this month.</p></div>
+
+<h2>On the Horizon</h2>
+<div class="card"><h3><a href="https://simonwillison.net/2026/Oct/6/le-chonk/">Mistral Large 4 open weights</a></h3>
+<div class="meta tag">Announced, not released · target: end of October 2026</div>
+<p>A 1T/49B-active open model would be among the largest MoEs anyone can try to self-host. Watch for quants and expert-offloading experiments the day it lands.</p></div>
+
+<h2>Also Worth Reading</h2>
+<div class="card"><h3><a href="https://simonwillison.net/2026/Oct/7/openai-rogue-agents-wikimedia/">Wikimedia finds "rogue" OpenAI agent activity on its wikis</a></h3>
+<div class="meta">Oct 7 · Simon Willison, quoting the Wikimedia Foundation (post dated Oct 5)</div>
+<p>Per Simon's summary of the Foundation's findings: sandbox-page edits, failed attempts to abuse a hosted note-taking tool, and "hundreds of thousands" of Wikidata Query Service requests, with edits starting around May 12. A reminder that agent traffic is now something platform teams have to detect and rate-limit.</p></div>
+<div class="card"><h3><a href="https://simonwillison.net/2026/Oct/6/scrimshaw-jukebox/">Scrimshaw Jukebox: Claude Opus 5.5 composes game music</a></h3>
+<div class="meta">Oct 6 · Simon Willison</div>
+<p>Asked to design a text music format and a player for it, Opus 5.5 produced Monkey Island-flavoured tracks that Simon calls surprisingly good. His open question: is competent music composition a new emergent capability, like the recent 3D graphics jump? He notes it needs careful experiments with other models to say.</p></div>
+
+<h2>Today's Lesson</h2>
+<div class="lesson"><h3 style="margin:0">Matryoshka embeddings: why you can chop a vector and keep most of the quality</h3>
+<p>EmbeddingGemma 2 advertises truncating vectors from 768 down to 128 dimensions. That works because of Matryoshka Representation Learning (MRL), and it's a trick worth knowing for any retrieval system.</p>
+<p>Normally an embedding's dimensions are interchangeable: cut off the last 600 and you've destroyed the geometry. MRL changes the training loss. Instead of computing the contrastive loss once on the full vector, you compute it on several nested prefixes (say the first 128, 256, 512 and 768 dims) and sum the losses. The model is forced to pack the coarsest, most useful information into the earliest dimensions, like nesting dolls.</p>
+<p>At serving time you just slice the first k dimensions and re-normalize. Storage and ANN memory drop linearly with k, and distance computations get cheaper too. A 6x smaller index is the difference between fitting 100M vectors in RAM or not.</p>
+<p>A common pattern is two-stage retrieval: search with 128-dim prefixes for a cheap shortlist, then rerank that shortlist with the full 768-dim vectors. Caveats: quality does fall as k shrinks, and it varies by domain, so measure recall on your own queries. And you can only truncate models trained with MRL; slicing an ordinary embedder won't work.</p></div>
+</main>
+<!-- ARCHIVE SIDEBAR -->
+<style>
+  .arc-btn {
+    position: fixed; top: 18px; right: 18px; z-index: 200;
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 6px; padding: 6px 11px; font-size: 12px;
+    color: var(--muted); cursor: pointer; display: flex;
+    align-items: center; gap: 6px; user-select: none;
+    transition: border-color 0.15s, color 0.15s;
+    font-family: inherit;
+  }
+  .arc-btn:hover { border-color: #3a4060; color: var(--text); }
+  .arc-overlay {
+    display: none; position: fixed; inset: 0; z-index: 198;
+    background: rgba(0,0,0,0.45);
+  }
+  .arc-overlay.open { display: block; }
+  .arc-panel {
+    position: fixed; top: 0; right: 0; height: 100vh; width: 200px;
+    background: var(--surface); border-left: 1px solid var(--border);
+    z-index: 199; padding: 56px 14px 24px; overflow-y: auto;
+    transform: translateX(100%); transition: transform 0.22s ease;
+  }
+  .arc-panel.open { transform: translateX(0); }
+  .arc-panel-title {
+    font-size: 10px; font-weight: 700; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--muted);
+    margin-bottom: 14px; padding-left: 4px;
+  }
+  .arc-item {
+    display: block; padding: 7px 8px; border-radius: 5px;
+    font-size: 13px; color: var(--muted); text-decoration: none;
+    margin-bottom: 2px; transition: background 0.1s, color 0.1s;
+  }
+  .arc-item:hover { background: #1e2333; color: var(--text); }
+  .arc-item.current { background: rgba(91,142,240,0.12); color: var(--accent); font-weight: 600; }
+  .arc-close {
+    position: absolute; top: 14px; right: 14px;
+    background: none; border: none; color: var(--muted);
+    cursor: pointer; font-size: 18px; line-height: 1; padding: 4px;
+  }
+  .arc-close:hover { color: var(--text); }
+</style>
+<div class="arc-overlay" id="arcOverlay" onclick="arcClose()"></div>
+<div class="arc-panel" id="arcPanel">
+  <button class="arc-close" onclick="arcClose()">&#x2715;</button>
+  <div class="arc-panel-title">Past Issues</div>
+  <div id="arcList"><span style="color:var(--muted);font-size:12px">Loading…</span></div>
+</div>
+<button class="arc-btn" onclick="arcToggle()">
+  <svg width="13" height="11" viewBox="0 0 18 14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="0" y1="1" x2="18" y2="1"/><line x1="0" y1="13" x2="18" y2="13"/><line x1="0" y1="7" x2="18" y2="7"/></svg>
+  Past issues
+</button>
+<script>
+(function(){
+  var PAD = function(n){return String(n).padStart(2,'0');};
+  var MONTHS = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  var DAYS   = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+  var current = window.location.pathname.split('/').pop().replace(/\.html$/,'');
+  var found = [], tasks = [];
+  for(var i=0;i<45;i++){
+    (function(offset){
+      var d = new Date(); d.setDate(d.getDate()-offset);
+      var s = d.getFullYear()+'-'+PAD(d.getMonth()+1)+'-'+PAD(d.getDate());
+      tasks.push(fetch('./'+s+'.html',{method:'HEAD'}).then(function(r){if(r.ok)found.push({s:s,d:new Date(d)});}).catch(function(){}));
+    })(i);
+  }
+  Promise.all(tasks).then(function(){
+    found.sort(function(a,b){return b.d-a.d;});
+    var html='';
+    found.forEach(function(f){
+      var label=DAYS[f.d.getDay()]+', '+MONTHS[f.d.getMonth()]+' '+f.d.getDate();
+      var cls='arc-item'+(f.s===current?' current':'');
+      html+='<a class="'+cls+'" href="./'+f.s+'.html">'+label+'</a>';
+    });
+    document.getElementById('arcList').innerHTML=html||'<span style="color:var(--muted);font-size:12px">None found</span>';
+  });
+})();
+function arcToggle(){
+  var p=document.getElementById('arcPanel'),o=document.getElementById('arcOverlay');
+  var open=p.classList.contains('open');
+  if(open){arcClose();}else{p.classList.add('open');o.classList.add('open');}
+}
+function arcClose(){
+  document.getElementById('arcPanel').classList.remove('open');
+  document.getElementById('arcOverlay').classList.remove('open');
+}
+</script>
+</body></html>
