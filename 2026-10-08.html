@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AI Daily Dump — Thu, Oct 8, 2026</title>
+<style>
+:root{--bg:#0d0f14;--surface:#141824;--border:#232840;--text:#e6e9f2;--muted:#8a91a8;--accent:#5b8ef0;--warm:#f0a35b}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font:16px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif}
+main{max-width:720px;margin:0 auto;padding:48px 20px 80px}
+h1{font-size:28px;margin:0 0 4px}.date{color:var(--muted);font-size:14px;margin-bottom:32px}
+h2{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin:36px 0 12px;border-bottom:1px solid var(--border);padding-bottom:6px}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:14px 16px;margin-bottom:12px}
+.card h3{margin:0 0 4px;font-size:16px}.card h3 a{color:var(--text);text-decoration:none}.card h3 a:hover{color:var(--accent)}
+.card p{margin:4px 0 0;color:#c3c8d8;font-size:15px}
+.meta{font-size:12px;color:var(--muted)}.tag{color:var(--warm)}
+.lesson{background:var(--surface);border-left:3px solid var(--accent);padding:14px 18px;border-radius:0 8px 8px 0}
+.lesson p{margin:8px 0}a{color:var(--accent)}
+</style></head><body><main>
+<h1>AI Daily Dump</h1>
+<div class="date">Thursday, October 8, 2026 · for Pranesh</div>
+
+<h2>What's Hot Right Now</h2>
+<div class="card"><h3><a href="https://github.com/openai/math/blob/main/history.md">OpenAI withdraws three of its AI-written math manuscripts</a></h3>
+<div class="meta">Oct 7 (per repo history) · openai/math · HN: 336 points, plus a 418-comment thread on the announcement tweet</div>
+<p>Follow-up to this week's 722-manuscript dump. The repo's history page says a sign error in one paper invalidated a stabilization-trace cancellation argument, which also broke two dependent papers (the Weil classes / Kuga&ndash;Satake / rational Hodge conjecture results). Withdrawn papers now carry notices linking archived copies. A useful reminder of why the Lean formalizations matter: the unformalized ones are where this kind of error hides.</p></div>
+<div class="card"><h3><a href="https://github.com/pingdotgg/ts-rust">ts-rust: an LLM-built Rust port of the TypeScript 7 compiler</a></h3>
+<div class="meta">HN Oct 7&ndash;8 · pingdotgg · 99 points, 191 comments · all numbers below are the author's own claims</div>
+<p>Ported from Microsoft's Go-based native tsc. The author says OpenAI models reached ~84% compatibility for $400K+, then Claude Opus 5.5 restarted from scratch and had a working v0 in about 10 hours (~$24K total over two weeks). Claims all 181,711 ported Go tests pass and ~1.6x faster than tsc 7 on an M4 Pro. Caveats are real: early release, Linux x64 and macOS arm64 only, some monorepo and watch-mode bugs, and the author hasn't read the code.</p></div>
+<div class="card"><h3><a href="https://quesma.com/blog/invisible-cities-one-shot/">Opus 5.5 vs GPT-6 Astra: one prompt, one Three.js &ldquo;Invisible Cities&rdquo;</a></h3>
+<div class="meta">Oct 7 · Quesma (Piotr Migdał) · HN: 225 points</div>
+<p>Same one-shot prompt, GPT-6 Astra in Codex and Opus 5.5 in Claude Code. Astra: ~53 min, ~$10. Opus: ~1h25m with 6 parallel subagents (~7 agent-hours), ~$74, and it stopped early despite the six-hour instruction. The author prefers Opus's design output. One data point, but a good look at cost vs. quality in agentic runs.</p></div>
+
+<h2>New Releases &amp; Updates</h2>
+<div class="card"><h3><a href="https://www.anthropic.com/claude-haiku-5-5">Claude Haiku 5.5: $0.10 / $0.50 per million tokens in/out</a></h3>
+<div class="meta">Oct 7 · Anthropic · model ID claude-haiku-5-5 · Anthropic's own benchmark figures</div>
+<p>Prices apply to prompts up to 100k tokens (doubling above that); Haiku 4.5 was $1 / $5. First Haiku with an adjustable effort setting, aimed at summarization, compaction, classification and subagents. Vendor numbers: OSWorld 2.1 offline subset 72.4% (Haiku 4.5: 15.7%), Terminal-Bench 4.0 39.2%, HLE 45.9% without tools. Sonnet 5.5 cache-read price was also halved to $0.10/M.</p></div>
+<div class="card"><h3><a href="https://openai.com/index/gpt-6-for-everyone/">GPT-6 reaches ChatGPT, with &ldquo;Intelligent UI&rdquo;</a></h3>
+<div class="meta">Oct 7 · OpenAI · paid tiers same day, Free/Go the next day</div>
+<p>Paid tiers get GPT-6 Sol, Free and Go get GPT-6 Luna. Responses can include charts, forms and buttons inline. OpenAI says GPT-6 starts answering while still reasoning: for web-search questions, GPT-6 Instant begins answering 44% sooner than GPT-5.6 Instant (internal tests). The models behind Work and Codex are unchanged. No pricing in the post.</p></div>
+
+<h2>On the Horizon</h2>
+<div class="card"><h3><a href="https://simonwillison.net/2026/Oct/6/le-chonk/">Mistral Large 4 open weights</a></h3>
+<div class="meta tag">Announced, not released · promised for end of October 2026 · preview post Oct 6</div>
+<p>1T total / 49B active, trained on 3,800 Grace Blackwell GPUs. Preview via Mistral's API only; license and pricing not stated in Simon Willison's write-up.</p></div>
+
+<h2>Also Worth Reading</h2>
+<div class="card"><h3><a href="https://openai.com/index/sharing-ai-progress-in-mathematics/">OpenAI: Sharing AI progress in mathematics</a></h3>
+<div class="meta">Oct 6 · OpenAI</div>
+<p>The original release post: Lean formalizations for many proofs, ~3 hours of ChatGPT Pro compute per result on average, and consultation with the IAS advisory group. Read it alongside today's withdrawals.</p></div>
+
+<h2>Today's Lesson</h2>
+<div class="lesson"><h3 style="margin:0">Prompt caching: why a cache read costs ~10% of an input token</h3>
+<p>Anthropic just halved Sonnet 5.5's cache-read price to $0.10/M against $2.00/M for fresh input. Why is a cached token so much cheaper? Because the expensive part of a prompt is prefill: computing keys and values for every token at every layer. That KV cache is deterministic given the exact token prefix, so the provider can store it and skip the compute next time.</p>
+<p>The catch is that caching is prefix-based. Reuse only works if everything up to a point is byte-identical, so a timestamp or reordered tool list near the top invalidates everything after it. Structure prompts as stable parts first (system prompt, tool definitions, documents), volatile parts last (the user turn, scratch state).</p>
+<p>Cost math for an agent loop: say a 50K-token context grows by 1K tokens per step over 30 steps. Uncached, you pay full price on ~1.5M input tokens total. Cached, you pay a write premium once, then 10% on the repeated prefix. Haiku 5.5's write price is 1.25x input ($0.125), so a prefix reused even twice pays for itself. Also remember cache entries expire after a short TTL, so a long pause between steps can mean paying for a rewrite.</p></div>
+</main>
+<!-- ARCHIVE SIDEBAR -->
+<style>
+  .arc-btn {
+    position: fixed; top: 18px; right: 18px; z-index: 200;
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 6px; padding: 6px 11px; font-size: 12px;
+    color: var(--muted); cursor: pointer; display: flex;
+    align-items: center; gap: 6px; user-select: none;
+    transition: border-color 0.15s, color 0.15s;
+    font-family: inherit;
+  }
+  .arc-btn:hover { border-color: #3a4060; color: var(--text); }
+  .arc-overlay {
+    display: none; position: fixed; inset: 0; z-index: 198;
+    background: rgba(0,0,0,0.45);
+  }
+  .arc-overlay.open { display: block; }
+  .arc-panel {
+    position: fixed; top: 0; right: 0; height: 100vh; width: 200px;
+    background: var(--surface); border-left: 1px solid var(--border);
+    z-index: 199; padding: 56px 14px 24px; overflow-y: auto;
+    transform: translateX(100%); transition: transform 0.22s ease;
+  }
+  .arc-panel.open { transform: translateX(0); }
+  .arc-panel-title {
+    font-size: 10px; font-weight: 700; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--muted);
+    margin-bottom: 14px; padding-left: 4px;
+  }
+  .arc-item {
+    display: block; padding: 7px 8px; border-radius: 5px;
+    font-size: 13px; color: var(--muted); text-decoration: none;
+    margin-bottom: 2px; transition: background 0.1s, color 0.1s;
+  }
+  .arc-item:hover { background: #1e2333; color: var(--text); }
+  .arc-item.current { background: rgba(91,142,240,0.12); color: var(--accent); font-weight: 600; }
+  .arc-close {
+    position: absolute; top: 14px; right: 14px;
+    background: none; border: none; color: var(--muted);
+    cursor: pointer; font-size: 18px; line-height: 1; padding: 4px;
+  }
+  .arc-close:hover { color: var(--text); }
+</style>
+<div class="arc-overlay" id="arcOverlay" onclick="arcClose()"></div>
+<div class="arc-panel" id="arcPanel">
+  <button class="arc-close" onclick="arcClose()">&#x2715;</button>
+  <div class="arc-panel-title">Past Issues</div>
+  <div id="arcList"><span style="color:var(--muted);font-size:12px">Loading…</span></div>
+</div>
+<button class="arc-btn" onclick="arcToggle()">
+  <svg width="13" height="11" viewBox="0 0 18 14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="0" y1="1" x2="18" y2="1"/><line x1="0" y1="13" x2="18" y2="13"/><line x1="0" y1="7" x2="18" y2="7"/></svg>
+  Past issues
+</button>
+<script>
+(function(){
+  var PAD = function(n){return String(n).padStart(2,'0');};
+  var MONTHS = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  var DAYS   = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+  var current = window.location.pathname.split('/').pop().replace(/\.html$/,'');
+  var found = [], tasks = [];
+  for(var i=0;i<45;i++){
+    (function(offset){
+      var d = new Date(); d.setDate(d.getDate()-offset);
+      var s = d.getFullYear()+'-'+PAD(d.getMonth()+1)+'-'+PAD(d.getDate());
+      tasks.push(fetch('./'+s+'.html',{method:'HEAD'}).then(function(r){if(r.ok)found.push({s:s,d:new Date(d)});}).catch(function(){}));
+    })(i);
+  }
+  Promise.all(tasks).then(function(){
+    found.sort(function(a,b){return b.d-a.d;});
+    var html='';
+    found.forEach(function(f){
+      var label=DAYS[f.d.getDay()]+', '+MONTHS[f.d.getMonth()]+' '+f.d.getDate();
+      var cls='arc-item'+(f.s===current?' current':'');
+      html+='<a class="'+cls+'" href="./'+f.s+'.html">'+label+'</a>';
+    });
+    document.getElementById('arcList').innerHTML=html||'<span style="color:var(--muted);font-size:12px">None found</span>';
+  });
+})();
+function arcToggle(){
+  var p=document.getElementById('arcPanel'),o=document.getElementById('arcOverlay');
+  var open=p.classList.contains('open');
+  if(open){arcClose();}else{p.classList.add('open');o.classList.add('open');}
+}
+function arcClose(){
+  document.getElementById('arcPanel').classList.remove('open');
+  document.getElementById('arcOverlay').classList.remove('open');
+}
+</script>
+</body></html>
