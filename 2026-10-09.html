@@ -1,62 +1,212 @@
 <!DOCTYPE html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>AI Daily Dump — Fri, Oct 9, 2026</title>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Daily Dump — October 9, 2026</title>
 <style>
-:root{--bg:#0d0f14;--surface:#141824;--border:#232840;--text:#e6e9f2;--muted:#8a91a8;--accent:#5b8ef0;--warm:#f0a35b}
-*{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--text);font:16px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif}
-main{max-width:720px;margin:0 auto;padding:48px 20px 80px}
-h1{font-size:28px;margin:0 0 4px}.date{color:var(--muted);font-size:14px;margin-bottom:32px}
-h2{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin:36px 0 12px;border-bottom:1px solid var(--border);padding-bottom:6px}
-.card{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:14px 16px;margin-bottom:12px}
-.card h3{margin:0 0 4px;font-size:16px}.card h3 a{color:var(--text);text-decoration:none}.card h3 a:hover{color:var(--accent)}
-.card p{margin:4px 0 0;color:#c3c8d8;font-size:15px}
-.meta{font-size:12px;color:var(--muted)}.tag{color:var(--warm)}
-.lesson{background:var(--surface);border-left:3px solid var(--accent);padding:14px 18px;border-radius:0 8px 8px 0}
-.lesson p{margin:8px 0}a{color:var(--accent)}
-</style></head><body><main>
-<h1>AI Daily Dump</h1>
-<div class="date">Friday, October 9, 2026 · for Pranesh</div>
+  :root {
+    --bg: #0f1117;
+    --surface: #161b27;
+    --surface2: #1c2233;
+    --border: #252d3d;
+    --text: #e2e8f0;
+    --muted: #7a8499;
+    --accent: #5b8ef0;
+    --accent2: #7c6af5;
+    --green: #4ade80;
+    --orange: #fb923c;
+    --red: #f87171;
+    --yellow: #facc15;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+    font-size: 15px;
+    line-height: 1.65;
+    max-width: 740px;
+    margin: 0 auto;
+    padding: 48px 24px 80px;
+  }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
 
-<h2>What's Hot Right Now</h2>
-<div class="card"><h3><a href="https://github.com/athrael-soju/Narwhal">Narwhal: move GPUs between prefill and decode in seconds</a></h3>
-<div class="meta">Show HN, Oct 9 · Apache-2.0 · early (2 points on HN) · all claims are the author's own</div>
-<p>An open-source serving framework for disaggregated inference that treats the prefill/decode split as a runtime scheduling decision. Every engine can serve either phase, and a controller reassigns roles while weights stay loaded, so re-splitting a fleet is "one label write" instead of minutes of draining. Built on the Arrow paper (arXiv 2505.11916). The author reports 157,823 requests / 1.99B tokens on a six-node fleet with zero false ejections, but the comparison study is unpublished and the repo shows a single commit. Worth a read of the design even if you don't run it (see today's lesson).</p></div>
-<div class="card"><h3><a href="https://ghuntley.com/tier/">"--help on your CLI is all you need for LLM context until you don't"</a></h3>
-<div class="meta">Oct 9 · Geoffrey Huntley · HN: 3 points</div>
-<p>His argument: whether a dev tool "wins" with agents depends on whether models already know it from training (gh CLI: yes, no skills or MCP needed). For newer tools, the path is a strong CLI with carefully tuned <code>--help</code>, docs written for agents to find in one search, and getting docs into future training runs. Opinion piece, but directly relevant if you ship tools agents call.</p></div>
+  .header { margin-bottom: 40px; border-bottom: 1px solid var(--border); padding-bottom: 24px; }
+  .header-label {
+    font-size: 11px; font-weight: 700; letter-spacing: 0.12em;
+    text-transform: uppercase; color: var(--muted); margin-bottom: 6px;
+  }
+  .header h1 { font-size: 26px; font-weight: 700; color: var(--text); letter-spacing: -0.02em; }
+  .header-sub { font-size: 13px; color: var(--muted); margin-top: 4px; }
 
-<h2>New Releases &amp; Updates</h2>
-<div class="card"><h3><a href="https://www.anthropic.com/news/anthropic-cyber-mission">Anthropic Cyber Mission: OSS Scanner and Critical Infrastructure Defense Program</a></h3>
-<div class="meta">Oct 8 · Anthropic</div>
-<p>Two launches. OSS Scanner is a free, opt-in service giving enrolled open-source projects periodic vulnerability scans from Anthropic's strongest models; reports include a proof of concept and a suggested fix, are sent without human review, and Anthropic expects a true-positive rate above 90% (its own target). CIDP gives operational-technology security providers (CrowdStrike, Palo Alto Networks, Dragos and others) access to frontier models and on-site engineers.</p></div>
-<div class="card"><h3><a href="https://github.com/vllm-project/vllm/releases/tag/v0.31.0">vLLM v0.31.0</a></h3>
-<div class="meta">Oct 5 (4 days old, included as the current stable) · 717 commits from 307 contributors</div>
-<p>New <code>vllm preload</code> keeps post-quantized weights in GPU memory across engine restarts (faster restarts). Draft-model speculative decoding and custom logits processors now work on Model Runner V2. FlashMLA with a compressed NVFP4 KV cache is the SM100 default for DeepSeek-V4.1-Flash. New <code>--max-num-active-seqs</code> caps running requests separately from <code>max_num_seqs</code>. Breaking: <code>tokenizer_mode="slow"</code> removed; per-request multimodal kwargs rejected unless <code>--trust-request-mm-kwargs</code> is set.</p></div>
-<div class="card"><h3><a href="https://github.com/ggml-org/llama.cpp/releases/tag/v0.6.0">llama.cpp v0.6.0</a></h3>
-<div class="meta">Oct 5 (4 days old) · a b11435 fix landed Oct 6</div>
-<p>Introduces the <code>llama_batch_ext</code> API with <code>llama_process()</code>, support for GLM-5.3-Flash (320B text+vision hybrid), MTP speculative decoding for Qwen4Exp (release notes claim ~1.5x decode on DGX Spark), a Metal tensor-API flash attention kernel for F16 KV, sparse flash attention for quantized K/V on Vulkan, and a Web UI overhaul with Hugging Face Hub downloads and memory-fit estimates.</p></div>
+  .section-label {
+    font-size: 10px; font-weight: 700; letter-spacing: 0.12em;
+    text-transform: uppercase; color: var(--muted);
+    border-left: 2px solid var(--border);
+    padding-left: 10px; margin-bottom: 16px; margin-top: 40px;
+  }
+  .section-label.hot { color: var(--orange); border-color: rgba(251,146,60,0.4); }
+  .section-label.releases { color: var(--green); border-color: rgba(74,222,128,0.4); }
+  .section-label.horizon { color: var(--accent2); border-color: rgba(124,106,245,0.4); }
+  .section-label.reading { color: var(--yellow); border-color: rgba(250,204,21,0.4); }
+  .section-label.lesson { color: var(--accent); border-color: rgba(91,142,240,0.3); }
 
-<h2>On the Horizon</h2>
-<div class="card"><h3><a href="https://mistral.ai/news/mistral-large-4/">Mistral Large 4 open weights</a></h3>
-<div class="meta tag">Announced, not released · weights promised by end of October · post dated Oct 6</div>
-<p>Mistral's own post says ~1T total parameters with <b>52B active</b> per token (yesterday's issue said 49B, taken from a secondary write-up; Mistral's figure is the one to use). Hybrid instruct/reasoning MoE with image input, trained on 3,800 Grace Blackwell GPUs. Preview API is $1.36 in / $4.18 out per million tokens; context window not stated. Architecture and benchmark details are promised with the weights.</p></div>
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 18px 20px;
+    margin-bottom: 12px;
+  }
+  .card:hover { border-color: #3a4060; }
 
-<h2>Also Worth Reading</h2>
-<div class="card"><h3><a href="https://simonwillison.net/2026/Oct/9/ttok/">ttok 1.0 and the GPT-6 tokenizer question</a></h3>
-<div class="meta">Oct 9 · Simon Willison</div>
-<p>OpenAI hasn't confirmed whether GPT-6 uses the GPT-5 family tokenizer (an issue is open on tiktoken). An outside experiment by William Liu found identical token counts across seven GPT models on 31 fixtures, so it likely does. Practical for cost estimation: your token counts probably don't change moving to GPT-6.</p></div>
-<div class="card"><h3><a href="https://simonwillison.net/2026/Oct/7/claude-haiku-5-5/">Haiku 5.5's hidden price change: the tokenizer</a></h3>
-<div class="meta">Oct 7 · Simon Willison</div>
-<p>Haiku 5.5's headline price is a tenth of Haiku 4.5's, but Simon notes the new tokenizer uses roughly 1.25x as many tokens for the same long prompt, and prices rise 5x above 100K tokens. Re-measure your real prompts before assuming a 10x saving.</p></div>
+  .card-title {
+    font-size: 15px; font-weight: 600; color: var(--text);
+    margin-bottom: 6px; line-height: 1.4;
+  }
+  .card-title a { color: var(--text); }
+  .card-title a:hover { color: var(--accent); text-decoration: none; }
+  .card-body { font-size: 13.5px; color: #b0bac9; line-height: 1.65; }
+  .card-body p { margin-bottom: 8px; }
+  .card-body p:last-child { margin-bottom: 0; }
 
-<h2>Today's Lesson</h2>
-<div class="lesson"><h3 style="margin:0">Disaggregated serving: why split prefill from decode?</h3>
-<p>An LLM request has two phases with opposite hardware profiles. <b>Prefill</b> processes the whole prompt in parallel: compute-bound, big matmuls, determines time-to-first-token (TTFT). <b>Decode</b> generates one token at a time: memory-bandwidth-bound (reading weights and the KV cache each step), determines per-token latency.</p>
-<p>On one GPU pool they interfere: a long prefill stalls running decodes (visible stutter), and chunked prefill only softens that. Disaggregation runs prefill on one set of GPUs and decode on another, shipping the KV cache between them over a fast interconnect. Each pool is then tuned (and scaled) for its own SLO: TTFT for prefill, inter-token latency for decode.</p>
-<p>The cost is the KV transfer and, harder, the ratio. If traffic shifts to longer prompts, your prefill pool is too small and decode GPUs idle. That is the problem Narwhal's pitch targets: make each engine able to play either role and rebalance live, rather than re-provisioning. The vLLM 0.31 flags above (<code>--max-num-active-seqs</code>, adaptive long-prefill threshold) attack the same interference inside a single pool. Rule of thumb: disaggregate when prompts are long and latency SLOs are tight; otherwise chunked prefill on a unified pool is simpler.</p></div>
-</main>
-<!-- ARCHIVE SIDEBAR -->
+  .tag {
+    display: inline-block;
+    font-size: 10px; font-weight: 700; letter-spacing: 0.07em;
+    text-transform: uppercase; border-radius: 4px;
+    padding: 2px 7px; margin-bottom: 8px;
+  }
+  .tag.new { background: rgba(74,222,128,0.12); color: var(--green); }
+  .tag.hot { background: rgba(251,146,60,0.12); color: var(--orange); }
+  .tag.tool { background: rgba(91,142,240,0.12); color: var(--accent); }
+  .tag.story { background: rgba(248,113,113,0.12); color: var(--red); }
+  .tag.read { background: rgba(250,204,21,0.1); color: var(--yellow); }
+
+  .lesson-card {
+    background: linear-gradient(135deg, #131825 0%, #161d2e 100%);
+    border: 1px solid rgba(91,142,240,0.2);
+    border-radius: 8px;
+    padding: 22px 24px;
+  }
+  .lesson-title {
+    font-size: 16px; font-weight: 700; color: var(--text);
+    margin-bottom: 14px; line-height: 1.4;
+  }
+  .lesson-body { font-size: 14px; color: #cdd3db; line-height: 1.75; }
+  .lesson-body p { margin-bottom: 12px; }
+  .lesson-body p:last-child { margin-bottom: 0; }
+  .lesson-body code {
+    background: #1e2540; border-radius: 3px;
+    padding: 1px 5px; font-size: 12.5px; color: #a5b4fc;
+    font-family: 'SF Mono', 'Fira Code', monospace;
+  }
+  .lesson-body strong { color: var(--text); font-weight: 600; }
+
+  .divider { border: none; border-top: 1px solid var(--border); margin: 32px 0; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-label">AI Daily Dump</div>
+  <h1>Friday, October 9, 2026</h1>
+  <div class="header-sub">A live prefill/decode rebalancer shows up on Show HN, Anthropic opens free vulnerability scans to open-source projects, and vLLM and llama.cpp both ship big point releases</div>
+</div>
+
+<!-- WHAT'S HOT -->
+<div class="section-label hot">🔥 What's Hot Right Now</div>
+
+<div class="card">
+  <div class="tag hot">Inference · Show HN · Oct 9</div>
+  <div class="card-title"><a href="https://github.com/athrael-soju/Narwhal" target="_blank">Narwhal: an open-source serving layer that moves GPUs between prefill and decode in seconds</a></div>
+  <div class="card-body">
+    <p>Narwhal treats the prefill/decode split as a runtime scheduling decision rather than a provisioning one. Every engine can serve either phase, and a controller reassigns roles while weights stay loaded, so re-splitting a fleet is "one label write" instead of minutes of draining. The scheduling core is an independent implementation of the <em>Arrow</em> paper (arXiv 2505.11916), extended with request journaling, health-checked ejection and a warm-standby scheduler.</p>
+    <p>The author reports 157,823 requests and 1.99B tokens on a live six-node fleet with zero false ejections. Treat that as a claim for now: the comparison study is unpublished, the repo shows a single commit, and the HN post has only a couple of points. Apache-2.0. The design is the interesting part, whether or not anyone runs it.</p>
+  </div>
+</div>
+
+<div class="card">
+  <div class="tag hot">Opinion · HN · Oct 9</div>
+  <div class="card-title"><a href="https://ghuntley.com/tier/" target="_blank">"--help on your CLI is all you need for LLM context until you don't"</a></div>
+  <div class="card-body">
+    <p>Geoffrey Huntley argues that whether a developer tool wins with coding agents depends on whether models already know it from training: the GitHub CLI works with no skills or MCP server because it is in the weights. Newer tools can climb the same ladder by shipping a strong CLI with carefully tuned <code>--help</code> output, publishing docs that an agent can use after one web search, and getting those docs into future training runs.</p>
+  </div>
+</div>
+
+<!-- RELEASES -->
+<div class="section-label releases">🚀 New Releases &amp; Updates</div>
+
+<div class="card">
+  <div class="tag new">Announced Oct 8</div>
+  <div class="card-title"><a href="https://www.anthropic.com/news/anthropic-cyber-mission" target="_blank">Anthropic Cyber Mission: free OSS Scanner and a Critical Infrastructure Defense Program</a></div>
+  <div class="card-body">
+    <p><strong>OSS Scanner</strong> is a free, opt-in service that gives enrolled open-source projects periodic vulnerability scans from Anthropic's strongest models. Reports include a proof of concept, an explanation and a suggested fix where available, and they go out without human review. Anthropic says it expects a true-positive rate above 90%, which is its own target rather than a measured result.</p>
+    <p>The <strong>Critical Infrastructure Defense Program</strong> gives operational-technology security providers (power, water, transport, government systems) access to frontier models, on-site engineers and threat research. Founding partners include CrowdStrike, Palo Alto Networks, Dragos, Accenture, Deloitte and Rockwell Automation.</p>
+  </div>
+</div>
+
+<div class="card">
+  <div class="tag tool">Inference Engine · Oct 5 (4 days old, current stable)</div>
+  <div class="card-title"><a href="https://github.com/vllm-project/vllm/releases/tag/v0.31.0" target="_blank">vLLM v0.31.0: weight preload for fast restarts, draft-model spec decoding on Model Runner V2</a></div>
+  <div class="card-body">
+    <p>717 commits from 307 contributors. <code>vllm preload</code> starts a daemon that keeps post-quantized weights in GPU memory across engine restarts. Draft-model speculative decoding and custom logits processors now run on Model Runner V2. FlashMLA with a compressed NVFP4 KV cache is the SM100 default for DeepSeek-V4.1-Flash, and a new <code>--max-num-active-seqs</code> flag caps running requests independently of <code>max_num_seqs</code>.</p>
+    <p><strong>Breaking changes:</strong> <code>tokenizer_mode="slow"</code> is removed, and per-request multimodal kwargs are rejected unless <code>--trust-request-mm-kwargs</code> is set.</p>
+  </div>
+</div>
+
+<div class="card">
+  <div class="tag tool">Inference Engine · Oct 5 (4 days old)</div>
+  <div class="card-title"><a href="https://github.com/ggml-org/llama.cpp/releases/tag/v0.6.0" target="_blank">llama.cpp v0.6.0: new batch API, GLM-5.3-Flash, MTP speculative decoding</a></div>
+  <div class="card-body">
+    <p>Introduces the <code>llama_batch_ext</code> API with <code>llama_process()</code> for mixed token and embedding batches. Adds GLM-5.3-Flash (a 320B text and vision hybrid) and MTP speculative decoding for Qwen4Exp, which the release notes put at roughly 1.5x decode speed on DGX Spark. Backend work includes a Metal tensor-API flash attention kernel for F16 KV and sparse flash attention for quantized K/V on Vulkan. The Web UI gets Hugging Face Hub downloads and memory-fit estimates. A follow-up fix (b11435, Oct 6) addresses a k-pool scatter data race.</p>
+  </div>
+</div>
+
+<!-- HORIZON -->
+<div class="section-label horizon">🔭 On the Horizon</div>
+
+<div class="card">
+  <div class="tag tool">Announced · weights due by end of October</div>
+  <div class="card-title"><a href="https://mistral.ai/news/mistral-large-4/" target="_blank">Mistral Large 4 open weights</a></div>
+  <div class="card-body">
+    <p>Mistral's Oct 6 post describes a roughly 1T-parameter hybrid instruct/reasoning MoE with <strong>52B active</strong> parameters per token and image input, trained on 3,800 Grace Blackwell GPUs. The preview API is priced at $1.36 in / $4.18 out per million tokens; the context window is not stated. Architecture and benchmark details are promised alongside the weights.</p>
+  </div>
+</div>
+
+<!-- ALSO WORTH READING -->
+<div class="section-label reading">📖 Also Worth Reading</div>
+
+<div class="card">
+  <div class="tag read">Tooling · Oct 9</div>
+  <div class="card-title"><a href="https://simonwillison.net/2026/Oct/9/ttok/" target="_blank">ttok 1.0 and the open question of GPT-6's tokenizer</a></div>
+  <div class="card-body">
+    <p>Simon Willison made the GPT-5/GPT-6 tokenizer the default in his token-counting CLI. OpenAI has not confirmed that GPT-6 shares the GPT-5 tokenizer (an issue is open on tiktoken), but an outside experiment by William Liu found identical counts across seven GPT models and 31 fixtures. For cost estimation, that suggests token counts will not change moving to GPT-6.</p>
+  </div>
+</div>
+
+<div class="card">
+  <div class="tag read">Pricing · Oct 7</div>
+  <div class="card-title"><a href="https://simonwillison.net/2026/Oct/7/claude-haiku-5-5/" target="_blank">Haiku 5.5's headline price hides a tokenizer change</a></div>
+  <div class="card-body">
+    <p>Haiku 5.5 lists at $0.10 / $0.50 per million tokens up to 100K tokens, a tenth of Haiku 4.5, with a 5x step above that threshold. Willison measured the new tokenizer at about 1.25x as many tokens for the same long prompt, so real savings are smaller than the sticker price implies. Worth re-measuring on production prompts before migrating.</p>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- LESSON -->
+<div class="section-label lesson">🧠 Today's Lesson</div>
+
+<div class="lesson-card">
+  <div class="lesson-title">Disaggregated serving: why split prefill from decode?</div>
+  <div class="lesson-body">
+    <p>An LLM request has two phases with opposite hardware profiles. <strong>Prefill</strong> processes the whole prompt in parallel: it is compute-bound and sets time-to-first-token (TTFT). <strong>Decode</strong> generates one token at a time: it is memory-bandwidth-bound, because every step re-reads the weights and the KV cache, and it sets per-token latency.</p>
+    <p>On a single GPU pool the two interfere. A long prefill stalls running decodes, which shows up as stuttering output, and chunked prefill only softens the effect. Disaggregation runs prefill on one set of GPUs and decode on another, shipping the KV cache between them over a fast interconnect, so each pool can be tuned and scaled to its own SLO.</p>
+    <p>The costs are the KV transfer and, harder, the ratio. If traffic shifts toward longer prompts, the prefill pool is too small while decode GPUs sit idle. That is the problem Narwhal targets: let every engine play either role and rebalance live instead of re-provisioning. The vLLM 0.31 scheduling flags above attack the same interference inside one pool. <strong>Rule of thumb:</strong> disaggregate when prompts are long and latency SLOs are tight; otherwise chunked prefill on a unified pool is simpler.</p>
+  </div>
+</div>
+
 <style>
   .arc-btn {
     position: fixed; top: 18px; right: 18px; z-index: 200;

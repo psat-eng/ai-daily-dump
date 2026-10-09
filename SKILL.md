@@ -77,7 +77,13 @@ Good topic areas:
 
 Check existing files in the folder to avoid repeating a topic from the last ~2 weeks. Plain English, concrete, genuinely useful — not filler. Tie the lesson to today's news when there's a natural connection.
 
-STEP 4 — BUILD THE HTML FILE: Single self-contained HTML page, no external dependencies beyond system fonts. Sections:
+STEP 4 — FORMAT & VOICE (MANDATORY — this is a newsletter, not a chat reply):
+- **Template:** Do not hand-roll the layout. Read the most recent digest that uses the newsletter template (e.g. 2026-09-24.html, or any later file that does) and reuse its `<style>` block and markup exactly: `.header` (label "AI Daily Dump", h1 = full weekday + date, `.header-sub` = one-line editorial headline summarising the day's top stories), emoji `.section-label` bars (`hot` 🔥, `releases` 🚀, `horizon` 🔭, `reading` 📖, `lesson` 🧠), `.card` blocks each with a `.tag` chip (e.g. `hot`, `new`, `tool`, `story`, `read`) stating category · source date, a linked `.card-title`, and a `.card-body` of 1–3 short `<p>` paragraphs, and a `.lesson-card` for the lesson. Never use the stripped-down `.meta`/`.lesson` layout.
+- **Voice:** Neutral, third-person editorial voice, like a published newsletter. Do NOT address the reader: no "for Pranesh" in the header, no "you/your", no "worth a read", no "check yours before you upgrade", and no references to earlier issues ("yesterday's issue said…"). If a figure from an earlier source was wrong, just state the correct figure with its source. Attribute vendor claims inline ("the author reports", "Anthropic says").
+- **Tags carry the age:** put the date (and "N days old" for anything older than 48h) in the `.tag` chip.
+- **Header sub-line is mandatory** and must be a real headline sentence, not a date or a greeting.
+
+STEP 4b — BUILD THE HTML FILE (details): Single self-contained HTML page, no external dependencies beyond system fonts. Sections:
 - Header with date
 - "What's Hot Right Now" (community buzz, trending models/tools — highest energy items go here)
 - "New Releases & Updates" (verified GA/dropped releases)
