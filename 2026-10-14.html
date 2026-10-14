@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Daily Dump — October 14, 2026</title>
+<style>
+  :root {
+    --bg: #0f1117;
+    --surface: #161b27;
+    --surface2: #1c2233;
+    --border: #252d3d;
+    --text: #e2e8f0;
+    --muted: #7a8499;
+    --accent: #5b8ef0;
+    --accent2: #7c6af5;
+    --green: #4ade80;
+    --orange: #fb923c;
+    --red: #f87171;
+    --yellow: #facc15;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+    font-size: 15px;
+    line-height: 1.65;
+    max-width: 740px;
+    margin: 0 auto;
+    padding: 48px 24px 80px;
+  }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  .header { margin-bottom: 40px; border-bottom: 1px solid var(--border); padding-bottom: 24px; }
+  .header-label {
+    font-size: 11px; font-weight: 700; letter-spacing: 0.12em;
+    text-transform: uppercase; color: var(--muted); margin-bottom: 6px;
+  }
+  .header h1 { font-size: 26px; font-weight: 700; color: var(--text); letter-spacing: -0.02em; }
+  .header-sub { font-size: 13px; color: var(--muted); margin-top: 4px; }
+
+  .section-label {
+    font-size: 10px; font-weight: 700; letter-spacing: 0.12em;
+    text-transform: uppercase; color: var(--muted);
+    border-left: 2px solid var(--border);
+    padding-left: 10px; margin-bottom: 16px; margin-top: 40px;
+  }
+  .section-label.hot { color: var(--orange); border-color: rgba(251,146,60,0.4); }
+  .section-label.releases { color: var(--green); border-color: rgba(74,222,128,0.4); }
+  .section-label.horizon { color: var(--accent2); border-color: rgba(124,106,245,0.4); }
+  .section-label.reading { color: var(--yellow); border-color: rgba(250,204,21,0.4); }
+  .section-label.lesson { color: var(--accent); border-color: rgba(91,142,240,0.3); }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 18px 20px;
+    margin-bottom: 12px;
+  }
+  .card:hover { border-color: #3a4060; }
+
+  .card-title {
+    font-size: 15px; font-weight: 600; color: var(--text);
+    margin-bottom: 6px; line-height: 1.4;
+  }
+  .card-title a { color: var(--text); }
+  .card-title a:hover { color: var(--accent); text-decoration: none; }
+  .card-body { font-size: 13.5px; color: #b0bac9; line-height: 1.65; }
+  .card-body p { margin-bottom: 8px; }
+  .card-body p:last-child { margin-bottom: 0; }
+
+  .tag {
+    display: inline-block;
+    font-size: 10px; font-weight: 700; letter-spacing: 0.07em;
+    text-transform: uppercase; border-radius: 4px;
+    padding: 2px 7px; margin-bottom: 8px;
+  }
+  .tag.new { background: rgba(74,222,128,0.12); color: var(--green); }
+  .tag.hot { background: rgba(251,146,60,0.12); color: var(--orange); }
+  .tag.tool { background: rgba(91,142,240,0.12); color: var(--accent); }
+  .tag.story { background: rgba(248,113,113,0.12); color: var(--red); }
+  .tag.read { background: rgba(250,204,21,0.1); color: var(--yellow); }
+
+  .lesson-card {
+    background: linear-gradient(135deg, #131825 0%, #161d2e 100%);
+    border: 1px solid rgba(91,142,240,0.2);
+    border-radius: 8px;
+    padding: 22px 24px;
+  }
+  .lesson-title {
+    font-size: 16px; font-weight: 700; color: var(--text);
+    margin-bottom: 14px; line-height: 1.4;
+  }
+  .lesson-body { font-size: 14px; color: #cdd3db; line-height: 1.75; }
+  .lesson-body p { margin-bottom: 12px; }
+  .lesson-body p:last-child { margin-bottom: 0; }
+  .lesson-body code {
+    background: #1e2540; border-radius: 3px;
+    padding: 1px 5px; font-size: 12.5px; color: #a5b4fc;
+    font-family: 'SF Mono', 'Fira Code', monospace;
+  }
+  .lesson-body strong { color: var(--text); font-weight: 600; }
+
+  .divider { border: none; border-top: 1px solid var(--border); margin: 32px 0; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-label">AI Daily Dump</div>
+  <h1>Wednesday, October 14, 2026</h1>
+  <div class="header-sub">Google's Gemini 4 Argon lands to a 1,400-point HN thread, Meta answers with Muse Wonder, and Character.ai heads to bankruptcy court</div>
+</div>
+
+<!-- WHAT'S HOT -->
+<div class="section-label hot">🔥 What's Hot Right Now</div>
+
+<div class="card">
+  <div class="tag hot">Model · Oct 13</div>
+  <div class="card-title"><a href="https://deepmind.google/models/gemini/" target="_blank">Gemini 4 Argon is available to Google AI Pro and Ultra subscribers, and tops HN with 1,400+ points</a></div>
+  <div class="card-body">
+    <p>Google calls Argon its frontier model for real-world coding, enterprise knowledge work and cyber defense. By Google's own numbers it leads GPT-6 Astra, Claude Fable 5.1 and Claude Opus 5.5 on Vals Index (68.9%), DeepSWE v1.1 (77.9%) and Vibe Code Bench (91.9%). It trails on Terminal-bench 4.0 (57.4% vs 66.4% for Opus 5.5), FrontierSWE v2 (55.0% vs 65.5% for Astra) and OSWorld-2.0 (69.2% vs 72.6%). The model has a 1M-token output window, and Google reports 84.2% on GraphWalks BFS at 256k–1M tokens.</p>
+    <p>Simon Willison reports API access through Gemini at launch pricing of $2/M input and $10/M output tokens, with a price increase scheduled for December 1. Cyber defenders can apply to Google's Fairwind Program. Japanese coverage dates an earlier, restricted-access announcement to Sep 30.</p>
+  </div>
+</div>
+
+<div class="card">
+  <div class="tag story">Industry · Oct 12</div>
+  <div class="card-title"><a href="https://blog.character.ai/an-update-on-character-ai/" target="_blank">Character.ai files for voluntary Chapter 11 to run a court-supervised sale</a></div>
+  <div class="card-body">
+    <p>The company says its board concluded a court-supervised sale offers the best chance to maximise value. It hopes a bid keeps the platform running; if none arrives, the platform will be shut down. Services and paid subscriptions continue for now, and the sale is expected to close in late November or early December.</p>
+  </div>
+</div>
+
+<div class="card">
+  <div class="tag hot">Community · Oct 13</div>
+  <div class="card-title"><a href="https://eg2.haku.sh/" target="_blank">EmbeddingGemma 2 repurposed as a speech-to-text model that runs ~288× real time on a MacBook Air</a></div>
+  <div class="card-body">
+    <p>The project keeps the embedding model's audio encoder unchanged and trains only a small "reader" that maps audio slices into text space, picking the nearest of about 229,000 English words. Training took under two hours on 8 H100s. The authors report an hour of audio transcribed in roughly 13 seconds on an 8 GB M3 MacBook Air, versus about 25.7 s for IBM Granite Speech 5.0 TurboCTC on the same machine. Word error rate is around 5%, against 2–3% for leading speech models. It ships as a free on-device Mac app (715 MB download). 423 points on HN.</p>
+  </div>
+</div>
+
+<div class="card">
+  <div class="tag hot">Community · Oct 12</div>
+  <div class="card-title"><a href="https://github.com/prabanta-dev/janas" target="_blank">Janas: a C engine that streams MoE experts from SSD to run 80B models on a 32 GB laptop</a></div>
+  <div class="card-body">
+    <p>Weights stay on NVMe; the experts each token needs are streamed in while hot experts stay cached in RAM. The author reports 20–25 tok/s on Qwen3-Next-80B-A3B and ~32 tok/s on Qwen3.6-35B-A3B, with multi-token-prediction drafts verified by the model so output should match non-speculative decoding. Caveats from the README: it was tested on a single Intel Core Ultra 9 laptop with a ~5.7 GB/s SSD, it is labelled experimental, and it can push a desktop into swap. 219 points on HN.</p>
+  </div>
+</div>
+
+<!-- RELEASES -->
+<div class="section-label releases">🚀 New Releases &amp; Updates</div>
+
+<div class="card">
+  <div class="tag new">Released Oct 12</div>
+  <div class="card-title"><a href="https://research.meta.ai/blog/muse-wonder" target="_blank">Meta Muse Wonder and Muse Wonder Full: agent-focused frontier models with Active Memory</a></div>
+  <div class="card-body">
+    <p>Meta describes the series as built for personal and professional agents, using "Active Memory" and "Active Focus" to track user goals. Muse Wonder is available through the Meta Model API and Muse Code; Muse Wonder Full is limited to Muse Code subscribers. Meta claims state-of-the-art results on agent, memory and coding benchmarks but publishes no scores in the post. Simon Willison's <a href="https://simonwillison.net/2026/Oct/12/llm-meta-ai/" target="_blank">llm-meta-ai 0.2</a> adds API support with six reasoning levels, from minimal to max.</p>
+  </div>
+</div>
+
+<div class="card">
+  <div class="tag tool">Engineering · Oct 13</div>
+  <div class="card-title"><a href="https://www.anthropic.com/engineering/redesigning-source-control" target="_blank">Anthropic replaces git with Scion as merges climb from ~2,500 to 30,000+ a day</a></div>
+  <div class="card-body">
+    <p>Anthropic says daily merges rose from about 2,500 in May to over 30,000 by September, making source control its biggest development bottleneck. Seven engineers built Scion (source control) and Antique (code review) and migrated the monorepo in five months. Anthropic reports about 200× less CPU and memory than its git-mirror setup, and CI checkouts dropping from minutes to seconds. An early Claude Mythos Preview snapshot rewrote the ingestion pipeline, cutting memory use 20× and running 4× faster. 846 points on HN.</p>
+  </div>
+</div>
+
+<div class="card">
+  <div class="tag tool">Inference Engine · Oct 5 (9 days old)</div>
+  <div class="card-title"><a href="https://github.com/vllm-project/vllm/releases" target="_blank">vLLM v0.31.0 is the latest release: faster DeepSeek-V4.1-Flash, <code>vllm preload</code>, draft-model speculative decoding</a></div>
+  <div class="card-body">
+    <p>Included for reference as the current engine release. It adds new attention and MoE kernels for DeepSeek-V4.1-Flash, draft-model speculative decoding and custom logits processors on Model Runner V2, and a MoonEP expert-parallel backend. Breaking changes include removal of <code>tokenizer_mode="slow"</code>, and per-request multimodal kwargs are now blocked unless explicitly enabled.</p>
+  </div>
+</div>
+
+<!-- HORIZON -->
+<div class="section-label horizon">🔭 On the Horizon</div>
+
+<div class="card">
+  <div class="tag tool">Announced · Oct 12–13</div>
+  <div class="card-title"><a href="https://www.intel.com/content/www/us/en/products/details/discrete-gpus/data-center-gpu/d-series.html" target="_blank">Intel D270 AI accelerator: up to 480 GB LPDDR5X per card at 350 W</a></div>
+  <div class="card-body">
+    <p>Intel's product page lists an air-cooled card with 32 Xe3P cores and 256 XMX engines, positioned against the RTX Pro 6000 on capacity "at comparable bandwidth." No availability date or bandwidth figure is given. Capacity-first cards like this target large MoE models where memory size, not compute, is the constraint. 306 points on HN.</p>
+  </div>
+</div>
+
+<!-- READING -->
+<div class="section-label reading">📖 Also Worth Reading</div>
+
+<div class="card">
+  <div class="tag read">Essay · Oct 13</div>
+  <div class="card-title"><a href="https://ghuntley.com/agency/" target="_blank">Geoffrey Huntley: a pre-commit hook that steers coding agents where AGENTS.md can't</a></div>
+  <div class="card-body">
+    <p>Huntley says instructions in AGENTS.md drift over time. His fix is a pre-commit hook that scans the diff for direct calls that bypass his diagnostics module, fails the commit, and injects a prompt pointing the agent to the right library. He reports compliance goes to full marks. Highlighted by <a href="https://simonwillison.net/2026/Oct/13/geoffrey-huntley/" target="_blank">Simon Willison</a>.</p>
+  </div>
+</div>
+
+<div class="card">
+  <div class="tag read">Research · Oct 13</div>
+  <div class="card-title"><a href="https://arxiv.org/abs/2610.13928" target="_blank">"AI models can provably hide arbitrary capabilities"</a></div>
+  <div class="card-body">
+    <p>An arXiv paper that drew 277 points on HN. The title claims a provable result about concealed capabilities, which bears on how far behavioural evals can be trusted.</p>
+  </div>
+</div>
+
+<div class="card">
+  <div class="tag read">Essay · Oct 13</div>
+  <div class="card-title"><a href="https://www.sammystraus.com/#i-posted-to-hn-and-then-my-website-was-flooded-with-ai-bot-traffic" target="_blank">A personal site flooded with AI bot traffic after an HN post</a></div>
+  <div class="card-body">
+    <p>A first-hand account of crawler load following a front-page appearance (336 points on HN).</p>
+  </div>
+</div>
+
+<!-- LESSON -->
+<div class="section-label lesson">🧠 Today's Lesson</div>
+
+<div class="lesson-card">
+  <div class="lesson-title">Speculative decoding: why drafted tokens don't change the output</div>
+  <div class="lesson-body">
+    <p>Janas says its multi-token-prediction drafts are "verified by the model", so output should match what the model would have produced anyway. That property is the core idea of <strong>speculative decoding</strong>, and it is why the technique is a pure speed-up rather than a quality trade.</p>
+    <p>Decode is slow because each token needs one full pass over the weights, and that pass is limited by memory bandwidth, not arithmetic. A GPU (or a laptop streaming experts from SSD) has spare compute during that pass. Speculation spends it: a cheap <strong>draft</strong> mechanism, either a small model or extra prediction heads on the main model, guesses the next k tokens. The big model then scores all k positions in a <em>single</em> forward pass, which costs about the same as generating one token because the weights are read once.</p>
+    <p>Verification compares the draft to what the big model would have chosen. Under greedy decoding, the first mismatch is replaced by the big model's token and the rest are discarded. Under sampling, a rejection-sampling rule accepts or resamples each drafted token so the final distribution is mathematically identical to ordinary sampling. Either way each pass yields at least one real token, and up to k+1 when the guesses are right.</p>
+    <p>The speed-up depends on the <strong>acceptance rate</strong>. Predictable text such as code boilerplate and JSON accepts often; high-entropy prose less so. A bad draft model costs time without changing answers. That is why vLLM v0.31.0's draft-model support matters for serving, and why it pays most when the bottleneck is bandwidth, as it is for SSD-streamed MoE experts.</p>
+  </div>
+</div>
+
+<!-- ARCHIVE SIDEBAR -->
+<style>
+  .arc-btn {
+    position: fixed; top: 18px; right: 18px; z-index: 200;
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 6px; padding: 6px 11px; font-size: 12px;
+    color: var(--muted); cursor: pointer; display: flex;
+    align-items: center; gap: 6px; user-select: none;
+    transition: border-color 0.15s, color 0.15s;
+    font-family: inherit;
+  }
+  .arc-btn:hover { border-color: #3a4060; color: var(--text); }
+  .arc-overlay {
+    display: none; position: fixed; inset: 0; z-index: 198;
+    background: rgba(0,0,0,0.45);
+  }
+  .arc-overlay.open { display: block; }
+  .arc-panel {
+    position: fixed; top: 0; right: 0; height: 100vh; width: 200px;
+    background: var(--surface); border-left: 1px solid var(--border);
+    z-index: 199; padding: 56px 14px 24px; overflow-y: auto;
+    transform: translateX(100%); transition: transform 0.22s ease;
+  }
+  .arc-panel.open { transform: translateX(0); }
+  .arc-panel-title {
+    font-size: 10px; font-weight: 700; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--muted);
+    margin-bottom: 14px; padding-left: 4px;
+  }
+  .arc-item {
+    display: block; padding: 7px 8px; border-radius: 5px;
+    font-size: 13px; color: var(--muted); text-decoration: none;
+    margin-bottom: 2px; transition: background 0.1s, color 0.1s;
+  }
+  .arc-item:hover { background: #1e2333; color: var(--text); }
+  .arc-item.current { background: rgba(91,142,240,0.12); color: var(--accent); font-weight: 600; }
+  .arc-close {
+    position: absolute; top: 14px; right: 14px;
+    background: none; border: none; color: var(--muted);
+    cursor: pointer; font-size: 18px; line-height: 1; padding: 4px;
+  }
+  .arc-close:hover { color: var(--text); }
+</style>
+<div class="arc-overlay" id="arcOverlay" onclick="arcClose()"></div>
+<div class="arc-panel" id="arcPanel">
+  <button class="arc-close" onclick="arcClose()">&#x2715;</button>
+  <div class="arc-panel-title">Past Issues</div>
+  <div id="arcList"><span style="color:var(--muted);font-size:12px">Loading…</span></div>
+</div>
+<button class="arc-btn" onclick="arcToggle()">
+  <svg width="13" height="11" viewBox="0 0 18 14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="0" y1="1" x2="18" y2="1"/><line x1="0" y1="13" x2="18" y2="13"/><line x1="0" y1="7" x2="18" y2="7"/></svg>
+  Past issues
+</button>
+<script>
+(function(){
+  var PAD = function(n){return String(n).padStart(2,'0');};
+  var MONTHS = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  var DAYS   = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+  var current = window.location.pathname.split('/').pop().replace(/\.html$/,'');
+  var found = [], tasks = [];
+  for(var i=0;i<45;i++){
+    (function(offset){
+      var d = new Date(); d.setDate(d.getDate()-offset);
+      var s = d.getFullYear()+'-'+PAD(d.getMonth()+1)+'-'+PAD(d.getDate());
+      tasks.push(fetch('./'+s+'.html',{method:'HEAD'}).then(function(r){if(r.ok)found.push({s:s,d:new Date(d)});}).catch(function(){}));
+    })(i);
+  }
+  Promise.all(tasks).then(function(){
+    found.sort(function(a,b){return b.d-a.d;});
+    var html='';
+    found.forEach(function(f){
+      var label=DAYS[f.d.getDay()]+', '+MONTHS[f.d.getMonth()]+' '+f.d.getDate();
+      var cls='arc-item'+(f.s===current?' current':'');
+      html+='<a class="'+cls+'" href="./'+f.s+'.html">'+label+'</a>';
+    });
+    document.getElementById('arcList').innerHTML=html||'<span style="color:var(--muted);font-size:12px">None found</span>';
+  });
+})();
+function arcToggle(){
+  var p=document.getElementById('arcPanel'),o=document.getElementById('arcOverlay');
+  var open=p.classList.contains('open');
+  if(open){arcClose();}else{p.classList.add('open');o.classList.add('open');}
+}
+function arcClose(){
+  document.getElementById('arcPanel').classList.remove('open');
+  document.getElementById('arcOverlay').classList.remove('open');
+}
+</script>
+</body>
+</html>
