@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Daily Dump — October 15, 2026</title>
+<style>
+  :root {
+    --bg: #0f1117;
+    --surface: #161b27;
+    --surface2: #1c2233;
+    --border: #252d3d;
+    --text: #e2e8f0;
+    --muted: #7a8499;
+    --accent: #5b8ef0;
+    --accent2: #7c6af5;
+    --green: #4ade80;
+    --orange: #fb923c;
+    --red: #f87171;
+    --yellow: #facc15;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+    font-size: 15px;
+    line-height: 1.65;
+    max-width: 740px;
+    margin: 0 auto;
+    padding: 48px 24px 80px;
+  }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  .header { margin-bottom: 40px; border-bottom: 1px solid var(--border); padding-bottom: 24px; }
+  .header-label {
+    font-size: 11px; font-weight: 700; letter-spacing: 0.12em;
+    text-transform: uppercase; color: var(--muted); margin-bottom: 6px;
+  }
+  .header h1 { font-size: 26px; font-weight: 700; color: var(--text); letter-spacing: -0.02em; }
+  .header-sub { font-size: 13px; color: var(--muted); margin-top: 4px; }
+
+  .section-label {
+    font-size: 10px; font-weight: 700; letter-spacing: 0.12em;
+    text-transform: uppercase; color: var(--muted);
+    border-left: 2px solid var(--border);
+    padding-left: 10px; margin-bottom: 16px; margin-top: 40px;
+  }
+  .section-label.hot { color: var(--orange); border-color: rgba(251,146,60,0.4); }
+  .section-label.releases { color: var(--green); border-color: rgba(74,222,128,0.4); }
+  .section-label.horizon { color: var(--accent2); border-color: rgba(124,106,245,0.4); }
+  .section-label.reading { color: var(--yellow); border-color: rgba(250,204,21,0.4); }
+  .section-label.lesson { color: var(--accent); border-color: rgba(91,142,240,0.3); }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 18px 20px;
+    margin-bottom: 12px;
+  }
+  .card:hover { border-color: #3a4060; }
+
+  .card-title {
+    font-size: 15px; font-weight: 600; color: var(--text);
+    margin-bottom: 6px; line-height: 1.4;
+  }
+  .card-title a { color: var(--text); }
+  .card-title a:hover { color: var(--accent); text-decoration: none; }
+  .card-body { font-size: 13.5px; color: #b0bac9; line-height: 1.65; }
+  .card-body p { margin-bottom: 8px; }
+  .card-body p:last-child { margin-bottom: 0; }
+
+  .tag {
+    display: inline-block;
+    font-size: 10px; font-weight: 700; letter-spacing: 0.07em;
+    text-transform: uppercase; border-radius: 4px;
+    padding: 2px 7px; margin-bottom: 8px;
+  }
+  .tag.new { background: rgba(74,222,128,0.12); color: var(--green); }
+  .tag.hot { background: rgba(251,146,60,0.12); color: var(--orange); }
+  .tag.tool { background: rgba(91,142,240,0.12); color: var(--accent); }
+  .tag.story { background: rgba(248,113,113,0.12); color: var(--red); }
+  .tag.read { background: rgba(250,204,21,0.1); color: var(--yellow); }
+
+  .lesson-card {
+    background: linear-gradient(135deg, #131825 0%, #161d2e 100%);
+    border: 1px solid rgba(91,142,240,0.2);
+    border-radius: 8px;
+    padding: 22px 24px;
+  }
+  .lesson-title {
+    font-size: 16px; font-weight: 700; color: var(--text);
+    margin-bottom: 14px; line-height: 1.4;
+  }
+  .lesson-body { font-size: 14px; color: #cdd3db; line-height: 1.75; }
+  .lesson-body p { margin-bottom: 12px; }
+  .lesson-body p:last-child { margin-bottom: 0; }
+  .lesson-body code {
+    background: #1e2540; border-radius: 3px;
+    padding: 1px 5px; font-size: 12.5px; color: #a5b4fc;
+    font-family: 'SF Mono', 'Fira Code', monospace;
+  }
+  .lesson-body strong { color: var(--text); font-weight: 600; }
+
+  .divider { border: none; border-top: 1px solid var(--border); margin: 32px 0; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-label">AI Daily Dump</div>
+  <h1>Thursday, October 15, 2026</h1>
+  <div class="header-sub">Anthropic's investor numbers leak ahead of an IPO, Liquid AI ships a 2B-active on-device reasoner, and Gemini 4 Argon reaches the API</div>
+</div>
+
+<div class="section-label hot">🔥 What's Hot Right Now</div>
+
+<div class="card">
+  <div class="tag story">Industry · Oct 15</div>
+  <div class="card-title"><a href="https://simonwillison.net/2026/Oct/15/anthropic-tells-investors/" target="_blank">Anthropic reportedly tells investors Q3 revenue hit $16.8bn ahead of an IPO</a></div>
+  <div class="card-body">
+    <p>Per an <a href="https://www.ft.com/content/11632d03-358c-454b-af95-d06d4072932b?syn-25a6b1a6=1" target="_blank">FT report</a> on Anthropic's investor day, quarterly revenue rose from about $4.8bn in Q1 to $11.5bn in Q2 and $16.8bn in Q3. Anthropic reportedly earned $1.70 in revenue for every $1 spent on compute in Q3, with an 11% adjusted operating margin excluding stock-based compensation.</p>
+    <p>The report also says distillation by rival labs made up 5–7% of revenue before Anthropic cut it back "materially" in Q3. Simon Willison's back-of-envelope estimate puts rival spend on distilling Anthropic's models above half a billion dollars in Q2; that figure is his calculation, not the FT's.</p>
+  </div>
+</div>
+
+<div class="card">
+  <div class="tag hot">Engineering · Oct 13 (2 days old)</div>
+  <div class="card-title"><a href="https://www.anthropic.com/engineering/redesigning-source-control" target="_blank">Anthropic replaced git with an in-house source control system, Scion</a></div>
+  <div class="card-body">
+    <p>Anthropic says merges grew from about 2,500 code changes per day in May to over 30,000 per day by September, making source control the bottleneck. Its main-branch history is nearly 100 GB, and CI performs roughly 25 million checkouts per day. Seven engineers built Scion plus a new code review tool, Antique, and finished the migration in five months.</p>
+    <p>Anthropic reports Scion uses about 200x less CPU and memory than the old git mirroring setup and cut CI checkouts from minutes to seconds. It also says Claude wrote most of the code. The system gives up offline support because its heaviest users are always-online agents. <a href="https://simonwillison.net/2026/Oct/13/redesigning-source-control-at-anthropic/" target="_blank">Simon Willison's notes</a> add that Anthropic credits Google's Piper and Meta's Sapling as prior art.</p>
+  </div>
+</div>
+
+<div class="section-label releases">🚀 New Releases &amp; Updates</div>
+
+<div class="card">
+  <div class="tag new">Open weights · Oct 13 (2 days old) · HN #4</div>
+  <div class="card-title"><a href="https://www.liquid.ai/blog/lfm2-5-24b-a2b" target="_blank">Liquid AI releases LFM2.5-24B-A2B, an open-weight 24B MoE with 2B active parameters</a></div>
+  <div class="card-body">
+    <p>The model is the largest and last of the LFM2.5 family: 40 layers, 64 experts per block with top-4 routing, and a hybrid of gated short convolutions and grouped-query attention. Context grows to 131K tokens and pretraining to 33T tokens. It is reasoning-only. Liquid reports 184 tokens/s on an Apple M5 Max, 114 tokens/s on a Ryzen AI Max+ 395, and over 21K output tokens/s on one B300 at high concurrency.</p>
+    <p>Against Qwen3.6-35B-A3B, Liquid's own table shows leads on AutomationBench (27.7 vs 8.7), ToolSandbox and IFEval, but trails on GPQA Diamond (74.4 vs 83.7) and SWE-Bench Verified (51.0 vs 66.2). Day-one support covers llama.cpp, MLX, vLLM, SGLang and ONNX; hosted pricing is $0.10 / $1.00 per million input / output tokens.</p>
+  </div>
+</div>
+
+<div class="card">
+  <div class="tag new">API · Oct 13 (2 days old) · announced Sep 30</div>
+  <div class="card-title"><a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-argon/" target="_blank">Gemini 4 Argon reaches the Gemini API at $2 / $10 per million tokens</a></div>
+  <div class="card-body">
+    <p>Google announced Argon on Sep 30 as a frontier model for software engineering, enterprise work and cyber defence, initially limited to trusted defenders. Per <a href="https://simonwillison.net/2026/Oct/13/llm-gemini/" target="_blank">Simon Willison</a>, it became available through the API on Oct 13. Google reports 77.9% on DeepSWE v1.1 and a 1M-token output limit.</p>
+    <p>Google lists introductory pricing of $2 input and $10 output per million tokens, rising to $4 and $20 afterwards; Willison notes a Dec 1 increase. Artificial Analysis puts the cost of running its benchmark suite on Argon at $2,407, below the latest OpenAI, Anthropic and Meta models in its chart.</p>
+  </div>
+</div>
+
+<div class="card">
+  <div class="tag new">Closed · Oct 12 (3 days old)</div>
+  <div class="card-title"><a href="https://research.meta.ai/blog/muse-wonder" target="_blank">Meta launches Muse Wonder and Muse Wonder Full</a></div>
+  <div class="card-body">
+    <p>Meta calls them its most capable models, with "Active Memory" for retaining user context and "Active Focus" for sustained goal work. Muse Wonder is available through the Meta Model API and Muse Code; the Full variant is limited to Muse Code subscribers. Meta does not state pricing or weights availability.</p>
+    <p>Per <a href="https://simonwillison.net/2026/Oct/12/llm-meta-ai/" target="_blank">Willison</a>, Artificial Analysis scores Muse Wonder (Max) as equivalent to GPT-6.1 Sol. It follows Muse 1.3 (Sep 2) and Muse 1.2 (Aug 5), a roughly monthly cadence.</p>
+  </div>
+</div>
+
+<div class="section-label reading">📖 Also Worth Reading</div>
+
+<div class="card">
+  <div class="tag read">Essay · Oct 14</div>
+  <div class="card-title"><a href="https://simonwillison.net/2026/Oct/14/ai-is-mass-decompiling-games/" target="_blank">"AI is mass decompiling games. That's both awesome and scary."</a></div>
+  <div class="card-body">
+    <p>Indie developer Popcar describes a wave of AI-assisted decompilation: game preservation projects, ports of old titles to browsers via WebAssembly, and mashups, alongside the risk that any paid software can be decompiled and reused. Willison highlights the piece.</p>
+  </div>
+</div>
+
+<div class="card">
+  <div class="tag read">Experiment · Oct 14</div>
+  <div class="card-title"><a href="https://simonwillison.net/2026/Oct/14/tree-appreciator/" target="_blank">Tree Appreciator: Opus 5.5 Max "crunched" for 3 hours 7 minutes on a game</a></div>
+  <div class="card-body">
+    <p>Willison prompted Claude Opus 5.5 Max in the iPhone chat app to build a Three.js game and add "make sure it is fun". Per his write-up, it returned a polished spot-the-difference game with music and achievements after more than three hours of thinking.</p>
+  </div>
+</div>
+
+<div class="section-label lesson">🧠 Today's Lesson</div>
+
+<div class="lesson-card">
+  <div class="lesson-title">Distillation: what "training on a bigger model's outputs" actually means</div>
+  <div class="lesson-body">
+    <p>Distillation trains a small <strong>student</strong> model to imitate a larger <strong>teacher</strong>. There are two main flavours, and they need very different access.</p>
+    <p><strong>Logit distillation</strong> is the classic version. For each token, the student is trained to match the teacher's full probability distribution over the vocabulary, usually via KL divergence. That distribution carries far more signal than one correct token: it says which wrong answers were nearly right. It needs white-box access to the teacher's logits, so it is mostly used by labs distilling their own models.</p>
+    <p><strong>Sequence-level distillation</strong> needs only text. Sample many responses (often reasoning traces) from the teacher's API, then fine-tune the student on them as ordinary supervised data. The signal is thinner, but it works through any chat API, so heavy API usage by a competitor is the telltale footprint, and it is the pattern the investor figures above refer to.</p>
+    <p>Rule of thumb: logits give richer gradients per token, samples give access anywhere. Sequence-level students inherit the teacher's style and reasoning habits but not its calibration, which is why they often look strong on benchmarks and brittle off-distribution.</p>
+  </div>
+</div>
+
+<!-- ARCHIVE SIDEBAR -->
+<style>
+  .arc-btn {
+    position: fixed; top: 18px; right: 18px; z-index: 200;
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 6px; padding: 6px 11px; font-size: 12px;
+    color: var(--muted); cursor: pointer; display: flex;
+    align-items: center; gap: 6px; user-select: none;
+    transition: border-color 0.15s, color 0.15s;
+    font-family: inherit;
+  }
+  .arc-btn:hover { border-color: #3a4060; color: var(--text); }
+  .arc-overlay {
+    display: none; position: fixed; inset: 0; z-index: 198;
+    background: rgba(0,0,0,0.45);
+  }
+  .arc-overlay.open { display: block; }
+  .arc-panel {
+    position: fixed; top: 0; right: 0; height: 100vh; width: 200px;
+    background: var(--surface); border-left: 1px solid var(--border);
+    z-index: 199; padding: 56px 14px 24px; overflow-y: auto;
+    transform: translateX(100%); transition: transform 0.22s ease;
+  }
+  .arc-panel.open { transform: translateX(0); }
+  .arc-panel-title {
+    font-size: 10px; font-weight: 700; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--muted);
+    margin-bottom: 14px; padding-left: 4px;
+  }
+  .arc-item {
+    display: block; padding: 7px 8px; border-radius: 5px;
+    font-size: 13px; color: var(--muted); text-decoration: none;
+    margin-bottom: 2px; transition: background 0.1s, color 0.1s;
+  }
+  .arc-item:hover { background: #1e2333; color: var(--text); }
+  .arc-item.current { background: rgba(91,142,240,0.12); color: var(--accent); font-weight: 600; }
+  .arc-close {
+    position: absolute; top: 14px; right: 14px;
+    background: none; border: none; color: var(--muted);
+    cursor: pointer; font-size: 18px; line-height: 1; padding: 4px;
+  }
+  .arc-close:hover { color: var(--text); }
+</style>
+<div class="arc-overlay" id="arcOverlay" onclick="arcClose()"></div>
+<div class="arc-panel" id="arcPanel">
+  <button class="arc-close" onclick="arcClose()">&#x2715;</button>
+  <div class="arc-panel-title">Past Issues</div>
+  <div id="arcList"><span style="color:var(--muted);font-size:12px">Loading…</span></div>
+</div>
+<button class="arc-btn" onclick="arcToggle()">
+  <svg width="13" height="11" viewBox="0 0 18 14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="0" y1="1" x2="18" y2="1"/><line x1="0" y1="13" x2="18" y2="13"/><line x1="0" y1="7" x2="18" y2="7"/></svg>
+  Past issues
+</button>
+<script>
+(function(){
+  var PAD = function(n){return String(n).padStart(2,'0');};
+  var MONTHS = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  var DAYS   = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+  var current = window.location.pathname.split('/').pop().replace(/\.html$/,'');
+  var found = [], tasks = [];
+  for(var i=0;i<45;i++){
+    (function(offset){
+      var d = new Date(); d.setDate(d.getDate()-offset);
+      var s = d.getFullYear()+'-'+PAD(d.getMonth()+1)+'-'+PAD(d.getDate());
+      tasks.push(fetch('./'+s+'.html',{method:'HEAD'}).then(function(r){if(r.ok)found.push({s:s,d:new Date(d)});}).catch(function(){}));
+    })(i);
+  }
+  Promise.all(tasks).then(function(){
+    found.sort(function(a,b){return b.d-a.d;});
+    var html='';
+    found.forEach(function(f){
+      var label=DAYS[f.d.getDay()]+', '+MONTHS[f.d.getMonth()]+' '+f.d.getDate();
+      var cls='arc-item'+(f.s===current?' current':'');
+      html+='<a class="'+cls+'" href="./'+f.s+'.html">'+label+'</a>';
+    });
+    document.getElementById('arcList').innerHTML=html||'<span style="color:var(--muted);font-size:12px">None found</span>';
+  });
+})();
+function arcToggle(){
+  var p=document.getElementById('arcPanel'),o=document.getElementById('arcOverlay');
+  var open=p.classList.contains('open');
+  if(open){arcClose();}else{p.classList.add('open');o.classList.add('open');}
+}
+function arcClose(){
+  document.getElementById('arcPanel').classList.remove('open');
+  document.getElementById('arcOverlay').classList.remove('open');
+}
+</script>
+</body>
+</html>
