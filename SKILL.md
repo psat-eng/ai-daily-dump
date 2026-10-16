@@ -37,6 +37,7 @@ If Chrome browser tools are unavailable (not connected), fall back to WebSearch 
 - **Hardware & infrastructure** — chip announcements, datacenter deals, cloud pricing changes relevant to AI workloads
 - **Funding & acquisitions** — raises and M&A that signal where the industry is moving
 - **Engineering blogs** — Simon Willison, Lilian Weng, Chip Huyen, Sebastian Raschka, Andrej Karpathy, LMSYS blog, lab engineering blogs
+- **Company engineering blogs on agents & AI infrastructure** — e.g. builders.ramp.com, anthropic.com/engineering, Cloudflare, Stripe, Vercel, Modal, Databricks, Uber, Shopify engineering blogs; posts on in-house coding/background agents, eval and observability setups, and serving at scale are high-value. Check for new posts and surface them in Also Worth Reading (tag `tool` or `read`) using the normal recency window.
 
 The digest should feel like it came from someone plugged into the community, not just someone reading press releases. Community buzz and open-source developments are often more interesting than official announcements.
 
