@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Daily Dump — October 16, 2026</title>
+<style>
+  :root {
+    --bg: #0f1117;
+    --surface: #161b27;
+    --surface2: #1c2233;
+    --border: #252d3d;
+    --text: #e2e8f0;
+    --muted: #7a8499;
+    --accent: #5b8ef0;
+    --accent2: #7c6af5;
+    --green: #4ade80;
+    --orange: #fb923c;
+    --red: #f87171;
+    --yellow: #facc15;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+    font-size: 15px;
+    line-height: 1.65;
+    max-width: 740px;
+    margin: 0 auto;
+    padding: 48px 24px 80px;
+  }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  .header { margin-bottom: 40px; border-bottom: 1px solid var(--border); padding-bottom: 24px; }
+  .header-label {
+    font-size: 11px; font-weight: 700; letter-spacing: 0.12em;
+    text-transform: uppercase; color: var(--muted); margin-bottom: 6px;
+  }
+  .header h1 { font-size: 26px; font-weight: 700; color: var(--text); letter-spacing: -0.02em; }
+  .header-sub { font-size: 13px; color: var(--muted); margin-top: 4px; }
+
+  .section-label {
+    font-size: 10px; font-weight: 700; letter-spacing: 0.12em;
+    text-transform: uppercase; color: var(--muted);
+    border-left: 2px solid var(--border);
+    padding-left: 10px; margin-bottom: 16px; margin-top: 40px;
+  }
+  .section-label.hot { color: var(--orange); border-color: rgba(251,146,60,0.4); }
+  .section-label.releases { color: var(--green); border-color: rgba(74,222,128,0.4); }
+  .section-label.horizon { color: var(--accent2); border-color: rgba(124,106,245,0.4); }
+  .section-label.reading { color: var(--yellow); border-color: rgba(250,204,21,0.4); }
+  .section-label.lesson { color: var(--accent); border-color: rgba(91,142,240,0.3); }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 18px 20px;
+    margin-bottom: 12px;
+  }
+  .card:hover { border-color: #3a4060; }
+
+  .card-title {
+    font-size: 15px; font-weight: 600; color: var(--text);
+    margin-bottom: 6px; line-height: 1.4;
+  }
+  .card-title a { color: var(--text); }
+  .card-title a:hover { color: var(--accent); text-decoration: none; }
+  .card-body { font-size: 13.5px; color: #b0bac9; line-height: 1.65; }
+  .card-body p { margin-bottom: 8px; }
+  .card-body p:last-child { margin-bottom: 0; }
+
+  .tag {
+    display: inline-block;
+    font-size: 10px; font-weight: 700; letter-spacing: 0.07em;
+    text-transform: uppercase; border-radius: 4px;
+    padding: 2px 7px; margin-bottom: 8px;
+  }
+  .tag.new { background: rgba(74,222,128,0.12); color: var(--green); }
+  .tag.hot { background: rgba(251,146,60,0.12); color: var(--orange); }
+  .tag.tool { background: rgba(91,142,240,0.12); color: var(--accent); }
+  .tag.story { background: rgba(248,113,113,0.12); color: var(--red); }
+  .tag.read { background: rgba(250,204,21,0.1); color: var(--yellow); }
+
+  .lesson-card {
+    background: linear-gradient(135deg, #131825 0%, #161d2e 100%);
+    border: 1px solid rgba(91,142,240,0.2);
+    border-radius: 8px;
+    padding: 22px 24px;
+  }
+  .lesson-title {
+    font-size: 16px; font-weight: 700; color: var(--text);
+    margin-bottom: 14px; line-height: 1.4;
+  }
+  .lesson-body { font-size: 14px; color: #cdd3db; line-height: 1.75; }
+  .lesson-body p { margin-bottom: 12px; }
+  .lesson-body p:last-child { margin-bottom: 0; }
+  .lesson-body code {
+    background: #1e2540; border-radius: 3px;
+    padding: 1px 5px; font-size: 12.5px; color: #a5b4fc;
+    font-family: 'SF Mono', 'Fira Code', monospace;
+  }
+  .lesson-body strong { color: var(--text); font-weight: 600; }
+
+  .divider { border: none; border-top: 1px solid var(--border); margin: 32px 0; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-label">AI Daily Dump</div>
+  <h1>Friday, October 16, 2026</h1>
+  <div class="header-sub">Apple runs an 816B-parameter open model across four Mac Studios, a StarCraft benchmark finds LLMs still lose to human-written bots, and Meta's new business terms open news sites to scraping</div>
+</div>
+
+<div class="section-label hot">🔥 What's Hot Right Now</div>
+
+<div class="card">
+  <div class="tag hot">Inference · Oct 15 · HN front page</div>
+  <div class="card-title"><a href="https://machinelearning.apple.com/research/mlx-distributed-inference" target="_blank">Apple: Muse Spark Open (816B MoE) hits 36+ tokens/s on four Mac Studios with MLX and RDMA</a></div>
+  <div class="card-body">
+    <p>Apple's ML research team says a four-node cluster of M5 Ultra Mac Studios, linked over Thunderbolt 5 RDMA, decodes Muse Spark Open at over 36 tokens/s. The model has 816B total and 42B active parameters; in NVFP4 it needs about 493GB, so it cannot fit on one 512GB machine. The post accompanies a new MLX release.</p>
+    <p>Apple reports up to 4.6x faster time to first token and 1.6x faster decode for the M5 Ultra over the M3 Ultra, with the gap tied to the new GPU Neural Accelerators (compute) and 1.2 TB/s memory bandwidth (decode). Pipeline parallelism across two machines leaves decode essentially unchanged but speeds up 65K-token prefill by up to about 1.8x; tensor parallelism scales decode further, and dense models scale better than the MoE. Doubling Thunderbolt cables per link cut four-node prefill at 65K context from about 50.5s to 40.6s.</p>
+  </div>
+</div>
+
+<div class="card">
+  <div class="tag hot">Benchmark · Oct 15 · HN front page</div>
+  <div class="card-title"><a href="https://starskirmish.com/bench/v0-2/" target="_blank">StarSkirmish Bench v0.2: LLMs write StarCraft bots in one hour, and GPT-6 Astra leads at 57</a></div>
+  <div class="card-body">
+    <p>Each model gets an hour in its lab's own CLI harness to write a Protoss bot in C++, scored by win rate against a roster of human-written and demo bots. The author reports GPT-6 Astra at 57, GPT-6.1 Sol at 46, Gemini 4 Argon and Claude Opus 5.5 at 39, and Claude Fable 5.1 at 37, with Muse Wonder Full at 21.</p>
+    <p>The strongest human bots remain well ahead: against Stardust, PurpleWave and BananaBrain, the best model wins only 7% of games. The author finds that how much a model practised against strong bots is the best predictor of its score, with Fable 5.1 the outlier, and says GPT-6.1 Sol is the best value at just over a tenth of Astra's cost per run.</p>
+  </div>
+</div>
+
+<div class="section-label reading">📖 Also Worth Reading</div>
+
+<div class="card">
+  <div class="tag read">Policy · Oct 15</div>
+  <div class="card-title"><a href="https://www.niemanlab.org/2026/10/metas-new-commercial-terms-will-allow-the-scraping-of-news-sites-legal-experts-say/" target="_blank">Meta's new commercial terms will allow scraping of news sites, legal experts say</a></div>
+  <div class="card-body">
+    <p>From October 30, business accounts on Facebook, Instagram and WhatsApp will authorize Meta to crawl websites associated with them, using bots and "test credentials", and to use the content to train Meta products. Three legal experts told Nieman Lab the wording could be read as permission to train AI on publishers' content, with no opt-out other than ceasing business use of Meta's products.</p>
+    <p>Meta declined detailed questions; a spokesperson said the update consolidates existing crawling language, will not change how it crawls publishers, and that robots.txt still applies. The experts note the terms could be argued to supersede robots.txt blocks.</p>
+  </div>
+</div>
+
+<div class="section-label lesson">🧠 Today's Lesson</div>
+
+<div class="lesson-card">
+  <div class="lesson-title">Pipeline vs tensor parallelism: two ways to split a model that won't fit on one machine</div>
+  <div class="lesson-body">
+    <p>When weights exceed one device's memory, the model has to be cut up. The two standard cuts differ in <em>where</em> they slice.</p>
+    <p><strong>Pipeline parallelism</strong> slices by depth: machine A runs layers 1&ndash;40, machine B runs 41&ndash;80, and only the activations between the halves cross the network. Communication is tiny and the code change is small, but a single token still passes through the layers sequentially, so <strong>decode speed barely improves</strong>. Its benefit is capacity, plus prefill throughput: long prompts are cut into chunks, and while B processes chunk <code>k</code>, A already works on chunk <code>k+1</code>.</p>
+    <p><strong>Tensor parallelism</strong> slices by width: every machine holds a fraction of every layer, and each layer's matrix multiplies run on all machines at once. Since decode is memory-bandwidth bound, each machine reads only its share of the weights per token, so aggregate bandwidth rises and tokens/s climbs. The cost is an all-reduce at every layer for every token, which makes interconnect latency the bottleneck.</p>
+    <p>That is why low-latency links such as Thunderbolt RDMA matter in the Apple results: tensor parallelism only pays off when those many small messages are cheap. Rule of thumb: pipeline to fit and to speed up prefill, tensor to speed up decode, and combine them when the cluster is large enough.</p>
+  </div>
+</div>
+
+<style>
+  .arc-btn {
+    position: fixed; top: 18px; right: 18px; z-index: 200;
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 6px; padding: 6px 11px; font-size: 12px;
+    color: var(--muted); cursor: pointer; display: flex;
+    align-items: center; gap: 6px; user-select: none;
+    transition: border-color 0.15s, color 0.15s;
+    font-family: inherit;
+  }
+  .arc-btn:hover { border-color: #3a4060; color: var(--text); }
+  .arc-overlay {
+    display: none; position: fixed; inset: 0; z-index: 198;
+    background: rgba(0,0,0,0.45);
+  }
+  .arc-overlay.open { display: block; }
+  .arc-panel {
+    position: fixed; top: 0; right: 0; height: 100vh; width: 200px;
+    background: var(--surface); border-left: 1px solid var(--border);
+    z-index: 199; padding: 56px 14px 24px; overflow-y: auto;
+    transform: translateX(100%); transition: transform 0.22s ease;
+  }
+  .arc-panel.open { transform: translateX(0); }
+  .arc-panel-title {
+    font-size: 10px; font-weight: 700; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--muted);
+    margin-bottom: 14px; padding-left: 4px;
+  }
+  .arc-item {
+    display: block; padding: 7px 8px; border-radius: 5px;
+    font-size: 13px; color: var(--muted); text-decoration: none;
+    margin-bottom: 2px; transition: background 0.1s, color 0.1s;
+  }
+  .arc-item:hover { background: #1e2333; color: var(--text); }
+  .arc-item.current { background: rgba(91,142,240,0.12); color: var(--accent); font-weight: 600; }
+  .arc-close {
+    position: absolute; top: 14px; right: 14px;
+    background: none; border: none; color: var(--muted);
+    cursor: pointer; font-size: 18px; line-height: 1; padding: 4px;
+  }
+  .arc-close:hover { color: var(--text); }
+</style>
+<div class="arc-overlay" id="arcOverlay" onclick="arcClose()"></div>
+<div class="arc-panel" id="arcPanel">
+  <button class="arc-close" onclick="arcClose()">&#x2715;</button>
+  <div class="arc-panel-title">Past Issues</div>
+  <div id="arcList"><span style="color:var(--muted);font-size:12px">Loading…</span></div>
+</div>
+<button class="arc-btn" onclick="arcToggle()">
+  <svg width="13" height="11" viewBox="0 0 18 14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="0" y1="1" x2="18" y2="1"/><line x1="0" y1="13" x2="18" y2="13"/><line x1="0" y1="7" x2="18" y2="7"/></svg>
+  Past issues
+</button>
+<script>
+(function(){
+  var PAD = function(n){return String(n).padStart(2,'0');};
+  var MONTHS = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  var DAYS   = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+  var current = window.location.pathname.split('/').pop().replace(/\.html$/,'');
+  var found = [], tasks = [];
+  for(var i=0;i<45;i++){
+    (function(offset){
+      var d = new Date(); d.setDate(d.getDate()-offset);
+      var s = d.getFullYear()+'-'+PAD(d.getMonth()+1)+'-'+PAD(d.getDate());
+      tasks.push(fetch('./'+s+'.html',{method:'HEAD'}).then(function(r){if(r.ok)found.push({s:s,d:new Date(d)});}).catch(function(){}));
+    })(i);
+  }
+  Promise.all(tasks).then(function(){
+    found.sort(function(a,b){return b.d-a.d;});
+    var html='';
+    found.forEach(function(f){
+      var label=DAYS[f.d.getDay()]+', '+MONTHS[f.d.getMonth()]+' '+f.d.getDate();
+      var cls='arc-item'+(f.s===current?' current':'');
+      html+='<a class="'+cls+'" href="./'+f.s+'.html">'+label+'</a>';
+    });
+    document.getElementById('arcList').innerHTML=html||'<span style="color:var(--muted);font-size:12px">None found</span>';
+  });
+})();
+function arcToggle(){
+  var p=document.getElementById('arcPanel'),o=document.getElementById('arcOverlay');
+  var open=p.classList.contains('open');
+  if(open){arcClose();}else{p.classList.add('open');o.classList.add('open');}
+}
+function arcClose(){
+  document.getElementById('arcPanel').classList.remove('open');
+  document.getElementById('arcOverlay').classList.remove('open');
+}
+</script>
+</body>
+</html>
