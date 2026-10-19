@@ -51,6 +51,8 @@ Cover these categories — include whatever has genuinely fresh news, skip categ
 
 **D) COMING SOON** — credible previews generating buzz. Clearly label as upcoming/announced, not released.
 
+**F) FLIP TECH WATCH** — see STEP 2b below. Always evaluated; skipped only if nothing credible qualifies.
+
 **E) ALSO WORTH READING** — engineering blog posts, hardware news, funding rounds, fun reads. Aim for 2–4 items. Up to 72-hour window for this section.
 
 Verification rule: every item needs a real, dated, findable source. Never fabricate names, numbers, or dates. If a date isn't clearly visible, drop the item.
@@ -68,6 +70,10 @@ If a page doesn't load, the date is outside the window, or the facts don't match
 
 Use the verified article URL as the link in the HTML — not a search results page or aggregator.
 
+STEP 2b — FLIP TECH WATCH (new technology & use cases that could help Flip):
+Flip (FlipCX) builds voice AI agents for customer support, mainly ecommerce/retail clients: call intents, automation rate, escalation to live agents, knowledge-base answers, order/returns workflows, QA of calls, and the inference/serving stack behind it. While researching, flag 1–3 items (from the same recency window, any section's source) that could plausibly be used in Flip's production stack or product. Examples of what qualifies: small/fast classifiers or decision models for intent routing (e.g. Laya-style System One models), low-latency or CPU-only inference, speech/TTS/ASR models and voice-agent techniques (backchannels, turn-taking, interruption handling), RAG/retrieval and reranking advances, eval/QA/observability tooling for agents, LLM proxy/caching/cost tooling, forecasting for call volume, guardrail and agent-safety patterns, and cost/latency price drops that change build-vs-buy math. Skip anything with no concrete path to Flip's work; fewer sharp items beats padding.
+Each item is a card in a dedicated section placed after "Also Worth Reading" and before "Today's Lesson". Each card has: a `.tag.flip` chip ("Flip Tech Watch · <source date>"), a linked title, one paragraph on what it is (verified facts, attributed), and a final paragraph that starts with "Flip angle:" stating the specific use (which Flip workflow it touches and how, e.g. "intent routing on escalated calls", "voice-agent TTS", "cache-hit logging") plus an honest caveat or "what to test first". Stay in the neutral third-person editorial voice (no "you/your"); naming Flip as a company is fine and expected in this section only. The same story may appear in an earlier section and in Flip Tech Watch only if the Flip angle adds new content; otherwise cross-reference by title rather than repeating.
+
 STEP 3 — SHORT LESSON: One "today I learned" explainer (150–250 words) on a concept relevant to AI engineering — model internals, inference infrastructure, or the surrounding stack.
 
 Good topic areas:
@@ -79,7 +85,7 @@ Good topic areas:
 Check existing files in the folder to avoid repeating a topic from the last ~2 weeks. Plain English, concrete, genuinely useful — not filler. Tie the lesson to today's news when there's a natural connection.
 
 STEP 4 — FORMAT & VOICE (MANDATORY — this is a newsletter, not a chat reply):
-- **Template:** Do not hand-roll the layout. Read the most recent digest that uses the newsletter template (e.g. 2026-09-24.html, or any later file that does) and reuse its `<style>` block and markup exactly: `.header` (label "AI Daily Dump", h1 = full weekday + date, `.header-sub` = one-line editorial headline summarising the day's top stories), emoji `.section-label` bars (`hot` 🔥, `releases` 🚀, `horizon` 🔭, `reading` 📖, `lesson` 🧠), `.card` blocks each with a `.tag` chip (e.g. `hot`, `new`, `tool`, `story`, `read`) stating category · source date, a linked `.card-title`, and a `.card-body` of 1–3 short `<p>` paragraphs, and a `.lesson-card` for the lesson. Never use the stripped-down `.meta`/`.lesson` layout.
+- **Template:** Do not hand-roll the layout. Read the most recent digest that uses the newsletter template (e.g. 2026-09-24.html, or any later file that does) and reuse its `<style>` block and markup exactly: `.header` (label "AI Daily Dump", h1 = full weekday + date, `.header-sub` = one-line editorial headline summarising the day's top stories), emoji `.section-label` bars (`hot` 🔥, `releases` 🚀, `horizon` 🔭, `reading` 📖, `flip` 🛠️ "Flip Tech Watch", `lesson` 🧠), `.card` blocks each with a `.tag` chip (e.g. `hot`, `new`, `tool`, `story`, `read`) stating category · source date, a linked `.card-title`, and a `.card-body` of 1–3 short `<p>` paragraphs, and a `.lesson-card` for the lesson. Never use the stripped-down `.meta`/`.lesson` layout.
 - **Voice:** Neutral, third-person editorial voice, like a published newsletter. Do NOT address the reader: no "for Pranesh" in the header, no "you/your", no "worth a read", no "check yours before you upgrade", and no references to earlier issues ("yesterday's issue said…"). If a figure from an earlier source was wrong, just state the correct figure with its source. Attribute vendor claims inline ("the author reports", "Anthropic says").
 - **Tags carry the age:** put the date (and "N days old" for anything older than 48h) in the `.tag` chip.
 - **Header sub-line is mandatory** and must be a real headline sentence, not a date or a greeting.
@@ -90,6 +96,7 @@ STEP 4b — BUILD THE HTML FILE (details): Single self-contained HTML page, no e
 - "New Releases & Updates" (verified GA/dropped releases)
 - "On the Horizon" (credibly announced upcoming things — only if there's something worth noting)
 - "Also Worth Reading" (engineering blog posts, hardware news, funding rounds, fun reads — always include if there's anything fresh)
+- "🛠️ Flip Tech Watch" (STEP 2b — new tech/use cases with a concrete Flip angle; uses `<div class="section-label flip">🛠️ Flip Tech Watch</div>` and `.tag.flip` chips). Add this CSS to the template's `<style>` block: `.section-label.flip { color: #22d3ee; border-color: rgba(34,211,238,0.4); } .tag.flip { background: rgba(34,211,238,0.12); color: #22d3ee; }` and `.flip-angle { border-top: 1px dashed var(--border); padding-top: 8px; margin-top: 4px; color: #cdd3db; }` for the "Flip angle:" paragraph (`<p class="flip-angle"><strong>Flip angle:</strong> …</p>`).
 - "Today's Lesson"
 
 Keep reading time under 4–5 minutes. Clean dark-mode-friendly typography, no JS, no tracking.
