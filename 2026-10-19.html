@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Daily Dump — October 19, 2026</title>
+<style>
+  :root {
+    --bg: #0f1117; --surface: #161b27; --surface2: #1c2233; --border: #252d3d;
+    --text: #e2e8f0; --muted: #7a8499; --accent: #5b8ef0; --accent2: #7c6af5;
+    --green: #4ade80; --orange: #fb923c; --red: #f87171; --yellow: #facc15;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg); color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+    font-size: 15px; line-height: 1.65; max-width: 740px; margin: 0 auto; padding: 48px 24px 80px;
+  }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .header { margin-bottom: 40px; border-bottom: 1px solid var(--border); padding-bottom: 24px; }
+  .header-label { font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-bottom: 6px; }
+  .header h1 { font-size: 26px; font-weight: 700; color: var(--text); letter-spacing: -0.02em; }
+  .header-sub { font-size: 13px; color: var(--muted); margin-top: 4px; }
+  .section-label { font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); border-left: 2px solid var(--border); padding-left: 10px; margin-bottom: 16px; margin-top: 40px; }
+  .section-label.hot { color: var(--orange); border-color: rgba(251,146,60,0.4); }
+  .section-label.releases { color: var(--green); border-color: rgba(74,222,128,0.4); }
+  .section-label.horizon { color: var(--accent2); border-color: rgba(124,106,245,0.4); }
+  .section-label.reading { color: var(--yellow); border-color: rgba(250,204,21,0.4); }
+  .section-label.lesson { color: var(--accent); border-color: rgba(91,142,240,0.3); }
+  .card { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 18px 20px; margin-bottom: 12px; }
+  .card:hover { border-color: #3a4060; }
+  .card-title { font-size: 15px; font-weight: 600; color: var(--text); margin-bottom: 6px; line-height: 1.4; }
+  .card-title a { color: var(--text); }
+  .card-title a:hover { color: var(--accent); text-decoration: none; }
+  .card-body { font-size: 13.5px; color: #b0bac9; line-height: 1.65; }
+  .card-body p { margin-bottom: 8px; }
+  .card-body p:last-child { margin-bottom: 0; }
+  .tag { display: inline-block; font-size: 10px; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase; border-radius: 4px; padding: 2px 7px; margin-bottom: 8px; }
+  .tag.new { background: rgba(74,222,128,0.12); color: var(--green); }
+  .tag.hot { background: rgba(251,146,60,0.12); color: var(--orange); }
+  .tag.tool { background: rgba(91,142,240,0.12); color: var(--accent); }
+  .tag.story { background: rgba(248,113,113,0.12); color: var(--red); }
+  .tag.read { background: rgba(250,204,21,0.1); color: var(--yellow); }
+  .lesson-card { background: linear-gradient(135deg, #131825 0%, #161d2e 100%); border: 1px solid rgba(91,142,240,0.2); border-radius: 8px; padding: 22px 24px; }
+  .lesson-title { font-size: 16px; font-weight: 700; color: var(--text); margin-bottom: 14px; line-height: 1.4; }
+  .lesson-body { font-size: 14px; color: #cdd3db; line-height: 1.75; }
+  .lesson-body p { margin-bottom: 12px; }
+  .lesson-body p:last-child { margin-bottom: 0; }
+  .lesson-body code, .card-body code { background: #1e2540; border-radius: 3px; padding: 1px 5px; font-size: 12.5px; color: #a5b4fc; font-family: 'SF Mono', 'Fira Code', monospace; }
+  .lesson-body strong { color: var(--text); font-weight: 600; }
+  .divider { border: none; border-top: 1px solid var(--border); margin: 32px 0; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-label">AI Daily Dump</div>
+  <h1>Monday, October 19, 2026</h1>
+  <div class="header-sub">MiniMax undercuts the field with a $0.15 agent model, Mistral's 209M forecaster tops three leaderboards, and a MacBook Air scrubs the slop out of Qwen</div>
+</div>
+
+<!-- WHAT'S HOT -->
+<div class="section-label hot">🔥 What's Hot Right Now</div>
+
+<div class="card">
+  <div class="tag hot">Time Series · Oct 15 (4 days old, #5 on HN today)</div>
+  <div class="card-title"><a href="https://mistral.ai/news/timestral/" target="_blank">Mistral's Timestral: a 209M-parameter forecasting model that runs on CPU and tops GIFT-Eval, TIME and fev-bench</a></div>
+  <div class="card-body">
+    <p>Mistral's first time-series foundation model family comes in four sizes (5M, 28M, 123M, 209M parameters) under a modified MIT licence, with a 32,768-step context and 21-quantile probabilistic output. Mistral says the 209M model ranks first among pretrained zero-shot models on all three public benchmarks while using about two-thirds of the parameters of the previous best. It reports that the 28M model beats Chronos-2, roughly four times larger, on GIFT-Eval and TIME.</p>
+    <p>The serving story is the unusual part: no GPU is needed. On an 8-thread server CPU, a one-day-ahead forecast from three weeks of 15-minute history takes 10 ms with the 5M model and 140 ms with the 209M model. It handles multivariate targets plus past-only and known-future covariates, including categorical ones. Training data was mostly synthetic, with a "decoupled horizon" scheme in which learned forecast tokens read the full history instead of masking it. A technical report is promised; the benchmark claims are Mistral's own submissions.</p>
+  </div>
+</div>
+
+<div class="card">
+  <div class="tag hot">Open Source · Oct 2026, Show HN today</div>
+  <div class="card-title"><a href="https://100toolkit.com/blog/deslop-model/" target="_blank">Qwen3-4B with the AI writing tics trained out, fine-tuned on a MacBook Air</a></div>
+  <div class="card-body">
+    <p>Erik Kannike distilled Qwen3-4B-Instruct-2507 into a model that avoids em dashes, "not X, but Y" constructions and rule-of-three lists. A teacher model answered 288 prompts, only answers passing a style score and task-fit checks were kept, and a rank-16 LoRA was trained on them in three rounds of one to three hours each on an M2 MacBook Air. The author's regex-based slop score drops from 121 to 12.5 per 1,000 words (human writing usually lands under 15), em dashes fall from 20.5 to zero, and a 30-question factual check stays at 30 of 30.</p>
+    <p>The caveats are in the post itself: it is one author, the detector is self-built, no blind reader test has been run, and the training data was filtered on the same checks that are reported. Output still invents names and runs long. Weights are on Hugging Face as <code>erikkannike/qwen3-4b-deslop-v4</code>, with a Q4_K_M GGUF (2.5 GB) for Ollama.</p>
+  </div>
+</div>
+
+<!-- RELEASES -->
+<div class="section-label releases">🚀 New Releases &amp; Updates</div>
+
+<div class="card">
+  <div class="tag new">Released Oct 19 · API only</div>
+  <div class="card-title"><a href="https://www.minimax.io/blog/minimax-m31f" target="_blank">MiniMax M3.1 Flash: $0.15 / $0.60 per million tokens, 200+ tokens per second claimed</a></div>
+  <div class="card-body">
+    <p>MiniMax's agent-and-coding model is available through its API, M Plan and MiniMax Code at a flat $0.15 input, $0.60 output and $0.015 cached input per million tokens. The company says agentic task cost is 70% lower than its predecessor and cites 200+ tokens per second in everyday use (170+ at the median), attributing the gain to "more aggressive sparsity".</p>
+    <p>Self-reported scores: DeepSWE v1.1 73.7%, OSWorld V2 61.7, Agents' Last Exam 29.6, BankerToolBench 76.2 and CyberGym 82%. Weights are "to be released later" and a larger Pro model is also promised. The page gives no context window or parameter count, and none of the figures have been independently verified. It reached #20 on HN within hours.</p>
+  </div>
+</div>
+
+<!-- HORIZON -->
+<div class="section-label horizon">🔭 On the Horizon</div>
+
+<div class="card">
+  <div class="tag tool">Announced · no dates</div>
+  <div class="card-title"><a href="https://www.minimax.io/blog/minimax-m31f" target="_blank">MiniMax M3.1 Flash open weights and an M3.1 Pro</a></div>
+  <div class="card-body">
+    <p>MiniMax says weights for M3.1 Flash will follow "later" and that a larger Pro model is coming. Neither has a date.</p>
+  </div>
+</div>
+
+<!-- ALSO WORTH READING -->
+<div class="section-label reading">📖 Also Worth Reading</div>
+
+<div class="card">
+  <div class="tag read">Opinion · Oct 18</div>
+  <div class="card-title"><a href="https://jrdsgl.com/if-you-dont-run-your-own-llm-proxy-how-the-fuck-do-you-even-know-whats-going-on/" target="_blank">"If you don't run your own LLM proxy…" argues for self-hosted visibility into token usage</a></div>
+  <div class="card-body">
+    <p>Jared Siegel argues that hosted subscription dashboards show proof of work but not engineering-grade token data, and that a self-hosted proxy gives one endpoint across providers, per-key logs of model, client, time and status, virtual API keys, and quick model pivots. He says he can spot a cache miss by hand in 20 seconds and sees room to automate it. The post names no specific proxy product. It reached 289 points on HN.</p>
+  </div>
+</div>
+
+<div class="card">
+  <div class="tag read">Partnership · Oct 15</div>
+  <div class="card-title"><a href="https://home.cern/cern-and-mistral-join-forces-to-accelerate-ai-for-science/" target="_blank">CERN and Mistral sign a statement of intent to build a "Large Physics Model"</a></div>
+  <div class="card-body">
+    <p>The aim is a single pretrained foundation model for collider physics, trained on billions of simulated LHC proton-proton collisions, covering reconstruction, particle identification, anomaly flagging and detector-design evaluation in one model rather than a chain of specialised algorithms. CERN's release gives no funding, timeline or compute figures.</p>
+  </div>
+</div>
+
+<!-- LESSON -->
+<div class="section-label lesson">🧠 Today's Lesson</div>
+
+<div class="lesson-card">
+  <div class="lesson-title">Prompt caching: why one changed token near the top invalidates everything after it</div>
+  <div class="lesson-body">
+    <p>Prompt caching stores the <strong>KV cache</strong> of a prompt prefix so the next request that begins with the same tokens skips recomputing it. Cached input is billed far cheaper, which is why M3.1 Flash lists cached input at a tenth of the normal input price.</p>
+    <p>The catch is that attention is causal: every token's key and value depend on <em>all tokens before it</em>. A cache hit therefore requires an exact, token-for-token match of the prefix. Change one token at position 50 and the cache for positions 51 onward is useless, because those entries were computed with the old token in their context.</p>
+    <p>That rule explains most cache misses in agent loops. A timestamp or request ID in the system prompt, tool definitions reordered between calls, a JSON dump with unstable key order, or an edit to an earlier message all break the prefix. The fix is structural: put stable content first (system prompt, tool schemas, long documents), append volatile content last, and never rewrite history.</p>
+    <p>This is also why per-request logging at a proxy pays off. Recording cached versus uncached input tokens per call turns a mystery bill into a diff of two prompts, showing exactly where the first mismatched token sits. Many providers also expire entries after minutes of idle time, so bursty traffic can miss even with identical prompts.</p>
+  </div>
+</div>
+
+<!-- ARCHIVE SIDEBAR -->
+<style>
+  .arc-btn { position: fixed; top: 18px; right: 18px; z-index: 200; background: var(--surface); border: 1px solid var(--border); border-radius: 6px; padding: 6px 11px; font-size: 12px; color: var(--muted); cursor: pointer; display: flex; align-items: center; gap: 6px; user-select: none; transition: border-color 0.15s, color 0.15s; font-family: inherit; }
+  .arc-btn:hover { border-color: #3a4060; color: var(--text); }
+  .arc-overlay { display: none; position: fixed; inset: 0; z-index: 198; background: rgba(0,0,0,0.45); }
+  .arc-overlay.open { display: block; }
+  .arc-panel { position: fixed; top: 0; right: 0; height: 100vh; width: 200px; background: var(--surface); border-left: 1px solid var(--border); z-index: 199; padding: 56px 14px 24px; overflow-y: auto; transform: translateX(100%); transition: transform 0.22s ease; }
+  .arc-panel.open { transform: translateX(0); }
+  .arc-panel-title { font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-bottom: 14px; padding-left: 4px; }
+  .arc-item { display: block; padding: 7px 8px; border-radius: 5px; font-size: 13px; color: var(--muted); text-decoration: none; margin-bottom: 2px; transition: background 0.1s, color 0.1s; }
+  .arc-item:hover { background: #1e2333; color: var(--text); }
+  .arc-item.current { background: rgba(91,142,240,0.12); color: var(--accent); font-weight: 600; }
+  .arc-close { position: absolute; top: 14px; right: 14px; background: none; border: none; color: var(--muted); cursor: pointer; font-size: 18px; line-height: 1; padding: 4px; }
+  .arc-close:hover { color: var(--text); }
+</style>
+<div class="arc-overlay" id="arcOverlay" onclick="arcClose()"></div>
+<div class="arc-panel" id="arcPanel">
+  <button class="arc-close" onclick="arcClose()">&#x2715;</button>
+  <div class="arc-panel-title">Past Issues</div>
+  <div id="arcList"><span style="color:var(--muted);font-size:12px">Loading…</span></div>
+</div>
+<button class="arc-btn" onclick="arcToggle()">
+  <svg width="13" height="11" viewBox="0 0 18 14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="0" y1="1" x2="18" y2="1"/><line x1="0" y1="7" x2="18" y2="7"/><line x1="0" y1="13" x2="18" y2="13"/></svg>
+  Past issues
+</button>
+<script>
+(function(){
+  var PAD = function(n){return String(n).padStart(2,'0');};
+  var MONTHS = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  var DAYS   = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+  var current = window.location.pathname.split('/').pop().replace(/\.html$/,'');
+  var found = [], tasks = [];
+  for(var i=0;i<45;i++){
+    (function(offset){
+      var d = new Date(); d.setDate(d.getDate()-offset);
+      var s = d.getFullYear()+'-'+PAD(d.getMonth()+1)+'-'+PAD(d.getDate());
+      tasks.push(fetch('./'+s+'.html',{method:'HEAD'}).then(function(r){if(r.ok)found.push({s:s,d:new Date(d)});}).catch(function(){}));
+    })(i);
+  }
+  Promise.all(tasks).then(function(){
+    found.sort(function(a,b){return b.d-a.d;});
+    var html='';
+    found.forEach(function(f){
+      var label=DAYS[f.d.getDay()]+', '+MONTHS[f.d.getMonth()]+' '+f.d.getDate();
+      var cls='arc-item'+(f.s===current?' current':'');
+      html+='<a class="'+cls+'" href="./'+f.s+'.html">'+label+'</a>';
+    });
+    document.getElementById('arcList').innerHTML=html||'<span style="color:var(--muted);font-size:12px">None found</span>';
+  });
+})();
+function arcToggle(){
+  var p=document.getElementById('arcPanel'),o=document.getElementById('arcOverlay');
+  var open=p.classList.contains('open');
+  if(open){arcClose();}else{p.classList.add('open');o.classList.add('open');}
+}
+function arcClose(){
+  document.getElementById('arcPanel').classList.remove('open');
+  document.getElementById('arcOverlay').classList.remove('open');
+}
+</script>
+</body>
+</html>
