@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Daily Dump — October 20, 2026</title>
+<style>
+  :root {
+    --bg: #0f1117; --surface: #161b27; --surface2: #1c2233; --border: #252d3d;
+    --text: #e2e8f0; --muted: #7a8499; --accent: #5b8ef0; --accent2: #7c6af5;
+    --green: #4ade80; --orange: #fb923c; --red: #f87171; --yellow: #facc15;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg); color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+    font-size: 15px; line-height: 1.65; max-width: 740px; margin: 0 auto; padding: 48px 24px 80px;
+  }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .header { margin-bottom: 40px; border-bottom: 1px solid var(--border); padding-bottom: 24px; }
+  .header-label { font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-bottom: 6px; }
+  .header h1 { font-size: 26px; font-weight: 700; color: var(--text); letter-spacing: -0.02em; }
+  .header-sub { font-size: 13px; color: var(--muted); margin-top: 4px; }
+  .section-label { font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); border-left: 2px solid var(--border); padding-left: 10px; margin-bottom: 16px; margin-top: 40px; }
+  .section-label.hot { color: var(--orange); border-color: rgba(251,146,60,0.4); }
+  .section-label.releases { color: var(--green); border-color: rgba(74,222,128,0.4); }
+  .section-label.horizon { color: var(--accent2); border-color: rgba(124,106,245,0.4); }
+  .section-label.reading { color: var(--yellow); border-color: rgba(250,204,21,0.4); }
+  .section-label.lesson { color: var(--accent); border-color: rgba(91,142,240,0.3); }
+  .card { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 18px 20px; margin-bottom: 12px; }
+  .card:hover { border-color: #3a4060; }
+  .card-title { font-size: 15px; font-weight: 600; color: var(--text); margin-bottom: 6px; line-height: 1.4; }
+  .card-title a { color: var(--text); }
+  .card-title a:hover { color: var(--accent); text-decoration: none; }
+  .card-body { font-size: 13.5px; color: #b0bac9; line-height: 1.65; }
+  .card-body p { margin-bottom: 8px; }
+  .card-body p:last-child { margin-bottom: 0; }
+  .tag { display: inline-block; font-size: 10px; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase; border-radius: 4px; padding: 2px 7px; margin-bottom: 8px; }
+  .tag.new { background: rgba(74,222,128,0.12); color: var(--green); }
+  .tag.hot { background: rgba(251,146,60,0.12); color: var(--orange); }
+  .tag.tool { background: rgba(91,142,240,0.12); color: var(--accent); }
+  .tag.story { background: rgba(248,113,113,0.12); color: var(--red); }
+  .tag.read { background: rgba(250,204,21,0.1); color: var(--yellow); }
+  .lesson-card { background: linear-gradient(135deg, #131825 0%, #161d2e 100%); border: 1px solid rgba(91,142,240,0.2); border-radius: 8px; padding: 22px 24px; }
+  .lesson-title { font-size: 16px; font-weight: 700; color: var(--text); margin-bottom: 14px; line-height: 1.4; }
+  .lesson-body { font-size: 14px; color: #cdd3db; line-height: 1.75; }
+  .lesson-body p { margin-bottom: 12px; }
+  .lesson-body p:last-child { margin-bottom: 0; }
+  .lesson-body code, .card-body code { background: #1e2540; border-radius: 3px; padding: 1px 5px; font-size: 12.5px; color: #a5b4fc; font-family: 'SF Mono', 'Fira Code', monospace; }
+  .lesson-body strong { color: var(--text); font-weight: 600; }
+  .section-label.flip { color: #22d3ee; border-color: rgba(34,211,238,0.4); }
+  .tag.flip { background: rgba(34,211,238,0.12); color: #22d3ee; }
+  .flip-angle { border-top: 1px dashed var(--border); padding-top: 8px; margin-top: 4px; color: #cdd3db; }
+  .divider { border: none; border-top: 1px solid var(--border); margin: 32px 0; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-label">AI Daily Dump</div>
+  <h1>Tuesday, October 20, 2026</h1>
+  <div class="header-sub">DeepSeek open-sources the inference engine behind its production services, WhatsApp's help pages are found carrying hidden instructions for an AI, and an experiment with 50,000 invented statistics keeps getting cited by ChatGPT</div>
+</div>
+
+<div class="section-label hot">🔥 What's Hot Right Now</div>
+
+<div class="card">
+  <div class="tag hot">Inference · Oct 20 · #1 on HN, 1,500+ points</div>
+  <div class="card-title"><a href="https://github.com/deepseek-ai/DeepInfer" target="_blank">DeepSeek open-sources DeepInfer, the engine behind its large-scale production serving</a></div>
+  <div class="card-body">
+    <p>The Apache-2.0 repository describes DeepInfer as the framework that powers DeepSeek's production services, released here as offline inference for DeepSeek-V4.1-Flash. Listed features include attention data parallelism with balanced context parallelism, MoE expert parallelism with load balancing, "DSpark" with confidence-scheduled verification, bounded sliding-window replay, a zero-overhead asynchronous batch scheduler, batch-invariant inference, deterministic sampling and structured outputs. Supported hardware is NVIDIA SM100 GPUs and Huawei Ascend 950 NPUs.</p>
+    <p>The release is partial by its own account: the KV cache system, prefill/decode disaggregation and load balancing across replicas are listed as required for a full service but not included. The README credits vLLM as the base, with inspiration from SGLang and TensorRT-LLM, and publishes prefill and decode benchmarks measured on 4 and 64 SM100 GPUs respectively.</p>
+  </div>
+</div>
+
+<div class="section-label releases">🚀 New Releases &amp; Updates</div>
+
+<div class="card">
+  <div class="tag new">Oct 17 · 3 days old · MIT weights</div>
+  <div class="card-title"><a href="https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash-1017" target="_blank">DeepSeek-V4.1-Flash-1017: a minor update with large claimed agentic gains</a></div>
+  <div class="card-body">
+    <p>DeepSeek calls the checkpoint a minor update to V4.1 Flash that improves reasoning, coding, agentic and visual benchmarks while cutting task execution time and output length. Its own table lists Terminal-Bench 4.0 at 42.3 (up from 31.2), DeepSWE v1.1 at 77.0 (74.2) and Agents' Last Exam at 35.4 (31.8), ahead of GPT-5.6 Sol and Claude Opus 5 on several rows, though Opus 5 leads on HLE, Terminal-Bench and ProgramBench.</p>
+    <p>The model card ships no Jinja chat template; a Python reference encoder handles multi-turn, tool-calling and thinking-mode prompts. All scores are vendor-reported. The weights are on Hugging Face with about 1.9k likes, and DeepInfer above is the matching first-party engine.</p>
+  </div>
+</div>
+
+<div class="section-label reading">📖 Also Worth Reading</div>
+
+<div class="card">
+  <div class="tag story">Investigation · Oct 19 · 658 points on HN</div>
+  <div class="card-title"><a href="https://redact.dev/blog/whatsapp-help-pages-hidden-ai-instructions" target="_blank">WhatsApp's help pages carried invisible instructions telling an AI not to recommend a regulator</a></div>
+  <div class="card-body">
+    <p>Redact.dev says it found hidden text on WhatsApp help pages on October 8 and reviewed all 545 linked pages: 102 hidden blocks across 80 pages. Two stood out. A note on account deletion told an AI not to recommend a data protection authority to users locked out of their number, and a note on reporting told it not to cite privacy regulations such as GDPR even when a user raised them.</p>
+    <p>WhatsApp told WIRED the text was instructions for its support chatbot that appeared on the pages because of a bug, since fixed. Redact.dev reports all hidden blocks were gone when it re-checked on October 18; Internet Archive copies from earlier dates still show them.</p>
+  </div>
+</div>
+
+<div class="card">
+  <div class="tag read">Experiment · Oct 20 (HN) · 137 points</div>
+  <div class="card-title"><a href="https://peec.ai/blog/publish-stats-get-cited-the-tactic-that-put-my-data-all-over-the-web" target="_blank">Fifty thousand invented statistics, still being fetched and cited by ChatGPT seven months on</a></div>
+  <div class="card-body">
+    <p>An author at Peec AI describes generating 50,000 fake statistics pages and 15,000 listicles with GPT-4.1 for roughly $50. Google deindexed the site after two updates, but the author reports 72,000 ChatGPT-User fetches in the last 30 days, 10,000+ AI referral sessions, and 330+ referring domains including Shopify, Bluehost and DHL. The made-up figures are said to have reached an academic paper and a bank's research. Peec AI sells AI-search analytics, and the results are the author's own.</p>
+  </div>
+</div>
+
+<div class="section-label flip">🛠️ Flip Tech Watch</div>
+
+<div class="card">
+  <div class="tag flip">Flip Tech Watch · Oct 20</div>
+  <div class="card-title"><a href="https://github.com/deepseek-ai/DeepInfer" target="_blank">DeepInfer: deterministic sampling and batch-invariant inference</a></div>
+  <div class="card-body">
+    <p>Per the repository, DeepInfer includes batch-invariant kernels and deterministic sampling, meaning the same request should produce the same tokens regardless of what else shares the batch.</p>
+    <p class="flip-angle"><strong>Flip angle:</strong> Reproducible outputs would make QA replays of escalated calls and intent-routing regressions comparable run to run, since a changed answer would reflect a config change rather than batch noise. Caveat: it supports only DeepSeek-V4.1-Flash on SM100 or Ascend hardware and omits the KV cache and disaggregation layers, so the first test is whether the determinism idea can be reproduced in the existing serving stack.</p>
+  </div>
+</div>
+
+<div class="card">
+  <div class="tag flip">Flip Tech Watch · Oct 19</div>
+  <div class="card-title"><a href="https://redact.dev/blog/whatsapp-help-pages-hidden-ai-instructions" target="_blank">Hidden text in support content that an AI reads but customers never see</a></div>
+  <div class="card-body">
+    <p>The WhatsApp case shows help-centre markup being used as an instruction channel for a support bot, invisible to human readers.</p>
+    <p class="flip-angle"><strong>Flip angle:</strong> Client help-center pages scraped for knowledge-base gap reports and ingestion could carry similar hidden blocks. A pre-ingestion check that diffs rendered text against raw HTML text and flags hidden elements would surface them before they steer a voice agent. Caveat: it only catches markup-level hiding, not instructions written in plain visible text.</p>
+  </div>
+</div>
+
+<div class="section-label lesson">🧠 Today's Lesson</div>
+
+<div class="lesson-card">
+  <div class="lesson-title">Hybrid retrieval and reranking: why search needs two kinds of matching</div>
+  <div class="lesson-body">
+    <p>Retrieval for RAG usually combines two retrievers. <strong>Sparse</strong> search such as BM25 scores documents by exact word overlap, weighted so rare terms count more. It nails order numbers, SKUs and product names, but misses paraphrases ("send it back" versus "return policy"). <strong>Dense</strong> search embeds the query and each passage into vectors and finds nearest neighbours by meaning. It handles paraphrase but can blur exact identifiers.</p>
+    <p>Hybrid search runs both and merges the lists. A common merge is <code>reciprocal rank fusion</code>: each document scores the sum of <code>1/(k + rank)</code> across the lists it appears in, with k around 60, so no one has to calibrate BM25 scores against cosine similarities.</p>
+    <p>A <strong>reranker</strong> then takes the top 50 or so candidates. A cross-encoder reads the query and each passage together, which is far more accurate than comparing precomputed vectors but too slow to run over a whole corpus. The pipeline is cheap-and-wide first, expensive-and-narrow second.</p>
+    <p>Retrieval also decides what the model trusts. Today's fake-statistics experiment shows that a system which fetches pages and cites them inherits whatever the sources assert, so source filtering belongs in the pipeline as much as ranking does.</p>
+  </div>
+</div>
+
+<!-- ARCHIVE SIDEBAR -->
+<style>
+  .arc-btn { position: fixed; top: 18px; right: 18px; z-index: 200; background: var(--surface); border: 1px solid var(--border); border-radius: 6px; padding: 6px 11px; font-size: 12px; color: var(--muted); cursor: pointer; display: flex; align-items: center; gap: 6px; user-select: none; transition: border-color 0.15s, color 0.15s; font-family: inherit; }
+  .arc-btn:hover { border-color: #3a4060; color: var(--text); }
+  .arc-overlay { display: none; position: fixed; inset: 0; z-index: 198; background: rgba(0,0,0,0.45); }
+  .arc-overlay.open { display: block; }
+  .arc-panel { position: fixed; top: 0; right: 0; height: 100vh; width: 200px; background: var(--surface); border-left: 1px solid var(--border); z-index: 199; padding: 56px 14px 24px; overflow-y: auto; transform: translateX(100%); transition: transform 0.22s ease; }
+  .arc-panel.open { transform: translateX(0); }
+  .arc-panel-title { font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-bottom: 14px; padding-left: 4px; }
+  .arc-item { display: block; padding: 7px 8px; border-radius: 5px; font-size: 13px; color: var(--muted); text-decoration: none; margin-bottom: 2px; transition: background 0.1s, color 0.1s; }
+  .arc-item:hover { background: #1e2333; color: var(--text); }
+  .arc-item.current { background: rgba(91,142,240,0.12); color: var(--accent); font-weight: 600; }
+  .arc-close { position: absolute; top: 14px; right: 14px; background: none; border: none; color: var(--muted); cursor: pointer; font-size: 18px; line-height: 1; padding: 4px; }
+  .arc-close:hover { color: var(--text); }
+</style>
+<div class="arc-overlay" id="arcOverlay" onclick="arcClose()"></div>
+<div class="arc-panel" id="arcPanel">
+  <button class="arc-close" onclick="arcClose()">&#x2715;</button>
+  <div class="arc-panel-title">Past Issues</div>
+  <div id="arcList"><span style="color:var(--muted);font-size:12px">Loading…</span></div>
+</div>
+<button class="arc-btn" onclick="arcToggle()">
+  <svg width="13" height="11" viewBox="0 0 18 14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="0" y1="1" x2="18" y2="1"/><line x1="0" y1="7" x2="18" y2="7"/><line x1="0" y1="13" x2="18" y2="13"/></svg>
+  Past issues
+</button>
+<script>
+(function(){
+  var PAD = function(n){return String(n).padStart(2,'0');};
+  var MONTHS = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  var DAYS   = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+  var current = window.location.pathname.split('/').pop().replace(/\.html$/,'');
+  var found = [], tasks = [];
+  for(var i=0;i<45;i++){
+    (function(offset){
+      var d = new Date(); d.setDate(d.getDate()-offset);
+      var s = d.getFullYear()+'-'+PAD(d.getMonth()+1)+'-'+PAD(d.getDate());
+      tasks.push(fetch('./'+s+'.html',{method:'HEAD'}).then(function(r){if(r.ok)found.push({s:s,d:new Date(d)});}).catch(function(){}));
+    })(i);
+  }
+  Promise.all(tasks).then(function(){
+    found.sort(function(a,b){return b.d-a.d;});
+    var html='';
+    found.forEach(function(f){
+      var label=DAYS[f.d.getDay()]+', '+MONTHS[f.d.getMonth()]+' '+f.d.getDate();
+      var cls='arc-item'+(f.s===current?' current':'');
+      html+='<a class="'+cls+'" href="./'+f.s+'.html">'+label+'</a>';
+    });
+    document.getElementById('arcList').innerHTML=html||'<span style="color:var(--muted);font-size:12px">None found</span>';
+  });
+})();
+function arcToggle(){
+  var p=document.getElementById('arcPanel'),o=document.getElementById('arcOverlay');
+  var open=p.classList.contains('open');
+  if(open){arcClose();}else{p.classList.add('open');o.classList.add('open');}
+}
+function arcClose(){
+  document.getElementById('arcPanel').classList.remove('open');
+  document.getElementById('arcOverlay').classList.remove('open');
+}
+</script>
+</body>
+</html>
