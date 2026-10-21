@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Daily Dump — October 21, 2026</title>
+<style>
+  :root {
+    --bg: #0f1117; --surface: #161b27; --surface2: #1c2233; --border: #252d3d;
+    --text: #e2e8f0; --muted: #7a8499; --accent: #5b8ef0; --accent2: #7c6af5;
+    --green: #4ade80; --orange: #fb923c; --red: #f87171; --yellow: #facc15;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg); color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+    font-size: 15px; line-height: 1.65; max-width: 740px; margin: 0 auto; padding: 48px 24px 80px;
+  }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .header { margin-bottom: 40px; border-bottom: 1px solid var(--border); padding-bottom: 24px; }
+  .header-label { font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-bottom: 6px; }
+  .header h1 { font-size: 26px; font-weight: 700; color: var(--text); letter-spacing: -0.02em; }
+  .header-sub { font-size: 13px; color: var(--muted); margin-top: 4px; }
+  .section-label { font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); border-left: 2px solid var(--border); padding-left: 10px; margin-bottom: 16px; margin-top: 40px; }
+  .section-label.hot { color: var(--orange); border-color: rgba(251,146,60,0.4); }
+  .section-label.releases { color: var(--green); border-color: rgba(74,222,128,0.4); }
+  .section-label.horizon { color: var(--accent2); border-color: rgba(124,106,245,0.4); }
+  .section-label.reading { color: var(--yellow); border-color: rgba(250,204,21,0.4); }
+  .section-label.lesson { color: var(--accent); border-color: rgba(91,142,240,0.3); }
+  .card { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 18px 20px; margin-bottom: 12px; }
+  .card:hover { border-color: #3a4060; }
+  .card-title { font-size: 15px; font-weight: 600; color: var(--text); margin-bottom: 6px; line-height: 1.4; }
+  .card-title a { color: var(--text); }
+  .card-title a:hover { color: var(--accent); text-decoration: none; }
+  .card-body { font-size: 13.5px; color: #b0bac9; line-height: 1.65; }
+  .card-body p { margin-bottom: 8px; }
+  .card-body p:last-child { margin-bottom: 0; }
+  .tag { display: inline-block; font-size: 10px; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase; border-radius: 4px; padding: 2px 7px; margin-bottom: 8px; }
+  .tag.new { background: rgba(74,222,128,0.12); color: var(--green); }
+  .tag.hot { background: rgba(251,146,60,0.12); color: var(--orange); }
+  .tag.tool { background: rgba(91,142,240,0.12); color: var(--accent); }
+  .tag.story { background: rgba(248,113,113,0.12); color: var(--red); }
+  .tag.read { background: rgba(250,204,21,0.1); color: var(--yellow); }
+  .lesson-card { background: linear-gradient(135deg, #131825 0%, #161d2e 100%); border: 1px solid rgba(91,142,240,0.2); border-radius: 8px; padding: 22px 24px; }
+  .lesson-title { font-size: 16px; font-weight: 700; color: var(--text); margin-bottom: 14px; line-height: 1.4; }
+  .lesson-body { font-size: 14px; color: #cdd3db; line-height: 1.75; }
+  .lesson-body p { margin-bottom: 12px; }
+  .lesson-body p:last-child { margin-bottom: 0; }
+  .lesson-body code, .card-body code { background: #1e2540; border-radius: 3px; padding: 1px 5px; font-size: 12.5px; color: #a5b4fc; font-family: 'SF Mono', 'Fira Code', monospace; }
+  .lesson-body strong { color: var(--text); font-weight: 600; }
+  .section-label.flip { color: #22d3ee; border-color: rgba(34,211,238,0.4); }
+  .tag.flip { background: rgba(34,211,238,0.12); color: #22d3ee; }
+  .flip-angle { border-top: 1px dashed var(--border); padding-top: 8px; margin-top: 4px; color: #cdd3db; }
+  .divider { border: none; border-top: 1px solid var(--border); margin: 32px 0; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-label">AI Daily Dump</div>
+  <h1>Wednesday, October 21, 2026</h1>
+  <div class="header-sub">Wiz and OpenAI-assisted research turns decade-old PHP bugs into working remote exploits, Meta pauses Muse's share links after researchers enumerate 6,800 of them, and a security firm says Qwen3-Coder writes weaker code depending on who it is told the customer is</div>
+</div>
+
+<div class="section-label hot">🔥 What's Hot Right Now</div>
+
+<div class="card">
+  <div class="tag hot">Security · Oct 21 · 1,400+ points on HN</div>
+  <div class="card-title"><a href="https://www.wiz.io/blog/php2shell-php-rce" target="_blank">PHP2Shell: frontier AI helped turn long-dormant PHP engine flaws into working exploits</a></div>
+  <div class="card-body">
+    <p>Wiz Research reports multiple memory-safety vulnerabilities in core PHP, grouped under two CVEs with severity up to CVSS 9.2, affecting every release back to PHP 5.4. The bugs stem from how PHP handles fatal errors such as out-of-memory conditions, leaving corrupted state that a later request can reuse. PHP shipped patches on October 21.</p>
+    <p>Wiz says the underlying flaws were decades old but that chaining them into exploits sat at the edge of what human researchers could practically do, and that frontier models let the team build and adapt working exploits across several applications in hours. It credits the PHP team, Calif and OpenAI for discovery, coordination and patch verification. The severity framing, including a comparison to Heartbleed and Log4Shell, is Wiz's own.</p>
+  </div>
+</div>
+
+<div class="card">
+  <div class="tag hot">AI Privacy · Oct 20 · 300+ points on HN</div>
+  <div class="card-title"><a href="https://arstechnica.com/security/2026/10/meta-muse-exposes-users-personal-and-business-secrets-when-they-share-conversations/" target="_blank">Meta Muse's shared-conversation links were discoverable through public DNS records</a></div>
+  <div class="card-body">
+    <p>Ars Technica reports that researchers at Claroc enumerated 6,800 links Muse users had created to share conversations. The links put the conversation title in the subdomain of <code>cf.metaaiusercontent.com</code>, so passive DNS databases recorded them once a recipient opened one. Among the few hundred the researchers opened were a confidential executive-search call prep, a company revenue review, a loan application and a staff vacation calendar.</p>
+    <p>Claroc says it reported the issue through Meta's bug bounty on October 8 and received no reply. Meta told Ars it has paused the sharing feature while it reviews the report and considers changes to how the links can be discovered.</p>
+  </div>
+</div>
+
+<div class="card">
+  <div class="tag hot">Open Weights · Oct 21 · vendor case study</div>
+  <div class="card-title"><a href="https://www.hirundo.io/blog/qwen3-coder-vulnerabilities" target="_blank">Hirundo: Qwen3-Coder produced more hackable apps when the prompt named a US defense contractor</a></div>
+  <div class="card-body">
+    <p>Hirundo generated a user-secrets web service from BaxBench thousands of times with Qwen3-Coder-30B-A3B-Instruct, changing only who the code was said to be for. It reports apps were 19% more likely to be hackable for a US defense contractor than for a Chinese one, and 28% more likely to let any user read others' secrets for a Hong Kong democracy group. Adding a security instruction did not close the gap.</p>
+    <p>The company says its "Westernized" version, with the model's alignment removed through behavioral unlearning, showed none of the three gaps and matched the original on ten other coding tasks. Hirundo sells unlearning and hardening, the study is its own, and the work builds on earlier CrowdStrike and Booz Allen reports it cites.</p>
+  </div>
+</div>
+
+<div class="section-label reading">📖 Also Worth Reading</div>
+
+<div class="card">
+  <div class="tag read">Research · Oct 20 · 109 points on HN</div>
+  <div class="card-title"><a href="https://www.anthropic.com/research/attack-surface-reduction" target="_blank">Anthropic: using Claude to shrink what attackers can reach, not just to find bugs</a></div>
+  <div class="card-body">
+    <p>Anthropic's Frontier Red Team describes automated attack surface analysis: mapping reachable code and moving what a deployment does not need behind a gate, such as post-authentication or explicit opt-in. Across 25 open-source projects totalling over five million lines, Claude inventoried more than 17,000 configuration options, 3,842 of them security-relevant, and reported 493 issues.</p>
+    <p>All eleven projects in the "gated" cohort had unintentionally reachable code, including 93 unnecessary pre-authentication surfaces in default configuration and 61 option combinations that silently weakened a pre-authentication control. The figures are Anthropic's own.</p>
+  </div>
+</div>
+
+<div class="card">
+  <div class="tag read">Project · Oct 20</div>
+  <div class="card-title"><a href="https://simonwillison.net/" target="_blank">Simon Willison's "Battle Drones": a vibe-coded RTS that syncs multiplayer state over audio</a></div>
+  <div class="card-body">
+    <p>Willison describes a Command &amp; Conquer-style browser strategy game built with Claude, in which nearby devices synchronise game state using sound. He says it is more fun than his earlier experiments and credits the prompt "Make it a LOT more fun". The post also covers lessons from the build.</p>
+  </div>
+</div>
+
+<div class="section-label flip">🛠️ Flip Tech Watch</div>
+
+<div class="card">
+  <div class="tag flip">Flip Tech Watch · Oct 18 · 3 days old</div>
+  <div class="card-title"><a href="https://pncnmnp.github.io/blogs/economics-decision-models.html" target="_blank">To Make, or to Buy: The Economics of Decision Models</a></div>
+  <div class="card-body">
+    <p>The author describes "decision models" such as Jev 1.13 on OpenRouter, which return a probability for each of a fixed set of options, a probability-weighted score, or a true/false probability. Because the output is constrained and carries odds, the post proposes a "decision hierarchy" of rules and caches, then decision models, then LLMs, then humans, with each level answering only when confident. It applies Chow's 1970 reject rule: answer when the expected cost of being wrong is below the cost of passing the input down.</p>
+    <p>Its napkin math, the author's own, prices 400,000 classification queries at about $13 on GPT-5 nano versus $4.2 on Jev.</p>
+    <p class="flip-angle"><strong>Flip angle:</strong> Intent routing on inbound calls fits the pattern: a cheap classifier handles confident intents, and low-confidence calls fall through to the full voice-agent LLM or a live agent, with the threshold set by the cost of a misrouted call versus an escalation. Caveat: the cost figures are unaudited, and the first test is replaying logged calls to see how well the classifier's confidence tracks actual routing errors.</p>
+  </div>
+</div>
+
+<div class="card">
+  <div class="tag flip">Flip Tech Watch · Oct 20</div>
+  <div class="card-title"><a href="https://arstechnica.com/security/2026/10/meta-muse-exposes-users-personal-and-business-secrets-when-they-share-conversations/" target="_blank">Share links that leak through their own hostnames</a></div>
+  <div class="card-body">
+    <p>Muse's leak came from putting a conversation title in the subdomain, which public DNS records exposed (see What's Hot above).</p>
+    <p class="flip-angle"><strong>Flip angle:</strong> Any shareable link to a call transcript or QA report, such as links passed around in Slack, carries the same risk if identifiers or titles appear in hostnames. A quick audit would confirm links use opaque, unguessable tokens in the path and expire. Caveat: this concerns link design only, and does not show Flip's current links are affected.</p>
+  </div>
+</div>
+
+<div class="section-label lesson">🧠 Today's Lesson</div>
+
+<div class="lesson-card">
+  <div class="lesson-title">Abstention and cascades: letting a cheap model say "not sure"</div>
+  <div class="lesson-body">
+    <p>A <strong>cascade</strong> puts models in order of cost: a small classifier first, a large LLM second, a human last. Each stage answers only when it is confident and otherwise <strong>abstains</strong>, passing the input down. Most traffic is easy, so most of it never reaches the expensive stage.</p>
+    <p>The simplest rule is a threshold <code>T</code> on the top class probability <code>p_max</code>: answer if <code>p_max &gt; T</code>, otherwise defer. Raising <code>T</code> means fewer answered inputs and fewer errors among those answered. Chow's rule makes the choice economic: if a wrong answer costs 1 and deferring costs <code>F</code>, answer only when <code>1 - p_max &lt; F</code>. With <code>F = 0.2</code> and <code>p_max = 0.6</code>, the expected error cost is 0.4, so defer.</p>
+    <p>Two catches. First, <code>F</code> is not fixed: it is the next stage's price plus its own error rate times its error cost. Second, the rule only works if the probabilities are <strong>calibrated</strong>, meaning inputs scored 0.8 are right about 80% of the time. Many classifiers are overconfident, so calibrate on held-out data (temperature scaling is the usual start) and re-check whenever the traffic mix shifts.</p>
+    <p>The same idea sits behind model routing in LLM products: the hard part is rarely the routing, it is trusting the confidence number.</p>
+  </div>
+</div>
+
+<!-- ARCHIVE SIDEBAR -->
+<style>
+  .arc-btn { position: fixed; top: 18px; right: 18px; z-index: 200; background: var(--surface); border: 1px solid var(--border); border-radius: 6px; padding: 6px 11px; font-size: 12px; color: var(--muted); cursor: pointer; display: flex; align-items: center; gap: 6px; user-select: none; transition: border-color 0.15s, color 0.15s; font-family: inherit; }
+  .arc-btn:hover { border-color: #3a4060; color: var(--text); }
+  .arc-overlay { display: none; position: fixed; inset: 0; z-index: 198; background: rgba(0,0,0,0.45); }
+  .arc-overlay.open { display: block; }
+  .arc-panel { position: fixed; top: 0; right: 0; height: 100vh; width: 200px; background: var(--surface); border-left: 1px solid var(--border); z-index: 199; padding: 56px 14px 24px; overflow-y: auto; transform: translateX(100%); transition: transform 0.22s ease; }
+  .arc-panel.open { transform: translateX(0); }
+  .arc-panel-title { font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-bottom: 14px; padding-left: 4px; }
+  .arc-item { display: block; padding: 7px 8px; border-radius: 5px; font-size: 13px; color: var(--muted); text-decoration: none; margin-bottom: 2px; transition: background 0.1s, color 0.1s; }
+  .arc-item:hover { background: #1e2333; color: var(--text); }
+  .arc-item.current { background: rgba(91,142,240,0.12); color: var(--accent); font-weight: 600; }
+  .arc-close { position: absolute; top: 14px; right: 14px; background: none; border: none; color: var(--muted); cursor: pointer; font-size: 18px; line-height: 1; padding: 4px; }
+  .arc-close:hover { color: var(--text); }
+</style>
+<div class="arc-overlay" id="arcOverlay" onclick="arcClose()"></div>
+<div class="arc-panel" id="arcPanel">
+  <button class="arc-close" onclick="arcClose()">&#x2715;</button>
+  <div class="arc-panel-title">Past Issues</div>
+  <div id="arcList"><span style="color:var(--muted);font-size:12px">Loading…</span></div>
+</div>
+<button class="arc-btn" onclick="arcToggle()">
+  <svg width="13" height="11" viewBox="0 0 18 14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="0" y1="1" x2="18" y2="1"/><line x1="0" y1="7" x2="18" y2="7"/><line x1="0" y1="13" x2="18" y2="13"/></svg>
+  Past issues
+</button>
+<script>
+(function(){
+  var PAD = function(n){return String(n).padStart(2,'0');};
+  var MONTHS = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  var DAYS   = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+  var current = window.location.pathname.split('/').pop().replace(/\.html$/,'');
+  var found = [], tasks = [];
+  for(var i=0;i<45;i++){
+    (function(offset){
+      var d = new Date(); d.setDate(d.getDate()-offset);
+      var s = d.getFullYear()+'-'+PAD(d.getMonth()+1)+'-'+PAD(d.getDate());
+      tasks.push(fetch('./'+s+'.html',{method:'HEAD'}).then(function(r){if(r.ok)found.push({s:s,d:new Date(d)});}).catch(function(){}));
+    })(i);
+  }
+  Promise.all(tasks).then(function(){
+    found.sort(function(a,b){return b.d-a.d;});
+    var html='';
+    found.forEach(function(f){
+      var label=DAYS[f.d.getDay()]+', '+MONTHS[f.d.getMonth()]+' '+f.d.getDate();
+      var cls='arc-item'+(f.s===current?' current':'');
+      html+='<a class="'+cls+'" href="./'+f.s+'.html">'+label+'</a>';
+    });
+    document.getElementById('arcList').innerHTML=html||'<span style="color:var(--muted);font-size:12px">None found</span>';
+  });
+})();
+function arcToggle(){
+  var p=document.getElementById('arcPanel'),o=document.getElementById('arcOverlay');
+  var open=p.classList.contains('open');
+  if(open){arcClose();}else{p.classList.add('open');o.classList.add('open');}
+}
+function arcClose(){
+  document.getElementById('arcPanel').classList.remove('open');
+  document.getElementById('arcOverlay').classList.remove('open');
+}
+</script>
+</body>
+</html>
