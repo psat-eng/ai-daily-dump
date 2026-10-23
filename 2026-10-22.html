@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Daily Dump — October 22, 2026</title>
+<style>
+  :root {
+    --bg: #0f1117; --surface: #161b27; --surface2: #1c2233; --border: #252d3d;
+    --text: #e2e8f0; --muted: #7a8499; --accent: #5b8ef0; --accent2: #7c6af5;
+    --green: #4ade80; --orange: #fb923c; --red: #f87171; --yellow: #facc15;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg); color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+    font-size: 15px; line-height: 1.65; max-width: 740px; margin: 0 auto; padding: 48px 24px 80px;
+  }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .header { margin-bottom: 40px; border-bottom: 1px solid var(--border); padding-bottom: 24px; }
+  .header-label { font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-bottom: 6px; }
+  .header h1 { font-size: 26px; font-weight: 700; color: var(--text); letter-spacing: -0.02em; }
+  .header-sub { font-size: 13px; color: var(--muted); margin-top: 4px; }
+  .section-label { font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); border-left: 2px solid var(--border); padding-left: 10px; margin-bottom: 16px; margin-top: 40px; }
+  .section-label.hot { color: var(--orange); border-color: rgba(251,146,60,0.4); }
+  .section-label.releases { color: var(--green); border-color: rgba(74,222,128,0.4); }
+  .section-label.horizon { color: var(--accent2); border-color: rgba(124,106,245,0.4); }
+  .section-label.reading { color: var(--yellow); border-color: rgba(250,204,21,0.4); }
+  .section-label.lesson { color: var(--accent); border-color: rgba(91,142,240,0.3); }
+  .card { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 18px 20px; margin-bottom: 12px; }
+  .card:hover { border-color: #3a4060; }
+  .card-title { font-size: 15px; font-weight: 600; color: var(--text); margin-bottom: 6px; line-height: 1.4; }
+  .card-title a { color: var(--text); }
+  .card-title a:hover { color: var(--accent); text-decoration: none; }
+  .card-body { font-size: 13.5px; color: #b0bac9; line-height: 1.65; }
+  .card-body p { margin-bottom: 8px; }
+  .card-body p:last-child { margin-bottom: 0; }
+  .tag { display: inline-block; font-size: 10px; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase; border-radius: 4px; padding: 2px 7px; margin-bottom: 8px; }
+  .tag.new { background: rgba(74,222,128,0.12); color: var(--green); }
+  .tag.hot { background: rgba(251,146,60,0.12); color: var(--orange); }
+  .tag.tool { background: rgba(91,142,240,0.12); color: var(--accent); }
+  .tag.story { background: rgba(248,113,113,0.12); color: var(--red); }
+  .tag.read { background: rgba(250,204,21,0.1); color: var(--yellow); }
+  .lesson-card { background: linear-gradient(135deg, #131825 0%, #161d2e 100%); border: 1px solid rgba(91,142,240,0.2); border-radius: 8px; padding: 22px 24px; }
+  .lesson-title { font-size: 16px; font-weight: 700; color: var(--text); margin-bottom: 14px; line-height: 1.4; }
+  .lesson-body { font-size: 14px; color: #cdd3db; line-height: 1.75; }
+  .lesson-body p { margin-bottom: 12px; }
+  .lesson-body p:last-child { margin-bottom: 0; }
+  .lesson-body code, .card-body code { background: #1e2540; border-radius: 3px; padding: 1px 5px; font-size: 12.5px; color: #a5b4fc; font-family: 'SF Mono', 'Fira Code', monospace; }
+  .lesson-body strong { color: var(--text); font-weight: 600; }
+  .section-label.flip { color: #22d3ee; border-color: rgba(34,211,238,0.4); }
+  .tag.flip { background: rgba(34,211,238,0.12); color: #22d3ee; }
+  .flip-angle { border-top: 1px dashed var(--border); padding-top: 8px; margin-top: 4px; color: #cdd3db; }
+  .divider { border: none; border-top: 1px solid var(--border); margin: 32px 0; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-label">AI Daily Dump</div>
+  <h1>Thursday, October 22, 2026</h1>
+  <div class="header-sub">A 360M-parameter model learns to play terminal in a browser tab, Amazon's honeypots catch PHP2Shell probing four days before disclosure while a skeptic says the public exploits do not work, and a blog post argues an LLM's own confidence score is just more generated text</div>
+</div>
+
+<div class="section-label hot">🔥 What's Hot Right Now</div>
+
+<div class="card">
+  <div class="tag hot">Small Models · Oct 21 · 412 points on HN</div>
+  <div class="card-title"><a href="https://simedw.com/2026/10/21/world-model-terminal/" target="_blank">WorldTUI: a 360M model that pretends to be a terminal</a></div>
+  <div class="card-body">
+    <p>Simon Edwardsson fine-tuned Qwen2.5-Coder-0.5B to act as a terminal with no shell or filesystem behind it: each keypress goes in and the model predicts which screen rows change. It can create files, run vim and tmux and play snake. The model works over a 333-token vocabulary, uses a COPY operation so a scroll costs about three tokens per row instead of roughly 96, and was trained on 336k synthetic sessions recorded from real shells in Docker.</p>
+    <p>For speed, rows are decoded in parallel and then checked by the same model in a speculative-decoding pass, which the author reports cut large-frame p95 latency on an RTX 4090 from 6.7 s to 0.87 s. Dropping the unused embedding rows took the model from about 494M to 360M parameters, and int4 quantization brought it to 208 MB for a WebGPU browser demo. The author is candid about limits: on his memory test it read back 9 of 13 values correctly, and combining familiar commands in new ways often breaks it.</p>
+  </div>
+</div>
+
+<div class="card">
+  <div class="tag hot">Security · Oct 21 · 181 points on HN</div>
+  <div class="card-title"><a href="https://aws.amazon.com/blogs/security/amazon-threat-intelligence-identifies-php2shell-exploitation-prior-to-public-disclosure-in-madpot/" target="_blank">Amazon: PHP2Shell exploitation attempts began October 17, four days before disclosure</a></div>
+  <div class="card-body">
+    <p>Amazon Threat Intelligence says its MadPot honeypot network logged a PHP2Shell attempt on October 17 from an IP address tied to a commercial anonymization network, four days before CVE-2026-109618 and CVE-2026-109619 were made public. It reports further attempts from the early hours of October 21, with varying payloads suggesting multiple actors, and says the flaw is now being broadly exploited. It is unclear how the first actor learned of the bug, and Amazon says it is unclear whether any attempt would have succeeded on real systems.</p>
+    <p>Amazon argues that AI-assisted analysis makes it cheaper to turn a patch diff into a working exploit, and recommends measuring patch timelines for critical internet-facing bugs in hours. Its listed mitigations are upgrading PHP, since no configuration-only workaround covers both issues, and watching for <code>PHP_SESSION_UPLOAD_PROGRESS</code> in multipart uploads.</p>
+  </div>
+</div>
+
+<div class="card">
+  <div class="tag hot">Security · Oct 21 · 594 points on HN</div>
+  <div class="card-title"><a href="https://eliastaylor.com/noexploit/" target="_blank">A skeptic's case: public PHP2Shell proofs of concept do not work on vanilla PHP</a></div>
+  <div class="card-body">
+    <p>Developer Elias Taylor argues the PHP bug is real but far harder to exploit than Log4Shell or Heartbleed. He says the thousands of GitHub proofs of concept he looked at fail against a stock PHP instance, and that many lean on a separate local-file-inclusion flaw already being present on the target. He attributes the pattern to people trusting LLM-written exploits without running them. The post was written about ten hours after disclosure, and the claim is the author's own assessment. It sits against Amazon's report above of observed exploitation attempts, which does not say whether any succeeded.</p>
+  </div>
+</div>
+
+<div class="section-label reading">📖 Also Worth Reading</div>
+
+<div class="card">
+  <div class="tag read">Essay · Oct 20 · 167 points on HN</div>
+  <div class="card-title"><a href="https://rumple.github.io/blog/2026/10/20/asking-llm-for-confidence.html" target="_blank">Asking an LLM for confidence: why the number cannot be trusted</a></div>
+  <div class="card-body">
+    <p>Amrut Joshi argues that a confidence score has to reflect how much information supports a prediction and has to be checked against outcomes on the same kind of question. A model that writes "0.85" is generating a plausible continuation of the text rather than reading a gauge, so the number can change when the question is asked again or reworded, and is shaped by whatever the model wrote just before it. Pretraining calibrates next-token prediction, the post says, not the match between stated confidence and accuracy.</p>
+  </div>
+</div>
+
+<div class="card">
+  <div class="tag tool">Tool · Oct 21 · Show HN · 3.1k GitHub stars</div>
+  <div class="card-title"><a href="https://github.com/omnara-ai/omnara" target="_blank">Omnara: an open-source, self-hostable managed-agent platform</a></div>
+  <div class="card-body">
+    <p>Omnara presents itself as an Apache 2.0 alternative to Claude Managed Agents and OpenAI's Agents API. Agents are defined in a YAML file with a model provider, instructions and a machine or sandbox pool, then launched through a CLI or TypeScript SDK, with tools, secrets, permissions and streaming handled by the platform. It can be self-hosted with Docker Compose or run on Omnara Cloud, and the README warns the local defaults are intentionally insecure.</p>
+  </div>
+</div>
+
+<div class="card">
+  <div class="tag read">Quote · Oct 22</div>
+  <div class="card-title"><a href="https://simonwillison.net/" target="_blank">Simon Willison quotes Armin Ronacher on three decades of bad software</a></div>
+  <div class="card-body">
+    <p>Willison's weblog highlights a line from Ronacher, filed under AI security research: "we built so much bad software over the last 30 years, and now the universe is punishing us for our sins." The same page carries the PHP Foundation's timeline of how the embargo leaked on October 20, and a note that a French steampunk fork of his Apache-licensed Battle Drones game appeared within a day of release.</p>
+  </div>
+</div>
+
+<div class="section-label flip">🛠️ Flip Tech Watch</div>
+
+<div class="card">
+  <div class="tag flip">Flip Tech Watch · Oct 20</div>
+  <div class="card-title"><a href="https://rumple.github.io/blog/2026/10/20/asking-llm-for-confidence.html" target="_blank">Verbalized confidence versus measured confidence</a></div>
+  <div class="card-body">
+    <p>The essay above argues that a self-reported confidence number is generated text, not a measurement, and that a trustworthy score needs outcome records for the same kind of question.</p>
+    <p class="flip-angle"><strong>Flip angle:</strong> Any escalation or "should this call go to a live agent" decision that relies on the voice agent saying how sure it is would inherit this problem. The alternative is a score tied to logged outcomes, such as a classifier's probability checked against whether the call was later resolved or escalated. Caveat: the post is an argument, not an experiment, and the first test is to bucket past calls by whatever confidence signal exists and compare each bucket's actual resolution rate.</p>
+  </div>
+</div>
+
+<div class="card">
+  <div class="tag flip">Flip Tech Watch · Oct 21</div>
+  <div class="card-title"><a href="https://simedw.com/2026/10/21/world-model-terminal/" target="_blank">Trimming a small model's vocabulary and constraining its output</a></div>
+  <div class="card-body">
+    <p>WorldTUI's author removed the unused embedding rows from a 0.5B model, decoded under a grammar that guarantees valid output, and quantized to int4 to reach 208 MB (see What's Hot above).</p>
+    <p class="flip-angle"><strong>Flip angle:</strong> A fixed-label task such as intent routing needs only a small output vocabulary, so a fine-tuned small model with grammar-constrained decoding could return a valid intent label every time and run on modest hardware. Caveat: the demo is a research prototype with a synthetic data pipeline, its results are on the author's own benchmarks, and Flip's gain would depend on how a small model compares with its current router on logged calls.</p>
+  </div>
+</div>
+
+<div class="section-label lesson">🧠 Today's Lesson</div>
+
+<div class="lesson-card">
+  <div class="lesson-title">Embedding tables: why a 0.5B model carries 136M parameters just for its vocabulary</div>
+  <div class="lesson-body">
+    <p>The first layer of a language model is a lookup table with one row per token, and each row is a vector of the model's hidden size. Its parameter count is <code>vocab_size × hidden_dim</code>. For Qwen2.5-0.5B that is 151,936 tokens times a hidden size of 896, about 136M parameters, roughly a quarter of the whole model. The output layer that turns hidden states back into token scores has the same shape, so many small models <strong>tie</strong> the two and share one matrix.</p>
+    <p>That share is large only because the model is small. In a 70B model the same table is a rounding error; in a sub-1B model it is a major cost in memory and download size. It also sets the cost of the last step of every decode: scoring all 151,936 candidates for each generated token.</p>
+    <p>If a model will only ever emit a few hundred distinct tokens, most of the table is dead weight. <strong>Vocabulary pruning</strong> keeps the rows for tokens that will be used, renumbers them, and drops the rest. WorldTUI did this with a 333-token vocabulary, which accounts for most of the drop from 494M to about 360M parameters, before int4 quantization (about half a byte per weight) shrank it further.</p>
+    <p>The catch is that pruning is one-way: the model can no longer read or write anything outside the kept tokens. It suits fixed-format tasks such as classification labels or structured output, and it is a poor fit for open-ended chat.</p>
+  </div>
+</div>
+
+<!-- ARCHIVE SIDEBAR -->
+<style>
+  .arc-btn { position: fixed; top: 18px; right: 18px; z-index: 200; background: var(--surface); border: 1px solid var(--border); border-radius: 6px; padding: 6px 11px; font-size: 12px; color: var(--muted); cursor: pointer; display: flex; align-items: center; gap: 6px; user-select: none; transition: border-color 0.15s, color 0.15s; font-family: inherit; }
+  .arc-btn:hover { border-color: #3a4060; color: var(--text); }
+  .arc-overlay { display: none; position: fixed; inset: 0; z-index: 198; background: rgba(0,0,0,0.45); }
+  .arc-overlay.open { display: block; }
+  .arc-panel { position: fixed; top: 0; right: 0; height: 100vh; width: 200px; background: var(--surface); border-left: 1px solid var(--border); z-index: 199; padding: 56px 14px 24px; overflow-y: auto; transform: translateX(100%); transition: transform 0.22s ease; }
+  .arc-panel.open { transform: translateX(0); }
+  .arc-panel-title { font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-bottom: 14px; padding-left: 4px; }
+  .arc-item { display: block; padding: 7px 8px; border-radius: 5px; font-size: 13px; color: var(--muted); text-decoration: none; margin-bottom: 2px; transition: background 0.1s, color 0.1s; }
+  .arc-item:hover { background: #1e2333; color: var(--text); }
+  .arc-item.current { background: rgba(91,142,240,0.12); color: var(--accent); font-weight: 600; }
+  .arc-close { position: absolute; top: 14px; right: 14px; background: none; border: none; color: var(--muted); cursor: pointer; font-size: 18px; line-height: 1; padding: 4px; }
+  .arc-close:hover { color: var(--text); }
+</style>
+<div class="arc-overlay" id="arcOverlay" onclick="arcClose()"></div>
+<div class="arc-panel" id="arcPanel">
+  <button class="arc-close" onclick="arcClose()">&#x2715;</button>
+  <div class="arc-panel-title">Past Issues</div>
+  <div id="arcList"><span style="color:var(--muted);font-size:12px">Loading…</span></div>
+</div>
+<button class="arc-btn" onclick="arcToggle()">
+  <svg width="13" height="11" viewBox="0 0 18 14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="0" y1="1" x2="18" y2="1"/><line x1="0" y1="7" x2="18" y2="7"/><line x1="0" y1="13" x2="18" y2="13"/></svg>
+  Past issues
+</button>
+<script>
+(function(){
+  var PAD = function(n){return String(n).padStart(2,'0');};
+  var MONTHS = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  var DAYS   = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+  var current = window.location.pathname.split('/').pop().replace(/\.html$/,'');
+  var found = [], tasks = [];
+  for(var i=0;i<45;i++){
+    (function(offset){
+      var d = new Date(); d.setDate(d.getDate()-offset);
+      var s = d.getFullYear()+'-'+PAD(d.getMonth()+1)+'-'+PAD(d.getDate());
+      tasks.push(fetch('./'+s+'.html',{method:'HEAD'}).then(function(r){if(r.ok)found.push({s:s,d:new Date(d)});}).catch(function(){}));
+    })(i);
+  }
+  Promise.all(tasks).then(function(){
+    found.sort(function(a,b){return b.d-a.d;});
+    var html='';
+    found.forEach(function(f){
+      var label=DAYS[f.d.getDay()]+', '+MONTHS[f.d.getMonth()]+' '+f.d.getDate();
+      var cls='arc-item'+(f.s===current?' current':'');
+      html+='<a class="'+cls+'" href="./'+f.s+'.html">'+label+'</a>';
+    });
+    document.getElementById('arcList').innerHTML=html||'<span style="color:var(--muted);font-size:12px">None found</span>';
+  });
+})();
+function arcToggle(){
+  var p=document.getElementById('arcPanel'),o=document.getElementById('arcOverlay');
+  var open=p.classList.contains('open');
+  if(open){arcClose();}else{p.classList.add('open');o.classList.add('open');}
+}
+function arcClose(){
+  document.getElementById('arcPanel').classList.remove('open');
+  document.getElementById('arcOverlay').classList.remove('open');
+}
+</script>
+</body>
+</html>
