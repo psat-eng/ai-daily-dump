@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Daily Dump — October 23, 2026</title>
+<style>
+  :root {
+    --bg: #0f1117; --surface: #161b27; --surface2: #1c2233; --border: #252d3d;
+    --text: #e2e8f0; --muted: #7a8499; --accent: #5b8ef0; --accent2: #7c6af5;
+    --green: #4ade80; --orange: #fb923c; --red: #f87171; --yellow: #facc15;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg); color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+    font-size: 15px; line-height: 1.65; max-width: 740px; margin: 0 auto; padding: 48px 24px 80px;
+  }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .header { margin-bottom: 40px; border-bottom: 1px solid var(--border); padding-bottom: 24px; }
+  .header-label { font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-bottom: 6px; }
+  .header h1 { font-size: 26px; font-weight: 700; color: var(--text); letter-spacing: -0.02em; }
+  .header-sub { font-size: 13px; color: var(--muted); margin-top: 4px; }
+  .section-label { font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); border-left: 2px solid var(--border); padding-left: 10px; margin-bottom: 16px; margin-top: 40px; }
+  .section-label.hot { color: var(--orange); border-color: rgba(251,146,60,0.4); }
+  .section-label.releases { color: var(--green); border-color: rgba(74,222,128,0.4); }
+  .section-label.horizon { color: var(--accent2); border-color: rgba(124,106,245,0.4); }
+  .section-label.reading { color: var(--yellow); border-color: rgba(250,204,21,0.4); }
+  .section-label.lesson { color: var(--accent); border-color: rgba(91,142,240,0.3); }
+  .card { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 18px 20px; margin-bottom: 12px; }
+  .card:hover { border-color: #3a4060; }
+  .card-title { font-size: 15px; font-weight: 600; color: var(--text); margin-bottom: 6px; line-height: 1.4; }
+  .card-title a { color: var(--text); }
+  .card-title a:hover { color: var(--accent); text-decoration: none; }
+  .card-body { font-size: 13.5px; color: #b0bac9; line-height: 1.65; }
+  .card-body p { margin-bottom: 8px; }
+  .card-body p:last-child { margin-bottom: 0; }
+  .tag { display: inline-block; font-size: 10px; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase; border-radius: 4px; padding: 2px 7px; margin-bottom: 8px; }
+  .tag.new { background: rgba(74,222,128,0.12); color: var(--green); }
+  .tag.hot { background: rgba(251,146,60,0.12); color: var(--orange); }
+  .tag.tool { background: rgba(91,142,240,0.12); color: var(--accent); }
+  .tag.story { background: rgba(248,113,113,0.12); color: var(--red); }
+  .tag.read { background: rgba(250,204,21,0.1); color: var(--yellow); }
+  .lesson-card { background: linear-gradient(135deg, #131825 0%, #161d2e 100%); border: 1px solid rgba(91,142,240,0.2); border-radius: 8px; padding: 22px 24px; }
+  .lesson-title { font-size: 16px; font-weight: 700; color: var(--text); margin-bottom: 14px; line-height: 1.4; }
+  .lesson-body { font-size: 14px; color: #cdd3db; line-height: 1.75; }
+  .lesson-body p { margin-bottom: 12px; }
+  .lesson-body p:last-child { margin-bottom: 0; }
+  .lesson-body code, .card-body code { background: #1e2540; border-radius: 3px; padding: 1px 5px; font-size: 12.5px; color: #a5b4fc; font-family: 'SF Mono', 'Fira Code', monospace; }
+  .lesson-body strong { color: var(--text); font-weight: 600; }
+  .section-label.flip { color: #22d3ee; border-color: rgba(34,211,238,0.4); }
+  .tag.flip { background: rgba(34,211,238,0.12); color: #22d3ee; }
+  .flip-angle { border-top: 1px dashed var(--border); padding-top: 8px; margin-top: 4px; color: #cdd3db; }
+  .divider { border: none; border-top: 1px solid var(--border); margin: 32px 0; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-label">AI Daily Dump</div>
+  <h1>Friday, October 23, 2026</h1>
+  <div class="header-sub">Moonshot's Kimi K3.1 Pro lands fourth on the Artificial Analysis index with open weights promised by Nov 4, OpenAI's $0.10-per-million Decisions API goes generally available, and Anthropic says Claude wrote machine-checked proofs for 123 open-source libraries</div>
+</div>
+
+<div class="section-label hot">🔥 What's Hot Right Now</div>
+
+<div class="card">
+  <div class="tag hot">Verification · Oct 22 · 429 points on HN</div>
+  <div class="card-title"><a href="https://www.unite.ai/anthropic-says-claude-proved-security-properties-across-123-libraries/" target="_blank">Anthropic: Claude produced formal proofs of memory safety for 239 fuzz targets across 123 libraries</a></div>
+  <div class="card-body">
+    <p>Anthropic, working with Theorem, reports that Claude turned each library's existing fuzz test into a specification (the target never crashes on any input under 64 MB) and then proved it at the RISC-V assembly level, checked by the Rocq proof assistant. According to the write-up, Claude produced about one billion lines of Rocq, of which roughly 180 million passed the checker; a typical proof runs about 600,000 lines. Anthropic says the attempts surfaced hundreds of bugs, including ones a fuzzer would rarely hit, such as an out-of-bounds write that needs a roughly 20 MB input with one rare layout.</p>
+    <p>Anthropic is explicit about limits: the proofs cover single-threaded static RISC-V binaries linked against musl, not the x86 or ARM glibc builds most people run, and AddressSanitizer does not catch every memory bug. Theorem is offering the pipeline free to qualifying open-source projects through its OSS Verify program. Link is a third-party summary of Anthropic's post.</p>
+  </div>
+</div>
+
+<div class="card">
+  <div class="tag hot">Safety · Oct 22 · 183 points on HN</div>
+  <div class="card-title"><a href="https://www.lesswrong.com/posts/WHEQps5PK8LrrcTAb/how-does-fable-5-1-hide-messages-in-images" target="_blank">How does Fable 5.1 hide messages in images?</a></div>
+  <div class="card-body">
+    <p>Researchers from the SASH Fellowship asked Claude Fable 5.1, at maximum effort, to draw an SVG hiding each of 50 short messages in 15 languages, with no scheme specified. In 33 of 50 images the model encoded letters as object heights, such as building heights in a night skyline, and a fresh Fable instance given only the rendered PNG recovered 78% of the messages. GPT-6 Astra, given the same task, never used heights; it favoured Morse-style short and long objects and acrostics, and cross-model decoding recovered 44 of Fable's 50 and 42 of Astra's.</p>
+    <p>The authors say decoding is still easy to catch by watching the decoder's tool calls, so they do not claim it is dangerous today, but they frame it as a possible precursor to image steganography between agents.</p>
+  </div>
+</div>
+
+<div class="section-label releases">🚀 New Releases &amp; Updates</div>
+
+<div class="card">
+  <div class="tag new">Open Weights · Oct 23 · 353 points on HN</div>
+  <div class="card-title"><a href="https://www.kimi.ai/blog/kimi-k3-1-pro" target="_blank">Kimi K3.1 Pro and K3.1 Pro Highspeed</a></div>
+  <div class="card-body">
+    <p>Moonshot calls K3.1 Pro its most capable 3T-class open-weight model, with a 1M-token context window, and says the Highspeed variant runs 2–3× faster. Both are live on Kimi.ai, Kimi Code and the API, with full weights promised by Nov 4. Moonshot reports 65.7% on Terminal-Bench 4.0 against 66.4% for Claude Opus 5.5 and 58.2% for GPT-6 Astra, and says claim-level hallucination on its internal stress test fell from 23.4% to 8.3%.</p>
+    <p>Artificial Analysis, publishing today, scores it 55 on its Intelligence Index, fourth behind Opus 5.5 (58), Sonnet 5.5 (56) and Muse Wonder Full (56), and reports 2.8T total and 104B active parameters. It measures a cost per task of $1.98, roughly level with K3, because K3.1 Pro uses 14% more output tokens while first-party prices are 33% lower ($2 input, $10 output, $0.20 cached per million). Artificial Analysis says the open-weights gap to proprietary models would narrow from 12 points to 3 once weights ship. Moonshot also says it removed cyber-related data from training for the open release.</p>
+  </div>
+</div>
+
+<div class="card">
+  <div class="tag new">API · Oct 22</div>
+  <div class="card-title"><a href="https://www.unite.ai/openai-makes-decisions-api-generally-available-with-gpt-6-luna/" target="_blank">OpenAI makes the Decisions API generally available</a></div>
+  <div class="card-body">
+    <p>OpenAI's <code>/v1/decisions</code> endpoint, backed by GPT-6 Luna, returns typed answers instead of free text: a probability for a yes/no predicate, a choice among fixed options with per-option probabilities and a confidence value, or a rubric score. OpenAI says it is up to 10× faster than asking Luna through the Responses API and bills only input tokens, at $0.10 per million ($0.01 cached). Since the beta it added prompt caching, JSON inputs, up to 400 questions per request, EU and US residency, and a GPT-Live integration for voice sessions.</p>
+    <p>Customer figures quoted by OpenAI are self-reported: Sierra says next-action selection runs under 280 ms p95, about 3× faster and 90% cheaper per call than its prior approach with no drop in outcomes, and Datadog reports 40× faster p95 when scoring agent-generated shell commands. See Flip Tech Watch.</p>
+  </div>
+</div>
+
+<div class="section-label horizon">🔭 On the Horizon</div>
+
+<div class="card">
+  <div class="tag hot">Announced · Weights due by Nov 4</div>
+  <div class="card-title"><a href="https://www.kimi.ai/blog/kimi-k3-1-pro" target="_blank">Kimi K3.1 Pro open weights</a></div>
+  <div class="card-body">
+    <p>Moonshot says full weights arrive by November 4, 2026. At 2.8T total parameters (per Artificial Analysis) the release is a data-center-class model rather than a local one, and Moonshot says its own cyber-capability evaluations drove what was removed from training data for the open version.</p>
+  </div>
+</div>
+
+<div class="section-label reading">📖 Also Worth Reading</div>
+
+<div class="card">
+  <div class="tag read">Standards · Oct 22</div>
+  <div class="card-title"><a href="https://simonwillison.net/" target="_blank">Anthropic donates the Agent Skills standard to the Agentic AI Foundation</a></div>
+  <div class="card-body">
+    <p>Simon Willison's weblog relays Anthropic's announcement that it is donating the Agent Skills standard to the Agentic AI Foundation under the Linux Foundation, the body Anthropic co-founded with Block and OpenAI and to which it previously donated the Model Context Protocol. Willison notes he had predicted this destination in December.</p>
+  </div>
+</div>
+
+<div class="card">
+  <div class="tag read">Voice · Oct 20 · 3 days old</div>
+  <div class="card-title"><a href="https://sierra.ai/blog/from-conversation-to-payment-sierra-and-stripe" target="_blank">Sierra and Stripe: take the card payment inside the support call</a></div>
+  <div class="card-body">
+    <p>Sierra says its agents can now move into a secure payment mode mid-call, collect card details on the keypad, route them to Stripe, and then rejoin the call to confirm. Sierra reports that for Cedar's medical-billing agent, 71.3% of calls that start a payment end in a successful one. Sierra is also listed in the Stripe App Marketplace.</p>
+  </div>
+</div>
+
+<div class="section-label flip">🛠️ Flip Tech Watch</div>
+
+<div class="card">
+  <div class="tag flip">Flip Tech Watch · Oct 22</div>
+  <div class="card-title"><a href="https://www.unite.ai/openai-makes-decisions-api-generally-available-with-gpt-6-luna/" target="_blank">A typed, calibrated decision endpoint for in-call routing</a></div>
+  <div class="card-body">
+    <p>The Decisions API (above) returns probabilities for fixed answer sets at $0.10 per million input tokens, and OpenAI describes a support-agent pattern in which decisions run on transcript updates to choose between asking a clarifying question, routing, or escalating.</p>
+    <p class="flip-angle"><strong>Flip angle:</strong> This maps directly onto intent classification, the "escalate or keep automating" call, and flagging returns or order-status calls that need a human. Per-option probabilities could also give a threshold tied to logged outcomes, rather than a self-reported confidence. Caveats: the speed and cost figures come from OpenAI and its customers, it is a single-vendor endpoint, audio is not supported (transcripts only), and dependent decisions need separate calls. First test: replay a few thousand logged escalated calls through a choice question using Flip's intent list plus an "other" fallback, and compare accuracy and p95 latency with the current router.</p>
+  </div>
+</div>
+
+<div class="card">
+  <div class="tag flip">Flip Tech Watch · Oct 20 · 3 days old</div>
+  <div class="card-title"><a href="https://sierra.ai/blog/from-conversation-to-payment-sierra-and-stripe" target="_blank">Keypad payment capture without leaving the call</a></div>
+  <div class="card-body">
+    <p>Sierra's design hands card entry to the caller's keypad and Stripe while the agent steps out of the audio path, then resumes to confirm the result.</p>
+    <p class="flip-angle"><strong>Flip angle:</strong> For ecommerce and retail clients, calls about order changes, reorders, or outstanding balances currently end with a payment link or a transfer to a live agent. A DTMF payment mode would keep those calls automated and keep card numbers out of transcripts and model context. Caveats: this is a competitor's product announcement with one customer's self-reported figure, from healthcare billing rather than retail, and PCI scope, client opt-in and the payment processor each client uses would decide feasibility. First test: count how many escalated calls in a client's logs ended in a payment or order change.</p>
+  </div>
+</div>
+
+<div class="section-label lesson">🧠 Today's Lesson</div>
+
+<div class="lesson-card">
+  <div class="lesson-title">Classification without generation: how a model can answer in one forward pass</div>
+  <div class="lesson-body">
+    <p>Chat-style generation is a loop: run the whole prompt through the model once (<strong>prefill</strong>), then produce one token at a time, re-reading the weights and the KV cache for each. That loop is where most latency lives. A task with a fixed set of answers does not need it.</p>
+    <p>At the end of any forward pass the model produces a score, a <strong>logit</strong>, for every token in its vocabulary. A softmax turns those scores into probabilities. If the answer options are labelled with distinct single tokens, say "A", "B", "C", reading the probabilities of just those tokens after prefill gives a full probability distribution over the options, with zero decode steps. One pass instead of dozens.</p>
+    <p>This also explains where trustworthy confidence numbers can come from. The probability is read from the model's actual output distribution rather than written out as text, which is the weakness of asking a model to type "0.85". It is still only as good as its calibration, so thresholds should be set against labelled outcomes, as OpenAI's own documentation advises for the Decisions API. OpenAI has not published how that endpoint is implemented, so the single-pass mechanism here is the general technique, not a description of its internals.</p>
+    <p>Two practical consequences: prefill is compute-bound and batches well, so cost scales with input tokens (matching an input-only price), and a long shared prefix such as the category descriptions can be cached and reused across calls.</p>
+  </div>
+</div>
+
+<!-- ARCHIVE SIDEBAR -->
+<style>
+  .arc-btn { position: fixed; top: 18px; right: 18px; z-index: 200; background: var(--surface); border: 1px solid var(--border); border-radius: 6px; padding: 6px 11px; font-size: 12px; color: var(--muted); cursor: pointer; display: flex; align-items: center; gap: 6px; user-select: none; transition: border-color 0.15s, color 0.15s; font-family: inherit; }
+  .arc-btn:hover { border-color: #3a4060; color: var(--text); }
+  .arc-overlay { display: none; position: fixed; inset: 0; z-index: 198; background: rgba(0,0,0,0.45); }
+  .arc-overlay.open { display: block; }
+  .arc-panel { position: fixed; top: 0; right: 0; height: 100vh; width: 200px; background: var(--surface); border-left: 1px solid var(--border); z-index: 199; padding: 56px 14px 24px; overflow-y: auto; transform: translateX(100%); transition: transform 0.22s ease; }
+  .arc-panel.open { transform: translateX(0); }
+  .arc-panel-title { font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-bottom: 14px; padding-left: 4px; }
+  .arc-item { display: block; padding: 7px 8px; border-radius: 5px; font-size: 13px; color: var(--muted); text-decoration: none; margin-bottom: 2px; transition: background 0.1s, color 0.1s; }
+  .arc-item:hover { background: #1e2333; color: var(--text); }
+  .arc-item.current { background: rgba(91,142,240,0.12); color: var(--accent); font-weight: 600; }
+  .arc-close { position: absolute; top: 14px; right: 14px; background: none; border: none; color: var(--muted); cursor: pointer; font-size: 18px; line-height: 1; padding: 4px; }
+  .arc-close:hover { color: var(--text); }
+</style>
+<div class="arc-overlay" id="arcOverlay" onclick="arcClose()"></div>
+<div class="arc-panel" id="arcPanel">
+  <button class="arc-close" onclick="arcClose()">&#x2715;</button>
+  <div class="arc-panel-title">Past Issues</div>
+  <div id="arcList"><span style="color:var(--muted);font-size:12px">Loading…</span></div>
+</div>
+<button class="arc-btn" onclick="arcToggle()">
+  <svg width="13" height="11" viewBox="0 0 18 14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="0" y1="1" x2="18" y2="1"/><line x1="0" y1="7" x2="18" y2="7"/><line x1="0" y1="13" x2="18" y2="13"/></svg>
+  Past issues
+</button>
+<script>
+(function(){
+  var PAD = function(n){return String(n).padStart(2,'0');};
+  var MONTHS = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  var DAYS   = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+  var current = window.location.pathname.split('/').pop().replace(/\.html$/,'');
+  var found = [], tasks = [];
+  for(var i=0;i<45;i++){
+    (function(offset){
+      var d = new Date(); d.setDate(d.getDate()-offset);
+      var s = d.getFullYear()+'-'+PAD(d.getMonth()+1)+'-'+PAD(d.getDate());
+      tasks.push(fetch('./'+s+'.html',{method:'HEAD'}).then(function(r){if(r.ok)found.push({s:s,d:new Date(d)});}).catch(function(){}));
+    })(i);
+  }
+  Promise.all(tasks).then(function(){
+    found.sort(function(a,b){return b.d-a.d;});
+    var html='';
+    found.forEach(function(f){
+      var label=DAYS[f.d.getDay()]+', '+MONTHS[f.d.getMonth()]+' '+f.d.getDate();
+      var cls='arc-item'+(f.s===current?' current':'');
+      html+='<a class="'+cls+'" href="./'+f.s+'.html">'+label+'</a>';
+    });
+    document.getElementById('arcList').innerHTML=html||'<span style="color:var(--muted);font-size:12px">None found</span>';
+  });
+})();
+function arcToggle(){
+  var p=document.getElementById('arcPanel'),o=document.getElementById('arcOverlay');
+  var open=p.classList.contains('open');
+  if(open){arcClose();}else{p.classList.add('open');o.classList.add('open');}
+}
+function arcClose(){
+  document.getElementById('arcPanel').classList.remove('open');
+  document.getElementById('arcOverlay').classList.remove('open');
+}
+</script>
+</body>
+</html>
