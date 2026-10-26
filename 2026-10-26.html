@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Daily Dump — October 26, 2026</title>
+<style>
+  :root {
+    --bg: #0f1117; --surface: #161b27; --surface2: #1c2233; --border: #252d3d;
+    --text: #e2e8f0; --muted: #7a8499; --accent: #5b8ef0; --accent2: #7c6af5;
+    --green: #4ade80; --orange: #fb923c; --red: #f87171; --yellow: #facc15;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg); color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+    font-size: 15px; line-height: 1.65; max-width: 740px; margin: 0 auto; padding: 48px 24px 80px;
+  }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .header { margin-bottom: 40px; border-bottom: 1px solid var(--border); padding-bottom: 24px; }
+  .header-label { font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-bottom: 6px; }
+  .header h1 { font-size: 26px; font-weight: 700; color: var(--text); letter-spacing: -0.02em; }
+  .header-sub { font-size: 13px; color: var(--muted); margin-top: 4px; }
+  .section-label { font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); border-left: 2px solid var(--border); padding-left: 10px; margin-bottom: 16px; margin-top: 40px; }
+  .section-label.hot { color: var(--orange); border-color: rgba(251,146,60,0.4); }
+  .section-label.releases { color: var(--green); border-color: rgba(74,222,128,0.4); }
+  .section-label.horizon { color: var(--accent2); border-color: rgba(124,106,245,0.4); }
+  .section-label.reading { color: var(--yellow); border-color: rgba(250,204,21,0.4); }
+  .section-label.lesson { color: var(--accent); border-color: rgba(91,142,240,0.3); }
+  .card { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 18px 20px; margin-bottom: 12px; }
+  .card:hover { border-color: #3a4060; }
+  .card-title { font-size: 15px; font-weight: 600; color: var(--text); margin-bottom: 6px; line-height: 1.4; }
+  .card-title a { color: var(--text); }
+  .card-title a:hover { color: var(--accent); text-decoration: none; }
+  .card-body { font-size: 13.5px; color: #b0bac9; line-height: 1.65; }
+  .card-body p { margin-bottom: 8px; }
+  .card-body p:last-child { margin-bottom: 0; }
+  .tag { display: inline-block; font-size: 10px; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase; border-radius: 4px; padding: 2px 7px; margin-bottom: 8px; }
+  .tag.new { background: rgba(74,222,128,0.12); color: var(--green); }
+  .tag.hot { background: rgba(251,146,60,0.12); color: var(--orange); }
+  .tag.tool { background: rgba(91,142,240,0.12); color: var(--accent); }
+  .tag.story { background: rgba(248,113,113,0.12); color: var(--red); }
+  .tag.read { background: rgba(250,204,21,0.1); color: var(--yellow); }
+  .lesson-card { background: linear-gradient(135deg, #131825 0%, #161d2e 100%); border: 1px solid rgba(91,142,240,0.2); border-radius: 8px; padding: 22px 24px; }
+  .lesson-title { font-size: 16px; font-weight: 700; color: var(--text); margin-bottom: 14px; line-height: 1.4; }
+  .lesson-body { font-size: 14px; color: #cdd3db; line-height: 1.75; }
+  .lesson-body p { margin-bottom: 12px; }
+  .lesson-body p:last-child { margin-bottom: 0; }
+  .lesson-body code, .card-body code { background: #1e2540; border-radius: 3px; padding: 1px 5px; font-size: 12.5px; color: #a5b4fc; font-family: 'SF Mono', 'Fira Code', monospace; }
+  .lesson-body strong { color: var(--text); font-weight: 600; }
+  .section-label.flip { color: #22d3ee; border-color: rgba(34,211,238,0.4); }
+  .tag.flip { background: rgba(34,211,238,0.12); color: #22d3ee; }
+  .flip-angle { border-top: 1px dashed var(--border); padding-top: 8px; margin-top: 4px; color: #cdd3db; }
+  .divider { border: none; border-top: 1px solid var(--border); margin: 32px 0; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-label">AI Daily Dump</div>
+  <h1>Monday, October 26, 2026</h1>
+  <div class="header-sub">An analysis of OpenAI and Anthropic pricing finds token costs falling to roughly 43% of April levels even as spend climbs, IBM's CEO calls open-weight models 90% as good at a tenth of the price, and Anthropic's S-1 reaches EDGAR</div>
+</div>
+
+<div class="section-label hot">🔥 What's Hot Right Now</div>
+
+<div class="card">
+  <div class="tag hot">Pricing · Oct 25 · 376 points on HN</div>
+  <div class="card-title"><a href="https://minimaxir.com/2026/10/cheap-llms/" target="_blank">OpenAI and Anthropic cut their LLM prices by up to 80% within a few months. Why?</a></div>
+  <div class="card-body">
+    <p>Max Woolf lays out a timeline running from the GPT-5.6 launch in June to GPT-6.1 Sol on Sep 29. It includes an 80% cut to GPT-5.6 Luna on Jul 30, Fable 5.1's 75% cut to cache-read pricing on Sep 1, Opus 5.5 at $4 / $20 / $0.20 per million tokens on Sep 22, and GPT-6.1 Sol at $2 / $10 / $0.10. He argues cache reads make up 96–99% of token spend in coding-agent workloads, so cache pricing matters more than headline input or output rates.</p>
+    <p>His explanation is competitive pressure: models have become near-commodities that are easy to swap, and open-weight options keep improving. He cites DeepSeek V4.1 Flash, now hosted by 29 providers on OpenRouter, and Kimi K3.1 Pro at $2 / $10 / $0.20. Vercel gateway data in the post shows cost per token at 43.3% of its April 2026 level, while aggregate spend keeps rising because models improve faster than they get cheaper.</p>
+  </div>
+</div>
+
+<div class="card">
+  <div class="tag hot">Infrastructure · Oct 22 · 358 points on HN Oct 25</div>
+  <div class="card-title"><a href="https://www.cerebras.ai/blog/how-we-deploy-trillion-parameter-frontier-models-on-cerebras" target="_blank">How Cerebras deploys trillion-parameter frontier models</a></div>
+  <div class="card-body">
+    <p>Cerebras walks through serving the roughly 3T-parameter Kimi K3 across wafers, each with 44 GB of on-chip memory. At 4-bit weights each of the model's 93 layers is about 16 GB, so one dense-attention layer sits on a wafer alongside its KV cache, while two linear-attention layers fit per wafer because they need no growing cache. By its arithmetic that comes to 59 wafers, connected as a pipeline in which weights stay put and only activations hop between wafers over RDMA at roughly 2 microseconds per hop. Cerebras says this yields 1,000–2,000+ tokens per second.</p>
+    <p>The post counters the idea that a pipeline runs at batch size one: every stage works on a different request or micro-batch at once. The number of concurrent requests is capped by the on-chip memory left for the dense layers' KV cache. Throughput figures are Cerebras's own.</p>
+  </div>
+</div>
+
+<div class="section-label releases">🚀 New Releases &amp; Updates</div>
+
+<div class="card">
+  <div class="tag story">Business · Filing on EDGAR Oct 26 · figures reported Oct 20</div>
+  <div class="card-title"><a href="https://aiweekly.co/alerts/anthropic-s-1-shows-163b-h1-revenue-25-from-two-customers-and-807b-non-cash" target="_blank">Anthropic S-1: $16.3B first-half revenue, $518B in compute commitments</a></div>
+  <div class="card-body">
+    <p>An <a href="https://www.sec.gov/Archives/edgar/data/2130357/000162828026067168/anthropicpbc-sx1.htm" target="_blank">S-1 for Anthropic, PBC</a> reached the top of Hacker News on Oct 26 (194 points). The SEC page did not render its text for verification, so the figures below come from a Wall Street Journal report, summarised by AI Weekly on Oct 20, of the draft prospectus. That report puts first-half 2026 revenue at $16.3B (Q1 $4.73B, Q2 $11.5B) against $4.6B for all of 2025, with about 25% of revenue from two unnamed customers without long-term contracts.</p>
+    <p>It also cites an $80.7B first-half net loss, mostly non-cash charges tied to the rising value of convertible instruments, and about $518B of compute commitments over roughly ten years, around 80% non-cancellable. The summary says the company is targeting a November IPO at roughly a $2T valuation, led by Goldman Sachs and Morgan Stanley. Treat the numbers as reported, not independently checked against the filing.</p>
+  </div>
+</div>
+
+<div class="section-label reading">📖 Also Worth Reading</div>
+
+<div class="card">
+  <div class="tag read">Essay · Oct 24 · 215 points on HN</div>
+  <div class="card-title"><a href="https://www.dbreunig.com/2026/10/24/the-state-of-context-engineering.html" target="_blank">The State of Context Engineering</a></div>
+  <div class="card-body">
+    <p>Drew Breunig's AGNTCon talk, "Context Fails &amp; Fixes", traces how long-context windows revived the "RAG is dead" argument in late 2024 and why they did not settle it. He catalogues four failure modes: context poisoning, distraction, confusion and clash. His thesis is that the job is knowing when to be deterministic and when to be probabilistic, and he previews an O'Reilly book, <em>The Context Engineering Handbook</em>.</p>
+  </div>
+</div>
+
+<div class="card">
+  <div class="tag read">Earnings call · Oct 22 · 339 points on HN Oct 26</div>
+  <div class="card-title"><a href="https://www.theregister.com/systems/2026/10/22/ibm-ceo-says-open-weight-models-are-now-irresistibly-good-and-cheap-on-prem/5304640" target="_blank">IBM CEO says open-weight models are now irresistibly good and cheap on-prem</a></div>
+  <div class="card-body">
+    <p>On IBM's Q3 call, CEO Arvind Krishna said open-weight models now run at 10–25% of frontier token cost while being about 90% as effective, up from a benchmark gap of roughly 70 versus 20–30 in 2024. He listed summarising email, examining a contract and answering a customer call among tasks the cheaper models handle as well. Krishna said most enterprises can build useful on-prem capacity in two or three racks but will struggle with kernel engineering, GPU placement and caching, and said IBM will ship software to ease deployment. The 90% figure is his claim, not a benchmark result.</p>
+  </div>
+</div>
+
+<div class="section-label flip">🛠️ Flip Tech Watch</div>
+
+<div class="card">
+  <div class="tag flip">Flip Tech Watch · Oct 25</div>
+  <div class="card-title"><a href="https://minimaxir.com/2026/10/cheap-llms/" target="_blank">Cache-read pricing as the lever on agent cost</a></div>
+  <div class="card-body">
+    <p>The pricing analysis above reports that cache reads account for most of the spend in long agent loops and that providers now price them at 1–10% of input. Several providers list cache reads at $0.10–$0.20 per million tokens.</p>
+    <p class="flip-angle"><strong>Flip angle:</strong> a voice agent re-sends a growing system prompt, knowledge-base excerpts and call history on every turn, which is the same shape as the coding-agent workload described. Logging cache-hit rate per call and keeping the static prompt prefix stable would show how much of per-call cost is cache reads. The post's figures come from coding agents, so the share for short phone calls needs measuring before any build-versus-buy decision.</p>
+  </div>
+</div>
+
+<div class="card">
+  <div class="tag flip">Flip Tech Watch · Oct 22 · 4 days old</div>
+  <div class="card-title"><a href="https://www.theregister.com/systems/2026/10/22/ibm-ceo-says-open-weight-models-are-now-irresistibly-good-and-cheap-on-prem/5304640" target="_blank">Open-weight models for routine call handling</a></div>
+  <div class="card-body">
+    <p>IBM's CEO named answering customer calls among tasks open-weight models handle at a fraction of frontier cost, and Kimi K3.1 Pro's weights are promised by Nov 4 with more than 20 providers already hosting its predecessor, according to the pricing analysis above.</p>
+    <p class="flip-angle"><strong>Flip angle:</strong> intents with simple order-status or returns-policy answers could be A/B tested on an open-weight model hosted by a third-party provider, measuring automation rate and escalation reasons against the current model. Vendor and executive claims of "90% as good" are not call-level evidence; the first test should replay a sample of escalated calls and compare outcomes.</p>
+  </div>
+</div>
+
+<div class="section-label lesson">🧠 Today's Lesson</div>
+
+<div class="lesson-card">
+  <div class="lesson-title">Why a dense-attention layer needs a KV cache that grows, and a linear-attention layer does not</div>
+  <div class="lesson-body">
+    <p>In standard (dense) attention, each new token compares itself with every earlier token, so the model keeps each earlier token's keys and values in memory: the KV cache. Its size per token is roughly <code>2 × layers × KV heads × head dim × bytes</code>. With illustrative numbers of 80 layers, 8 KV heads, a head dimension of 128 and 16-bit values, that is about 320 KB per token, or around 80 GiB for a single 256,000-token request. The cache grows linearly with context length and must be held for every request in flight.</p>
+    <p><strong>Linear attention</strong> replaces the growing list with a fixed-size running summary, a state matrix updated as each token arrives. Memory per request stays constant whatever the context length, at the cost of a lossier summary of distant tokens. Many recent models therefore mix the two: a few dense layers for precise recall and many linear layers for cheap bulk processing. The Cerebras post above describes Kimi K3 with 69 linear and 24 dense layers, and notes that only the 24 dense layers need cache space.</p>
+    <p>The practical consequence is capacity planning: concurrent requests are bounded by memory left after weights for dense-layer caches, not by total layer count. Hybrid designs raise that bound sharply, which is one reason long-context serving prices have been falling.</p>
+  </div>
+</div>
+
+<!-- ARCHIVE SIDEBAR -->
+<style>
+  .arc-btn { position: fixed; top: 18px; right: 18px; z-index: 200; background: var(--surface); border: 1px solid var(--border); border-radius: 6px; padding: 6px 11px; font-size: 12px; color: var(--muted); cursor: pointer; display: flex; align-items: center; gap: 6px; user-select: none; transition: border-color 0.15s, color 0.15s; font-family: inherit; }
+  .arc-btn:hover { border-color: #3a4060; color: var(--text); }
+  .arc-overlay { display: none; position: fixed; inset: 0; z-index: 198; background: rgba(0,0,0,0.45); }
+  .arc-overlay.open { display: block; }
+  .arc-panel { position: fixed; top: 0; right: 0; height: 100vh; width: 200px; background: var(--surface); border-left: 1px solid var(--border); z-index: 199; padding: 56px 14px 24px; overflow-y: auto; transform: translateX(100%); transition: transform 0.22s ease; }
+  .arc-panel.open { transform: translateX(0); }
+  .arc-panel-title { font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-bottom: 14px; padding-left: 4px; }
+  .arc-item { display: block; padding: 7px 8px; border-radius: 5px; font-size: 13px; color: var(--muted); text-decoration: none; margin-bottom: 2px; transition: background 0.1s, color 0.1s; }
+  .arc-item:hover { background: #1e2333; color: var(--text); }
+  .arc-item.current { background: rgba(91,142,240,0.12); color: var(--accent); font-weight: 600; }
+  .arc-close { position: absolute; top: 14px; right: 14px; background: none; border: none; color: var(--muted); cursor: pointer; font-size: 18px; line-height: 1; padding: 4px; }
+  .arc-close:hover { color: var(--text); }
+</style>
+<div class="arc-overlay" id="arcOverlay" onclick="arcClose()"></div>
+<div class="arc-panel" id="arcPanel">
+  <button class="arc-close" onclick="arcClose()">&#x2715;</button>
+  <div class="arc-panel-title">Past Issues</div>
+  <div id="arcList"><span style="color:var(--muted);font-size:12px">Loading…</span></div>
+</div>
+<button class="arc-btn" onclick="arcToggle()">
+  <svg width="13" height="11" viewBox="0 0 18 14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="0" y1="1" x2="18" y2="1"/><line x1="0" y1="7" x2="18" y2="7"/><line x1="0" y1="13" x2="18" y2="13"/></svg>
+  Past issues
+</button>
+<script>
+(function(){
+  var PAD = function(n){return String(n).padStart(2,'0');};
+  var MONTHS = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  var DAYS   = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+  var current = window.location.pathname.split('/').pop().replace(/\.html$/,'');
+  var found = [], tasks = [];
+  for(var i=0;i<45;i++){
+    (function(offset){
+      var d = new Date(); d.setDate(d.getDate()-offset);
+      var s = d.getFullYear()+'-'+PAD(d.getMonth()+1)+'-'+PAD(d.getDate());
+      tasks.push(fetch('./'+s+'.html',{method:'HEAD'}).then(function(r){if(r.ok)found.push({s:s,d:new Date(d)});}).catch(function(){}));
+    })(i);
+  }
+  Promise.all(tasks).then(function(){
+    found.sort(function(a,b){return b.d-a.d;});
+    var html='';
+    found.forEach(function(f){
+      var label=DAYS[f.d.getDay()]+', '+MONTHS[f.d.getMonth()]+' '+f.d.getDate();
+      var cls='arc-item'+(f.s===current?' current':'');
+      html+='<a class="'+cls+'" href="./'+f.s+'.html">'+label+'</a>';
+    });
+    document.getElementById('arcList').innerHTML=html||'<span style="color:var(--muted);font-size:12px">None found</span>';
+  });
+})();
+function arcToggle(){
+  var p=document.getElementById('arcPanel'),o=document.getElementById('arcOverlay');
+  var open=p.classList.contains('open');
+  if(open){arcClose();}else{p.classList.add('open');o.classList.add('open');}
+}
+function arcClose(){
+  document.getElementById('arcPanel').classList.remove('open');
+  document.getElementById('arcOverlay').classList.remove('open');
+}
+</script>
+</body>
+</html>
