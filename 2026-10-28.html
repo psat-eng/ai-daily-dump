@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Daily Dump — October 28, 2026</title>
+<style>
+  :root {
+    --bg: #0f1117; --surface: #161b27; --surface2: #1c2233; --border: #252d3d;
+    --text: #e2e8f0; --muted: #7a8499; --accent: #5b8ef0; --accent2: #7c6af5;
+    --green: #4ade80; --orange: #fb923c; --red: #f87171; --yellow: #facc15;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg); color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+    font-size: 15px; line-height: 1.65; max-width: 740px; margin: 0 auto; padding: 48px 24px 80px;
+  }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .header { margin-bottom: 40px; border-bottom: 1px solid var(--border); padding-bottom: 24px; }
+  .header-label { font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-bottom: 6px; }
+  .header h1 { font-size: 26px; font-weight: 700; color: var(--text); letter-spacing: -0.02em; }
+  .header-sub { font-size: 13px; color: var(--muted); margin-top: 4px; }
+  .section-label { font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); border-left: 2px solid var(--border); padding-left: 10px; margin-bottom: 16px; margin-top: 40px; }
+  .section-label.hot { color: var(--orange); border-color: rgba(251,146,60,0.4); }
+  .section-label.releases { color: var(--green); border-color: rgba(74,222,128,0.4); }
+  .section-label.horizon { color: var(--accent2); border-color: rgba(124,106,245,0.4); }
+  .section-label.reading { color: var(--yellow); border-color: rgba(250,204,21,0.4); }
+  .section-label.lesson { color: var(--accent); border-color: rgba(91,142,240,0.3); }
+  .card { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 18px 20px; margin-bottom: 12px; }
+  .card:hover { border-color: #3a4060; }
+  .card-title { font-size: 15px; font-weight: 600; color: var(--text); margin-bottom: 6px; line-height: 1.4; }
+  .card-title a { color: var(--text); }
+  .card-title a:hover { color: var(--accent); text-decoration: none; }
+  .card-body { font-size: 13.5px; color: #b0bac9; line-height: 1.65; }
+  .card-body p { margin-bottom: 8px; }
+  .card-body p:last-child { margin-bottom: 0; }
+  .tag { display: inline-block; font-size: 10px; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase; border-radius: 4px; padding: 2px 7px; margin-bottom: 8px; }
+  .tag.new { background: rgba(74,222,128,0.12); color: var(--green); }
+  .tag.hot { background: rgba(251,146,60,0.12); color: var(--orange); }
+  .tag.tool { background: rgba(91,142,240,0.12); color: var(--accent); }
+  .tag.story { background: rgba(248,113,113,0.12); color: var(--red); }
+  .tag.read { background: rgba(250,204,21,0.1); color: var(--yellow); }
+  .lesson-card { background: linear-gradient(135deg, #131825 0%, #161d2e 100%); border: 1px solid rgba(91,142,240,0.2); border-radius: 8px; padding: 22px 24px; }
+  .lesson-title { font-size: 16px; font-weight: 700; color: var(--text); margin-bottom: 14px; line-height: 1.4; }
+  .lesson-body { font-size: 14px; color: #cdd3db; line-height: 1.75; }
+  .lesson-body p { margin-bottom: 12px; }
+  .lesson-body p:last-child { margin-bottom: 0; }
+  .lesson-body code, .card-body code { background: #1e2540; border-radius: 3px; padding: 1px 5px; font-size: 12.5px; color: #a5b4fc; font-family: 'SF Mono', 'Fira Code', monospace; }
+  .lesson-body strong { color: var(--text); font-weight: 600; }
+  .section-label.flip { color: #22d3ee; border-color: rgba(34,211,238,0.4); }
+  .tag.flip { background: rgba(34,211,238,0.12); color: #22d3ee; }
+  .flip-angle { border-top: 1px dashed var(--border); padding-top: 8px; margin-top: 4px; color: #cdd3db; }
+  .divider { border: none; border-top: 1px solid var(--border); margin: 32px 0; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-label">AI Daily Dump</div>
+  <h1>Wednesday, October 28, 2026</h1>
+  <div class="header-sub">Artificial Analysis rebuilds its Intelligence Index around private test sets and finds open-weight models 12 points behind, Anthropic files for a Nasdaq listing, and Anthropic details six drug-development partnerships</div>
+</div>
+
+<div class="section-label hot">🔥 What's Hot Right Now</div>
+
+<div class="card">
+  <div class="tag hot">Benchmarks · Oct 27 · 75 points on HN</div>
+  <div class="card-title"><a href="https://artificialanalysis.ai/articles/artificial-analysis-intelligence-index-v5" target="_blank">Announcing Artificial Analysis Intelligence Index v5</a></div>
+  <div class="card-body">
+    <p>Artificial Analysis (AA) says v5 is its biggest upgrade since v4 launched in January, and that 60% of the index now rests on evaluations with private test sets or held-out answers. It adds FrontierCode 2.0 (Cognition's private coding benchmark, graded on whether a maintainer would merge the change) and Terminal-Bench-Science, upgrades three existing evaluations, and drops GDPval-AA, SciCode and AA-LCR. A new Progress Index tracks capability over time on one scale.</p>
+    <p>On AA's numbers, Claude Opus 5.5 (max) leads at 58, ahead of GPT-6 Astra (57) and GPT-6.1 Sol (55), with Anthropic and OpenAI holding the top five spots. The open-weight gap widens from 3 points to 12: Kimi K3.1 Pro, whose weights are not yet released, is the top open model at 46, and among released weights DeepSeek V4.1 Flash and GLM-5.3 lead at 32, below Claude Haiku 5.5 at 36. Cost per index task spans more than 13x, from $0.96 for GPT-6.1 Terra to $13.04 for Claude Fable 5.1. GPT-6.1 Sol scores within 4 points of Opus 5.5 at about an eighth of the cost per task, and Opus 5.5 moves from 35 at low effort to 58 at max at ten times the cost.</p>
+  </div>
+</div>
+
+<div class="card">
+  <div class="tag story">Industry · Oct 26 · 2 days old</div>
+  <div class="card-title"><a href="https://www.anthropic.com/news/s1-sec" target="_blank">Anthropic files S-1 with the SEC for proposed initial public offering</a></div>
+  <div class="card-body">
+    <p>Anthropic, PBC says it filed a registration statement on Form S-1 for an initial public offering of Class A common stock, to be listed on the Nasdaq Global Select Market under the symbol "ANT". The share count and price range have not been set, Goldman Sachs and Morgan Stanley are named as sources for the preliminary prospectus, and the registration statement is not yet effective.</p>
+  </div>
+</div>
+
+<div class="section-label releases">🚀 New Releases &amp; Updates</div>
+
+<div class="card">
+  <div class="tag new">Science · Oct 27 · 272 points on HN</div>
+  <div class="card-title"><a href="https://www.anthropic.com/research/early-progress-drug-development" target="_blank">Early progress on accelerating drug development with Claude</a></div>
+  <div class="card-body">
+    <p>Anthropic says its life-sciences team has spent several months in research partnerships with six organizations (BigHat Biosciences, Bristol Myers Squibb, Divergence Labs, Enveda, Generate Biomedicines and The Column Group) and has started drug-discovery programs of its own, including rare childhood forms of muscular dystrophy. It plans to scale the work up substantially.</p>
+    <p>Reported results include a CAR T-cell design from Generate, proposed by six scientists using Claude Code, that is about 70% shorter than the standard version and in lab tests produced roughly ten times as many receptors. For Divergence Labs, Claude generated roughly 35,000 antibody designs in about a month, of which early tests found three IgE binders and 20 designs that dislodge IgE. These are Anthropic's and its partners' claims, with technical reports and preprints linked from the post.</p>
+  </div>
+</div>
+
+<div class="card">
+  <div class="tag new">Model · Oct 23 · 5 days old, weights due Nov 4</div>
+  <div class="card-title"><a href="https://www.kimi.ai/blog/kimi-k3-1-pro" target="_blank">Introducing Kimi K3.1 Pro</a></div>
+  <div class="card-body">
+    <p>Moonshot's Kimi K3.1 Pro, a 3T-class model with a 1-million-token context window, is live on the Kimi API, with a Highspeed variant it says runs 2-3x faster. Moonshot says full weights will be released by Nov 4. It reports 65.7% on Terminal-Bench 4.0, against 66.4% for Claude Opus 5.5 and 58.2% for GPT-6 Astra.</p>
+    <p>Simon Willison lists API pricing at $2 per million input tokens and $10 per million output. Artificial Analysis' new v5 index puts it at 46, the top open-weight model but 12 points behind the leader, with weak results on HLE-Diamond (37%) and Terminal-Bench-Science (34%).</p>
+  </div>
+</div>
+
+<div class="section-label reading">📖 Also Worth Reading</div>
+
+<div class="card">
+  <div class="tag read">Essay · Oct 28</div>
+  <div class="card-title"><a href="https://simonwillison.net/2026/Oct/28/vibe-game-development/" target="_blank">The October inflection point for vibe game development</a></div>
+  <div class="card-body">
+    <p>Simon Willison argues that Claude Opus 5.5 has crossed a threshold for building games that are actually fun, citing improvements in 3D modeling, music generation and game design. He describes four browser games he built without reading the code, one of them in a single prompt, and says GPT-6 Astra's sense of fun does not yet match Opus 5.5's. It is one practitioner's impression rather than a systematic study, as he notes himself.</p>
+  </div>
+</div>
+
+<div class="section-label flip">🛠️ Flip Tech Watch</div>
+
+<div class="card">
+  <div class="tag flip">Flip Tech Watch · Oct 27</div>
+  <div class="card-title"><a href="https://artificialanalysis.ai/articles/artificial-analysis-intelligence-index-v5" target="_blank">Reasoning effort as a cost and latency dial</a></div>
+  <div class="card-body">
+    <p>AA's v5 data (above) shows large swings from effort settings: Opus 5.5 scores 35 at low effort and 58 at max, at ten times the cost per task, and GPT-6.1 Sol lands within 4 points of Opus at about an eighth of the cost.</p>
+    <p class="flip-angle"><strong>Flip angle:</strong> voice turns are latency- and cost-sensitive, so the useful experiment is per-intent effort and model routing: low effort for order status and policy lookups, higher effort only for multi-step returns or exceptions. The first test should replay a sample of escalated calls at two effort levels and compare automation rate and escalation reasons. AA's tasks are agentic coding, science and knowledge work, not phone support, so the ratios may not transfer.</p>
+  </div>
+</div>
+
+<div class="card">
+  <div class="tag flip">Flip Tech Watch · Oct 27</div>
+  <div class="card-title"><a href="https://artificialanalysis.ai/articles/artificial-analysis-intelligence-index-v5" target="_blank">Private held-out sets for model selection</a></div>
+  <div class="card-body">
+    <p>AA moved most of its index to private test sets, and published a recalibrated public subset of its hallucination benchmark so public and private scores stay consistent.</p>
+    <p class="flip-angle"><strong>Flip angle:</strong> the same logic applies to choosing an LLM or classifier for call handling. A held-out set of labelled historical calls per client, never used in prompt tuning, would give a number that public leaderboards cannot. It would also back any claim about automation-rate gains from a model swap. The caveat is labelling cost, and that call mix shifts by client and season, so the set needs periodic refresh.</p>
+  </div>
+</div>
+
+<div class="section-label lesson">🧠 Today's Lesson</div>
+<div class="lesson-card">
+  <div class="lesson-title">Why a private test set matters: benchmark contamination and the held-out evaluation</div>
+  <div class="lesson-body">
+    <p>A benchmark score is only meaningful if the model has not seen the answers. <strong>Contamination</strong> is when test questions, or close paraphrases, leak into training data. Public benchmarks are posted on the web, scraped into corpora, discussed in forums and often used directly to tune models, so scores creep up without the underlying skill improving. A saturated benchmark, where leaders cluster near the ceiling, also stops separating models.</p>
+    <p>The fix is a <strong>held-out</strong> set: questions or labels that are kept private and never used for training, prompt tuning or model selection by the people being measured. Some designs also publish a small public subset for transparency and keep the larger remainder hidden, which only works if the two are calibrated so that public and private scores agree. Otherwise the public part says nothing about the private part.</p>
+    <p>The same discipline applies to a company's own evals. Split labelled data into a development set, used freely while iterating on prompts, and a test set looked at rarely. Each time the test set informs a decision, it leaks a little, so it is worth refreshing, and versioning it so a score is always tied to one dataset. Report variance too: with a small set, a few points of difference between two models can be noise. A held-out score earns trust by being hard to game, including by accident.</p>
+  </div>
+</div>
+
+<!-- ARCHIVE SIDEBAR -->
+<style>
+  .arc-btn { position: fixed; top: 18px; right: 18px; z-index: 200; background: var(--surface); border: 1px solid var(--border); border-radius: 6px; padding: 6px 11px; font-size: 12px; color: var(--muted); cursor: pointer; display: flex; align-items: center; gap: 6px; user-select: none; transition: border-color 0.15s, color 0.15s; font-family: inherit; }
+  .arc-btn:hover { border-color: #3a4060; color: var(--text); }
+  .arc-overlay { display: none; position: fixed; inset: 0; z-index: 198; background: rgba(0,0,0,0.45); }
+  .arc-overlay.open { display: block; }
+  .arc-panel { position: fixed; top: 0; right: 0; height: 100vh; width: 200px; background: var(--surface); border-left: 1px solid var(--border); z-index: 199; padding: 56px 14px 24px; overflow-y: auto; transform: translateX(100%); transition: transform 0.22s ease; }
+  .arc-panel.open { transform: translateX(0); }
+  .arc-panel-title { font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-bottom: 14px; padding-left: 4px; }
+  .arc-item { display: block; padding: 7px 8px; border-radius: 5px; font-size: 13px; color: var(--muted); text-decoration: none; margin-bottom: 2px; transition: background 0.1s, color 0.1s; }
+  .arc-item:hover { background: #1e2333; color: var(--text); }
+  .arc-item.current { background: rgba(91,142,240,0.12); color: var(--accent); font-weight: 600; }
+  .arc-close { position: absolute; top: 14px; right: 14px; background: none; border: none; color: var(--muted); cursor: pointer; font-size: 18px; line-height: 1; padding: 4px; }
+  .arc-close:hover { color: var(--text); }
+</style>
+<div class="arc-overlay" id="arcOverlay" onclick="arcClose()"></div>
+<div class="arc-panel" id="arcPanel">
+  <button class="arc-close" onclick="arcClose()">&#x2715;</button>
+  <div class="arc-panel-title">Past Issues</div>
+  <div id="arcList"><span style="color:var(--muted);font-size:12px">Loading…</span></div>
+</div>
+<button class="arc-btn" onclick="arcToggle()">
+  <svg width="13" height="11" viewBox="0 0 18 14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="0" y1="1" x2="18" y2="1"/><line x1="0" y1="7" x2="18" y2="7"/><line x1="0" y1="13" x2="18" y2="13"/></svg>
+  Past issues
+</button>
+<script>
+(function(){
+  var PAD = function(n){return String(n).padStart(2,'0');};
+  var MONTHS = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  var DAYS   = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+  var current = window.location.pathname.split('/').pop().replace(/\.html$/,'');
+  var found = [], tasks = [];
+  for(var i=0;i<45;i++){
+    (function(offset){
+      var d = new Date(); d.setDate(d.getDate()-offset);
+      var s = d.getFullYear()+'-'+PAD(d.getMonth()+1)+'-'+PAD(d.getDate());
+      tasks.push(fetch('./'+s+'.html',{method:'HEAD'}).then(function(r){if(r.ok)found.push({s:s,d:new Date(d)});}).catch(function(){}));
+    })(i);
+  }
+  Promise.all(tasks).then(function(){
+    found.sort(function(a,b){return b.d-a.d;});
+    var html='';
+    found.forEach(function(f){
+      var label=DAYS[f.d.getDay()]+', '+MONTHS[f.d.getMonth()]+' '+f.d.getDate();
+      var cls='arc-item'+(f.s===current?' current':'');
+      html+='<a class="'+cls+'" href="./'+f.s+'.html">'+label+'</a>';
+    });
+    document.getElementById('arcList').innerHTML=html||'<span style="color:var(--muted);font-size:12px">None found</span>';
+  });
+})();
+function arcToggle(){
+  var p=document.getElementById('arcPanel'),o=document.getElementById('arcOverlay');
+  var open=p.classList.contains('open');
+  if(open){arcClose();}else{p.classList.add('open');o.classList.add('open');}
+}
+function arcClose(){
+  document.getElementById('arcPanel').classList.remove('open');
+  document.getElementById('arcOverlay').classList.remove('open');
+}
+</script>
+</body>
+</html>
