@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Daily Dump — October 29, 2026</title>
+<style>
+  :root {
+    --bg: #0f1117; --surface: #161b27; --surface2: #1c2233; --border: #252d3d;
+    --text: #e2e8f0; --muted: #7a8499; --accent: #5b8ef0; --accent2: #7c6af5;
+    --green: #4ade80; --orange: #fb923c; --red: #f87171; --yellow: #facc15;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg); color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+    font-size: 15px; line-height: 1.65; max-width: 740px; margin: 0 auto; padding: 48px 24px 80px;
+  }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .header { margin-bottom: 40px; border-bottom: 1px solid var(--border); padding-bottom: 24px; }
+  .header-label { font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-bottom: 6px; }
+  .header h1 { font-size: 26px; font-weight: 700; color: var(--text); letter-spacing: -0.02em; }
+  .header-sub { font-size: 13px; color: var(--muted); margin-top: 4px; }
+  .section-label { font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); border-left: 2px solid var(--border); padding-left: 10px; margin-bottom: 16px; margin-top: 40px; }
+  .section-label.hot { color: var(--orange); border-color: rgba(251,146,60,0.4); }
+  .section-label.releases { color: var(--green); border-color: rgba(74,222,128,0.4); }
+  .section-label.horizon { color: var(--accent2); border-color: rgba(124,106,245,0.4); }
+  .section-label.reading { color: var(--yellow); border-color: rgba(250,204,21,0.4); }
+  .section-label.lesson { color: var(--accent); border-color: rgba(91,142,240,0.3); }
+  .card { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 18px 20px; margin-bottom: 12px; }
+  .card:hover { border-color: #3a4060; }
+  .card-title { font-size: 15px; font-weight: 600; color: var(--text); margin-bottom: 6px; line-height: 1.4; }
+  .card-title a { color: var(--text); }
+  .card-title a:hover { color: var(--accent); text-decoration: none; }
+  .card-body { font-size: 13.5px; color: #b0bac9; line-height: 1.65; }
+  .card-body p { margin-bottom: 8px; }
+  .card-body p:last-child { margin-bottom: 0; }
+  .tag { display: inline-block; font-size: 10px; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase; border-radius: 4px; padding: 2px 7px; margin-bottom: 8px; }
+  .tag.new { background: rgba(74,222,128,0.12); color: var(--green); }
+  .tag.hot { background: rgba(251,146,60,0.12); color: var(--orange); }
+  .tag.tool { background: rgba(91,142,240,0.12); color: var(--accent); }
+  .tag.story { background: rgba(248,113,113,0.12); color: var(--red); }
+  .tag.read { background: rgba(250,204,21,0.1); color: var(--yellow); }
+  .lesson-card { background: linear-gradient(135deg, #131825 0%, #161d2e 100%); border: 1px solid rgba(91,142,240,0.2); border-radius: 8px; padding: 22px 24px; }
+  .lesson-title { font-size: 16px; font-weight: 700; color: var(--text); margin-bottom: 14px; line-height: 1.4; }
+  .lesson-body { font-size: 14px; color: #cdd3db; line-height: 1.75; }
+  .lesson-body p { margin-bottom: 12px; }
+  .lesson-body p:last-child { margin-bottom: 0; }
+  .lesson-body code, .card-body code { background: #1e2540; border-radius: 3px; padding: 1px 5px; font-size: 12.5px; color: #a5b4fc; font-family: 'SF Mono', 'Fira Code', monospace; }
+  .lesson-body strong { color: var(--text); font-weight: 600; }
+  .section-label.flip { color: #22d3ee; border-color: rgba(34,211,238,0.4); }
+  .tag.flip { background: rgba(34,211,238,0.12); color: #22d3ee; }
+  .flip-angle { border-top: 1px dashed var(--border); padding-top: 8px; margin-top: 4px; color: #cdd3db; }
+  .divider { border: none; border-top: 1px solid var(--border); margin: 32px 0; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-label">AI Daily Dump</div>
+  <h1>Thursday, October 29, 2026</h1>
+  <div class="header-sub">Gemini 4 Carbon takes the top spot on the new Artificial Analysis index at 59, a RISC-V CPU compiled into Qwen3.5's weights tops Hacker News, and a gist finds Claude Code's background-agent summaries eating about a sixth of spend</div>
+</div>
+
+<div class="section-label hot">🔥 What's Hot Right Now</div>
+
+<div class="card">
+  <div class="tag hot">Benchmarks · Oct 28 · 103 points on HN</div>
+  <div class="card-title"><a href="https://artificialanalysis.ai/articles/gemini-4-carbon-new-number-1" target="_blank">Gemini 4 Carbon is the new #1 on the Artificial Analysis Intelligence Index v5</a></div>
+  <div class="card-body">
+    <p>Artificial Analysis (AA) scores Google's Gemini 4 Carbon (high reasoning) at 59 on Intelligence Index v5, ahead of Claude Opus 5.5 (58) and GPT-6 Astra (57). Carbon takes first place on four of the nine evaluations (HLE-Diamond, Terminal-Bench-Science, AA-Omniscience and AutomationBench-AA). It is not publicly available yet: Google is rolling it out to selected users with a 50% launch discount and no confirmed end date.</p>
+    <p>On AA's numbers, Carbon costs $7.76 per index task at standard pricing of $4/$20 per million input/output tokens, about 23% below Opus 5.5 (max) at $10.04, and uses 123k output tokens per task versus 173k. Its AA-Omniscience score is 54 with an 11% hallucination rate, up from 4% for Gemini 4 Argon. In AA's Coding Agent Index it scores 59 with Antigravity CLI, three points behind Claude Code with Opus 5.5 (62). Context window is 1M tokens, with cached input at a 95% discount.</p>
+  </div>
+</div>
+
+<div class="card">
+  <div class="tag hot">Experiment · post dated Oct 22 · on HN front page Oct 29 · 594 points</div>
+  <div class="card-title"><a href="https://divagr.com/blog/qwenputer" target="_blank">Qwenputer: a fully functioning, deterministic RISC-V CPU inside Qwen3.5</a></div>
+  <div class="card-body">
+    <p>Divyansh Agrawal compiled a 32-bit RISC-V core (RV32IM) into the weights of a stock Qwen 3.5 4B, adding 11 layers in front of the original 32 and leaving Qwen's own weights unchanged. The model's Gated DeltaNet layers serve as the CPU's RAM: with the gate and write strength set to 1 and one-hot keys, each write overwrites exactly one state row and each query reads it back exactly. No training is involved; a compiler sets the weights directly.</p>
+    <p>The author reports passing the official riscv-tests, matching qemu, and 18 million free-running instructions without error. On DeepMind arithmetic sets Qwenputer scores 97.5% on div_big and mul_big, against 72.5% and 55% for base Qwen, and on NUPA long-integer arithmetic it goes from 48.6% to 100%, matching Qwen given a Python tool. The post is a week old but only reached Hacker News's front page on Oct 29; weights are on Hugging Face and ModelScope.</p>
+  </div>
+</div>
+
+<div class="card">
+  <div class="tag tool">Tooling · Oct 29 · 479 points on HN</div>
+  <div class="card-title"><a href="https://gist.github.com/flamerix-ai/c3905705cc4205e5de3011fa2e74efce" target="_blank">Claude Code burns ~15–20% of tokens on a 3-word status line</a></div>
+  <div class="card-body">
+    <p>A gist by Flamerix AI says that every ~30 seconds, Claude Code sends each background agent's whole transcript to that agent's own model (usually Opus) to produce a 3–5 word status for the agents panel, and that this has been on by default since version 2.1.232 with no setting to disable it. Using OpenTelemetry <code>query_source</code> grouping, the authors report that <code>agent_summary</code> accounted for 16.4% of Claude Code spend and 19.7% of API requests in the week before their fix, against 15.7% for the main conversation, and cite an issue (#86879) collecting four independent measurements of 18–26%.</p>
+    <p>The workaround is an ~80-line Bun preload that suppresses the summarizer timer without modifying the binary. These are the authors' measurements on Linux builds 2.1.257–2.1.312, and an update can silently undo the patch.</p>
+  </div>
+</div>
+
+<div class="section-label releases">🚀 New Releases &amp; Updates</div>
+
+<div class="card">
+  <div class="tag new">Open weights · Oct 27 · 2 days old</div>
+  <div class="card-title"><a href="https://www.liquid.ai/blog/lfm3" target="_blank">Introducing LFM3: Every Modality for Specialized Intelligence</a></div>
+  <div class="card-body">
+    <p>Liquid AI released the LFM3 family on open weights: six 2B-class models (text, vision, audio, omni and decision) built from LFM3-1.7B-Base, pre-trained on 22T tokens. The architecture mixes 13 gated short-convolution layers, 5 sliding-window attention layers (256-token window) and 6 global attention layers. Liquid says LFM3-1.7B outperforms the earlier LFM2.5-2.6B with 35% fewer parameters, that the text model fits in about 1 GB at 4-bit, and that it has a 256K context window and can be fine-tuned on a single GPU.</p>
+  </div>
+</div>
+
+<div class="card">
+  <div class="tag new">Agents · Oct 28</div>
+  <div class="card-title"><a href="https://artificialanalysis.ai/articles/github-copilot-fusion-orchestrates-anthropic-and-openai-models-to-balance-performance-and-cost" target="_blank">GitHub Copilot Fusion orchestrates Anthropic and OpenAI models to balance performance and cost</a></div>
+  <div class="card-body">
+    <p>GitHub's Copilot Fusion is a runtime orchestration layer that picks among models including Claude Opus 5.5, Claude Sonnet 5.5, GPT-6 Astra and GPT-6 Sol per task. AA benchmarked its max setting in Copilot CLI on Coding Agent Index v2.0: it costs $5.59 per task against $11.42 for Claude Code with Opus 5.5 (max), uses about half the tokens (7.2M per task), and sits two points below Opus 5.5 overall. It leads Terminal-Bench 4.0 at 71 but trails on SWE-Atlas-QnA-AA at 57.</p>
+  </div>
+</div>
+
+<div class="section-label reading">📖 Also Worth Reading</div>
+
+<div class="card">
+  <div class="tag read">Incident report · Oct 26 · 3 days old</div>
+  <div class="card-title"><a href="https://blog.cloudflare.com/kv-cache-exposure-remediation/" target="_blank">Cross-request KV cache exposure in the GLM-5.3 Workers AI model, and our remediation with SGLang</a></div>
+  <div class="card-body">
+    <p>Cloudflare reports that between Aug 27 and Sep 9, 155 responses from its GLM-5.3 Workers AI deployment to prompts longer than 681,280 tokens contained data from other customers' recent requests, and says it found no evidence of deliberate exploitation. Two causes overlapped: the model was deployed with a 1,048,576-token context window while the prefill GPUs' KV cache pool held only 681,280 tokens, and an SGLang bug in disaggregated prefill/decode mode substituted a one-token placeholder for over-length prompts instead of aborting them, so the decode node attended over stale cache pages from earlier requests.</p>
+    <p>The fix enlarged the pool to about 2.04 million tokens and patched the rejection path; the changes went upstream to SGLang in a coordinated disclosure.</p>
+  </div>
+</div>
+
+<div class="card">
+  <div class="tag read">Industry data · Oct 28</div>
+  <div class="card-title"><a href="https://simonwillison.net/2026/Oct/28/github-octoverse-2026/" target="_blank">GitHub Octoverse 2026</a></div>
+  <div class="card-body">
+    <p>Simon Willison, writing from GitHub Universe, relays the headline figures from GitHub's annual report: merged pull requests tripled in under a year to 220 million per month, commits more than tripled to 7.38 billion per month (most of the increase in the second half of 2026), and new repositories doubled to 30.3 million per month.</p>
+  </div>
+</div>
+
+<div class="section-label flip">🛠️ Flip Tech Watch</div>
+
+<div class="card">
+  <div class="tag flip">Flip Tech Watch · Oct 27</div>
+  <div class="card-title"><a href="https://www.liquid.ai/blog/lfm3" target="_blank">LFM3 decision and audio models as small on-device components</a></div>
+  <div class="card-body">
+    <p>LFM3's family includes decision and audio models at about 2B parameters, open-weight, with a text model that Liquid says fits in about 1 GB at 4-bit and can be fine-tuned on a single GPU.</p>
+    <p class="flip-angle"><strong>Flip angle:</strong> a small fine-tunable model is a candidate for intent routing and escalation-reason classification on call transcripts, where latency and per-call cost matter more than general capability. The first test should fine-tune the text or decision model on labelled historical calls for one client and compare accuracy and latency against the current routing path. The post gives no voice-agent benchmarks, so audio quality for phone-line speech needs its own check.</p>
+  </div>
+</div>
+
+<div class="card">
+  <div class="tag flip">Flip Tech Watch · Oct 28</div>
+  <div class="card-title"><a href="https://artificialanalysis.ai/articles/github-copilot-fusion-orchestrates-anthropic-and-openai-models-to-balance-performance-and-cost" target="_blank">Runtime model orchestration for cost</a></div>
+  <div class="card-body">
+    <p>AA's Copilot Fusion results show a router over several frontier models reaching near-top scores at roughly half the cost and half the tokens of a single top model on coding tasks.</p>
+    <p class="flip-angle"><strong>Flip angle:</strong> the same pattern applies to call handling: send simple intents (order status, policy lookups) to a cheaper model and reserve the strongest model for multi-step returns and exceptions. The first test should replay escalated calls through a two-tier router and compare automation rate, escalation reasons and cost per call. Coding benchmarks do not transfer directly to phone support, and routing adds a decision step to every turn's latency.</p>
+  </div>
+</div>
+
+<div class="card">
+  <div class="tag flip">Flip Tech Watch · Oct 26</div>
+  <div class="card-title"><a href="https://blog.cloudflare.com/kv-cache-exposure-remediation/" target="_blank">Tenant isolation checks for self-hosted long-context serving</a></div>
+  <div class="card-body">
+    <p>Cloudflare's incident (above) came from a context window larger than the KV cache pool combined with an engine bug on the rejection path.</p>
+    <p class="flip-angle"><strong>Flip angle:</strong> any shared inference stack serving multiple clients' call transcripts should assert that the configured context length fits the KV pool and run canary-marker tests, where a unique string in one tenant's prompt must never appear in another's output. Whether this applies depends on whether Flip's serving path uses a disaggregated prefill/decode engine at all.</p>
+  </div>
+</div>
+
+<div class="section-label lesson">🧠 Today's Lesson</div>
+<div class="lesson-card">
+  <div class="lesson-title">Disaggregated prefill and decode: why the KV cache has to travel between GPUs</div>
+  <div class="lesson-body">
+    <p>Serving an LLM request has two phases with opposite bottlenecks. <strong>Prefill</strong> processes the whole prompt in one parallel pass and is compute-bound; <strong>decode</strong> generates one token at a time, rereading the KV cache each step, and is memory-bandwidth-bound. Running both on the same GPUs makes them interfere: a long prefill stalls other users' token streams, and decode leaves compute idle.</p>
+    <p>Disaggregation splits them into separate pools. Prefill GPUs build the KV cache for a prompt, then transfer it over a fast interconnect to a decode GPU, which continues generating. Each pool can be sized and tuned for its own bottleneck, which usually improves time-to-first-token and keeps inter-token latency steadier under load.</p>
+    <p>The cost is a new correctness contract. The decode node receives a "transfer complete" signal and trusts that the pages it reserved now hold this request's prompt. If prefill sends less than expected, the remaining pages still contain whatever the previous occupant left, and the model happily attends over them. That is the failure mode Cloudflare described: a placeholder cache transferred in place of an over-length prompt. The defences are structural: make sure the context limit fits the pool, reject bad requests before any allocation or transfer, and have decode verify that the token count received matches the count reserved.</p>
+  </div>
+</div>
+
+<!-- ARCHIVE SIDEBAR -->
+<style>
+  .arc-btn { position: fixed; top: 18px; right: 18px; z-index: 200; background: var(--surface); border: 1px solid var(--border); border-radius: 6px; padding: 6px 11px; font-size: 12px; color: var(--muted); cursor: pointer; display: flex; align-items: center; gap: 6px; user-select: none; transition: border-color 0.15s, color 0.15s; font-family: inherit; }
+  .arc-btn:hover { border-color: #3a4060; color: var(--text); }
+  .arc-overlay { display: none; position: fixed; inset: 0; z-index: 198; background: rgba(0,0,0,0.45); }
+  .arc-overlay.open { display: block; }
+  .arc-panel { position: fixed; top: 0; right: 0; height: 100vh; width: 200px; background: var(--surface); border-left: 1px solid var(--border); z-index: 199; padding: 56px 14px 24px; overflow-y: auto; transform: translateX(100%); transition: transform 0.22s ease; }
+  .arc-panel.open { transform: translateX(0); }
+  .arc-panel-title { font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-bottom: 14px; padding-left: 4px; }
+  .arc-item { display: block; padding: 7px 8px; border-radius: 5px; font-size: 13px; color: var(--muted); text-decoration: none; margin-bottom: 2px; transition: background 0.1s, color 0.1s; }
+  .arc-item:hover { background: #1e2333; color: var(--text); }
+  .arc-item.current { background: rgba(91,142,240,0.12); color: var(--accent); font-weight: 600; }
+  .arc-close { position: absolute; top: 14px; right: 14px; background: none; border: none; color: var(--muted); cursor: pointer; font-size: 18px; line-height: 1; padding: 4px; }
+  .arc-close:hover { color: var(--text); }
+</style>
+<div class="arc-overlay" id="arcOverlay" onclick="arcClose()"></div>
+<div class="arc-panel" id="arcPanel">
+  <button class="arc-close" onclick="arcClose()">&#x2715;</button>
+  <div class="arc-panel-title">Past Issues</div>
+  <div id="arcList"><span style="color:var(--muted);font-size:12px">Loading…</span></div>
+</div>
+<button class="arc-btn" onclick="arcToggle()">
+  <svg width="13" height="11" viewBox="0 0 18 14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="0" y1="1" x2="18" y2="1"/><line x1="0" y1="7" x2="18" y2="7"/><line x1="0" y1="13" x2="18" y2="13"/></svg>
+  Past issues
+</button>
+<script>
+(function(){
+  var PAD = function(n){return String(n).padStart(2,'0');};
+  var MONTHS = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  var DAYS   = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+  var current = window.location.pathname.split('/').pop().replace(/\.html$/,'');
+  var found = [], tasks = [];
+  for(var i=0;i<45;i++){
+    (function(offset){
+      var d = new Date(); d.setDate(d.getDate()-offset);
+      var s = d.getFullYear()+'-'+PAD(d.getMonth()+1)+'-'+PAD(d.getDate());
+      tasks.push(fetch('./'+s+'.html',{method:'HEAD'}).then(function(r){if(r.ok)found.push({s:s,d:new Date(d)});}).catch(function(){}));
+    })(i);
+  }
+  Promise.all(tasks).then(function(){
+    found.sort(function(a,b){return b.d-a.d;});
+    var html='';
+    found.forEach(function(f){
+      var label=DAYS[f.d.getDay()]+', '+MONTHS[f.d.getMonth()]+' '+f.d.getDate();
+      var cls='arc-item'+(f.s===current?' current':'');
+      html+='<a class="'+cls+'" href="./'+f.s+'.html">'+label+'</a>';
+    });
+    document.getElementById('arcList').innerHTML=html||'<span style="color:var(--muted);font-size:12px">None found</span>';
+  });
+})();
+function arcToggle(){
+  var p=document.getElementById('arcPanel'),o=document.getElementById('arcOverlay');
+  var open=p.classList.contains('open');
+  if(open){arcClose();}else{p.classList.add('open');o.classList.add('open');}
+}
+function arcClose(){
+  document.getElementById('arcPanel').classList.remove('open');
+  document.getElementById('arcOverlay').classList.remove('open');
+}
+</script>
+</body>
+</html>
