@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Daily Dump — November 2, 2026</title>
+<style>
+  :root {
+    --bg: #0f1117; --surface: #161b27; --surface2: #1c2233; --border: #252d3d;
+    --text: #e2e8f0; --muted: #7a8499; --accent: #5b8ef0; --accent2: #7c6af5;
+    --green: #4ade80; --orange: #fb923c; --red: #f87171; --yellow: #facc15;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg); color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+    font-size: 15px; line-height: 1.65; max-width: 740px; margin: 0 auto; padding: 48px 24px 80px;
+  }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .header { margin-bottom: 40px; border-bottom: 1px solid var(--border); padding-bottom: 24px; }
+  .header-label { font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-bottom: 6px; }
+  .header h1 { font-size: 26px; font-weight: 700; color: var(--text); letter-spacing: -0.02em; }
+  .header-sub { font-size: 13px; color: var(--muted); margin-top: 4px; }
+  .section-label { font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); border-left: 2px solid var(--border); padding-left: 10px; margin-bottom: 16px; margin-top: 40px; }
+  .section-label.hot { color: var(--orange); border-color: rgba(251,146,60,0.4); }
+  .section-label.releases { color: var(--green); border-color: rgba(74,222,128,0.4); }
+  .section-label.horizon { color: var(--accent2); border-color: rgba(124,106,245,0.4); }
+  .section-label.reading { color: var(--yellow); border-color: rgba(250,204,21,0.4); }
+  .section-label.lesson { color: var(--accent); border-color: rgba(91,142,240,0.3); }
+  .card { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 18px 20px; margin-bottom: 12px; }
+  .card:hover { border-color: #3a4060; }
+  .card-title { font-size: 15px; font-weight: 600; color: var(--text); margin-bottom: 6px; line-height: 1.4; }
+  .card-title a { color: var(--text); }
+  .card-title a:hover { color: var(--accent); text-decoration: none; }
+  .card-body { font-size: 13.5px; color: #b0bac9; line-height: 1.65; }
+  .card-body p { margin-bottom: 8px; }
+  .card-body p:last-child { margin-bottom: 0; }
+  .tag { display: inline-block; font-size: 10px; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase; border-radius: 4px; padding: 2px 7px; margin-bottom: 8px; }
+  .tag.new { background: rgba(74,222,128,0.12); color: var(--green); }
+  .tag.hot { background: rgba(251,146,60,0.12); color: var(--orange); }
+  .tag.tool { background: rgba(91,142,240,0.12); color: var(--accent); }
+  .tag.story { background: rgba(248,113,113,0.12); color: var(--red); }
+  .tag.read { background: rgba(250,204,21,0.1); color: var(--yellow); }
+  .lesson-card { background: linear-gradient(135deg, #131825 0%, #161d2e 100%); border: 1px solid rgba(91,142,240,0.2); border-radius: 8px; padding: 22px 24px; }
+  .lesson-title { font-size: 16px; font-weight: 700; color: var(--text); margin-bottom: 14px; line-height: 1.4; }
+  .lesson-body { font-size: 14px; color: #cdd3db; line-height: 1.75; }
+  .lesson-body p { margin-bottom: 12px; }
+  .lesson-body p:last-child { margin-bottom: 0; }
+  .lesson-body code, .card-body code { background: #1e2540; border-radius: 3px; padding: 1px 5px; font-size: 12.5px; color: #a5b4fc; font-family: 'SF Mono', 'Fira Code', monospace; }
+  .lesson-body strong { color: var(--text); font-weight: 600; }
+  .section-label.flip { color: #22d3ee; border-color: rgba(34,211,238,0.4); }
+  .tag.flip { background: rgba(34,211,238,0.12); color: #22d3ee; }
+  .flip-angle { border-top: 1px dashed var(--border); padding-top: 8px; margin-top: 4px; color: #cdd3db; }
+  .divider { border: none; border-top: 1px solid var(--border); margin: 32px 0; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-label">AI Daily Dump</div>
+  <h1>Monday, November 2, 2026</h1>
+  <div class="header-sub">MIT researchers show GPT-6 Astra rewriting Qwen's weights to lift MATH-500 from 7.9% to 48.1%, Anthropic's filing values internal Claude use above payroll, LongCat-2.5 arrives as a 1.6T-parameter agentic model, and Trigger.dev discloses an environment-variable breach</div>
+</div>
+
+<div class="section-label hot">🔥 What's Hot Right Now</div>
+
+<div class="card">
+  <div class="tag hot">Research · Nov 2 · 323 points on HN</div>
+  <div class="card-title"><a href="https://rikiyat.github.io/blog/weight-space-programming/" target="_blank">Sparks of Weight-Space Programming: an LLM reads and writes network weights directly</a></div>
+  <div class="card-body">
+    <p>A team at MIT CSAIL (Rikiya Takehi, Jayden Teoh, Alex Zhang and Omar Khattab) reports that frontier models can read raw neural-network weights and edit them without any training loop. Given a small network's weights, GPT-6 Astra identified which game it was trained on, and it wrote small game-playing networks from scratch that, per the authors, outplay networks trained with PPO for 100 million steps.</p>
+    <p>In the headline experiment, Astra was asked to improve Qwen3.5-0.8B at math without gradients. The authors say it spotted a weight issue behind the reasoning loops that Qwen's own model card warns about and fixed it by editing 0.016% of the weights, raising MATH-500 from 7.9% to 48.1% at the same sampling settings and lifting IFEval roughly threefold. These are the authors' reported results on a small model; the post is a blog write-up dated Nov 2.</p>
+  </div>
+</div>
+
+<div class="card">
+  <div class="tag story">Industry · Nov 1 · 159 points on HN</div>
+  <div class="card-title"><a href="https://www.businessinsider.com/anthropic-claude-internal-ai-use-exceeds-employee-pay-tokens-2026-11" target="_blank">Anthropic's internal AI use, at retail prices, now exceeds its employee pay</a></div>
+  <div class="card-body">
+    <p>Business Insider reports, citing Anthropic's IPO filing, that the value of Claude used internally, priced at what Anthropic charges customers, passed monthly employee compensation (excluding stock awards) in April, and that by September internal usage had grown more than 250-fold since January. The filing also says more than 90% of code added to Anthropic's software in September was written by Claude.</p>
+    <p>The article stresses the distinction that this is a retail-price valuation, not a cash outlay larger than salaries.</p>
+  </div>
+</div>
+
+<div class="card">
+  <div class="tag tool">Security incident · Nov 1</div>
+  <div class="card-title"><a href="https://trigger.dev/blog/security-incident-nov-2026" target="_blank">Trigger.dev discloses unauthorized access to customer environment variables</a></div>
+  <div class="card-body">
+    <p>Trigger.dev, the background-job and AI-agent workflow platform, says an attacker gained unauthorized access to environment variables for a subset of customer organizations. CTO Eric Allam says the exploit has been blocked and that affected account owners have been emailed mitigation steps; updates are promised on its status page. The post gives no details on the vulnerability, the number of affected organizations, or which variables were exposed.</p>
+  </div>
+</div>
+
+<div class="section-label releases">🚀 New Releases &amp; Updates</div>
+
+<div class="card">
+  <div class="tag new">Model · Nov 1 · API live, weights "coming soon"</div>
+  <div class="card-title"><a href="https://longcat.ai/blog/longcat-2.5/" target="_blank">LongCat-2.5: native multimodality for agentic tasks</a></div>
+  <div class="card-body">
+    <p>LongCat-2.5 is a native multimodal mixture-of-experts model with 1.6 trillion total parameters and about 48 billion activated per token, built on LongCat-2.0. Its vision path turns images into multi-level discrete tokens (residual vector quantization over native-resolution features) so the backbone handles text and vision in one token format, and training leans on large-scale long-horizon agentic reinforcement learning, including tasks built from real agent failure trajectories.</p>
+    <p>The post compares against GPT-5.5, GPT-5.6-Sol, Claude-Opus-4.8 and Claude-Opus-5 using the lab's own charts, and says W4A4 inference was optimized on domestic Chinese AI accelerators. API access and a try-it page are listed; the GitHub and Hugging Face links read "Coming soon". Benchmark figures are vendor-reported.</p>
+  </div>
+</div>
+
+<div class="section-label reading">📖 Also Worth Reading</div>
+
+<div class="card">
+  <div class="tag read">Security · Oct 31 · 2 days old</div>
+  <div class="card-title"><a href="https://simonwillison.net/2026/Oct/31/" target="_blank">Simon Willison on the ChatGPT HTML-preview account-takeover chain</a></div>
+  <div class="card-body">
+    <p>Simon Willison summarizes Parameter Labs' exploit against ChatGPT's sandboxed HTML previews. A postMessage handler from the MathLive virtual keyboard used <code>innerHTML</code>, letting a sandboxed frame inject an unsandboxed iframe; a YouTube oEmbed endpoint allowed by the content security policy then reflected JavaScript, enabling theft of a signed-in user's data through a shared link. OpenAI closed the hole and paid a $5,000 bounty, which Willison calls cheap for the severity. The entry is dated Oct 31 on his weblog front page.</p>
+  </div>
+</div>
+
+<div class="card">
+  <div class="tag read">Fun project · Oct 30 · 3 days old</div>
+  <div class="card-title"><a href="https://simonwillison.net/2026/Oct/30/" target="_blank">nesformer: a NES CPU emulator baked into Qwen3.5-4B's weights</a></div>
+  <div class="card-body">
+    <p>Drew Breunig followed the Qwenputer experiment by compiling a working emulator of the NES's 6502 CPU into the weights of Qwen3.5-4B, so Super Mario Bros runs, very slowly, inside the model. Per Simon Willison's post of Oct 30, Breunig said he built it by prompting Opus 5.5, which found and used a conformance test suite for the NES CPU released 15 years ago.</p>
+  </div>
+</div>
+
+<div class="card">
+  <div class="tag read">Engineering blog · Nov 2</div>
+  <div class="card-title"><a href="https://posthog.com/blog/moving-off-duckdb" target="_blank">Why PostHog is moving its warehouse off DuckDB</a></div>
+  <div class="card-body">
+    <p>Five months after rebuilding its customer warehouse on DuckDB and DuckLake, PostHog is re-architecting on Trino with a layer it calls HogLake. It says per-query sizing of single-node workers was hard to predict, that DuckLake's portable catalog schema made a single-table write take over three minutes at scale because each commit re-read catalog statistics, and that serving the Postgres wire protocol at scale was harder than HTTP. At the point of the move the DuckLake held about 2 PB, roughly 1 trillion rows and 15.3 million snapshots.</p>
+  </div>
+</div>
+
+<div class="card">
+  <div class="tag read">Engineering blog · Nov 2</div>
+  <div class="card-title"><a href="https://blog.cloudflare.com/dns-targeted-zone-builds/" target="_blank">Cloudflare halves DNS build delay and cuts memory use by 85%</a></div>
+  <div class="card-body">
+    <p>Cloudflare describes a targeted build planner and a scheduler that merges work for the same zone, so zone-setting changes no longer rebuild zones with tens of millions of records. The Zone Builder now handles about 700 record changes per second, up from about 250 in 2022. The post reports an 85% drop in peak memory and half the time from a DNS change to data landing in Quicksilver.</p>
+  </div>
+</div>
+
+<div class="card">
+  <div class="tag read">Paper · submitted Oct 27 · 6 days old, on HN Nov 2</div>
+  <div class="card-title"><a href="https://arxiv.org/abs/2610.37741" target="_blank">Agentic Backdoors via Pretraining Poisoning</a></div>
+  <div class="card-body">
+    <p>A team including Nicholas Carlini and Matthew Jagielski pretrained Qwen3 models from scratch at 0.6B, 1.7B and 4B and post-trained each into a command-line agent. Poisoning 0.1% of the pretraining corpus planted a remote-code-execution backdoor that fires on a trigger and leaves behavior on clean inputs normal. Attack success rose with scale, reaching roughly 92% on the 4B model, and stayed above zero even at a 0.0005% poison rate. Code is released.</p>
+  </div>
+</div>
+
+<div class="section-label flip">🛠️ Flip Tech Watch</div>
+
+<div class="card">
+  <div class="tag flip">Flip Tech Watch · Nov 2</div>
+  <div class="card-title"><a href="https://rikiyat.github.io/blog/weight-space-programming/" target="_blank">Gradient-free repair of a small model's failure mode</a></div>
+  <div class="card-body">
+    <p>MIT CSAIL's write-up reports that a frontier model located a looping failure in a 0.8B model's weights and corrected it by editing 0.016% of them, with MATH-500 rising from 7.9% to 48.1% and IFEval roughly tripling.</p>
+    <p class="flip-angle"><strong>Flip angle:</strong> small models used for intent routing or escalation-reason classification sometimes fail in systematic ways, such as repetition or format drift on noisy phone transcripts. The technique suggests a cheap diagnostic: give a frontier model the weights and a failure description and see whether it proposes a targeted fix. The first test should be one known failure of a fine-tuned classifier, with accuracy re-measured on held-out calls from several clients. The results are on one 0.8B model and math benchmarks, and an edited model needs the same regression suite as any new fine-tune.</p>
+  </div>
+</div>
+
+<div class="card">
+  <div class="tag flip">Flip Tech Watch · Oct 27 (paper) · on HN Nov 2</div>
+  <div class="card-title"><a href="https://arxiv.org/abs/2610.37741" target="_blank">Model provenance for open-weight agents</a></div>
+  <div class="card-body">
+    <p>The paper shows a 0.1% poisoning rate during pretraining can implant a trigger-activated command-execution backdoor in a tool-using agent, with success rising as the model grows.</p>
+    <p class="flip-angle"><strong>Flip angle:</strong> any open-weight model given tool access in Flip's stack, such as a QA or order-lookup agent that can call internal APIs or run commands, inherits this supply-chain risk from its pretraining data. Practical steps are to restrict tool permissions to allow-listed calls, keep such agents away from shell access, log every tool invocation, and prefer models with documented provenance. The experiment used small models trained from scratch with a purpose-built poison design, so real-world exposure of released models is unmeasured.</p>
+  </div>
+</div>
+
+<div class="card">
+  <div class="tag flip">Flip Tech Watch · Nov 1</div>
+  <div class="card-title"><a href="https://trigger.dev/blog/security-incident-nov-2026" target="_blank">Secrets exposure at a background-job platform</a></div>
+  <div class="card-body">
+    <p>Trigger.dev reports that an attacker accessed environment variables for a subset of customer organizations and says affected owners have been emailed.</p>
+    <p class="flip-angle"><strong>Flip angle:</strong> background workers for transcript processing, QA runs or webhook handling usually hold keys for telephony, CRM and model APIs in environment variables. If Trigger.dev is used anywhere in Flip's pipeline, the first check is the status page and account email, followed by rotating those keys. Otherwise the incident is a prompt to audit where third-party job runners store credentials and how quickly each can be rotated. Scope and cause have not been disclosed.</p>
+  </div>
+</div>
+
+<div class="section-label lesson">🧠 Today's Lesson</div>
+<div class="lesson-card">
+  <div class="lesson-title">Mixture of experts: why a 1.6T-parameter model can cost like a 48B one, and why it still needs the memory of a 1.6T one</div>
+  <div class="lesson-body">
+    <p>In an ordinary dense transformer, every token passes through every weight. A <strong>mixture-of-experts (MoE)</strong> model replaces each feed-forward block with many parallel "expert" blocks plus a small <strong>router</strong>. For each token, the router scores the experts and sends the token to only the top few, typically one to eight, and mixes their outputs by the router's weights.</p>
+    <p>That separates two numbers a dense model keeps equal. <strong>Total parameters</strong> (LongCat-2.5's 1.6 trillion) set how much knowledge the model can store. <strong>Active parameters</strong> (about 48 billion) set how much arithmetic each token costs. Compute per token, and therefore FLOPs per generated token, track the active count.</p>
+    <p>Serving cost does not shrink as neatly. Which experts a token needs is unknown until the router runs, and different tokens in a batch pick different experts, so all expert weights must stay resident in GPU memory. Decode is mostly a memory-bandwidth problem, and with large batches nearly every expert gets touched each step. Capacity planning therefore follows the total size, which is why such models are sharded with <strong>expert parallelism</strong> across many GPUs, with all-to-all traffic carrying tokens to their experts and back.</p>
+    <p>Two practical consequences: routers are trained with a load-balancing term so a few experts do not absorb all the traffic, and quantization such as W4A4 matters more, because shrinking the stored weights is the main lever on memory footprint.</p>
+  </div>
+</div>
+
+<!-- ARCHIVE SIDEBAR -->
+<style>
+  .arc-btn { position: fixed; top: 18px; right: 18px; z-index: 200; background: var(--surface); border: 1px solid var(--border); border-radius: 6px; padding: 6px 11px; font-size: 12px; color: var(--muted); cursor: pointer; display: flex; align-items: center; gap: 6px; user-select: none; transition: border-color 0.15s, color 0.15s; font-family: inherit; }
+  .arc-btn:hover { border-color: #3a4060; color: var(--text); }
+  .arc-overlay { display: none; position: fixed; inset: 0; z-index: 198; background: rgba(0,0,0,0.45); }
+  .arc-overlay.open { display: block; }
+  .arc-panel { position: fixed; top: 0; right: 0; height: 100vh; width: 200px; background: var(--surface); border-left: 1px solid var(--border); z-index: 199; padding: 56px 14px 24px; overflow-y: auto; transform: translateX(100%); transition: transform 0.22s ease; }
+  .arc-panel.open { transform: translateX(0); }
+  .arc-panel-title { font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-bottom: 14px; padding-left: 4px; }
+  .arc-item { display: block; padding: 7px 8px; border-radius: 5px; font-size: 13px; color: var(--muted); text-decoration: none; margin-bottom: 2px; transition: background 0.1s, color 0.1s; }
+  .arc-item:hover { background: #1e2333; color: var(--text); }
+  .arc-item.current { background: rgba(91,142,240,0.12); color: var(--accent); font-weight: 600; }
+  .arc-close { position: absolute; top: 14px; right: 14px; background: none; border: none; color: var(--muted); cursor: pointer; font-size: 18px; line-height: 1; padding: 4px; }
+  .arc-close:hover { color: var(--text); }
+</style>
+<div class="arc-overlay" id="arcOverlay" onclick="arcClose()"></div>
+<div class="arc-panel" id="arcPanel">
+  <button class="arc-close" onclick="arcClose()">&#x2715;</button>
+  <div class="arc-panel-title">Past Issues</div>
+  <div id="arcList"><span style="color:var(--muted);font-size:12px">Loading…</span></div>
+</div>
+<button class="arc-btn" onclick="arcToggle()">
+  <svg width="13" height="11" viewBox="0 0 18 14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="0" y1="1" x2="18" y2="1"/><line x1="0" y1="7" x2="18" y2="7"/><line x1="0" y1="13" x2="18" y2="13"/></svg>
+  Past issues
+</button>
+<script>
+(function(){
+  var PAD = function(n){return String(n).padStart(2,'0');};
+  var MONTHS = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  var DAYS   = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+  var current = window.location.pathname.split('/').pop().replace(/\.html$/,'');
+  var found = [], tasks = [];
+  for(var i=0;i<45;i++){
+    (function(offset){
+      var d = new Date(); d.setDate(d.getDate()-offset);
+      var s = d.getFullYear()+'-'+PAD(d.getMonth()+1)+'-'+PAD(d.getDate());
+      tasks.push(fetch('./'+s+'.html',{method:'HEAD'}).then(function(r){if(r.ok)found.push({s:s,d:new Date(d)});}).catch(function(){}));
+    })(i);
+  }
+  Promise.all(tasks).then(function(){
+    found.sort(function(a,b){return b.d-a.d;});
+    var html='';
+    found.forEach(function(f){
+      var label=DAYS[f.d.getDay()]+', '+MONTHS[f.d.getMonth()]+' '+f.d.getDate();
+      var cls='arc-item'+(f.s===current?' current':'');
+      html+='<a class="'+cls+'" href="./'+f.s+'.html">'+label+'</a>';
+    });
+    document.getElementById('arcList').innerHTML=html||'<span style="color:var(--muted);font-size:12px">None found</span>';
+  });
+})();
+function arcToggle(){
+  var p=document.getElementById('arcPanel'),o=document.getElementById('arcOverlay');
+  var open=p.classList.contains('open');
+  if(open){arcClose();}else{p.classList.add('open');o.classList.add('open');}
+}
+function arcClose(){
+  document.getElementById('arcPanel').classList.remove('open');
+  document.getElementById('arcOverlay').classList.remove('open');
+}
+</script>
+</body>
+</html>
