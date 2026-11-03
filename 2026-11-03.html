@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Daily Dump — November 3, 2026</title>
+<style>
+  :root {
+    --bg: #0f1117; --surface: #161b27; --surface2: #1c2233; --border: #252d3d;
+    --text: #e2e8f0; --muted: #7a8499; --accent: #5b8ef0; --accent2: #7c6af5;
+    --green: #4ade80; --orange: #fb923c; --red: #f87171; --yellow: #facc15;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg); color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+    font-size: 15px; line-height: 1.65; max-width: 740px; margin: 0 auto; padding: 48px 24px 80px;
+  }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .header { margin-bottom: 40px; border-bottom: 1px solid var(--border); padding-bottom: 24px; }
+  .header-label { font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-bottom: 6px; }
+  .header h1 { font-size: 26px; font-weight: 700; color: var(--text); letter-spacing: -0.02em; }
+  .header-sub { font-size: 13px; color: var(--muted); margin-top: 4px; }
+  .section-label { font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); border-left: 2px solid var(--border); padding-left: 10px; margin-bottom: 16px; margin-top: 40px; }
+  .section-label.hot { color: var(--orange); border-color: rgba(251,146,60,0.4); }
+  .section-label.releases { color: var(--green); border-color: rgba(74,222,128,0.4); }
+  .section-label.horizon { color: var(--accent2); border-color: rgba(124,106,245,0.4); }
+  .section-label.reading { color: var(--yellow); border-color: rgba(250,204,21,0.4); }
+  .section-label.lesson { color: var(--accent); border-color: rgba(91,142,240,0.3); }
+  .card { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 18px 20px; margin-bottom: 12px; }
+  .card:hover { border-color: #3a4060; }
+  .card-title { font-size: 15px; font-weight: 600; color: var(--text); margin-bottom: 6px; line-height: 1.4; }
+  .card-title a { color: var(--text); }
+  .card-title a:hover { color: var(--accent); text-decoration: none; }
+  .card-body { font-size: 13.5px; color: #b0bac9; line-height: 1.65; }
+  .card-body p { margin-bottom: 8px; }
+  .card-body p:last-child { margin-bottom: 0; }
+  .tag { display: inline-block; font-size: 10px; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase; border-radius: 4px; padding: 2px 7px; margin-bottom: 8px; }
+  .tag.new { background: rgba(74,222,128,0.12); color: var(--green); }
+  .tag.hot { background: rgba(251,146,60,0.12); color: var(--orange); }
+  .tag.tool { background: rgba(91,142,240,0.12); color: var(--accent); }
+  .tag.story { background: rgba(248,113,113,0.12); color: var(--red); }
+  .tag.read { background: rgba(250,204,21,0.1); color: var(--yellow); }
+  .lesson-card { background: linear-gradient(135deg, #131825 0%, #161d2e 100%); border: 1px solid rgba(91,142,240,0.2); border-radius: 8px; padding: 22px 24px; }
+  .lesson-title { font-size: 16px; font-weight: 700; color: var(--text); margin-bottom: 14px; line-height: 1.4; }
+  .lesson-body { font-size: 14px; color: #cdd3db; line-height: 1.75; }
+  .lesson-body p { margin-bottom: 12px; }
+  .lesson-body p:last-child { margin-bottom: 0; }
+  .lesson-body code, .card-body code { background: #1e2540; border-radius: 3px; padding: 1px 5px; font-size: 12.5px; color: #a5b4fc; font-family: 'SF Mono', 'Fira Code', monospace; }
+  .lesson-body strong { color: var(--text); font-weight: 600; }
+  .section-label.flip { color: #22d3ee; border-color: rgba(34,211,238,0.4); }
+  .tag.flip { background: rgba(34,211,238,0.12); color: #22d3ee; }
+  .flip-angle { border-top: 1px dashed var(--border); padding-top: 8px; margin-top: 4px; color: #cdd3db; }
+  .divider { border: none; border-top: 1px solid var(--border); margin: 32px 0; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-label">AI Daily Dump</div>
+  <h1>Tuesday, November 3, 2026</h1>
+  <div class="header-sub">Critics say the "Astra rewrites Qwen's weights" paper blurs raw-weight reading with code-assisted editing, OpenAI details Pando, the Git backend built for Codex-scale pushes, and Revolut reports a 90% cut in coding-assistant costs from self-hosting GLM</div>
+</div>
+
+<div class="section-label hot">🔥 What's Hot Right Now</div>
+
+<div class="card">
+  <div class="tag hot">Debate · Nov 3 · 643 points on HN</div>
+  <div class="card-title"><a href="https://honnibal.dev/blog/astra-read-write-misleading" target="_blank">spaCy author: the "Astra can read and write weights to improve Qwen" post is misleading</a></div>
+  <div class="card-body">
+    <p>Matthew Honnibal argues that the weight-space-programming paper bundles unlike experiments under one headline. By his table, the "just by looking at the raw weights" setting (raw floats in context, no tools, no running the network) appears only in three experiments on networks of 17K to 172K weights. Every experiment on a real language model uses Python, and the headline Qwen3.5-0.8B result, MATH-500 from 7.9% to 48.1%, also lets the model run up to 50 batches of practice problems.</p>
+    <p>Honnibal says the Qwen result shows Astra can be prompted to do what a human ML engineer does when scripting analysis and edits of weights. He also lists failures: the same approach did not work on Gemma 3 270M, and the from-scratch game networks beat PPO at 500M steps only on Breakout. The post is dated Nov 3.</p>
+  </div>
+</div>
+
+<div class="card">
+  <div class="tag hot">Local models · Nov 3</div>
+  <div class="card-title"><a href="https://simonwillison.net/2026/Nov/3/qwen-can-interpret-model-weights/" target="_blank">Qwen 3.8 27B on a laptop identifies games from raw network weights, slowly</a></div>
+  <div class="card-body">
+    <p>Simon Willison reran the paper's no-tools "which game was this network trained on?" prompt with Qwen 3.8 27B (a 17GB quant in LM Studio). It named Pac-Man, Pong and Breakout correctly with stated confidence of 72%, 75% and 88%, taking 46 minutes (43,506 reasoning tokens), 65 minutes and 52 minutes respectively, and failed on Freeway. A default 8192-token context failed with errors, so a long context window was required. Willison notes that Kimi K3.1 Pro guessed Breakout in under 10 minutes via OpenRouter.</p>
+  </div>
+</div>
+
+<div class="card">
+  <div class="tag story">Engineering · Nov 2 · 255 points on HN</div>
+  <div class="card-title"><a href="https://openai.com/index/scaling-git-at-openai/" target="_blank">Scaling Git at OpenAI: Pando, a Git backend built for agent-scale pushes</a></div>
+  <div class="card-body">
+    <p>OpenAI says Codex-driven parallel work pushed its monorepo's Git serving below 90% reliability at times, so it built Pando, a Git-protocol-compatible backend that has served production traffic since April. Pushes to different branches proceed independently under causal consistency (one ref pointer is the only contended key), and fetches reuse stored packfiles served through regional caches instead of computing a pack per client. Background compaction, modeled on LSM-tree levels, merges small packs so fetch planning scales logarithmically.</p>
+    <p>OpenAI reports a median push latency cut of nearly 5x, nearly a petabyte of Git data served per day, more than 99% cache hit rates on pack delivery, and 10 Gbps links saturated on standard cloud VMs. It says Pando was built with Codex in 10 weeks, and that GPT-6 Astra agents wrote Lean and TLA+ models to find bugs. The tradeoff is that readers of several branches may see them at different points in time. OpenAI says it is exploring ways to share the technology.</p>
+  </div>
+</div>
+
+<div class="section-label reading">📖 Also Worth Reading</div>
+
+<div class="card">
+  <div class="tag read">Cost · Oct 29 · 5 days old, on HN Nov 3</div>
+  <div class="card-title"><a href="https://www.startuphub.ai/ai-news/artificial-intelligence/2026/revolut-says-self-hosted-ai-cut-coding-costs-90" target="_blank">Revolut says self-hosting GLM on 56 B200s cut coding-assistant costs 90%</a></div>
+  <div class="card-body">
+    <p>StartupHub.ai summarizes a conference talk in which Revolut says it moved 2,000 engineers from metered Anthropic and OpenAI APIs to GLM 4.5 on 56 Nvidia B200 GPUs, at about 30 cents per million tokens. The speaker reported time to first token falling from over 10 seconds to 1.6 seconds, and, after tuning context limits, quantization and parallelism, an 88% performance gain for 76% more demand with no added GPUs. Cited details include a 256k context cap, NVFP4 saving about 40% of GPU footprint versus FP8 with no precision loss for this use, and tensor-parallel 8 rather than 4 to fit the KV cache.</p>
+    <p>The article notes the 30-cent figure excludes cloud spend, staffing and observability, and that image tasks are routed to Gemini-class models. The coverage dates to Oct 29; the HN thread is from Nov 3.</p>
+  </div>
+</div>
+
+<div class="card">
+  <div class="tag read">Engineering blog · Nov 1</div>
+  <div class="card-title"><a href="https://nicholas.carlini.com/writing/2026/algorithmic-improvements-chess.html" target="_blank">Carlini: a modern Stockfish port on a 1995 Pentium Pro would have beaten Kasparov</a></div>
+  <div class="card-body">
+    <p>Nicholas Carlini ported Stockfish to a 200 MHz Pentium Pro with 64MB of RAM and estimates its strength at 3300 ± 87 Elo at classical time controls, versus roughly 2700 for Deep Blue. His experiments attribute 720 of the 1,335 Elo gained since 1996 to better algorithms (search techniques, NNUE evaluation) rather than faster hardware. Crafty 11.13 with modern techniques added rose from 1999 to 2718 Elo at one second per move on the same machine.</p>
+  </div>
+</div>
+
+<div class="card">
+  <div class="tag read">Open source · on HN Nov 3 · 232 points</div>
+  <div class="card-title"><a href="https://github.com/nvidia/auto-ontology" target="_blank">NVIDIA releases Auto Ontology, an open context layer for data agents</a></div>
+  <div class="card-body">
+    <p>The Apache-2.0 repository describes a framework that builds an ontology from enterprise metadata, reconciles metric definitions across systems, and serves that context to agents through MCP, CLI and API. It validates generated queries against certified definitions and returns provenance with answers. Defaults use NVIDIA NIM endpoints with Nemotron models for reasoning, embeddings and reranking, and Postgres with pgvector as the store. The repository shows about 2.3k stars and is not accepting outside contributions.</p>
+  </div>
+</div>
+
+<div class="card">
+  <div class="tag read">Release · Nov 2</div>
+  <div class="card-title"><a href="https://simonwillison.net/2026/Nov/2/" target="_blank">LLM 0.37 adds gpt-6.1 models and a cheaper default</a></div>
+  <div class="card-body">
+    <p>Simon Willison's LLM CLI adds gpt-6.1-sol and gpt-6.1-terra, a <code>llm openai endpoint add</code> command for OpenAI-compatible endpoints, and switches the default model to gpt-6-luna, which he says costs half the previous default. Embeddings now accept mixed binary content types, as needed for Gemini Embedding 2. He reports fixes from 12 authors, almost all AI-assisted, and says reviewing them was manageable.</p>
+  </div>
+</div>
+
+<div class="section-label flip">🛠️ Flip Tech Watch</div>
+
+<div class="card">
+  <div class="tag flip">Flip Tech Watch · Oct 29 (on HN Nov 3)</div>
+  <div class="card-title"><a href="https://www.startuphub.ai/ai-news/artificial-intelligence/2026/revolut-says-self-hosted-ai-cut-coding-costs-90" target="_blank">Self-hosted open models and the build-versus-buy math</a></div>
+  <div class="card-body">
+    <p>Revolut's reported figures are about 30 cents per million tokens on self-hosted GLM against a metered API bill ten times higher, reached only after substantial tuning of context length, quantization and parallelism.</p>
+    <p class="flip-angle"><strong>Flip angle:</strong> Flip's non-realtime token spend, such as post-call QA scoring, transcript summarization and KB-gap mining across client calls, is high-volume and latency-tolerant, which resembles the off-peak burst pattern described. The first test is to price one batch workload at current API rates against a rented-GPU run of an open model with FP8 or FP4 weights, including engineer time and observability. The numbers come from a talk and assume 56 B200s, so they do not transfer to a small fleet, and live voice paths with strict latency budgets are a different problem.</p>
+  </div>
+</div>
+
+<div class="card">
+  <div class="tag flip">Flip Tech Watch · on HN Nov 3</div>
+  <div class="card-title"><a href="https://github.com/nvidia/auto-ontology" target="_blank">Certified definitions as a guardrail for analytics agents</a></div>
+  <div class="card-body">
+    <p>Auto Ontology checks agent-generated SQL against certified metric definitions and lineage, and returns provenance with each answer.</p>
+    <p class="flip-angle"><strong>Flip angle:</strong> any Flip agent that answers client questions from call data, such as automation rate, resolution rate or escalation reason by intent, faces the same problem of the same word meaning different things across clients and dashboards. A shared definition layer could make those numbers consistent and traceable in account-health and QA reports. The first test is to encode three existing metrics for one client and compare the agent's answers with the current Omni figures. The repository is aimed at text-to-SQL over enterprise databases, defaults to NVIDIA-hosted models, and is not taking outside contributions, so fit with Flip's stack is unproven.</p>
+  </div>
+</div>
+
+<div class="section-label lesson">🧠 Today's Lesson</div>
+<div class="lesson-card">
+  <div class="lesson-title">Quantization: what "NVFP4 saves 40% versus FP8" actually means, and why it frees memory for the KV cache</div>
+  <div class="lesson-body">
+    <p><strong>Quantization</strong> stores each weight in fewer bits. FP8 uses 8 bits per weight; a 4-bit format uses half that. Naively, 4-bit values cannot span the range of real weights, so formats add <strong>scale factors</strong>: weights are grouped into small blocks, and each block stores one shared scale. NVIDIA's NVFP4 stores 4-bit floating-point values with a scale for every 16 weights, plus a per-tensor scale, so the effective cost is a little over 4 bits per weight rather than exactly 4.</p>
+    <p>That overhead is why savings are less than 50% in practice. Revolut's reported figure of about 40% GPU footprint versus FP8 sits below the 50% ceiling, and the model is not the only thing on the GPU: activations, buffers and the KV cache take memory that weight formats do not shrink.</p>
+    <p>The KV cache is the real constraint for long-context serving. It grows with sequence length times concurrent requests, so every gigabyte freed from weights buys room for more tokens in flight. This is also why the talk's tensor-parallel 8 versus 4 point matters: splitting across more GPUs gives each one a smaller share of the weights, leaving more memory per GPU for cache.</p>
+    <p>The catch is accuracy: smaller formats can lose quality on some tasks, so the claim of "no precision loss" holds only for the workload tested. Evaluating on the production workload before switching is the standard check.</p>
+  </div>
+</div>
+
+<!-- ARCHIVE SIDEBAR -->
+<style>
+  .arc-btn { position: fixed; top: 18px; right: 18px; z-index: 200; background: var(--surface); border: 1px solid var(--border); border-radius: 6px; padding: 6px 11px; font-size: 12px; color: var(--muted); cursor: pointer; display: flex; align-items: center; gap: 6px; user-select: none; transition: border-color 0.15s, color 0.15s; font-family: inherit; }
+  .arc-btn:hover { border-color: #3a4060; color: var(--text); }
+  .arc-overlay { display: none; position: fixed; inset: 0; z-index: 198; background: rgba(0,0,0,0.45); }
+  .arc-overlay.open { display: block; }
+  .arc-panel { position: fixed; top: 0; right: 0; height: 100vh; width: 200px; background: var(--surface); border-left: 1px solid var(--border); z-index: 199; padding: 56px 14px 24px; overflow-y: auto; transform: translateX(100%); transition: transform 0.22s ease; }
+  .arc-panel.open { transform: translateX(0); }
+  .arc-panel-title { font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-bottom: 14px; padding-left: 4px; }
+  .arc-item { display: block; padding: 7px 8px; border-radius: 5px; font-size: 13px; color: var(--muted); text-decoration: none; margin-bottom: 2px; transition: background 0.1s, color 0.1s; }
+  .arc-item:hover { background: #1e2333; color: var(--text); }
+  .arc-item.current { background: rgba(91,142,240,0.12); color: var(--accent); font-weight: 600; }
+  .arc-close { position: absolute; top: 14px; right: 14px; background: none; border: none; color: var(--muted); cursor: pointer; font-size: 18px; line-height: 1; padding: 4px; }
+  .arc-close:hover { color: var(--text); }
+</style>
+<div class="arc-overlay" id="arcOverlay" onclick="arcClose()"></div>
+<div class="arc-panel" id="arcPanel">
+  <button class="arc-close" onclick="arcClose()">&#x2715;</button>
+  <div class="arc-panel-title">Past Issues</div>
+  <div id="arcList"><span style="color:var(--muted);font-size:12px">Loading…</span></div>
+</div>
+<button class="arc-btn" onclick="arcToggle()">
+  <svg width="13" height="11" viewBox="0 0 18 14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="0" y1="1" x2="18" y2="1"/><line x1="0" y1="7" x2="18" y2="7"/><line x1="0" y1="13" x2="18" y2="13"/></svg>
+  Past issues
+</button>
+<script>
+(function(){
+  var PAD = function(n){return String(n).padStart(2,'0');};
+  var MONTHS = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  var DAYS   = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+  var current = window.location.pathname.split('/').pop().replace(/\.html$/,'');
+  var found = [], tasks = [];
+  for(var i=0;i<45;i++){
+    (function(offset){
+      var d = new Date(); d.setDate(d.getDate()-offset);
+      var s = d.getFullYear()+'-'+PAD(d.getMonth()+1)+'-'+PAD(d.getDate());
+      tasks.push(fetch('./'+s+'.html',{method:'HEAD'}).then(function(r){if(r.ok)found.push({s:s,d:new Date(d)});}).catch(function(){}));
+    })(i);
+  }
+  Promise.all(tasks).then(function(){
+    found.sort(function(a,b){return b.d-a.d;});
+    var html='';
+    found.forEach(function(f){
+      var label=DAYS[f.d.getDay()]+', '+MONTHS[f.d.getMonth()]+' '+f.d.getDate();
+      var cls='arc-item'+(f.s===current?' current':'');
+      html+='<a class="'+cls+'" href="./'+f.s+'.html">'+label+'</a>';
+    });
+    document.getElementById('arcList').innerHTML=html||'<span style="color:var(--muted);font-size:12px">None found</span>';
+  });
+})();
+function arcToggle(){
+  var p=document.getElementById('arcPanel'),o=document.getElementById('arcOverlay');
+  var open=p.classList.contains('open');
+  if(open){arcClose();}else{p.classList.add('open');o.classList.add('open');}
+}
+function arcClose(){
+  document.getElementById('arcPanel').classList.remove('open');
+  document.getElementById('arcOverlay').classList.remove('open');
+}
+</script>
+</body>
+</html>
