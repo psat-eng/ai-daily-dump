@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Daily Dump — November 10, 2026</title>
+<style>
+  :root {
+    --bg: #0f1117; --surface: #161b27; --surface2: #1c2233; --border: #252d3d;
+    --text: #e2e8f0; --muted: #7a8499; --accent: #5b8ef0; --accent2: #7c6af5;
+    --green: #4ade80; --orange: #fb923c; --red: #f87171; --yellow: #facc15;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg); color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+    font-size: 15px; line-height: 1.65; max-width: 740px; margin: 0 auto; padding: 48px 24px 80px;
+  }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .header { margin-bottom: 40px; border-bottom: 1px solid var(--border); padding-bottom: 24px; }
+  .header-label { font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-bottom: 6px; }
+  .header h1 { font-size: 26px; font-weight: 700; color: var(--text); letter-spacing: -0.02em; }
+  .header-sub { font-size: 13px; color: var(--muted); margin-top: 4px; }
+  .section-label { font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); border-left: 2px solid var(--border); padding-left: 10px; margin-bottom: 16px; margin-top: 40px; }
+  .section-label.hot { color: var(--orange); border-color: rgba(251,146,60,0.4); }
+  .section-label.releases { color: var(--green); border-color: rgba(74,222,128,0.4); }
+  .section-label.horizon { color: var(--accent2); border-color: rgba(124,106,245,0.4); }
+  .section-label.reading { color: var(--yellow); border-color: rgba(250,204,21,0.4); }
+  .section-label.lesson { color: var(--accent); border-color: rgba(91,142,240,0.3); }
+  .card { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 18px 20px; margin-bottom: 12px; }
+  .card:hover { border-color: #3a4060; }
+  .card-title { font-size: 15px; font-weight: 600; color: var(--text); margin-bottom: 6px; line-height: 1.4; }
+  .card-title a { color: var(--text); }
+  .card-title a:hover { color: var(--accent); text-decoration: none; }
+  .card-body { font-size: 13.5px; color: #b0bac9; line-height: 1.65; }
+  .card-body p { margin-bottom: 8px; }
+  .card-body p:last-child { margin-bottom: 0; }
+  .tag { display: inline-block; font-size: 10px; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase; border-radius: 4px; padding: 2px 7px; margin-bottom: 8px; }
+  .tag.new { background: rgba(74,222,128,0.12); color: var(--green); }
+  .tag.hot { background: rgba(251,146,60,0.12); color: var(--orange); }
+  .tag.tool { background: rgba(91,142,240,0.12); color: var(--accent); }
+  .tag.story { background: rgba(248,113,113,0.12); color: var(--red); }
+  .tag.read { background: rgba(250,204,21,0.1); color: var(--yellow); }
+  .lesson-card { background: linear-gradient(135deg, #131825 0%, #161d2e 100%); border: 1px solid rgba(91,142,240,0.2); border-radius: 8px; padding: 22px 24px; }
+  .lesson-title { font-size: 16px; font-weight: 700; color: var(--text); margin-bottom: 14px; line-height: 1.4; }
+  .lesson-body { font-size: 14px; color: #cdd3db; line-height: 1.75; }
+  .lesson-body p { margin-bottom: 12px; }
+  .lesson-body p:last-child { margin-bottom: 0; }
+  .lesson-body code, .card-body code { background: #1e2540; border-radius: 3px; padding: 1px 5px; font-size: 12.5px; color: #a5b4fc; font-family: 'SF Mono', 'Fira Code', monospace; }
+  .lesson-body strong { color: var(--text); font-weight: 600; }
+  .section-label.flip { color: #22d3ee; border-color: rgba(34,211,238,0.4); }
+  .tag.flip { background: rgba(34,211,238,0.12); color: #22d3ee; }
+  .flip-angle { border-top: 1px dashed var(--border); padding-top: 8px; margin-top: 4px; color: #cdd3db; }
+  .divider { border: none; border-top: 1px solid var(--border); margin: 32px 0; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-label">AI Daily Dump</div>
+  <h1>Tuesday, November 10, 2026</h1>
+  <div class="header-sub">Anthropic ships Claude Fable 5.2 at a 20% lower price, Google makes Gemini 4 Carbon generally available at $2 / $10, Meta's Muse Ember undercuts the small-model tier, and Amazon engineers replace Sonnet 4.6 with a decision model for ticket labelling at 98% less cost</div>
+</div>
+
+<div class="section-label hot">🔥 What's Hot Right Now</div>
+
+<div class="card">
+  <div class="tag hot">Community · Nov 10 · 458 points on HN</div>
+  <div class="card-title"><a href="https://notesbylex.com/fable-5-2-one-shotted-my-nephews-dream-game" target="_blank">"Fable 5.2 one-shotted my nephew's dream game"</a></div>
+  <div class="card-body">
+    <p>Lex Toumbourou describes handing an early build of Fable 5.2 a folder of a child's hand-drawn heroes and twelve bosses, plus image- and sound-generation API keys, with a single overnight prompt to finish a four-player beat 'em up. A June attempt with Opus 4.8 and Fable 5 had produced something "not worth playing for more than a couple of minutes"; the author says the new run produced a complete multi-level game that is fun to play, and links a playable build. The post drew 400 comments, much of it debating how far one-shot results generalise beyond greenfield projects.</p>
+  </div>
+</div>
+
+<div class="card">
+  <div class="tag hot">Privacy · Nov 9-10 · 690 points on HN</div>
+  <div class="card-title"><a href="https://github.com/thisisme6598/gemini_files/" target="_blank">A GitHub write-up says consumer Gemini routes connected Drive and Gmail content to human reviewers</a></div>
+  <div class="card-body">
+    <p>The repository points to an October 16 edit of Google's 2023 Workspace-extensions post and to a help-centre page warning that reviewers "may just" see an email or file, and argues the retrieval happens in the background without explicit @Drive or @Gmail tags. A November 10 clarification limits the claim to personal @gmail.com accounts; Workspace business, enterprise and education accounts fall under separate data-processing terms. The reproduction steps are the author's and depend on non-deterministic tool calls.</p>
+  </div>
+</div>
+
+<div class="section-label releases">🚀 New Releases &amp; Updates</div>
+
+<div class="card">
+  <div class="tag new">Model · Nov 9</div>
+  <div class="card-title"><a href="https://www.anthropic.com/claude-fable-and-mythos-5-2" target="_blank">Anthropic releases Claude Fable 5.2 and Mythos 5.2</a></div>
+  <div class="card-body">
+    <p>Anthropic describes Fable and Mythos as the same underlying model, with Fable carrying cyber and biology safeguards for general availability and Mythos offered through verification programmes. It reports output up to 30% faster than the 5.1 models, pricing of $8 / $40 per million input / output tokens (Simon Willison notes this is 20% below Fable 5.1's $10 / $50), and an optional fast mode at $16 / $80 that speeds generation up to 2.5x.</p>
+    <p>On Anthropic's own table Fable 5.2 scores 49.1% on FrontierCode 2.0 at Xhigh effort versus 45.5% for Opus 5.5, and the company says High effort matches Opus 5.5's best for about half the cost per task. Anthropic still recommends Opus 5.5 as the daily driver. Artificial Analysis ranks Fable 5.2 first on its index at 65. Anthropic's new prompting guide adds one concrete tip: telling the model the codebase is its own made it merge repeated code in about half of small test tasks, against under a tenth without that sentence.</p>
+  </div>
+</div>
+
+<div class="card">
+  <div class="tag new">Model · Nov 10</div>
+  <div class="card-title"><a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-carbon-now-available/" target="_blank">Gemini 4 Carbon becomes generally available at Argon's $2 / $10 introductory price</a></div>
+  <div class="card-body">
+    <p>Two weeks after a cyber-defender preview, Google is opening its strongest model to all paying API developers, enterprises and Google AI Ultra subscribers. Google says Carbon ranks first on CursorBench 4.0, Perplexity's WANDR and Zapier's AutomationBench at more than 2x lower cost per task than the next-best external model, and keeps Argon as the recommendation for most work. The launch also previews <code>/swarm</code> in Google Antigravity, which turns one prompt into a coordinated team of agents with Carbon in the planning and auditing roles.</p>
+  </div>
+</div>
+
+<div class="card">
+  <div class="tag new">Model · Nov 9</div>
+  <div class="card-title"><a href="https://research.meta.ai/blog/muse-ember" target="_blank">Meta launches Muse Ember, a small model for tool calls, routing and extraction</a></div>
+  <div class="card-body">
+    <p>Muse Ember is priced at $0.10 / $0.50 per million tokens on the Meta Model API, level with Claude Haiku 5.5 and GPT-6 Luna for short prompts, with a 1M-token context window and six reasoning levels. Meta reports that it matches Haiku 5.5's best Artificial Analysis score (36) at about a third of the cost and sits on the index's cost-per-task Pareto frontier; on Meta's table it scores 37.8 on AutomationBench-AA against 13.9 for Haiku and 20.2 for Luna. <a href="https://simonwillison.net/2026/Nov/10/muse-ember/" target="_blank">Simon Willison's comparison</a> notes the long-prompt price steps differ: Ember rises to $0.30 input above 200k tokens, Haiku to $0.50 above 100k, Luna to $0.20 above 272k.</p>
+  </div>
+</div>
+
+<div class="card">
+  <div class="tag new">Research · Nov 10</div>
+  <div class="card-title"><a href="https://deepmind.google/blog/introducing-alphaproof-code/" target="_blank">DeepMind's AlphaProof Code formally verifies the implementation of the Signal protocol</a></div>
+  <div class="card-body">
+    <p>DeepMind says human experts and models translated Signal's security goals into formal specifications, then Gemini Carbon agents wrote more than six million lines of Lean proving the compiled code meets them, with agents flagging about 1% of the proof for human review. The whole effort took four weeks. As a check, the team reintroduced two real, previously fixed bugs, and the system produced machine-checked proofs that those versions were insecure. DeepMind calls it the first verification of a widely deployed protocol's implementation at this depth by any method.</p>
+  </div>
+</div>
+
+<div class="section-label reading">📖 Also Worth Reading</div>
+
+<div class="card">
+  <div class="tag read">Engineering · Nov 9 · 586 points on HN</div>
+  <div class="card-title"><a href="https://strandsagents.com/blog/amazon-saves-millions-replacing-sonnet-with-strands-decider/" target="_blank">Amazon engineers replace Sonnet 4.6 with a decision model in a giant internal ticketing system</a></div>
+  <div class="card-body">
+    <p>Two engineers describe moving 20-way ticket labelling from Sonnet 4.6 to Strands Decider E4B (a Gemma 4 build) on single-A10G SageMaker instances. Their measurements: 897 ms versus 4,215 ms per call, 2,010 versus 6,724 tokens per ticket, and roughly $500 versus $22,200 per million tickets at list prices. Production label descriptions exceeded the model's 4,096-token window, so each label was rewritten as a one- or two-sentence criterion plus a "none" option.</p>
+    <p>Two details stand out: reordering JSON keys in the same input shifted output probabilities by up to 0.19, so requests are now sent with sorted keys; and an AppConfig switch with BEDROCK, DUAL and DECIDER modes let both models run on live traffic before cut-over, with rollback a 45-second config change.</p>
+  </div>
+</div>
+
+<div class="card">
+  <div class="tag story">Security · Nov 9-10 · 141 points on HN</div>
+  <div class="card-title"><a href="https://www.notion.com/help/security-incident-involving-a-third-party-ai-vendor" target="_blank">Notion says a Fireworks AI breach exposed some Notion AI chat transcripts</a></div>
+  <div class="card-body">
+    <p>Notion used Fireworks for classification jobs behind its Insights feature and to serve open-weight models. It says Fireworks reported on November 6 that attackers may have accessed customer data and confirmed the dataset on November 8; the exposed data was unattributed Notion AI chat transcripts, without tool-call results, from under 1% of workspaces. Notion has disabled Insights, stopped serving models through Fireworks, and advises rotating any credentials pasted into Notion AI.</p>
+  </div>
+</div>
+
+<div class="card">
+  <div class="tag read">Hardware · Nov 9</div>
+  <div class="card-title"><a href="https://blog.google/innovation-and-ai/infrastructure-and-cloud/global-network/tpu-8i-max-and-8tx/" target="_blank">Google adds TPU 8i Max for long contexts and TPU 8tx for confidential inference</a></div>
+  <div class="card-body">
+    <p>The two new systems join April's TPU 8t (training) and 8i (inference), making four TPU systems in one year. Google pitches 8i Max at massive context windows and the highest compute density per rack, and 8tx at regulated customers who need encrypted, confidential inference. Amin Vahdat says TPUs now have nearly 100 customers, including some deploying them in their own data centres.</p>
+  </div>
+</div>
+
+<div class="section-label flip">🛠️ Flip Tech Watch</div>
+
+<div class="card">
+  <div class="tag flip">Flip Tech Watch · Nov 9</div>
+  <div class="card-title"><a href="https://strandsagents.com/blog/amazon-saves-millions-replacing-sonnet-with-strands-decider/" target="_blank">A production playbook for swapping an LLM classifier for a decision model</a></div>
+  <div class="card-body">
+    <p>The Amazon write-up (see "Also Worth Reading") is the clearest public account so far of a decision model taking over a high-volume labelling job: a closed label catalog rewritten as short criteria, a confidence threshold tuned on held-out tickets, and a three-mode switch that ran both models in parallel on live traffic before cut-over.</p>
+    <p class="flip-angle"><strong>Flip angle:</strong> Post-call intent and escalation-reason tagging has the same shape: a fixed catalog, high volume, and no need for explanation text. The DUAL-mode pattern maps directly onto the QA pipeline, labelling with the current LLM while logging the decision model's answer for disagreement review. Caveats from the authors apply: long transcripts must be trimmed to a few thousand tokens, and key ordering in structured inputs should be fixed before comparing runs.</p>
+  </div>
+</div>
+
+<div class="card">
+  <div class="tag flip">Flip Tech Watch · Nov 9</div>
+  <div class="card-title"><a href="https://research.meta.ai/blog/muse-ember" target="_blank">Muse Ember as a cheap subagent for extraction and routing</a></div>
+  <div class="card-body">
+    <p>Meta positions Ember for "the work agents repeat all day": tool calls, routing, extraction and long-document parsing, at $0.10 / $0.50 per million tokens with cached input at $0.004 below 200k tokens, per Willison's table.</p>
+    <p class="flip-angle"><strong>Flip angle:</strong> Candidate for non-latency-critical steps such as order-detail extraction from transcripts, knowledge-base article drafting from escalated calls, and call summaries, where it would be benchmarked against Haiku 5.5. The very low cached-input price favours long, stable system prompts. Benchmarks are Meta's and Artificial Analysis's, not voice workloads, and in-call latency on the Meta Model API is unmeasured; a side-by-side on a few hundred labelled calls is the first test.</p>
+  </div>
+</div>
+
+<div class="card">
+  <div class="tag flip">Flip Tech Watch · Nov 9-10</div>
+  <div class="card-title"><a href="https://www.notion.com/help/security-incident-involving-a-third-party-ai-vendor" target="_blank">The Fireworks incident as a vendor-risk checklist for inference providers</a></div>
+  <div class="card-body">
+    <p>Notion's disclosure (see "Also Worth Reading") shows how transcripts sent to a third-party inference host for a secondary analytics feature became the exposed data, even without user or workspace labels attached.</p>
+    <p class="flip-angle"><strong>Flip angle:</strong> Call transcripts carry order numbers, addresses and payment-adjacent details. The practical takeaways are an inventory of which inference providers receive raw transcripts, PII redaction before any analytics or classification job leaves the core stack, and confirming retention terms with each provider. Notion has not said how the Fireworks systems were accessed, so the root cause is still open.</p>
+  </div>
+</div>
+
+<div class="section-label lesson">🧠 Today's Lesson</div>
+
+<div class="lesson-card">
+  <div class="lesson-title">Shadow mode: testing a replacement model on live traffic before it makes a single decision</div>
+  <div class="lesson-body">
+    <p>Offline evals use a frozen test set, and production traffic drifts away from it: new products, new phrasing, unusually long inputs. <strong>Shadow mode</strong> (or "dual-run") closes that gap. The incumbent model keeps making the real decision, while the candidate receives the same input in parallel and its answer is only logged. Nothing a customer sees changes.</p>
+    <p>The output is a stream of <strong>disagreements</strong>, which matter more than the agreement rate. If two models agree on 94% of items, the remaining 6% are where one of them is wrong, and reviewing a sample of those shows which. It often reveals that the incumbent was the one making mistakes, and surfaces input quirks no offline set contained, such as the key-ordering sensitivity in the Amazon write-up.</p>
+    <p>Three practical details make it work. Run the candidate asynchronously so its latency cannot slow the live path. Log both answers with a shared request ID plus the candidate's confidence, so disagreements can be sliced by confidence bucket. And keep the switch in runtime config, with modes like <code>incumbent</code>, <code>shadow</code> and <code>candidate</code>, so cut-over and rollback take seconds rather than a deploy. Shadow mode costs double inference for its duration, which is why it usually runs on a sample of traffic for days, not forever.</p>
+  </div>
+</div>
+
+<!-- ARCHIVE SIDEBAR -->
+<style>
+  .arc-btn { position: fixed; top: 18px; right: 18px; z-index: 200; background: var(--surface); border: 1px solid var(--border); border-radius: 6px; padding: 6px 11px; font-size: 12px; color: var(--muted); cursor: pointer; display: flex; align-items: center; gap: 6px; user-select: none; transition: border-color 0.15s, color 0.15s; font-family: inherit; }
+  .arc-btn:hover { border-color: #3a4060; color: var(--text); }
+  .arc-overlay { display: none; position: fixed; inset: 0; z-index: 198; background: rgba(0,0,0,0.45); }
+  .arc-overlay.open { display: block; }
+  .arc-panel { position: fixed; top: 0; right: 0; height: 100vh; width: 200px; background: var(--surface); border-left: 1px solid var(--border); z-index: 199; padding: 56px 14px 24px; overflow-y: auto; transform: translateX(100%); transition: transform 0.22s ease; }
+  .arc-panel.open { transform: translateX(0); }
+  .arc-panel-title { font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-bottom: 14px; padding-left: 4px; }
+  .arc-item { display: block; padding: 7px 8px; border-radius: 5px; font-size: 13px; color: var(--muted); text-decoration: none; margin-bottom: 2px; transition: background 0.1s, color 0.1s; }
+  .arc-item:hover { background: #1e2333; color: var(--text); }
+  .arc-item.current { background: rgba(91,142,240,0.12); color: var(--accent); font-weight: 600; }
+  .arc-close { position: absolute; top: 14px; right: 14px; background: none; border: none; color: var(--muted); cursor: pointer; font-size: 18px; line-height: 1; padding: 4px; }
+  .arc-close:hover { color: var(--text); }
+</style>
+<div class="arc-overlay" id="arcOverlay" onclick="arcClose()"></div>
+<div class="arc-panel" id="arcPanel">
+  <button class="arc-close" onclick="arcClose()">&#x2715;</button>
+  <div class="arc-panel-title">Past Issues</div>
+  <div id="arcList"><span style="color:var(--muted);font-size:12px">Loading…</span></div>
+</div>
+<button class="arc-btn" onclick="arcToggle()">
+  <svg width="13" height="11" viewBox="0 0 18 14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="0" y1="1" x2="18" y2="1"/><line x1="0" y1="7" x2="18" y2="7"/><line x1="0" y1="13" x2="18" y2="13"/></svg>
+  Past issues
+</button>
+<script>
+(function(){
+  var PAD = function(n){return String(n).padStart(2,'0');};
+  var MONTHS = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  var DAYS   = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+  var current = window.location.pathname.split('/').pop().replace(/\.html$/,'');
+  var found = [], tasks = [];
+  for(var i=0;i<45;i++){
+    (function(offset){
+      var d = new Date(); d.setDate(d.getDate()-offset);
+      var s = d.getFullYear()+'-'+PAD(d.getMonth()+1)+'-'+PAD(d.getDate());
+      tasks.push(fetch('./'+s+'.html',{method:'HEAD'}).then(function(r){if(r.ok)found.push({s:s,d:new Date(d)});}).catch(function(){}));
+    })(i);
+  }
+  Promise.all(tasks).then(function(){
+    found.sort(function(a,b){return b.d-a.d;});
+    var html='';
+    found.forEach(function(f){
+      var label=DAYS[f.d.getDay()]+', '+MONTHS[f.d.getMonth()]+' '+f.d.getDate();
+      var cls='arc-item'+(f.s===current?' current':'');
+      html+='<a class="'+cls+'" href="./'+f.s+'.html">'+label+'</a>';
+    });
+    document.getElementById('arcList').innerHTML=html||'<span style="color:var(--muted);font-size:12px">None found</span>';
+  });
+})();
+function arcToggle(){
+  var p=document.getElementById('arcPanel'),o=document.getElementById('arcOverlay');
+  var open=p.classList.contains('open');
+  if(open){arcClose();}else{p.classList.add('open');o.classList.add('open');}
+}
+function arcClose(){
+  document.getElementById('arcPanel').classList.remove('open');
+  document.getElementById('arcOverlay').classList.remove('open');
+}
+</script>
+</body>
+</html>
