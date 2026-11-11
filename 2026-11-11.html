@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Daily Dump — November 11, 2026</title>
+<style>
+  :root {
+    --bg: #0f1117; --surface: #161b27; --surface2: #1c2233; --border: #252d3d;
+    --text: #e2e8f0; --muted: #7a8499; --accent: #5b8ef0; --accent2: #7c6af5;
+    --green: #4ade80; --orange: #fb923c; --red: #f87171; --yellow: #facc15;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg); color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+    font-size: 15px; line-height: 1.65; max-width: 740px; margin: 0 auto; padding: 48px 24px 80px;
+  }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .header { margin-bottom: 40px; border-bottom: 1px solid var(--border); padding-bottom: 24px; }
+  .header-label { font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-bottom: 6px; }
+  .header h1 { font-size: 26px; font-weight: 700; color: var(--text); letter-spacing: -0.02em; }
+  .header-sub { font-size: 13px; color: var(--muted); margin-top: 4px; }
+  .section-label { font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); border-left: 2px solid var(--border); padding-left: 10px; margin-bottom: 16px; margin-top: 40px; }
+  .section-label.hot { color: var(--orange); border-color: rgba(251,146,60,0.4); }
+  .section-label.releases { color: var(--green); border-color: rgba(74,222,128,0.4); }
+  .section-label.horizon { color: var(--accent2); border-color: rgba(124,106,245,0.4); }
+  .section-label.reading { color: var(--yellow); border-color: rgba(250,204,21,0.4); }
+  .section-label.lesson { color: var(--accent); border-color: rgba(91,142,240,0.3); }
+  .card { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 18px 20px; margin-bottom: 12px; }
+  .card:hover { border-color: #3a4060; }
+  .card-title { font-size: 15px; font-weight: 600; color: var(--text); margin-bottom: 6px; line-height: 1.4; }
+  .card-title a { color: var(--text); }
+  .card-title a:hover { color: var(--accent); text-decoration: none; }
+  .card-body { font-size: 13.5px; color: #b0bac9; line-height: 1.65; }
+  .card-body p { margin-bottom: 8px; }
+  .card-body p:last-child { margin-bottom: 0; }
+  .tag { display: inline-block; font-size: 10px; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase; border-radius: 4px; padding: 2px 7px; margin-bottom: 8px; }
+  .tag.new { background: rgba(74,222,128,0.12); color: var(--green); }
+  .tag.hot { background: rgba(251,146,60,0.12); color: var(--orange); }
+  .tag.tool { background: rgba(91,142,240,0.12); color: var(--accent); }
+  .tag.story { background: rgba(248,113,113,0.12); color: var(--red); }
+  .tag.read { background: rgba(250,204,21,0.1); color: var(--yellow); }
+  .lesson-card { background: linear-gradient(135deg, #131825 0%, #161d2e 100%); border: 1px solid rgba(91,142,240,0.2); border-radius: 8px; padding: 22px 24px; }
+  .lesson-title { font-size: 16px; font-weight: 700; color: var(--text); margin-bottom: 14px; line-height: 1.4; }
+  .lesson-body { font-size: 14px; color: #cdd3db; line-height: 1.75; }
+  .lesson-body p { margin-bottom: 12px; }
+  .lesson-body p:last-child { margin-bottom: 0; }
+  .lesson-body code, .card-body code { background: #1e2540; border-radius: 3px; padding: 1px 5px; font-size: 12.5px; color: #a5b4fc; font-family: 'SF Mono', 'Fira Code', monospace; }
+  .lesson-body strong { color: var(--text); font-weight: 600; }
+  .section-label.flip { color: #22d3ee; border-color: rgba(34,211,238,0.4); }
+  .tag.flip { background: rgba(34,211,238,0.12); color: #22d3ee; }
+  .flip-angle { border-top: 1px dashed var(--border); padding-top: 8px; margin-top: 4px; color: #cdd3db; }
+  .divider { border: none; border-top: 1px solid var(--border); margin: 32px 0; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-label">AI Daily Dump</div>
+  <h1>Wednesday, November 11, 2026</h1>
+  <div class="header-sub">Anthropic opens its IPO roadshow at $70–78 a share, OpenAI lets merchants run their own agents inside ChatGPT, Claude gains Sheets and Whiteboards, and a 48-agent lidar search turns up a Maya site that archaeologists had already mapped</div>
+</div>
+
+<div class="section-label hot">🔥 What's Hot Right Now</div>
+
+<div class="card">
+  <div class="tag hot">Community · Nov 10–11 · 673 points on HN</div>
+  <div class="card-title"><a href="https://pietromiotti.com/latest/maya-site/?maya" target="_blank">48 AI agents comb NASA lidar and flag an "unmapped" Maya civic centre, then a correction lands</a></div>
+  <div class="card-body">
+    <p>Pietro Miotti, a self-described non-archaeologist, had agents convert about 1,200 km² of public NASA lidar strips into images, then had 48 agents inspect them one by one for pyramids, platforms and plazas while filtering out hills, sinkholes and roads. He stresses there was no special classifier: the agents looked at the pictures against a written guide. One hilltop with a levelled plaza and an oval pyramid of at least 8–12 m did not appear in the literature search, and INAH, Mexico's heritage institute, replied that no registered site existed at that location.</p>
+    <p>A November 11 update reverses the headline: the site had already been mapped in Estrada-Belli et al. 2025, which the agents missed during their literature review. It was a rediscovery, not a discovery. The thread became a case study in both halves: agent swarms are fast at visual triage, and still unreliable at the "has anyone done this before" step.</p>
+  </div>
+</div>
+
+<div class="card">
+  <div class="tag hot">Leak · Nov 10 · 442 points on HN</div>
+  <div class="card-title"><a href="https://9to5mac.com/2026/11/10/apple-has-new-mac-app-coming-to-make-running-local-ai-models-easy/" target="_blank">Apple's unreleased "Harbor" app would cluster Macs over Thunderbolt 5 into a local inference server</a></div>
+  <div class="card-body">
+    <p>9to5Mac reports that leaker Aaron Perris found a Mac app called Harbor, in private preview under Apple's Claris brand, described as turning a Mac into "a private AI inference server" for open-weight models. The leaked copy says Harbor detects Thunderbolt 5-connected Macs automatically and pools their unified memory to run models larger than any single machine can hold, or to serve more concurrent requests, with in-app model download and no command line. Apple has not announced it, and there is no release date. The story drew 459 comments on Hacker News.</p>
+  </div>
+</div>
+
+<div class="section-label releases">🚀 New Releases &amp; Updates</div>
+
+<div class="card">
+  <div class="tag new">Product · Nov 10</div>
+  <div class="card-title"><a href="https://openai.com/index/introducing-businesses-chatgpt/" target="_blank">OpenAI launches Businesses in ChatGPT, with Business Agents for U.S. ecommerce merchants</a></div>
+  <div class="card-body">
+    <p>Through a new Business Hub, companies can claim and verify their listing in ChatGPT, maintain details and self-service product feeds with pricing and availability, and see aggregated insights such as mentions, website clicks and "discovery topics". OpenAI says it does not share user conversations or Business Agent chats with businesses.</p>
+    <p>The bigger change is Business Agents: verified ecommerce and online-service businesses in the U.S. can build, test and launch an agent that customers open from the business's ChatGPT profile, in a clearly labelled conversation separate from ChatGPT's own answers. Businesses can also sponsor their agent as the destination for ChatGPT Ads. Shopify merchants can connect from the Shopify admin, and OpenAI cites 1.2 billion weekly ChatGPT users.</p>
+  </div>
+</div>
+
+<div class="card">
+  <div class="tag new">Product · Nov 10</div>
+  <div class="card-title"><a href="https://claude.com/resources/articles/sheets-whiteboards-data" target="_blank">Anthropic adds Claude Whiteboards and Claude Sheets, and renames Dashboards to Claude Data</a></div>
+  <div class="card-body">
+    <p>Whiteboards (beta) is a shared board Claude can populate from a spoken plan, group retro notes on, or convert into a doc or deck; Sheets (beta) builds spreadsheets with tabs, formulas and drop-downs and outlines each of its own cell edits. Anthropic says Sheets has "simple spreadsheet functionality" for now, with .xlsx and CSV export.</p>
+    <p>Claude Dashboards, in beta since October, is now generally available as Claude Data, adding certified queries that carry a badge, live sharing where viewers see only pre-approved query results, per-dashboard caching and refresh cadence, and version history. All three are on paid plans; on Enterprise, Claude Data switches on by default on November 19.</p>
+  </div>
+</div>
+
+<div class="section-label horizon">🔭 On the Horizon</div>
+
+<div class="card">
+  <div class="tag story">IPO · Nov 10–11</div>
+  <div class="card-title"><a href="https://www.anthropic.com/news/roadshow-launch" target="_blank">Anthropic launches its IPO roadshow: 825 million shares at $70–78, Nasdaq ticker "ANT"</a></div>
+  <div class="card-body">
+    <p>Anthropic, PBC is offering 825,000,000 Class A shares, 801.4 million from the company and 23.6 million from existing holders, with a 30-day underwriter option for 123.75 million more. At the stated range that is roughly $58–64 billion of stock before the option. Goldman Sachs and Morgan Stanley lead; the registration statement is not yet effective, so pricing is still ahead.</p>
+    <p>Simon Willison <a href="https://simonwillison.net/2026/Nov/11/anthropic-ipo-roadshow/" target="_blank">transcribed the roadshow video</a>, which contains engineering detail not published elsewhere: Anthropic says it trains and serves Claude on AWS Trainium, Google TPUs, NVIDIA GPUs and AMD GPUs, and that bringing up AMD this year took Mythos "just three days, with basically no human intervention," with Claude porting or writing "almost 100% of the kernels." Co-founder Tom Brown frames strategy around "total effective compute": physical capacity multiplied by stacked algorithmic compute multipliers.</p>
+  </div>
+</div>
+
+<div class="section-label reading">📖 Also Worth Reading</div>
+
+<div class="card">
+  <div class="tag read">Safety engineering · Nov 9</div>
+  <div class="card-title"><a href="https://openai.com/index/control-room/" target="_blank">OpenAI's Control Room: a fail-closed kill switch built into the inference layer</a></div>
+  <div class="card-body">
+    <p>Every agentic research workload at OpenAI now gets a <code>job_id</code> from a central service, and inference engines check that ID before serving each request; once a monitor or human stops a job, further sampling is refused within 35 seconds, a lag OpenAI attributes to an authorization cache it is working to remove. The check lives in the engine rather than in fast-changing workload code, and if Control Room itself goes down, all inference is denied.</p>
+  </div>
+</div>
+
+<div class="card">
+  <div class="tag read">Research · Nov 9</div>
+  <div class="card-title"><a href="https://nathan.rs/posts/weight-space-lp/" target="_blank">"Can a Linear Program Do Weight-Space Programming?"</a></div>
+  <div class="card-body">
+    <p>Nathan Barry revisits MIT CSAIL's result in which GPT-6 Astra edited 0.016% of Qwen3.5-0.8B's weights and lifted MATH-500 from 7.9% to 48.1%, mostly by suppressing thinking loops (93% of base answers hit the 32k-token limit). He argues the edit, which pushes two MLP <code>down_proj</code> layers against a "loop direction" in the residual stream, is a linear program, and reports that a couple of minute-long LP solves match Astra's 8-hour, 28-forward-pass search with 8x fewer changed weights.</p>
+  </div>
+</div>
+
+<div class="card">
+  <div class="tag read">Security · Nov 9</div>
+  <div class="card-title"><a href="https://www.vulncheck.com/blog/anthropic-glasswing-november-update" target="_blank">VulnCheck: Glasswing's 37,966 findings have produced 217 fixes</a></div>
+  <div class="card-body">
+    <p>Seven months into Project Glasswing, VulnCheck counts 442 CVEs attributable to Anthropic (about 0.5% of this year's CVEs), two of them exploited in the wild. Between September 8 and November 2 the ledger grew by 11,813 findings and 15 fixes, while duplicates rose from 2 to 1,670 and curl rejected 19 of 34 published reports. The author questions how the claimed 94.2% true-positive rate treats duplicates and withdrawals.</p>
+  </div>
+</div>
+
+<div class="card">
+  <div class="tag read">Funding · Nov 10</div>
+  <div class="card-title"><a href="https://tendrils.co/blog/2026-11-10/30m-raised" target="_blank">Tendrils raises $30M from Benchmark to build a thousands-of-cores CPU</a></div>
+  <div class="card-body">
+    <p>The startup argues cache coherency and reorder buffers bottleneck every legacy-compatible CPU, and is designing a processor without shared mutable memory alongside Vine, an open-source language aimed at parallel-first hardware. Investors include the UK Sovereign AI Fund and Conviction; Jack Altman joins the board.</p>
+  </div>
+</div>
+
+<div class="section-label flip">🛠️ Flip Tech Watch</div>
+
+<div class="card">
+  <div class="tag flip">Flip Tech Watch · Nov 10</div>
+  <div class="card-title"><a href="https://openai.com/index/introducing-businesses-chatgpt/" target="_blank">Business Agents put a merchant-owned support channel inside ChatGPT</a></div>
+  <div class="card-body">
+    <p>OpenAI's Business Agents (see "New Releases") let verified U.S. ecommerce businesses launch an agent that shoppers reach from inside ChatGPT, fed by the business's own product feed, with Shopify merchants connecting directly from their admin.</p>
+    <p class="flip-angle"><strong>Flip angle:</strong> This opens a new pre-purchase and post-purchase channel for exactly Flip's client base. The open questions are whether Business Agents can call external tools (order lookup, returns initiation) or only answer from listing data, and whether a merchant can route that channel to an existing support agent. Flip's knowledge-base and order-workflow configurations are the assets that would transfer. The first step is reading the eligibility and builder docs to see what integrations are exposed; until then, this is a channel to monitor rather than build for.</p>
+  </div>
+</div>
+
+<div class="card">
+  <div class="tag flip">Flip Tech Watch · Nov 9</div>
+  <div class="card-title"><a href="https://openai.com/index/control-room/" target="_blank">Per-request authorization at the inference gateway as an agent safety pattern</a></div>
+  <div class="card-body">
+    <p>Control Room (see "Also Worth Reading") enforces stop decisions in the one place every request must pass, the inference engine, and fails closed if the control service disappears.</p>
+    <p class="flip-angle"><strong>Flip angle:</strong> The same shape fits a per-client or per-call kill switch at Flip's LLM proxy: tag each request with client and call IDs, check a cached allow-list, and refuse generation for a client whose config or prompt is pulled mid-incident, falling back to live-agent transfer. For a voice agent, failing closed on every request would be too blunt; the sensible variant fails to escalation rather than silence, and the cache TTL (OpenAI's is the source of its 35-second lag) is the parameter to size against acceptable exposure time.</p>
+  </div>
+</div>
+
+<div class="section-label lesson">🧠 Today's Lesson</div>
+
+<div class="lesson-card">
+  <div class="lesson-title">Tensor vs pipeline parallelism: why a cluster of Macs on Thunderbolt adds capacity more easily than speed</div>
+  <div class="lesson-body">
+    <p>When a model is too big for one device, there are two basic ways to split it. <strong>Tensor parallelism</strong> cuts every layer's weight matrices across devices, so each device computes a slice of every layer. The slices must be recombined with an all-reduce roughly twice per layer, for every token. A 60-layer model therefore needs over a hundred synchronisations per generated token, which is why tensor parallelism lives on links like NVLink with hundreds of GB/s and microsecond latency.</p>
+    <p><strong>Pipeline parallelism</strong> instead gives each device a contiguous block of layers. Only the activation vector for the current token crosses the link between stages, about 16 KB for an 8,192-wide model in 16-bit precision. That fits easily over Thunderbolt 5 (80 Gb/s, roughly 10 GB/s), which is why Harbor's leaked pitch of pooling unified memory is plausible on consumer cables.</p>
+    <p>The catch: with a single request, the stages take turns. Device two waits while device one runs its layers, so one conversation is no faster, and often slightly slower, than on a single large machine. The cluster's win is <strong>capacity</strong> (a model that would not otherwise fit) and <strong>throughput</strong>, because with several concurrent requests in flight every stage stays busy. That matches the leaked copy's phrasing exactly: "large models and higher concurrency," not lower latency.</p>
+  </div>
+</div>
+
+<!-- ARCHIVE SIDEBAR -->
+<style>
+  .arc-btn { position: fixed; top: 18px; right: 18px; z-index: 200; background: var(--surface); border: 1px solid var(--border); border-radius: 6px; padding: 6px 11px; font-size: 12px; color: var(--muted); cursor: pointer; display: flex; align-items: center; gap: 6px; user-select: none; transition: border-color 0.15s, color 0.15s; font-family: inherit; }
+  .arc-btn:hover { border-color: #3a4060; color: var(--text); }
+  .arc-overlay { display: none; position: fixed; inset: 0; z-index: 198; background: rgba(0,0,0,0.45); }
+  .arc-overlay.open { display: block; }
+  .arc-panel { position: fixed; top: 0; right: 0; height: 100vh; width: 200px; background: var(--surface); border-left: 1px solid var(--border); z-index: 199; padding: 56px 14px 24px; overflow-y: auto; transform: translateX(100%); transition: transform 0.22s ease; }
+  .arc-panel.open { transform: translateX(0); }
+  .arc-panel-title { font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-bottom: 14px; padding-left: 4px; }
+  .arc-item { display: block; padding: 7px 8px; border-radius: 5px; font-size: 13px; color: var(--muted); text-decoration: none; margin-bottom: 2px; transition: background 0.1s, color 0.1s; }
+  .arc-item:hover { background: #1e2333; color: var(--text); }
+  .arc-item.current { background: rgba(91,142,240,0.12); color: var(--accent); font-weight: 600; }
+  .arc-close { position: absolute; top: 14px; right: 14px; background: none; border: none; color: var(--muted); cursor: pointer; font-size: 18px; line-height: 1; padding: 4px; }
+  .arc-close:hover { color: var(--text); }
+</style>
+<div class="arc-overlay" id="arcOverlay" onclick="arcClose()"></div>
+<div class="arc-panel" id="arcPanel">
+  <button class="arc-close" onclick="arcClose()">&#x2715;</button>
+  <div class="arc-panel-title">Past Issues</div>
+  <div id="arcList"><span style="color:var(--muted);font-size:12px">Loading…</span></div>
+</div>
+<button class="arc-btn" onclick="arcToggle()">
+  <svg width="13" height="11" viewBox="0 0 18 14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="0" y1="1" x2="18" y2="1"/><line x1="0" y1="7" x2="18" y2="7"/><line x1="0" y1="13" x2="18" y2="13"/></svg>
+  Past issues
+</button>
+<script>
+(function(){
+  var PAD = function(n){return String(n).padStart(2,'0');};
+  var MONTHS = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  var DAYS   = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+  var current = window.location.pathname.split('/').pop().replace(/\.html$/,'');
+  var found = [], tasks = [];
+  for(var i=0;i<45;i++){
+    (function(offset){
+      var d = new Date(); d.setDate(d.getDate()-offset);
+      var s = d.getFullYear()+'-'+PAD(d.getMonth()+1)+'-'+PAD(d.getDate());
+      tasks.push(fetch('./'+s+'.html',{method:'HEAD'}).then(function(r){if(r.ok)found.push({s:s,d:new Date(d)});}).catch(function(){}));
+    })(i);
+  }
+  Promise.all(tasks).then(function(){
+    found.sort(function(a,b){return b.d-a.d;});
+    var html='';
+    found.forEach(function(f){
+      var label=DAYS[f.d.getDay()]+', '+MONTHS[f.d.getMonth()]+' '+f.d.getDate();
+      var cls='arc-item'+(f.s===current?' current':'');
+      html+='<a class="'+cls+'" href="./'+f.s+'.html">'+label+'</a>';
+    });
+    document.getElementById('arcList').innerHTML=html||'<span style="color:var(--muted);font-size:12px">None found</span>';
+  });
+})();
+function arcToggle(){
+  var p=document.getElementById('arcPanel'),o=document.getElementById('arcOverlay');
+  var open=p.classList.contains('open');
+  if(open){arcClose();}else{p.classList.add('open');o.classList.add('open');}
+}
+function arcClose(){
+  document.getElementById('arcPanel').classList.remove('open');
+  document.getElementById('arcOverlay').classList.remove('open');
+}
+</script>
+</body>
+</html>
